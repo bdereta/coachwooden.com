@@ -1,0 +1,13 @@
+/* CSS Document */
+
+.facebook_like_section { height:65px; border-bottom:1px solid #ccc; }
+.facebook_avatar { margin:0 10px 0 0; }
+.fb-feed { width:83%; margin:0; display:block; }
+.feed { min-height:53px; border-bottom:1px solid #ccc; padding:10px 0; }
+.fb_logo { margin-right:8px; width:50px; height:50px; }
+.fb-feed img { max-width:315px; margin:3px 10px 10px 0; }
+.fb-feed a { font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#ed121b; text-decoration:none; }
+.fb-feed p { font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#333; padding:0; line-height:17px; margin:0 0 5px 0; }
+p.fb_title { font-family:Tahoma, Geneva, sans-serif; font-size:13px; font-weight:bold; color:#ed121b; line-height:18px; margin:0 0 5px 0; }
+.fb-feed .date { font-family:Tahoma, Geneva, sans-serif; font-size:10px!important; color:#999; margin:0; padding:0; line-height:13px!important; }
+

@@ -1,0 +1,1 @@
+<div class="flash_green"><?php echo h($message); ?></div>
