@@ -862,6 +862,7 @@ class FormHelperTest extends CakeTestCase {
 			'/div',
 		);
 		$this->assertTags($result, $expected);
+
 		$result = $this->Form->submit('Cancel', array('name' => 'cancel'));
 		$expected = array(
 			'div' => array('class' => 'submit'),
@@ -989,7 +990,7 @@ class FormHelperTest extends CakeTestCase {
 
 		$result = $this->Form->secure($this->Form->fields);
 
-		$hash = 'c9118120e680a7201b543f562e5301006ccfcbe2%3AAddresses.0.id%7CAddresses.1.id';
+		$hash = 'a3b9b2ba1cb688838f92818a5970e17dd7943a78%3AAddresses.0.id%7CAddresses.1.id';
 
 		$expected = array(
 			'div' => array('style' => 'display:none;'),
@@ -1054,7 +1055,7 @@ class FormHelperTest extends CakeTestCase {
 		$this->Form->input('Addresses.1.phone');
 
 		$result = $this->Form->secure($this->Form->fields);
-		$hash = '629b6536dcece48aa41a117045628ce602ccbbb2%3AAddresses.0.id%7CAddresses.1.id';
+		$hash = '5c9cadf9da008cc444d3960b481391a425a5d979%3AAddresses.0.id%7CAddresses.1.id';
 
 		$expected = array(
 			'div' => array('style' => 'display:none;'),
@@ -1104,7 +1105,7 @@ class FormHelperTest extends CakeTestCase {
 
 		$result = $this->Form->secure($expected);
 
-		$hash = '2981c38990f3f6ba935e6561dc77277966fabd6d%3AAddresses.id';
+		$hash = '40289bd07811587887ff56585a8526ff9da59d7a%3AAddresses.id';
 		$expected = array(
 			'div' => array('style' => 'display:none;'),
 			array('input' => array(
@@ -1227,7 +1228,7 @@ class FormHelperTest extends CakeTestCase {
 		);
 		$this->assertEquals($expected, $result);
 
-		$hash = 'bd7c4a654e5361f9a433a43f488ff9a1065d0aaf%3AUserForm.hidden%7CUserForm.stuff';
+		$hash = '6014b4e1c4f39eb62389712111dbe6435bec66cb%3AUserForm.hidden%7CUserForm.stuff';
 
 		$result = $this->Form->secure($this->Form->fields);
 		$expected = array(
@@ -1844,8 +1845,8 @@ class FormHelperTest extends CakeTestCase {
 			'preg:/[^<]+/',
 			'/label',
 			'input' => array(
-				'type' => 'text', 'name' => 'preg:/[^<]+/',
-				'id' => 'preg:/[^<]+/', 'class' => 'form-error'
+				'type' => 'text', 'name', 'id',
+				'class' => 'form-error'
 			),
 			array('div' => array('class' => 'error-message')),
 			'You must have a last name',
@@ -1869,7 +1870,7 @@ class FormHelperTest extends CakeTestCase {
 			'label' => array('for'),
 			'Balance',
 			'/label',
-			'input' => array('name', 'type' => 'number', 'id'),
+			'input' => array('name', 'type' => 'number', 'id', 'step'),
 			'/div',
 		);
 		$this->assertTags($result, $expected);
@@ -2235,6 +2236,7 @@ class FormHelperTest extends CakeTestCase {
 /**
  * test form->input() with time types.
  *
+ * @return void
  */
 	public function testInputTime() {
 		extract($this->dateRegex);
@@ -3614,18 +3616,22 @@ class FormHelperTest extends CakeTestCase {
 		);
 		$this->assertTags($result, $expected);
 
-		$result = $this->Form->radio('Employee.gender', array('male' => 'Male', 'female' => 'Female'));
+		$result = $this->Form->radio(
+			'Employee.gender',
+			array('male' => 'Male', 'female' => 'Female'),
+			array('form' => 'my-form')
+		);
 		$expected = array(
 			'fieldset' => array(),
 			'legend' => array(),
 			'Gender',
 			'/legend',
-			'input' => array('type' => 'hidden', 'name' => 'data[Employee][gender]', 'value' => '', 'id' => 'EmployeeGender_'),
-			array('input' => array('type' => 'radio', 'name' => 'data[Employee][gender]', 'value' => 'male', 'id' => 'EmployeeGenderMale')),
+			'input' => array('type' => 'hidden', 'name' => 'data[Employee][gender]', 'value' => '', 'id' => 'EmployeeGender_', 'form' => 'my-form'),
+			array('input' => array('type' => 'radio', 'name' => 'data[Employee][gender]', 'value' => 'male', 'id' => 'EmployeeGenderMale', 'form' => 'my-form')),
 			array('label' => array('for' => 'EmployeeGenderMale')),
 			'Male',
 			'/label',
-			array('input' => array('type' => 'radio', 'name' => 'data[Employee][gender]', 'value' => 'female', 'id' => 'EmployeeGenderFemale')),
+			array('input' => array('type' => 'radio', 'name' => 'data[Employee][gender]', 'value' => 'female', 'id' => 'EmployeeGenderFemale', 'form' => 'my-form')),
 			array('label' => array('for' => 'EmployeeGenderFemale')),
 			'Female',
 			'/label',
@@ -4650,15 +4656,18 @@ class FormHelperTest extends CakeTestCase {
 		$this->assertTags($result, $expected);
 
 		$result = $this->Form->select(
-			'Model.multi_field', $options, array('multiple' => 'multiple')
+			'Model.multi_field', $options, array('form' => 'my-form', 'multiple' => 'multiple')
 		);
 		$expected = array(
 			'input' => array(
-				'type' => 'hidden', 'name' => 'data[Model][multi_field]', 'value' => '', 'id' => 'ModelMultiField_'
+				'type' => 'hidden', 'name' => 'data[Model][multi_field]', 'value' => '', 'id' => 'ModelMultiField_',
+				'form' => 'my-form',
 			),
 			'select' => array(
 				'name' => 'data[Model][multi_field][]',
-				'id' => 'ModelMultiField', 'multiple' => 'multiple'
+				'id' => 'ModelMultiField',
+				'multiple' => 'multiple',
+				'form' => 'my-form',
 			),
 			array('option' => array('value' => '0')),
 			'first',
@@ -5674,10 +5683,14 @@ class FormHelperTest extends CakeTestCase {
 		);
 		$this->assertTags($result, $expected);
 
-		$result = $this->Form->checkbox('Model.field', array('id' => 'theID', 'value' => 'myvalue'));
+		$result = $this->Form->checkbox('Model.field', array(
+			'id' => 'theID',
+			'value' => 'myvalue',
+			'form' => 'my-form',
+		));
 		$expected = array(
-			'input' => array('type' => 'hidden', 'name' => 'data[Model][field]', 'value' => '0', 'id' => 'theID_'),
-			array('input' => array('type' => 'checkbox', 'name' => 'data[Model][field]', 'value' => 'myvalue', 'id' => 'theID'))
+			'input' => array('type' => 'hidden', 'name' => 'data[Model][field]', 'value' => '0', 'id' => 'theID_', 'form' => 'my-form'),
+			array('input' => array('type' => 'checkbox', 'name' => 'data[Model][field]', 'value' => 'myvalue', 'id' => 'theID', 'form' => 'my-form'))
 		);
 		$this->assertTags($result, $expected);
 
@@ -5687,14 +5700,14 @@ class FormHelperTest extends CakeTestCase {
 		$result = $this->Form->checkbox('Contact.field', array('id' => 'theID', 'value' => 'myvalue'));
 		$expected = array(
 			'input' => array('type' => 'hidden', 'class' => 'form-error', 'name' => 'data[Contact][field]', 'value' => '0', 'id' => 'theID_'),
-			array('input' => array('preg:/[^<]+/', 'value' => 'myvalue', 'id' => 'theID', 'checked' => 'checked', 'class' => 'form-error'))
+			array('input' => array('type', 'name', 'value' => 'myvalue', 'id' => 'theID', 'checked' => 'checked', 'class' => 'form-error'))
 		);
 		$this->assertTags($result, $expected);
 
 		$result = $this->Form->checkbox('Contact.field', array('value' => 'myvalue'));
 		$expected = array(
 			'input' => array('type' => 'hidden', 'class' => 'form-error', 'name' => 'data[Contact][field]', 'value' => '0', 'id' => 'ContactField_'),
-			array('input' => array('preg:/[^<]+/', 'value' => 'myvalue', 'id' => 'ContactField', 'checked' => 'checked', 'class' => 'form-error'))
+			array('input' => array('type', 'name', 'value' => 'myvalue', 'id' => 'ContactField', 'checked' => 'checked', 'class' => 'form-error'))
 		);
 		$this->assertTags($result, $expected);
 
@@ -7604,6 +7617,40 @@ class FormHelperTest extends CakeTestCase {
 	}
 
 /**
+ * Test that security hashes for postLink include the url.
+ *
+ * @return void
+ */
+	public function testPostLinkSecurityHash() {
+		$hash = Security::hash(
+			'/posts/delete/1' .
+			serialize(array()) .
+			'' .
+			Configure::read('Security.salt')
+		);
+		$hash .= '%3A';
+		$this->Form->request->params['_Token']['key'] = 'test';
+
+		$result = $this->Form->postLink('Delete', '/posts/delete/1');
+		$this->assertTags($result, array(
+			'form' => array(
+				'method' => 'post', 'action' => '/posts/delete/1',
+				'name', 'id', 'style' => 'display:none;'
+			),
+			array('input' => array('type' => 'hidden', 'name' => '_method', 'value' => 'POST')),
+			array('input' => array('type' => 'hidden', 'name' => 'data[_Token][key]', 'value' => 'test', 'id')),
+			'div' => array('style' => 'display:none;'),
+			array('input' => array('type' => 'hidden', 'name' => 'data[_Token][fields]', 'value' => $hash, 'id')),
+			array('input' => array('type' => 'hidden', 'name' => 'data[_Token][unlocked]', 'value' => '', 'id')),
+			'/div',
+			'/form',
+			'a' => array('href' => '#', 'onclick' => 'preg:/document\.post_\w+\.submit\(\); event\.returnValue = false; return false;/'),
+			'Delete',
+			'/a'
+		));
+	}
+
+/**
  * Test using postLink with N dimensional data.
  *
  * @return void
@@ -8242,6 +8289,7 @@ class FormHelperTest extends CakeTestCase {
 /**
  * Test base form URL when url param is passed with multiple parameters (&)
  *
+ * @return void
  */
 	public function testCreateQuerystringrequest() {
 		$encoding = strtolower(Configure::read('App.encoding'));
@@ -8341,6 +8389,26 @@ class FormHelperTest extends CakeTestCase {
 			'input' => array('type' => 'hidden', 'name' => '_method', 'value' => 'POST'),
 			'/div'
 		);
+		$this->assertTags($result, $expected);
+	}
+
+/**
+ * test that create() works without raising errors with a Mock Model
+ *
+ * @return void
+ */
+	public function testCreateNoErrorsWithMockModel() {
+		$encoding = strtolower(Configure::read('App.encoding'));
+		$ContactMock = $this->getMockBuilder('Contact')
+				->disableOriginalConstructor()
+				->getMock();
+		ClassRegistry::removeObject('Contact');
+		ClassRegistry::addObject('Contact', $ContactMock);
+		$result = $this->Form->create('Contact', array('type' => 'GET'));
+		$expected = array('form' => array(
+			'id' => 'ContactAddForm', 'method' => 'get', 'action' => '/contacts/add',
+			'accept-charset' => $encoding
+		));
 		$this->assertTags($result, $expected);
 	}
 
