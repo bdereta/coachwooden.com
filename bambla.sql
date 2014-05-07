@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2014-05-07 13:21:05
+Date: 2014-05-07 13:28:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -197,46 +197,6 @@ CREATE TABLE `sections` (
 INSERT INTO `sections` VALUES ('1', 'contact', '11', '<p>Feel free to contact us</p>\r\n', '2013-11-26 19:02:28', '2013-09-07 01:40:02');
 INSERT INTO `sections` VALUES ('2', 'contact', '12', '', '2013-11-22 00:06:23', '2013-09-07 03:29:44');
 INSERT INTO `sections` VALUES ('5', 'home', '1', '<p>This is a section for the <strong>Home page</strong>, but it can be placed on other pages as well!</p>\r\n', '2014-01-07 17:01:00', '2013-09-10 18:05:34');
-
--- ----------------------------
--- Table structure for `sliders`
--- ----------------------------
-DROP TABLE IF EXISTS `sliders`;
-CREATE TABLE `sliders` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) DEFAULT NULL,
-  `ordering_position` int(11) DEFAULT NULL,
-  `image_large` varchar(255) DEFAULT NULL,
-  `image_thumb` varchar(255) DEFAULT NULL,
-  `modified` datetime DEFAULT NULL,
-  `created` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
-
--- ----------------------------
--- Records of sliders
--- ----------------------------
-INSERT INTO `sliders` VALUES ('5', 'test ', '10', '52e841a952eec.JPG', '52e841a952eec_cp.JPG', '2014-01-28 23:48:04', '2014-01-28 23:47:43');
-
--- ----------------------------
--- Table structure for `songs`
--- ----------------------------
-DROP TABLE IF EXISTS `songs`;
-CREATE TABLE `songs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) DEFAULT NULL,
-  `file` varchar(255) DEFAULT NULL,
-  `modified` datetime DEFAULT NULL,
-  `created` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
--- ----------------------------
--- Records of songs
--- ----------------------------
-INSERT INTO `songs` VALUES ('1', 'test 1', '52f018fe68005.m4a', '2014-02-03 22:32:30', '2014-02-03 22:32:30');
-INSERT INTO `songs` VALUES ('2', 'test 2', '52f022bb54ef9.m4a', '2014-02-03 23:14:03', '2014-02-03 23:14:03');
-INSERT INTO `songs` VALUES ('3', 'test 2', '52f02edae824b.m4a', '2014-02-04 00:05:46', '2014-02-03 23:50:20');
 
 -- ----------------------------
 -- Table structure for `users`
