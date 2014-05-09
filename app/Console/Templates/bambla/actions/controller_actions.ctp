@@ -104,12 +104,12 @@
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this-><?php echo $currentModelName; ?>->save($this->request->data)) {
 <?php if ($wannaUseSession): ?>
-				$this->Session->setFlash(__('The <?php echo strtolower($singularHumanName); ?> has been saved.'));
+				$this->Session->setFlash(__('The <?php echo strtolower($singularHumanName); ?> has been saved.'),'Bambla.green');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The <?php echo strtolower($singularHumanName); ?> could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The <?php echo strtolower($singularHumanName); ?> could not be saved. Please, try again.'), 'Bambla.red');
 <?php else: ?>
-				return $this->flash(__('The <?php echo strtolower($singularHumanName); ?> has been saved.'), array('action' => 'index'));
+				return $this->flash(__('The <?php echo strtolower($singularHumanName); ?> has been saved.'), 'Bambla.green', array('action' => 'index'));
 <?php endif; ?>
 			}
 		} else {
