@@ -4,6 +4,8 @@
 	<?php echo $this->Html->charset(); ?>
 
 	<title><?php echo $meta['title']; ?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
 
 	<?php
 		echo $this->Html->meta('icon');
@@ -13,18 +15,24 @@
 		echo $this->Html->css(array(
 			'Bambla.layout',
 			'Bambla.assets',
-			'Bambla.fonts/stylesheet'
+			'Bambla.fonts/stylesheet',
+			'Bambla.bootstrap.min','Bambla.bootstrap-responsive.min','//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600','Bambla.font-awesome','Bambla.style','Bambla.pages/dashboard',
 		));
 
 		echo $this->Html->script(array(
-			'//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js',
+			'//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',
 			'Bambla.ckeditor/ckeditor',
-			'Bambla.main'
+			'Bambla.main',
+			'Bambla.excanvas.min','Bambla.bootstrap','Bambla.base'
 		));
 
 		 
 		echo $this->fetch('script');
 	?>
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 </head>
 <body>
 	<?php echo $this->element('Bambla.admin_toolbar'); ?>

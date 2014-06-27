@@ -1,14 +1,25 @@
-<h2>Login</h2>
-<?php
-echo $this->Form->create();
-echo $this->Form->input('email');
-echo $this->Form->input('password');
-//captcha image
-echo $this->Html->image(array('controller' => 'captcha', 'action' => 'get_image', 'plugin' => 'captcha', 'admin' => false ), array('id' => 'captcha')); 
-echo $this->Form->input('captcha', array('value' => NULL, 'label' => 'Security Code'));
-echo $this->Form->submit('Login', array('class' => 'bambla_btn_blue bambla_floatl'));
-echo $this->Form->button('Back to the site', array('class' => 'bambla_btn_gray bambla_floatr', 'formaction' => Router::url(array('controller' => 'StaticPages', 'action' => 'home'))));
-echo $this->Form->end();
-?>
+<form action="#" method="post">
+	<h1>Login</h1>		
+	<div class="login-fields">
+		<p>Please provide your details</p>
+		<?php echo $this->Form->create(); ?>
+		<div class="field"><?php echo $this->Form->input('email', array('placeholder'=>'Username','class'=>'login username-field')); ?></div> 
+		<div class="field"><?php echo $this->Form->input('password', array('placeholder'=>'Password','class'=>'login password-field')); ?></div> 
+		<div class="captcha_img">
+			<?php //captcha image
+			echo $this->Html->image(array('controller' => 'captcha', 'action' => 'get_image', 'plugin' => 'captcha', 'admin' => false ), array('id' => 'captcha'));  ?>
+		</div>
+		<div class="field"><?php echo $this->Form->input('captcha', array('placeholder'=>'Anti-bot code','value' => NULL, 'label' => 'Security Code','class'=>'login captcha-field')); ?></div>
+		
+		<div class="login-actions">
+			<div class="login-extra"><a href="#">Reset Password</a></div> <!-- /login-extra -->
+			<?php echo $this->Form->button('Login', array('type' => 'submit', 'class' => 'button btn btn-success btn-large')); ?>
+		</div>
+		<?php
+		echo $this->Form->end();
+		?>
+	</div>
+</form>
+
 <div class="bambla_clear"></div>
 

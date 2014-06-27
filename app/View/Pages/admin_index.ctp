@@ -1,5 +1,6 @@
 <div class="pages index">
-	<h2><?php echo __('Pages'); ?></h2>
+	<h2 class="float_left"><?php echo __('Pages'); ?></h2>
+	<?php echo $this->element('Bambla.admin_subnav'); ?>	
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
@@ -21,9 +22,9 @@
 		<td><?php echo h($page['Page']['modified']); ?>&nbsp;</td>
 		<td><?php echo h($page['Page']['created']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $page['Page']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $page['Page']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $page['Page']['id']), null, __('Are you sure you want to delete # %s?', $page['Page']['id'])); ?>
+			<?php echo $this->Html->link(__('View'), array('action' => 'view', $page['Page']['id']),array('class'=>'btn')); ?>
+			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $page['Page']['id']),array('class'=>'btn btn-info')); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $page['Page']['id']),array('class'=>'btn btn-danger'), null, __('Are you sure you want to delete # %s?', $page['Page']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

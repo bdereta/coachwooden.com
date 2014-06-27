@@ -46,12 +46,10 @@ h1, h2, h3, h4 {
 	margin-bottom:0.5em;
 }
 h1 {
-	background:#fff;
 	color: #003d4c;
 	font-size: 100%;
 }
 h2 {
-	background:#fff;
 	color: #e32;
 	font-family:'ralewaylight', helvetica, arial, sans-serif;
 	font-size: 200%;
@@ -71,10 +69,15 @@ ul, li {
 p {
 	margin: 0 0 1em 0;
 }
+.float_right { float:right; }
+.float_left { float:left; }
+
+.captcha_img { border:1px solid #ccc; text-align:center; width:320px; background:#fff; border-radius: 3px; }
 
 /** Layout **/
 #container {
 	text-align: left;
+	margin-top: 2.5em;
 }
 
 #header{
@@ -136,8 +139,12 @@ div.actions {
 	border-right:1px solid #c8c7cc;
 }
 div.actions h3 {
-	padding:0 0 0 35px;
-	color:#777;
+	padding:0 0 10px 35px;
+font-size: 18px;
+line-height: 28px;
+font-weight: bold;
+color: inherit;
+text-rendering: optimizelegibility;
 }
 
 /** Tables **/
@@ -276,10 +283,11 @@ fieldset {
 	padding: 16px 10px;
 }
 fieldset legend {
-	font-family: 'ralewaylight', helvetica, arial, sans-serif;
-	color: #e32;
-	font-size: 180%;
-	text-indent:5px;
+	font-size: 24px;
+	line-height: 36px;
+	font-weight: bold;
+	color: inherit;
+	text-rendering: optimizelegibility;
 }
 fieldset fieldset {
 	margin-top: 0;
@@ -449,7 +457,7 @@ input[type=submit],
 .actions a {
 	font-weight:normal;
 	padding:10px 10px 10px 35px;
-	background: #f6f6f6;
+	/*background: #fff;*/
 	color:#555;
 	border-top:1px solid #c8c7cc;
 	text-decoration: none;
@@ -461,7 +469,7 @@ input[type=submit],
 .actions ul li:last-child a { border-bottom:1px solid #c8c7cc; }
 
 .actions ul li a:hover,
-.actions a:hover {
+/*.actions a:hover*/ {
 	background: #ddd;
 }
 input[type=submit]:active,
@@ -482,7 +490,7 @@ input[type=submit]:active,
   text-decoration: none;
 }
 #nav > li > a:hover, #nav > li > a.open { 
-  background-color: #007AFF;
+  background-color: #049DBF;
   color:#fff;
 }
 
