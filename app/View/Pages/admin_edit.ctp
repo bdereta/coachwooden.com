@@ -1,3 +1,4 @@
+
 <div class="pages form">
 <?php echo $this->Form->create('Page'); ?>
 	<fieldset>
@@ -13,7 +14,7 @@
 	</fieldset>
 	<div class="form-actions">
 		<?php echo $this->Form->button('Save', array('type' => 'submit', 'class'=>'btn btn-primary')); ?>
-		<?php echo $this->Form->button('Cancel', array('type' => 'button', 'class'=>'btn')); ?>
+		<?php echo $this->Form->button('Cancel', array('type' => 'button', 'class'=>'btn','onclick' => "window.document.location='../'")); ?>
 	</div>
 <?php /*?><?php echo $this->Form->end(__('Submit')); ?><?php */?>
 </div>

@@ -16,7 +16,12 @@
 			'Bambla.layout',
 			'Bambla.assets',
 			'Bambla.fonts/stylesheet',
-			'Bambla.bootstrap.min','Bambla.bootstrap-responsive.min','//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600','Bambla.font-awesome','Bambla.style','Bambla.pages/dashboard',
+			'//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600',
+			'Bambla.bootstrap.min',
+			'Bambla.bootstrap-responsive.min',
+			'Bambla.font-awesome',
+			'Bambla.style',
+			'Bambla.pages/dashboard'
 		));
 
 		echo $this->Html->script(array(
