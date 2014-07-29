@@ -20,22 +20,22 @@
 
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
-    <div class="container"> <!--<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
-                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="index.html">Admin Menu</a>-->
+    <div class="container">
       <div class="nav-collapse">
-        <ul class="nav pull-right">
-		  <li><?php echo $this->Html->link('<i class="icon-dashboard"></i> Admin Dashboard',array('controller'=>'pages','action'=>'index', 'admin'=>true), array('escape' => false)); ?></li>
-		  <li><?php echo $this->Html->link('<i class="icon-home"></i> View Site', array('controller'=>'StaticPages', 'action'=>'home', 'admin'=>false), array('escape' => false)); ?></li>
-          <!--<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                            class="icon-cog"></i> Account <b class="caret"></b></a>
+        <ul class="nav pull-left">
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-dashboard"></i>Admin Menu <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="javascript:;">Settings</a></li>
-              <li><a href="javascript:;">Help</a></li>
+              <li><?php echo $this->Html->link('Homeslider',array('controller' => 'Users', 'action'=>'temp', 'admin' => false)); ?></li>
+              <li><?php echo $this->Html->link('News',array('controller' => 'Users', 'action'=>'temp', 'admin' => false)); ?></li>
+              <li><?php echo $this->Html->link('Photo Gallery',array('controller' => 'Users', 'action'=>'temp', 'admin' => false)); ?></li>
+              <li><?php echo $this->Html->link('SEO',array('controller' => 'Users', 'action'=>'temp', 'admin' => false)); ?></li>
+              <li><?php echo $this->Html->link('Users',array('controller' => 'Users', 'action'=>'temp', 'admin' => false)); ?></li>
             </ul>
-          </li>-->
+          </li>		  
+		  </li>
+		  <li><?php echo $this->Html->link('<i class="icon-home"></i> View Site', array('controller'=>'StaticPages', 'action'=>'home', 'admin'=>false), array('escape' => false)); ?></li>
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i> Welcome,  <?php echo $current_user['first_name'];?> <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <!--<li><a href="javascript:;">Profile</a></li>-->
               <li><?php echo $this->Html->link('Logout',array('controller' => 'Users', 'action'=>'logout', 'admin' => false)); ?></li>
             </ul>
           </li>

@@ -13,15 +13,9 @@
 		echo $this->Html->meta('keywords', $meta['keywords']);
 
 		echo $this->Html->css(array(
-			'Bambla.layout',
 			'Bambla.assets',
 			'Bambla.fonts/stylesheet',
 			'//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600',
-			'Bambla.bootstrap.min',
-			'Bambla.bootstrap-responsive.min',
-			'Bambla.font-awesome',
-			'Bambla.style',
-			'Bambla.pages/dashboard'
 		));
 
 		echo $this->Html->script(array(
@@ -41,8 +35,8 @@
 </head>
 <body>
 	<?php echo $this->element('Bambla.admin_toolbar'); ?>
-	<div id="container">
-		<div id="content">
+	<div id="bambla_container">
+		<div id="bambla_content">
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->fetch('content'); ?>
 		</div>

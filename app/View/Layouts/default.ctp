@@ -11,6 +11,8 @@
 		//css
 		echo $this->Html->css(array(
 			'Bambla.assets',
+			'Bambla.fonts/stylesheet',
+			'//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600',
 			'default'
 		));
 		//js
