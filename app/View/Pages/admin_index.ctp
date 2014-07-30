@@ -35,7 +35,7 @@
 		<td><?php echo $this->Time->format('m/d/y - g:i A', $page['Page']['created']); ?>&nbsp;</td>
 		<td nowrap class="actions">
 			<?php echo $this->Html->link(__('<i class="icon-edit"></i>'), array('action' => 'edit', $page['Page']['id']),array('class'=>'btn btn-info','escape' => false,'alt'=>'Edit','title'=>'Edit')); ?>
-			<?php echo $this->Form->postLink(__('<i class="icon-remove"></i>'), array('action' => 'delete', $page['Page']['id']),array('class'=>'btn btn-danger','escape' => false,'alt'=>'Delete','title'=>'Delete'), null, __('Are you sure you want to delete # %s?', $page['Page']['id'])); ?>
+			<?php echo $this->Form->postLink(__('<i class="icon-remove"></i>'), array('action' => 'delete', $page['Page']['id']), array('class'=>'btn btn-danger','escape' => false,'alt'=>'Delete','title'=>'Delete'), __('Are you sure you want to delete # %s?', $page['Page']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
