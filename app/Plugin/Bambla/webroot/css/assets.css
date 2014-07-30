@@ -788,7 +788,7 @@ span.login-checkbox > input[type='checkbox']:checked + label { background-positi
 /** Text Under Box**/
 .login-extra { display: block; width: 100px; margin-top: 2.3em; float:left; text-align: left; line-height: 19px; }
 .account-container h1 { margin-bottom: .4em; color: #525252; }
-#captcha { width:100px; background:#fff; }
+#captcha { width:120px; background:#fff; }
 
 /** Buttons **/
 .button {-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; display: inline-block; float: right; margin-top: 18px;}
