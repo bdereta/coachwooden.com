@@ -24,8 +24,6 @@
 			'Bambla.main',
 			//'Bambla.excanvas.min','Bambla.bootstrap','Bambla.base'
 		));
-
-		 
 		echo $this->fetch('script');
 	?>
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->

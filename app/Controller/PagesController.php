@@ -104,7 +104,7 @@ class PagesController extends AppController {
  */
 	public function admin_delete($id = null) {
 		if ($id == '1') {
-			$this->Session->setFlash(__('Default page can not be deleted!'), 'Bambla.red');
+			$this->Session->setFlash(__('Default page cannot be deleted!'), 'Bambla.red');
 			return $this->redirect(array('action' => 'index')); 
 		}
 		$this->Page->id = $id;

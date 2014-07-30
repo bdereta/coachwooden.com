@@ -19,9 +19,9 @@
 		));
 		
 		echo $this->Html->script(array(
-			'//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js',
-			'Bambla.ckeditor/ckeditor',
-			'Bambla.bootstrap','Bambla.signin'
+			'//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',
+			'Bambla.bootstrap',
+			'Bambla.signin'
 		));
 		 
 		echo $this->fetch('script');
