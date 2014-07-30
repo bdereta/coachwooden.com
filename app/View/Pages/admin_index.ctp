@@ -1,17 +1,18 @@
 <div class="pages index">
-	<h2 class="page_title"><?php echo __('Pages'); ?></h2>
+	<h2 class="page_title"><?php echo __('Page Metum'); ?></h2>
 	<div class="subnavbar">
-	  <div class="subnavbar-inner">
-		<div class="container">
-		  <ul>
-			<li><a href=""><i class="icon-plus-sign float_left"></i><span>Add New</span> </a> </li>
-			<!--<li><a href=""><i class="icon-list float_left"></i><span>List All</span> </a></li>
-			<li><a href=""><i class="icon-user float_left"></i><span>List Active</span> </a> </li>
-			<li><a href=""><i class="icon-question-sign float_left"></i><span>List Deactive</span> </a> </li>-->
-		  </ul>
+		<div class="subnavbar-inner">
+			<div class="container">
+				<ul>
+					<li><?php echo $this->Html->link('<i class="icon-plus-sign float_left"></i><span>Add New</span>', array('controller' => 'pages', 'action' => 'add'), array('escape' => false)); ?></li>
+					<!--<li><?php echo $this->Html->link('<i class="icon-list float_left"></i><span>List All</span>', array('controller' => 'pages', 'action' => 'index', 'all'), array('escape' => false)); ?></li>
+					<li><?php echo $this->Html->link('<i class="icon-user float_left"></i><span>List Active</span>', array('controller' => 'pages', 'action' => 'index', 'active'), array('escape' => false)); ?></li>
+					<li><?php echo $this->Html->link('<i class="icon-question-sign float_left"></i><span>List Deactive</span>', array('controller' => 'pages', 'action' => 'index', 'deactive'), array('escape' => false)); ?></li>-->
+				</ul>
+			</div>
 		</div>
-	  </div>
 	</div>
+	<p>Use it to define default or page specific <i>Title</i>, <i>Description</i>, and <i>Keywords</i> tags.</p>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>

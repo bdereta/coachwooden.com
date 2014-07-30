@@ -37,8 +37,8 @@
 		echo "\t?>\n";
 ?>
 	</fieldset>
-<?php
-	echo "<?php echo \$this->Form->end(__('Submit')); ?>\n";
-?>
+	<div class="form-actions">
+		<?php echo "<?php echo \$this->Form->button('Save', array('type' => 'submit', 'class'=>'btn btn-primary')); ?>"; ?>
+		<?php echo "<?php echo \$this->Form->button('Cancel', array('type' => 'button', 'class'=>'btn','onclick' => \"window.document.location='../'\")); ?>"; ?>
+	</div>
 </div>
-<?php echo "<?php echo \$this->element('Bambla.admin_navigation'); ?>"; ?>
