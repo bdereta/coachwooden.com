@@ -38,7 +38,8 @@
 ?>
 	</fieldset>
 	<div class="form-actions">
-		<?php echo "<?php echo \$this->Form->button('Save', array('type' => 'submit', 'class'=>'btn btn-primary')); ?>"; ?>
-		<?php echo "<?php echo \$this->Form->button('Cancel', array('type' => 'button', 'class'=>'btn','onclick' => \"window.document.location='../'\")); ?>"; ?>
+		<?php echo "<?php echo \$this->Form->button('Save', array('type' => 'submit', 'class'=>'btn btn-primary')); ?>\n"; ?>
+		<?php echo "<?php echo \$this->Form->end(); ?>\n"; ?>
+		<?php echo "<?php echo \$this->Form->postLink('Cancel', array('action' => 'index'), array('type' => 'button', 'class'=>'btn'), 'Are you sure you want to cancel changes?'); ?>\n"; ?>
 	</div>
 </div>
