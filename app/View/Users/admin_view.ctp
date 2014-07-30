@@ -6,9 +6,9 @@
 			<?php echo h($user['User']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Group Id'); ?></dt>
+		<dt><?php echo __('Group'); ?></dt>
 		<dd>
-			<?php echo h($user['User']['group_id']); ?>
+			<?php echo $this->Html->link($user['Group']['name'], array('controller' => 'groups', 'action' => 'view', $user['Group']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('First Name'); ?></dt>
@@ -36,9 +36,19 @@
 			<?php echo h($user['User']['password_retrieve_token']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Password Retrieve Expiration'); ?></dt>
+		<dd>
+			<?php echo h($user['User']['password_retrieve_expiration']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Suspended'); ?></dt>
 		<dd>
 			<?php echo h($user['User']['suspended']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Active'); ?></dt>
+		<dd>
+			<?php echo h($user['User']['active']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Modified'); ?></dt>
@@ -51,16 +61,6 @@
 			<?php echo h($user['User']['created']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Password Retrieve Expiration'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['password_retrieve_expiration']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Active'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['active']); ?>
-			&nbsp;
-		</dd>
 	</dl>
 </div>
-<?php echo $this->element('Bambla.admin_navigation'); ?>
+

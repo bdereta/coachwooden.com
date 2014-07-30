@@ -8,8 +8,12 @@
 		echo $this->Form->input('last_name');
 		echo $this->Form->input('email');
 		echo $this->Form->input('password');
+		echo $this->Form->input('password_retrieve_token');
+		echo $this->Form->input('password_retrieve_expiration');
+		echo $this->Form->input('suspended');
+		echo $this->Form->input('active');
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+	<div class="form-actions">
+		<?php echo $this->Form->button('Save', array('type' => 'submit', 'class'=>'btn btn-primary')); ?>		<?php echo $this->Form->button('Cancel', array('type' => 'button', 'class'=>'btn','onclick' => "window.document.location='../'")); ?>	</div>
 </div>
-<?php echo $this->element('Bambla.admin_navigation'); ?>

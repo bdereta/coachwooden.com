@@ -13,6 +13,8 @@
 		echo $this->Form->input('active');
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+	<div class="form-actions">
+		<?php echo $this->Form->button('Save', array('type' => 'submit', 'class'=>'btn btn-primary')); ?>
+		<?php echo $this->Form->button('Cancel', array('type' => 'button', 'class'=>'btn','onclick' => "window.document.location='../'")); ?>
+	</div>
 </div>
-<?php echo $this->element('Bambla.admin_navigation'); ?>
