@@ -7,10 +7,10 @@ class CaptchaComponent extends Component {
 	public $components = array('Session');
 
 	/** Width of the image */
-    public $width  = 300;
+    public $width  = 90;
 
     /** Height of the image */
-    public $height = 70;
+    public $height = 40;
 
     /** Min word length (for non-dictionary random text generation) */
     public $minWordLength = 4;
@@ -51,20 +51,20 @@ class CaptchaComponent extends Component {
      * - maxSize: max font size
      */
     public $fonts = array(
-        'Antykwa'  => array('spacing' => 0, 'minSize' => 40, 'maxSize' => 40, 'font' => 'AntykwaBold.ttf'),
-        'Candice'  => array('spacing' =>0, 'minSize' => 40, 'maxSize' => 40, 'font' => 'Candice.ttf'),
-        'Duality'  => array('spacing' => 0, 'minSize' => 40, 'maxSize' => 40, 'font' => 'Duality.ttf'),
-        'Heineken' => array('spacing' => 0, 'minSize' => 40, 'maxSize' => 40, 'font' => 'Heineken.ttf'),
-        'Jura'     => array('spacing' => 0, 'minSize' => 40, 'maxSize' => 40, 'font' => 'Jura.ttf'),
-        'Times'    => array('spacing' => 0, 'minSize' => 40, 'maxSize' => 40, 'font' => 'TimesNewRomanBold.ttf'),
-        'VeraSans' => array('spacing' => 0, 'minSize' => 40, 'maxSize' => 40, 'font' => 'VeraSansBold.ttf'),
+       // 'Antykwa'  => array('spacing' => 2, 'minSize' => 20, 'maxSize' => 20, 'font' => 'AntykwaBold.ttf'),
+       // 'Candice'  => array('spacing' => 2, 'minSize' => 20, 'maxSize' => 20, 'font' => 'Candice.ttf'),
+       // 'Duality'  => array('spacing' => 2, 'minSize' => 20, 'maxSize' => 20, 'font' => 'Duality.ttf'),
+       //'Heineken' => array('spacing' => 2, 'minSize' => 20, 'maxSize' => 20, 'font' => 'Heineken.ttf'),
+       //'Jura'     => array('spacing' => 2, 'minSize' => 20, 'maxSize' => 20, 'font' => 'Jura.ttf'),
+       // 'Times'    => array('spacing' => 2, 'minSize' => 20, 'maxSize' => 20, 'font' => 'TimesNewRomanBold.ttf'),
+        'VeraSans' => array('spacing' => 0, 'minSize' => 20, 'maxSize' => 20, 'font' => 'VeraSansBold.ttf'),
     );
 
     /** Wave configuracion in X and Y axes */
     public $Yperiod    = 12;
-    public $Yamplitude = 14;
-    public $Xperiod    = 11;
-    public $Xamplitude = 5;
+    public $Yamplitude = 0;
+    public $Xperiod    = 15;
+    public $Xamplitude = 0;
 
     /** letter rotation clockwise */
     public $maxRotation = 8;
@@ -85,7 +85,7 @@ class CaptchaComponent extends Component {
     public $debug = false;
     
     /** Image format: jpeg or png */
-    public $imageFormat = 'jpeg';
+    public $imageFormat = 'png';
 
     /** GD image */
     public $im;
