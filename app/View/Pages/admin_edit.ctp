@@ -2,7 +2,7 @@
 <div class="pages form">
 <?php echo $this->Form->create('Page'); ?>
 	<fieldset>
-		<legend><?php echo __('Edit Page'); ?></legend>
+		<legend><?php echo __('Edit Page Metum'); ?></legend>
 
 	<?php
 		echo $this->Form->input('id');
@@ -16,5 +16,4 @@
 		<?php echo $this->Form->button('Save', array('type' => 'submit', 'class'=>'btn btn-primary')); ?>
 		<?php echo $this->Form->button('Cancel', array('type' => 'button', 'class'=>'btn','onclick' => "window.document.location='../'")); ?>
 	</div>
-<?php /*?><?php echo $this->Form->end(__('Submit')); ?><?php */?>
 </div>
