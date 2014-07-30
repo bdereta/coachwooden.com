@@ -23,7 +23,7 @@
     <div class="container">
       <div class="nav-collapse">
         <ul class="nav pull-left">
-          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-dashboard"></i>Admin Menu <b class="caret"></b></a>
+          <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-dashboard"></i>Admin Menu <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><?php echo $this->Html->link('Homeslider',array('controller' => 'Users', 'action'=>'temp', 'admin' => false)); ?></li>
               <li><?php echo $this->Html->link('News',array('controller' => 'Users', 'action'=>'temp', 'admin' => false)); ?></li>
@@ -31,14 +31,11 @@
               <li><?php echo $this->Html->link('SEO',array('controller' => 'Users', 'action'=>'temp', 'admin' => false)); ?></li>
               <li><?php echo $this->Html->link('Users',array('controller' => 'Users', 'action'=>'temp', 'admin' => false)); ?></li>
             </ul>
-          </li>		  
-		  </li>
-		  <li><?php echo $this->Html->link('<i class="icon-home"></i> View Site', array('controller'=>'StaticPages', 'action'=>'home', 'admin'=>false), array('escape' => false)); ?></li>
-          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i> Welcome,  <?php echo $current_user['first_name'];?> <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><?php echo $this->Html->link('Logout',array('controller' => 'Users', 'action'=>'logout', 'admin' => false)); ?></li>
-            </ul>
           </li>
+		 </ul>	  
+        <ul class="nav pull-right">
+		  <li><?php echo $this->Html->link('<i class="icon-home"></i> View Site', array('controller'=>'StaticPages', 'action'=>'home', 'admin'=>false), array('escape' => false)); ?></li>
+          <li><?php echo $this->Html->link('<i class="icon-user"></i>Logout',array('controller' => 'Users', 'action'=>'logout', 'admin' => false), array('escape' => false)); ?></li>
         </ul>
       </div>
       <!--/.nav-collapse --> 

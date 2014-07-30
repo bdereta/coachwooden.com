@@ -13,15 +13,9 @@
 		echo $this->Html->meta('keywords', $meta['keywords']);
 
 		echo $this->Html->css(array(
-			'Bambla.layout',
 			'Bambla.assets',
 			'Bambla.fonts/stylesheet',
-			'Bambla.bootstrap.min',
-			'Bambla.bootstrap-responsive.min',
 			'//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600',
-			'Bambla.font-awesome',
-			'Bambla.style',
-			'Bambla.pages/signin',
 		));
 		
 		echo $this->Html->script(array(
@@ -37,14 +31,6 @@
 	<div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
-			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</a>
-			<!--<a class="brand" href="index.html">
-				Admin Menu				
-			</a>	-->	
 			<div class="nav-collapse">
 				<ul class="nav pull-right">
 					<li>	

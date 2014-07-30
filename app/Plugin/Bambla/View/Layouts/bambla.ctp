@@ -22,7 +22,7 @@
 			'//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',
 			'Bambla.ckeditor/ckeditor',
 			'Bambla.main',
-			'Bambla.excanvas.min','Bambla.bootstrap','Bambla.base'
+			//'Bambla.excanvas.min','Bambla.bootstrap','Bambla.base'
 		));
 
 		 

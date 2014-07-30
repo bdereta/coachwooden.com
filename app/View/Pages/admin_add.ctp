@@ -14,4 +14,3 @@
 		<?php echo $this->Form->button('Cancel', array('type' => 'button', 'class'=>'btn')); ?>
 	</div>
 </div>
-<?php echo $this->element('Bambla.admin_navigation'); ?>
