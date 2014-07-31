@@ -37,10 +37,10 @@ class UsersController extends AppController {
 		if ($this->request->is('post')) {
 			$this->User->create();
 			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The user has been saved.'));
+				$this->Session->setFlash(__('The user has been saved.'), 'Bambla.green');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The user could not be saved. Please, try again.'), 'Bambla.red');
 			}
 		}
 		$groups = $this->User->Group->find('list');
@@ -53,10 +53,10 @@ class UsersController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The user has been saved.'));
+				$this->Session->setFlash(__('The user has been saved.'), 'Bambla.green');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The user could not be saved. Please, try again.'), 'Bambla.red');
 			}
 		} else {
 			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
@@ -103,10 +103,8 @@ class UsersController extends AppController {
 				
 				$user = $this->User->findByEmail($this->data['User']['email']);
 				if (!empty($user)) {
-					if ($user['User']['active'] == 0) {
-						$this->Session->setFlash('Your account is deactivated. Please contact your site administrator.', 'Bambla.red');
-					} elseif($user['User']['suspended'] == 1) {
-						$this->Session->setFlash('Your account is suspended. Please contact your site administrator.', 'Bambla.red');
+					if (empty($user['User']['active']) || $user['User']['active'] == 0) {
+						$this->Session->setFlash('Your account has been deactivated. Please contact your site administrator.', 'Bambla.red');
 					} else {
 						if ($this->Auth->login()) {
 							$this->Session->setFlash('You have successfully logged in!', 'Bambla.green');

@@ -40,7 +40,7 @@
 	</fieldset>
 	<div class="form-actions">
 		<?php echo "<?php echo \$this->Form->button('Save', array('type' => 'submit', 'class'=>'btn btn-primary')); ?>\n"; ?>
-		<?php echo "<?php echo \$this->Form->end(); ?>\n"; ?>
+		<?php echo "<?php echo \$this->Form->end(); ?>\n"; ?> &nbsp;
 		<?php echo "<?php echo \$this->Form->postLink('Cancel', array('action' => 'index'), array('type' => 'button', 'class'=>'btn'), 'Are you sure you want to cancel changes?'); ?>\n"; ?>
 	</div>
 </div>

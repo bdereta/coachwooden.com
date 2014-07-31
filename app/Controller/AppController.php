@@ -66,8 +66,7 @@ class AppController extends Controller {
             	'logoutRedirect' => array('controller' => 'StaticPages', 'action' => 'home'),
 				'userModel' => 'User',
 				'scope' => array(
-					'User.active' => 1, 
-					'User.suspended' => 0
+					'User.active' => 1
 				)
 			),
 			'Form' => array(

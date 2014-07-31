@@ -21,7 +21,7 @@
 		echo $this->Html->script(array(
 			'//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',
 			'Bambla.ckeditor/ckeditor',
-			'Bambla.main',
+			'Bambla.default',
 			//'Bambla.excanvas.min','Bambla.bootstrap','Bambla.base'
 		));
 		echo $this->fetch('script');

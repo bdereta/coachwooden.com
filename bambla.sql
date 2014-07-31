@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : _LOCALHOST
-Source Server Version : 50614
+Source Server         : [dev] XAMP
+Source Server Version : 50532
 Source Host           : localhost:3306
 Source Database       : bambla
 
 Target Server Type    : MYSQL
-Target Server Version : 50614
+Target Server Version : 50532
 File Encoding         : 65001
 
-Date: 2014-05-07 13:28:36
+Date: 2014-07-30 23:22:51
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `acos`
+-- Table structure for acos
 -- ----------------------------
 DROP TABLE IF EXISTS `acos`;
 CREATE TABLE `acos` (
@@ -28,12 +28,12 @@ CREATE TABLE `acos` (
   `lft` int(10) DEFAULT NULL,
   `rght` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of acos
 -- ----------------------------
-INSERT INTO `acos` VALUES ('1', null, null, null, 'controllers', '1', '106');
+INSERT INTO `acos` VALUES ('1', null, null, null, 'controllers', '1', '118');
 INSERT INTO `acos` VALUES ('2', '1', null, null, 'Groups', '2', '13');
 INSERT INTO `acos` VALUES ('3', '2', null, null, 'admin_index', '3', '4');
 INSERT INTO `acos` VALUES ('4', '2', null, null, 'admin_view', '5', '6');
@@ -80,15 +80,21 @@ INSERT INTO `acos` VALUES ('73', '1', null, null, 'DebugKit', '90', '97');
 INSERT INTO `acos` VALUES ('74', '73', null, null, 'ToolbarAccess', '91', '96');
 INSERT INTO `acos` VALUES ('75', '74', null, null, 'history_state', '92', '93');
 INSERT INTO `acos` VALUES ('76', '74', null, null, 'sql_explain', '94', '95');
-INSERT INTO `acos` VALUES ('93', '1', null, null, 'Youtube', '98', '99');
-INSERT INTO `acos` VALUES ('94', '20', null, null, 'blackhole', '41', '42');
-INSERT INTO `acos` VALUES ('95', '24', null, null, 'blackhole', '63', '64');
-INSERT INTO `acos` VALUES ('96', '1', null, null, 'Captcha', '100', '105');
-INSERT INTO `acos` VALUES ('97', '96', null, null, 'Captcha', '101', '104');
-INSERT INTO `acos` VALUES ('98', '97', null, null, 'get_image', '102', '103');
+INSERT INTO `acos` VALUES ('97', '1', null, null, 'Youtube', '98', '99');
+INSERT INTO `acos` VALUES ('98', '1', null, null, 'Slides', '100', '111');
+INSERT INTO `acos` VALUES ('99', '98', null, null, 'admin_index', '101', '102');
+INSERT INTO `acos` VALUES ('100', '98', null, null, 'admin_view', '103', '104');
+INSERT INTO `acos` VALUES ('101', '98', null, null, 'admin_add', '105', '106');
+INSERT INTO `acos` VALUES ('102', '98', null, null, 'admin_edit', '107', '108');
+INSERT INTO `acos` VALUES ('103', '98', null, null, 'admin_delete', '109', '110');
+INSERT INTO `acos` VALUES ('104', '20', null, null, 'blackhole', '41', '42');
+INSERT INTO `acos` VALUES ('105', '24', null, null, 'blackhole', '63', '64');
+INSERT INTO `acos` VALUES ('106', '1', null, null, 'Captcha', '112', '117');
+INSERT INTO `acos` VALUES ('107', '106', null, null, 'Captcha', '113', '116');
+INSERT INTO `acos` VALUES ('108', '107', null, null, 'get_image', '114', '115');
 
 -- ----------------------------
--- Table structure for `aros`
+-- Table structure for aros
 -- ----------------------------
 DROP TABLE IF EXISTS `aros`;
 CREATE TABLE `aros` (
@@ -100,19 +106,23 @@ CREATE TABLE `aros` (
   `lft` int(10) DEFAULT NULL,
   `rght` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of aros
 -- ----------------------------
-INSERT INTO `aros` VALUES ('1', null, 'Group', '1', null, '1', '4');
-INSERT INTO `aros` VALUES ('2', null, 'Group', '2', null, '5', '8');
-INSERT INTO `aros` VALUES ('3', null, 'Group', '3', null, '9', '10');
-INSERT INTO `aros` VALUES ('4', '2', 'User', '1', null, '6', '7');
+INSERT INTO `aros` VALUES ('1', null, 'Group', '1', null, '1', '14');
+INSERT INTO `aros` VALUES ('2', null, 'Group', '2', null, '15', '16');
+INSERT INTO `aros` VALUES ('3', null, 'Group', '3', null, '17', '18');
+INSERT INTO `aros` VALUES ('4', '1', 'User', '1', null, '6', '7');
 INSERT INTO `aros` VALUES ('5', '1', 'User', '2', null, '2', '3');
+INSERT INTO `aros` VALUES ('6', '1', 'User', '3', null, '12', '13');
+INSERT INTO `aros` VALUES ('7', '1', 'User', '1', null, '4', '5');
+INSERT INTO `aros` VALUES ('8', '1', 'User', '2', null, '8', '9');
+INSERT INTO `aros` VALUES ('9', '1', 'User', '3', null, '10', '11');
 
 -- ----------------------------
--- Table structure for `aros_acos`
+-- Table structure for aros_acos
 -- ----------------------------
 DROP TABLE IF EXISTS `aros_acos`;
 CREATE TABLE `aros_acos` (
@@ -137,7 +147,7 @@ INSERT INTO `aros_acos` VALUES ('4', '3', '1', '-1', '-1', '-1', '-1');
 INSERT INTO `aros_acos` VALUES ('5', '3', '20', '1', '1', '1', '1');
 
 -- ----------------------------
--- Table structure for `groups`
+-- Table structure for groups
 -- ----------------------------
 DROP TABLE IF EXISTS `groups`;
 CREATE TABLE `groups` (
@@ -156,7 +166,7 @@ INSERT INTO `groups` VALUES ('2', 'Admin', '2013-12-07 06:54:51', '2013-12-07 06
 INSERT INTO `groups` VALUES ('3', 'Subscriber', '2013-12-07 06:55:08', '2013-12-07 06:55:08');
 
 -- ----------------------------
--- Table structure for `pages`
+-- Table structure for pages
 -- ----------------------------
 DROP TABLE IF EXISTS `pages`;
 CREATE TABLE `pages` (
@@ -173,10 +183,10 @@ CREATE TABLE `pages` (
 -- ----------------------------
 -- Records of pages
 -- ----------------------------
-INSERT INTO `pages` VALUES ('1', 'default', '', '', '', '2014-05-07 19:13:28', '2013-09-06 00:29:37');
+INSERT INTO `pages` VALUES ('1', 'default', '', '', '', '2014-07-31 06:18:44', '2013-09-06 00:29:37');
 
 -- ----------------------------
--- Table structure for `sections`
+-- Table structure for sections
 -- ----------------------------
 DROP TABLE IF EXISTS `sections`;
 CREATE TABLE `sections` (
@@ -189,30 +199,24 @@ CREATE TABLE `sections` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `pairs` (`page_name`,`index`),
   KEY `page_name` (`page_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of sections
 -- ----------------------------
-INSERT INTO `sections` VALUES ('1', 'contact', '11', '<p>Feel free to contact us</p>\r\n', '2013-11-26 19:02:28', '2013-09-07 01:40:02');
-INSERT INTO `sections` VALUES ('2', 'contact', '12', '', '2013-11-22 00:06:23', '2013-09-07 03:29:44');
-INSERT INTO `sections` VALUES ('5', 'home', '1', '<p>This is a section for the <strong>Home page</strong>, but it can be placed on other pages as well!</p>\r\n', '2014-01-07 17:01:00', '2013-09-10 18:05:34');
 
 -- ----------------------------
--- Table structure for `users`
+-- Table structure for users
 -- ----------------------------
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `group_id` int(11) NOT NULL,
+  `active` tinyint(1) DEFAULT NULL,
+  `group_id` int(11) DEFAULT NULL,
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` char(40) NOT NULL,
-  `password_retrieve_token` varchar(255) DEFAULT NULL,
-  `password_retrieve_expiration` datetime DEFAULT NULL,
-  `suspended` tinyint(1) DEFAULT NULL,
-  `active` tinyint(1) DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -221,5 +225,6 @@ CREATE TABLE `users` (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', '2', 'Boris', 'Dereta', 'boris@cubismedia.com', '995409c4f105a8994ea48791c17e7f00de9b167b', '', '2013-12-07 06:55:00', '0', '1', '2013-12-28 18:51:24', '2013-12-07 06:55:25');
-INSERT INTO `users` VALUES ('2', '1', 'Coraliz', 'Dereta', 'cora@cubismedia.com', 'dd7251e4bfc86d588887ca9b2a7b7a5123b7c4e4', '', '2013-12-07 06:55:00', '0', '1', '2014-01-08 10:01:39', '2013-12-07 06:55:43');
+INSERT INTO `users` VALUES ('1', '1', '1', 'Coraliz', 'Dereta', 'cora@cubismedia.com', 'dd7251e4bfc86d588887ca9b2a7b7a5123b7c4e4', '2014-07-31 06:13:51', '2014-06-22 02:01:36');
+INSERT INTO `users` VALUES ('2', '1', '1', 'Bob', 'Mckammey', 'mckamey@uncommonthinking.com', '8fad70f0e06850816c8cef88da031083234906fa', '2014-07-31 06:18:16', '2014-07-31 06:18:16');
+INSERT INTO `users` VALUES ('3', '1', '1', 'Boris', 'Dereta', 'boris@cubismedia.com', '995409c4f105a8994ea48791c17e7f00de9b167b', '2014-07-31 06:20:49', '2014-07-31 06:20:09');

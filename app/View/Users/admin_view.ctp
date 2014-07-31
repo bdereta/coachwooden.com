@@ -6,6 +6,11 @@
 			<?php echo h($user['User']['id']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Active'); ?></dt>
+		<dd>
+			<?php echo h($user['User']['active']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Group'); ?></dt>
 		<dd>
 			<?php echo $this->Html->link($user['Group']['name'], array('controller' => 'groups', 'action' => 'view', $user['Group']['id'])); ?>
@@ -24,31 +29,6 @@
 		<dt><?php echo __('Email'); ?></dt>
 		<dd>
 			<?php echo h($user['User']['email']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Password'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['password']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Password Retrieve Token'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['password_retrieve_token']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Password Retrieve Expiration'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['password_retrieve_expiration']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Suspended'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['suspended']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Active'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['active']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Modified'); ?></dt>

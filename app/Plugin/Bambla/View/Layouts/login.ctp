@@ -21,7 +21,8 @@
 		echo $this->Html->script(array(
 			'//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',
 			'Bambla.bootstrap',
-			'Bambla.signin'
+			'Bambla.signin',
+			'Bambla.default'
 		));
 		 
 		echo $this->fetch('script');
@@ -34,7 +35,7 @@
 			<div class="nav-collapse">
 				<ul class="nav pull-right">
 					<li>	
-						<?php echo $this->Html->link('Back to Homepage', array('formaction' => Router::url(array('controller' => 'StaticPages', 'action' => 'home')))); ?>					
+						<?php echo $this->Html->link('Back to the site', array('controller' => 'StaticPages', 'action' => 'home')); ?>					
 					</li>
 				</ul>
 			</div><!--/.nav-collapse -->	
