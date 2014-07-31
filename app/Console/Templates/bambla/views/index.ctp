@@ -23,9 +23,11 @@
 			<div class="container">
 				<ul>
 					<li><?php echo "<?php echo \$this->Html->link('<i class=\"icon-plus-sign float_left\"></i><span>Add New</span>', array('action' => 'add'), array('escape' => false)); ?>"; ?></li>
-					<!--<li><?php echo "<?php echo \$this->Html->link('<i class=\"icon-list float_left\"></i><span>List All</span>', array('action' => 'index', 'all'), array('escape' => false)); ?>"; ?></li>
-			<li><?php echo "<?php echo \$this->Html->link('<i class=\"icon-user float_left\"></i><span>List Active</span>', array('action' => 'index', 'active'), array('escape' => false)); ?>"; ?></li>
-			<li><?php echo "<?php echo \$this->Html->link('<i class=\"icon-question-sign float_left\"></i><span>List Deactive</span>', array('action' => 'index', 'deactive'), array('escape' => false)); ?>"; ?></li>-->
+					<!--
+					<li><?php echo "<?php echo \$this->Html->link('<i class=\"icon-list float_left\"></i><span>List All</span>', array('action' => 'index', 'all'), array('escape' => false)); ?>"; ?></li>
+					<li><?php echo "<?php echo \$this->Html->link('<i class=\"icon-user float_left\"></i><span>List Active</span>', array('action' => 'index', 'active'), array('escape' => false)); ?>"; ?></li>
+					<li><?php echo "<?php echo \$this->Html->link('<i class=\"icon-question-sign float_left\"></i><span>List Deactive</span>', array('action' => 'index', 'deactive'), array('escape' => false)); ?>"; ?></li>
+					-->
 				</ul>
 			</div>
 		</div>
@@ -52,7 +54,13 @@
 				}
 			}
 			if ($isKey !== true) {
-				echo "\t\t<td><?php echo h(\${$singularVar}['{$modelClass}']['{$field}']); ?>&nbsp;</td>\n";
+				$dateRelatedFields = array('modified', 'created', 'updated');
+				if (in_array($field, $dateRelatedFields)) {
+					echo "\t\t<td><?php echo \$this->Time->format('m/d/y - g:i A', \${$singularVar}['{$modelClass}']['{$field}']); ?>&nbsp;</td>\n";
+				} else {
+					echo "\t\t<td><?php echo h(\${$singularVar}['{$modelClass}']['{$field}']); ?>&nbsp;</td>\n";
+				}
+				
 			}
 		}
 
