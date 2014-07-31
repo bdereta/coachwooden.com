@@ -62,5 +62,9 @@
 			&nbsp;
 		</dd>
 	</dl>
+	<br>
+	<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $user['User']['id']), array('class'=>'btn btn-info')); ?>
+		&nbsp;
+	<?php echo $this->Html->link(__('List All'), array('action' => 'index'), array('class'=>'btn')); ?>
 </div>
 

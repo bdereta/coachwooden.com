@@ -65,7 +65,8 @@
 		}
 
 		echo "\t\t<td nowrap class=\"actions\">\n";
-		echo "\t\t\t<?php echo \$this->Html->link('<i class=\"icon-edit\"></i>', array('action' => 'edit', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class'=>'btn btn-info','escape' => false,'alt'=>'Edit','title'=>'Edit')); ?>\n";
+		echo "\t\t\t<?php echo \$this->Html->link('<i class=\"icon-info-sign\"></i>', array('action' => 'view', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class'=>'btn btn-info','escape' => false,'alt'=>'View','title'=>'View')); ?>\n";
+		echo "\t\t\t<?php echo \$this->Html->link('<i class=\"icon-edit\"></i>', array('action' => 'edit', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class'=>'btn btn-warning','escape' => false,'alt'=>'Edit','title'=>'Edit')); ?>\n";
 		echo "\t\t\t<?php echo \$this->Form->postLink('<i class=\"icon-remove\"></i>', array('action' => 'delete', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class'=>'btn btn-danger','escape' => false,'alt'=>'Delete','title'=>'Delete'), __('Are you sure you want to delete # %s?', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>\n";
 		echo "\t\t</td>\n";
 	echo "\t</tr>\n";

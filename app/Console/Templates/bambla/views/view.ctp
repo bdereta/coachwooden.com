@@ -39,6 +39,10 @@ foreach ($fields as $field) {
 }
 ?>
 	</dl>
+	<br>
+	<?php echo "<?php echo \$this->Html->link(__('Edit'), array('action' => 'edit', \${$singularVar}['{$modelClass}']['id']), array('class'=>'btn btn-info')); ?>\n"; ?>
+		&nbsp;
+	<?php echo "<?php echo \$this->Html->link(__('List All'), array('action' => 'index'), array('class'=>'btn')); ?>\n"; ?>
 </div>
 
 <?php
