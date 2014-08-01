@@ -8,7 +8,7 @@
 		</dd>
 		<dt><?php echo __('Page Name'); ?></dt>
 		<dd>
-			<?php echo h(ucwords($section['Section']['page_name'])); ?>
+			<?php echo h($section['Section']['page_name']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Index'); ?></dt>
@@ -16,7 +16,7 @@
 			<?php echo h($section['Section']['index']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Value'); ?></dt>
+		<dt><?php echo __('Content'); ?></dt>
 		<dd>
 			<?php echo h($section['Section']['content']); ?>
 			&nbsp;
@@ -32,13 +32,9 @@
 			&nbsp;
 		</dd>
 	</dl>
+	<br>
+	<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $section['Section']['id']), array('class'=>'btn btn-info')); ?>
+		&nbsp;
+	<?php echo $this->Html->link(__('List All'), array('action' => 'index'), array('class'=>'btn')); ?>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Section'), array('action' => 'edit', $section['Section']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Section'), array('action' => 'delete', $section['Section']['id']), null, __('Are you sure you want to delete # %s?', $section['Section']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Sections'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Section'), array('action' => 'add')); ?> </li>
-	</ul>
-</div>
+

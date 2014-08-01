@@ -8,16 +8,6 @@ class Section extends AppModel {
 
 	public $displayField = 'page_name';
 	
-	public $belongsTo = array(
-		'Page' => array(
-			'className' => 'Page',
-			'foreignKey' => 'page_name',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		)
-	);
-	
 	public function fetchSections() {
 		$result = Cache::read('sections');
 		if (!$result) {

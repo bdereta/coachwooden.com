@@ -9,22 +9,6 @@ class Page extends AppModel {
 	
 	public $displayField = 'name';
 	public $recursive = -1;
-
-	public $hasMany = array(
-		'Section' => array(
-			'className' => 'Section',
-			'foreignKey' => 'page_name',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		)
-	);
 	
 	public function fetchPageMetum() {
 		$cache_key = 'metum';

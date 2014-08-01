@@ -75,10 +75,9 @@ class SectionsController extends AppController {
 				$this->Session->setFlash(__('The section could not be saved. Please, try again.'));
 			}
 		}
-		$pages 		= $this->Section->Page->find('list');
 		$add_page 	= isset($this->request->params['named']['page']) ? $this->request->params['named']['page'] : false;
 		$add_index 	= isset($this->request->params['named']['index']) ? $this->request->params['named']['index'] : false;
-		$this->set(compact('pages','add_page','add_index'));
+		$this->set(compact('add_page','add_index'));
 	}
 
 /**
