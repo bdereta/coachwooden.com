@@ -29,19 +29,6 @@
 	?>
 </head>
 <body>
-	<div class="navbar navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
-			<div class="nav-collapse">
-				<ul class="nav pull-right">
-					<li>	
-						<?php echo $this->Html->link('Back to the site', array('controller' => 'StaticPages', 'action' => 'home')); ?>					
-					</li>
-				</ul>
-			</div><!--/.nav-collapse -->	
-		</div> <!-- /container -->
-	</div> <!-- /navbar-inner -->
-</div> <!-- /navbar -->
 <div class="account-container">
 	<div class="content clearfix">
 		<?php echo $this->Session->flash(); ?>

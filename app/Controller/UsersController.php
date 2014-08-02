@@ -98,6 +98,7 @@ class UsersController extends AppController {
 				$captcha_input = $this->request->data['User']['captcha'];
 				if (empty($captcha_session) || empty($captcha_input) || $captcha_session != $captcha_input) {
 					$this->Session->delete('captcha');
+					unset($this->request->data['User']['captcha']);
 					return $this->Session->setFlash(__('Please enter correct Security Code'), 'Bambla.red');
 				}
 				

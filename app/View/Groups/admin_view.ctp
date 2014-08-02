@@ -38,7 +38,6 @@
 		<th><?php echo __('First Name'); ?></th>
 		<th><?php echo __('Last Name'); ?></th>
 		<th><?php echo __('Email'); ?></th>
-		<th><?php echo __('Suspended'); ?></th>
 		<th><?php echo __('Active'); ?></th>
 		<th><?php echo __('Modified'); ?></th>
 		<th><?php echo __('Created'); ?></th>
@@ -51,7 +50,6 @@
 			<td><?php echo $user['first_name']; ?></td>
 			<td><?php echo $user['last_name']; ?></td>
 			<td><?php echo $user['email']; ?></td>
-			<td><?php echo $user['suspended']; ?></td>
 			<td><?php echo $user['active']; ?></td>
 			<td><?php echo $user['modified']; ?></td>
 			<td><?php echo $user['created']; ?></td>

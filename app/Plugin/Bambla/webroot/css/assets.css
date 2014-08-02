@@ -512,6 +512,8 @@ color:#ccc; }
 .btn[disabled] { -webkit-box-shadow:none; -moz-box-shadow:none; box-shadow:none; filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=65); opacity:0.65; background-image:none; cursor:default; }
 .btn-large { -webkit-border-radius:6px; -moz-border-radius:6px; -ms-border-radius:6px; -o-border-radius:6px; border-radius:6px; font-size:16px; line-height:24px; line-height:22px; padding:6px 14px; }
 .btn-large [class^="icon-"] { margin-top:1px; }
+.btn-med { -webkit-border-radius:6px; -moz-border-radius:6px; -ms-border-radius:6px; -o-border-radius:6px; border-radius:6px; font-size:14px; line-height:24px; line-height:22px; padding:6px 14px; }
+.btn-med [class^="icon-"] { margin-top:1px; }
 .btn-small { -webkit-border-radius:3px; -moz-border-radius:3px; -ms-border-radius:3px; -o-border-radius:3px; border-radius:3px; font-size:12px; line-height:24px; line-height:22px; padding:0 9px; }
 .btn-small [class^="icon-"] { margin-top:-1px; }
 .btn-mini { -webkit-border-radius:3px; -moz-border-radius:3px; -ms-border-radius:3px; -o-border-radius:3px; border-radius:3px; font-size:11px; line-height:24px; line-height:22px; padding:0 6px; }
@@ -777,12 +779,14 @@ ul.messages_layout .dropdown-menu li{ width:100%; font-size:11px;}
 .account-container { width:380px; display:block; margin:60px auto 0 auto; background:#f9f9f9; border:1px solid #d5d5d5; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px;
  box-shadow:0px 0px 2px #dadada, inset 0px -3px 0px #e6e6e6; }
 
+.inline { display:inline-block; clear:none; }
 .account-container .content { padding:16px 28px 23px; } 
-.login-fields { }
+.login-fields { width:315px; }
 .login-fields .field { margin-bottom:1.25em; }
 .login-fields label { display:none; }
-.login-fields input { font-family:'Open Sans'; font-size:13px; color:#8e8d8d; padding:11px 15px 10px 50px; background-color:#fdfdfd; width:255px; display:block; margin:0; box-shadow:inset 2px 2px 4px #f1f1f1; }
-.username-field { background:url(../img/signin/user.png) no-repeat; }
+.login-fields input { font-family:'Open Sans'; font-size:13px; color:#8e8d8d; padding:11px 15px 10px 50px; background-color:#fdfdfd; width:242px; display:block; margin:0; box-shadow:inset 2px 2px 4px #f1f1f1; }
+.antibot { width:105px!important; }
+.username-field { background:url(../img/signin/email.png) no-repeat; }
 .password-field { background:url(../img/signin/password.png) no-repeat; }
 .captcha-field { background:url(../img/signin/captcha.png) no-repeat; }
 .login-actions { float:left; width:100%; margin-top:-1em; margin-bottom:1.25em; }
@@ -795,7 +799,7 @@ span.login-checkbox > input[type='checkbox']:checked + label { background-positi
 /** Text Under Box**/
 .login-extra { display:block; width:100px; margin-top:2.3em; float:left; text-align:left; line-height:19px; }
 .account-container h1 { margin-bottom:.4em; color:#525252; }
-#captcha { width:120px; background:#fff; }
+#captcha { background:#fff; border: 1px solid #ccc; border-radius: 3px; }
 
 /** Buttons **/
 .button {-webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px; display:inline-block; float:right; margin-top:18px;}

@@ -7,10 +7,10 @@ class CaptchaComponent extends Component {
 	public $components = array('Session');
 
 	/** Width of the image */
-    public $width  = 90;
+    public $width  = 120;
 
     /** Height of the image */
-    public $height = 40;
+    public $height = 39;
 
     /** Min word length (for non-dictionary random text generation) */
     public $minWordLength = 4;
