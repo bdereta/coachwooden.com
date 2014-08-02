@@ -21,4 +21,8 @@ class Page extends AppModel {
 		}
 		return $output;
 	}
+	
+	public function ClearCache($cache_key) {
+		Cache::delete($cache_key);
+	}
 }

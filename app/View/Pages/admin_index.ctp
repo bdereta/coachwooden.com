@@ -12,7 +12,8 @@
 			</div>
 		</div>
 	</div>
-	<p>Use it to define default or page specific <i>Title</i>, <i>Description</i>, and <i>Keywords</i> tags.</p>
+	<p>Use it to define overall site and page specific <i>Title</i>, <i>Description</i>, and <i>Keywords</i> tags. When you define values for <i>default</i> page, they will be applied to all the pages 
+	unless you define page spefic values by adding the page and naming it after it's page slug. I.e. Let's say you have a page called <i>Photo Gallery</i> and you wish to set up a different page title and meta keywords/description: the slug for the page will likely be <i>photo-gallery</i> (if you're not sure, open the page in the browser and read the browser address bar). You will then Add New page and name it photo-gallery, define page title and other values.</p>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>

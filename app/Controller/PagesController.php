@@ -59,6 +59,7 @@ class PagesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Page->create();
 			if ($this->Page->save($this->request->data)) {
+				$this->Page->ClearCache('metum');
 				$this->Session->setFlash(__('The page has been saved.'), 'Bambla.green');
 				return $this->redirect(array('action' => 'index'));
 			} else {
@@ -84,6 +85,7 @@ class PagesController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Page->save($this->request->data)) {
+				$this->Page->ClearCache('metum');
 				$this->Session->setFlash(__('The page has been saved.'), 'Bambla.green');
 				return $this->redirect(array('action' => 'index'));
 			} else {
@@ -113,6 +115,7 @@ class PagesController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Page->delete()) {
+			$this->Page->ClearCache('metum');
 			$this->Session->setFlash(__('The page has been deleted.'), 'Bambla.green');
 		} else {
 			$this->Session->setFlash(__('The page could not be deleted. Please, try again.'), 'Bambla.red');

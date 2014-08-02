@@ -5,9 +5,11 @@
 	<title><?php echo $meta['title']; ?></title>
 	<?php
 		//meta
-		echo $this->Html->meta('icon');
-		echo $this->Html->meta('description', $meta['description']);
-		echo $this->Html->meta('keywords', $meta['keywords']); 
+		if (!empty($meta)) {
+			echo $this->Html->meta('icon');
+			echo $this->Html->meta('description', $meta['description']);
+			echo $this->Html->meta('keywords', $meta['keywords']); 
+		}
 		//css
 		echo $this->Html->css(array(
 			'Bambla.assets',
@@ -25,7 +27,7 @@
 	?>
 </head>
 <body>
-	<?php if ($is_admin) echo $this->element('Bambla.admin_toolbar'); ?>
+	<?php if (isset($is_admin) && $is_admin) echo $this->element('Bambla.admin_toolbar'); ?>
 	<?php echo $this->Session->flash(); ?>
 	<layout>
 	<?php echo $this->fetch('content'); ?>		
