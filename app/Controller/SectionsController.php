@@ -26,16 +26,6 @@ class SectionsController extends AppController {
 	}
 
 /**
- * afterFilter method
- * executes after every action
- * @return void
- */
-	public function afterFilter() {
-		//clear cache
-		Cache::delete('sections');
-	}
-
-/**
  * admin_index method
  *
  * @return void
@@ -69,15 +59,15 @@ class SectionsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Section->create();
 			if ($this->Section->save($this->request->data)) {
-				$this->Session->setFlash(__('The section has been saved.'));
+				$this->Section->ClearCache('sections');
+				$this->Session->setFlash(__('The section has been saved.'), 'Bambla.green');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The section could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The section could not be saved. Please, try again.'), 'Bambla.red');
 			}
 		}
-		$add_page 	= isset($this->request->params['named']['page']) ? $this->request->params['named']['page'] : false;
-		$add_index 	= isset($this->request->params['named']['index']) ? $this->request->params['named']['index'] : false;
-		$this->set(compact('add_page','add_index'));
+		$this->request->data['Section']['page_name'] = isset($this->request->params['named']['page']) ? $this->request->params['named']['page'] : false;
+		$this->request->data['Section']['index'] = isset($this->request->params['named']['index']) ? $this->request->params['named']['index'] : false;
 	}
 
 /**
@@ -93,10 +83,11 @@ class SectionsController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Section->save($this->request->data)) {
-				$this->Session->setFlash(__('The section has been saved.'));
+				$this->Section->ClearCache('sections');
+				$this->Session->setFlash(__('The section has been saved.'), 'Bambla.green');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The section could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The section could not be saved. Please, try again.'), 'Bambla.red');
 			}
 		} else {
 			$options = array('conditions' => array('Section.' . $this->Section->primaryKey => $id));
@@ -118,6 +109,7 @@ class SectionsController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Section->delete()) {
+			$this->Section->ClearCache('sections');
 			$this->Session->setFlash(__('The section has been deleted.'), 'Bambla.green');
 		} else {
 			$this->Session->setFlash(__('The section could not be deleted. Please, try again.'), 'Bambla.red');

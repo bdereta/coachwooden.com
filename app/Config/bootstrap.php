@@ -5,7 +5,7 @@ Cache::config('default', array(
 	'engine' => 'File',
 	'duration' => '+999 days',
 	'path' => CACHE.'models'.DS,
-	'prefix' => 'default_',
+	'prefix' => 'bambla_',
 ));
 
 Configure::write('Dispatcher.filters', array(

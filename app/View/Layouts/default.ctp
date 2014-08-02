@@ -2,7 +2,7 @@
 <html>
 <head>
 	<?php echo $this->Html->charset(); ?>
-	<title><?php echo $meta['title']; ?></title>
+	<title><?php echo (!empty($meta['title'])) ? $meta['title'] : NULL; ?></title>
 	<?php
 		//meta
 		if (!empty($meta)) {

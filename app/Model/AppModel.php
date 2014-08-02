@@ -30,4 +30,8 @@ App::uses('Model', 'Model');
  * @package       app.Model
  */
 class AppModel extends Model {
+	
+	public function ClearCache($cache_key) {
+		Cache::delete($cache_key);	
+	}
 }

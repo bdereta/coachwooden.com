@@ -4,9 +4,11 @@
 	<fieldset>
 		<legend><?php echo __(' Add Section'); ?></legend>
 	<?php
-		echo $this->Form->input('page_name');
-		echo $this->Form->input('index');
-		echo $this->Form->input('content', array('class'=>'ckeditor'));
+		$readonly = !empty($this->request->data['Section']['page_name']) ? true : false;
+	
+		echo $this->Form->input('page_name', array('readonly' => $readonly));
+		echo $this->Form->input('index', array('readonly' => $readonly));
+		echo $this->Form->input('content', array('class'=>'ckeditor', 'label'=>false));
 	?>
 	</fieldset>
 	<div class="form-actions">

@@ -15,7 +15,6 @@ $default_time_zone = 'UTC';
 
 //set debug mode6
 $debug_mode = (IS_PROD) ? 0 : 2;
-//$debug_mode = 2;
 
 //debug mode
 Configure::write('debug', $debug_mode); 
