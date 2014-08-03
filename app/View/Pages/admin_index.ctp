@@ -2,7 +2,7 @@
 	<h2 class="page_title"><?php echo __('Page Metum'); ?></h2>
 	<div class="subnavbar">
 		<div class="subnavbar-inner">
-			<div class="container">
+			<div class="bambla_container">
 				<ul>
 					<li><?php echo $this->Html->link('<i class="icon-plus-sign float_left"></i><span>Add New</span>', array('controller' => 'pages', 'action' => 'add'), array('escape' => false)); ?></li>
 					<!--<li><?php echo $this->Html->link('<i class="icon-list float_left"></i><span>List All</span>', array('controller' => 'pages', 'action' => 'index', 'all'), array('escape' => false)); ?></li>

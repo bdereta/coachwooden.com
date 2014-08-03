@@ -15,13 +15,10 @@
 		echo $this->Html->css(array(
 			'Bambla.assets',
 			'Bambla.fonts/stylesheet',
-			'//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600',
 		));
 		
 		echo $this->Html->script(array(
 			'//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',
-			'Bambla.bootstrap',
-			'Bambla.signin',
 			'Bambla.default'
 		));
 		 

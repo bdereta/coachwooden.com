@@ -47,13 +47,15 @@ class BamblaHelper extends AppHelper {
 		foreach($params['uploadImages'] as $fieldname=>$action){
 			$options = array('type'=>'file');
 			if (array_key_exists('label', $action)) {
-				$options['label'] = $action['label'];	
+				$options['label'] = 'Upload Image';	
 			}
 			if (!array_key_exists('source', $action)) {
 				//display existing image
 				if (array_key_exists('model',$params)) { 
-					if (isset($this->request->data[$params['model']][$fieldname]) && !empty($this->request->data[$params['model']][$fieldname])) {			
-						$output.= $this->Html->Image('uploads/'.$this->request->data[$params['model']][$fieldname], array('width' => 100));
+					if (isset($this->request->data[$params['model']][$fieldname]) && !empty($this->request->data[$params['model']][$fieldname])) {
+						$output.= '<div class="input text"><label for="Preview">Current Image</label>';			
+						$output.= $this->Html->Image('uploads/'.$this->request->data[$params['model']][$fieldname], array('width' => 200));
+						$output.= '</div>';
 					}
 				}
 				$output.= $this->Form->input($fieldname, $options);

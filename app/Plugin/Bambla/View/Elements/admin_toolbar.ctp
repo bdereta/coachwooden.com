@@ -1,6 +1,6 @@
 <div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
-		<div class="container">
+		<div class="bambla_container">
 			<div class="nav-collapse">
 				<ul class="nav pull-left">
 					<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-dashboard"></i>Admin Menu <b class="caret"></b></a>

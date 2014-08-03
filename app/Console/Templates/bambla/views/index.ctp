@@ -20,7 +20,7 @@
 	<h2 class="page_title"><?php echo "<?php echo __('{$pluralHumanName}'); ?>"; ?></h2>
 	<div class="subnavbar">
 		<div class="subnavbar-inner">
-			<div class="container">
+			<div class="bambla_container">
 				<ul>
 					<li><?php echo "<?php echo \$this->Html->link('<i class=\"icon-plus-sign float_left\"></i><span>Add New</span>', array('action' => 'add'), array('escape' => false)); ?>"; ?></li>
 					<!--
