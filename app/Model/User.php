@@ -18,37 +18,71 @@ class User extends AppModel {
 
 	
 	public $validate = array(
+		'first_name' => array(
+			'rule' => 'notEmpty',
+			'required' => true,
+			'message' => 'First Name is required.',
+		),
+		
+		'last_name' => array(
+			'rule' => 'notEmpty',
+			'required' => true,
+			'message' => 'Last Name is required.',
+		),
+	
 		'email' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
-			 'email' => 'email',	
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			'email' => array(
+				'rule' => 'email',	
+				'required' => true,
+				'message' => 'Email is required.'
 			),
+			'unique' => array(
+				'rule' => 'isUnique',
+				'message' => 'Email address is already in use.'
+			)
+
 		),
 		'password' => array(
-			'rule'    => array('minLength', '8'),
-            'message' => 'Minimum 8 characters long',
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-		),
-		'group_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			'onCreate' => array(
+				'on'   => 'create',
+				'rule'    => array('minLength', '8'),
+				'message' => 'Minimum 8 characters long',
+				'required' => true
+			),
+			'onUpdate' => array(
+				'on'   => 'update',
+				'rule'    => array('minLength', '8'),
+				'message' => 'Minimum 8 characters long',
+				'allowEmpty' => true
 			),
 		),
+			
+		'confirm_password' => array(
+			'onCreate' => array(
+				'on'   => 'create',
+				'rule' => array('equaltofield','password'),
+				'message' => 'Passwords are not matching.',
+				'required' => true
+			),
+			'onUpdate' => array(
+				'on'   => 'update',
+				'rule' => array('equaltofield','password'),
+				'message' => 'Passwords are not matching.',
+				//'allowEmpty' => true
+			),
+            
+        ),
 	);
+	
+	public function equaltofield($check,$otherfield) {
+		//get name of field
+		$fname = '';
+		foreach ($check as $key => $value){
+			$fname = $key;
+			break;
+		}
+		return $this->data[$this->name][$otherfield] === $this->data[$this->name][$fname];
+	} 
 	
 	//ACL Sync
 	public $actsAs = array('Acl' => array('type' => 'requester'));
