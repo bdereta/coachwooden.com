@@ -21,7 +21,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => 'password',
-		'database' => '',
+		'database' => 'bambla',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
