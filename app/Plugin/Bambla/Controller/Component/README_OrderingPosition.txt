@@ -23,10 +23,8 @@ class Example {
 	}	
 	
 	//public function admin_index() {
-		$this->Paginator->settings = array(
-			'order' => array('ordering_position' => 'ASC'),
-		);
-		$this->set('sliders', $this->Paginator->paginate());
+		$this->Paginator->settings = array('order' => array('ordering_position' => 'ASC'));
+		//$this->set('examples', $this->Paginator->paginate());
 	//}
 	
 	//public function admin_add() {
