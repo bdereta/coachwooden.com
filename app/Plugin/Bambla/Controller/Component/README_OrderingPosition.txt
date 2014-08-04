@@ -1,13 +1,23 @@
-<?php
+This document explains how to implement position ordering component for INDEX action (listing). 
+There are two ways to implement the component:
+
+a) with ACTIVE column
+b) without ACTIVE column
+
+____________________________________________________________________
 
 
-class Example {
+A) - Implementing WITH active column:
 
-/// HOW TO USE IN A CONTROLLER: 
+1. Open the controller file (/app/Controlers/ExampleController.php)
+2. Add 'Bambla.OrderingPostion' component to the controller:
+		
+	<?php public $components =  array('Bambla.OrderingPosition'); ?>
+	
+3. Add following method to Controller before admin_index() method:
 
-	public $components =  array('Bambla.OrderingPosition');
-
-	public function admin_reorder_position($id = NULL, $action = NULL) {
+	<?php 
+		public function admin_reorder_position($id = NULL, $action = NULL) {
 		$result = $this->OrderingPosition->ChangePositionReorder(array(
 			'model' => Inflector::classify($this->params['controller']), 
 			'id' => $id, 
@@ -19,87 +29,125 @@ class Example {
 		} else {
 			$this->Session->setFlash(__('Order position error.'), 'Bambla.red');
 		}
-		return $this->redirect($this->referer());
-	}	
-	
-	//public function admin_index() {
-		$this->Paginator->settings = array('order' => array('ordering_position' => 'ASC'));
-		//$this->set('examples', $this->Paginator->paginate());
-	//}
-	
-	//public function admin_add() {
-	//	if ($this->request->is('post')) {
-	//		$this->Example->create();
-	//		if ($this->Example->save($this->request->data)) {
-				$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller']),'conditions' => array('active' => 1)));
-	//			$this->Session->setFlash(__('The Example has been saved.'),'Bambla.green');
-	//			return $this->redirect(array('action' => 'index'));
-	//		} else {
-	//			$this->Session->setFlash(__('The Example could not be saved. Please, try again.'), 'Bambla.red');
-	//		}
-	//	}
-	//}
-	
-	//public function admin_edit($id = null) {
-//		if (!$this->Example->exists($id)) {
-//			throw new NotFoundException(__('Invalid Example'));
-//		}
-//		if ($this->request->is(array('post', 'put'))) {
-//			if ($this->Example->save($this->request->data)) {
-			$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller']),'conditions' => array('active' => 1)));
-//				$this->Session->setFlash(__('The Example has been saved.'));
-//				return $this->redirect(array('action' => 'index'));
-//			} else {
-//				$this->Session->setFlash(__('The Example could not be saved. Please, try again.'));
-//			}
-//		} else {
-//			$options = array('conditions' => array('Order.' . $this->Example->primaryKey => $id));
-//			$this->request->data = $this->Example->find('first', $options);
-//		}
-//	}
-	
-//	public function admin_delete($id = null) {
-//		$this->Example->id = $id;
-//		if (!$this->Example->exists()) {
-//			throw new NotFoundException(__('Invalid Example'));
-//		}
-//		$this->request->onlyAllow('post', 'delete');
-//		if ($this->Example->delete()) {
-			$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller']),'conditions' => array('active' => 1)));
-//			$this->Session->setFlash(__('The Example has been deleted.'), 'Bambla.green');
-//		} else {
-//			$this->Session->setFlash(__('The Example could not be deleted. Please, try again.'), 'Bambla.red');
-//		}
-//		return $this->redirect(array('action' => 'index'));
-//	}
-	
-}
+	?>
 
-// HOW TO APPLY IN ADMIN VIEW: 
-?>
+4. Add the following line to Controller admin_index() method (above $this->set()):
 
-<table cellpadding="0" cellspacing="0">
-	<tr>
-		<!-- REMOVE ID AND REPLACE THE FIRST COULUMN WITH ORDERING POSITION -->			
-		<th><?php echo $this->Paginator->sort('ordering_position'); ?></th>
-		<!--<th><?php //echo $this->Paginator->sort('name'); ?></th>-->
-		<th>Change Ordering</th>
-		<!--<th><?php //echo $this->Paginator->sort('active'); ?></th>
-		<th class="actions"><?php //echo __('Actions'); ?></th>-->
-	</tr>
-	<?php foreach ($examples as $example): ?>
-	<tr>
-		<td><?php if ($example['Example']['active']) : ?>
-				<?php echo h($example['Example']['ordering_position']/10); ?>
-			<?php endif; ?>&nbsp;
-		</td>
-		<!--<td><?php //echo h($example['Example']['name']); ?>&nbsp;</td>-->
-		<td><?php if ($example['Example']['active']) : ?>
-				<?php echo $this->Html->link('<i class="icon-arrow-up"></i>', array('action' => 'reorder_position', $example['Example']['id'], 'up'), array('escape' => false, 'class'=>'bambla_arrows')); ?>
-				<?php echo $this->Html->link('<i class="icon-arrow-down"></i>', array('action' => 'reorder_position', $example['Example']['id'], 'down'), array('escape' => false, 'class'=>'bambla_arrows')); ?>
-			<?php endif; ?>&nbsp;
-		</td>
-	</tr>
-<?php endforeach; ?>
-	</table>
+	<? $this->Paginator->settings = array('order' => array('ordering_position' => 'ASC')); ?>
+	
+5. Add the following line to Controller admin_add() and admin_edit() right after SAVE action:
+
+	<? 	//if ($this->Example->save($this->request->data)) {
+		$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller']), 'conditions' => array('active' => 1)));
+	?>
+
+6. Add the following line to Controller admin_delete() after DELETE action:
+
+	<? 	//if ($this->Example->delete()) {
+		$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller']), 'conditions' => array('active' => 1)));
+	?>
+	
+7. Now open /app/Views/[Controller]/admin_index.ctp 
+
+8. Remove the table header ID column (the first one) and replace it with ordering position column:
+
+	<th><?php echo $this->Paginator->sort('ordering_position'); ?></th>
+	
+9. Add header column  for Ordering Actions and place it second, right after Ordering Position column:
+	
+	<th>Change Ordering</th>
+	
+10. Replace first data column (ID column) with the following:
+
+	<td><?php if ($example['Example']['active']) : ?>
+			<?php echo h($example['Example']['ordering_position']/10); ?>
+		<?php endif; ?>&nbsp;
+	</td>
+	
+11. Add following column right next to the previous one:
+
+	<td><?php if ($example['Example']['active']) : ?>
+			<?php echo $this->Html->link('<i class="icon-arrow-up"></i>', array('action' => 'reorder_position', $example['Example']['id'], 'up'), array('escape' => false, 'class'=>'bambla_arrows')); ?>
+			<?php echo $this->Html->link('<i class="icon-arrow-down"></i>', array('action' => 'reorder_position', $example['Example']['id'], 'down'), array('escape' => false, 'class'=>'bambla_arrows')); ?>
+		<?php endif; ?>&nbsp;
+	</td>
+
+12. Replace 'Example' variable with corresponding Model you're using.
+
+
+
+_______________________________________________________________________________________
+
+
+
+B) - Implementing WITHOUT active column:
+
+1. Open the controller file (/app/Controlers/ExampleController.php)
+2. Add 'Bambla.OrderingPostion' component to the controller:
+		
+	<?php public $components =  array('Bambla.OrderingPosition'); ?>
+	
+3. Add following method to Controller before admin_index() method:
+
+	<?php 
+		public function admin_reorder_position($id = NULL, $action = NULL) {
+		$result = $this->OrderingPosition->ChangePositionReorder(array(
+			'model' => Inflector::classify($this->params['controller']), 
+			'id' => $id, 
+			'action' => $action
+		));
+		if ($result) {
+			$this->Session->setFlash(__('Order position changed.'), 'Bambla.green');
+		} else {
+			$this->Session->setFlash(__('Order position error.'), 'Bambla.red');
+		}
+	?>
+
+4. Add the following line to Controller admin_index() method (above $this->set()):
+
+	<? $this->Paginator->settings = array('order' => array('ordering_position' => 'ASC')); ?>
+	
+5. Add the following line to Controller admin_add() and admin_edit() right after SAVE action:
+
+	<? 	//if ($this->Example->save($this->request->data)) {
+		$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller'])));
+	?>
+
+6. Add the following line to Controller admin_delete() after DELETE action:
+
+	<? 	//if ($this->Example->delete()) {
+		$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller'])));
+	?>
+	
+7. Now open /app/Views/[Controller]/admin_index.ctp 
+
+8. Remove the table header ID column (the first one) and replace it with ordering position column:
+
+	<th><?php echo $this->Paginator->sort('ordering_position'); ?></th>
+	
+9. Add header column  for Ordering Actions and place it second, right after Ordering Position column:
+	
+	<th>Change Ordering</th>
+	
+10. Replace first data column (ID column) with the following:
+
+	<td><?php if ($example['Example']['active']) : ?>
+			<?php echo h($example['Example']['ordering_position']/10); ?>
+		<?php endif; ?>&nbsp;
+	</td>
+	
+11. Add following column right next to the previous one:
+
+	<td><?php if ($example['Example']['active']) : ?>
+			<?php echo $this->Html->link('<i class="icon-arrow-up"></i>', array('action' => 'reorder_position', $example['Example']['id'], 'up'), array('escape' => false, 'class'=>'bambla_arrows')); ?>
+			<?php echo $this->Html->link('<i class="icon-arrow-down"></i>', array('action' => 'reorder_position', $example['Example']['id'], 'down'), array('escape' => false, 'class'=>'bambla_arrows')); ?>
+		<?php endif; ?>&nbsp;
+	</td>
+
+12. Replace 'Example' variable with corresponding Model you're using.
+
+
+
+
+
 
