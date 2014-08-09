@@ -1,5 +1,5 @@
 <div class="pages index">
-	<h2 class="page_title"><?php echo __('Page Metum'); ?></h2>
+	<h2 class="page_title"><?php echo __('Page SEO'); ?></h2>
 	<div class="subnavbar">
 		<div class="subnavbar-inner">
 			<div class="bambla_container">

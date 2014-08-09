@@ -2,7 +2,7 @@
 <div class="pages form">
 <?php echo $this->Form->create('Page'); ?>
 	<fieldset>
-		<legend><?php echo __('Edit Page Metum'); ?></legend>
+		<legend><?php echo __('Edit Page SEO'); ?></legend>
 
 	<?php
 		echo $this->Form->input('id');

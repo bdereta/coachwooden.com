@@ -5,7 +5,7 @@
 				<ul class="nav pull-left">
 					<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-dashboard"></i>Admin Menu <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><?php echo $this->Html->link('Page Metum', array('controller' => 'Pages', 'action'=>'index', 'admin' => true)); ?></li>
+							<li><?php echo $this->Html->link('Page Seo', array('controller' => 'Pages', 'action'=>'index', 'admin' => true)); ?></li>
 							<li><?php echo $this->Html->link('Users', array('controller' => 'Users', 'action'=>'index', 'admin' => true)); ?></li>
 						</ul>
 					</li>

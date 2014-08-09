@@ -1,5 +1,5 @@
 <div class="pages view">
-<h2><?php echo __('Page'); ?></h2>
+<h2><?php echo __('Page SEO'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
