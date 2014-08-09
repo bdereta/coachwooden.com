@@ -110,35 +110,51 @@
 		if (!$this-><?php echo $currentModelName; ?>->exists($id)) {
 			throw new NotFoundException(__('Invalid <?php echo strtolower($singularHumanName); ?>'));
 		}
-		//required for displaying existing image
-		$params['model'] = '<?php echo $currentModelName; ?>';
+		//required for displaying existing images via helper
+		$params['model'] = "<?php echo $currentModelName; ?>";
+		
 		//image upload params
 		$params['uploadImages'] = $this-><?php echo $currentModelName; ?>->uploadImages;
 		
 		if ($this->request->is(array('post', 'put'))) {
 			//check if user is trying to upload new image(s), otherwise keep the existing image
-			foreach($this->request->data['<?php echo $currentModelName; ?>'] as $key => $val) {
-				//check if new images are being uploaded
-				if (is_array($val) && array_key_exists('tmp_name', $val)) {
-					//no image
-					if (empty($val['tmp_name'])) {
-						//user will keep the existing image
-						//remove the field from array to prevent overwritting of the existing value
-						unset($this->request->data['<?php echo $currentModelName; ?>'][$key], $params['uploadImages'][$key]);
-						$data = $this->request->data;
-						//exit(debug($data));
+			//match up model against post data
+			foreach($params['uploadImages'] as $key => $uploadImage) {
+				//check if request data contains any of the image fields
+				if (!empty($this->request->data['<?php echo $currentModelName; ?>'][$key])) {
+					//check if a file for the image field has been uploaded
+					if (!empty($this->request->data['<?php echo $currentModelName; ?>'][$key]['tmp_name'])) {
+						//file exists and is not empty
+						//there's at least one pair (it could be more, but it's enough to know there's at least one match)
+						$params['updateImages'] = true;
 					} else {
-						//image file found
-						$params['updateImages'] = true;	
+						//file exists, but it's empty - we need to remove it from the model and post array
+						unset($this->request->data['<?php echo $currentModelName; ?>'][$key], $params['uploadImages'][$key]);
+					}
+				} else {
+					//check if the image field is using another image for source (like thumbnails use large image as their source)
+					if (!empty($params['uploadImages'][$key]['source'])) {
+						//check if the source field is not empty
+						if(!empty($this->request->data['<?php echo $currentModelName; ?>'][$params['uploadImages'][$key]['source']]['tmp_name'])) {
+							$params['updateImages'] = true;	
+						} else {
+							//source field is empty, delete it from model and post array
+							unset($this->request->data['<?php echo $currentModelName; ?>'][$key], $params['uploadImages'][$key]);		
+						}
+					} else {					
+						//the file doesn't match the model (it doesn't exist) and/or the source for another image is empty - remove them from model and post array
+						unset($this->request->data['<?php echo $currentModelName; ?>'][$key], $params['uploadImages'][$key]);	
 					}
 				}
+				//if no images are selected for updating, assign data variable for saving
+				$data = $this->request->data;
 			}	
 		
-			if (array_key_exists('updateImages',$params)) {
+			if (!empty($params['updateImages'])) {
 				//send form data to model for validation
-				$this->{$params['model']}->set($this->request->data);
+				$this-><?php echo $currentModelName; ?>->set($this->request->data);
 				//validate form data
-				if (!$this->{$params['model']}->validates($this-><?php echo $currentModelName; ?>->validate)) {
+				if (!$this-><?php echo $currentModelName; ?>->validates($this-><?php echo $currentModelName; ?>->validate)) {
 					//display validation message
 					$errors = $this-><?php echo $currentModelName; ?>->validationErrors;
 				} else {
