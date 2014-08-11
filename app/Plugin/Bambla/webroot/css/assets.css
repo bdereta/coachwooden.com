@@ -134,10 +134,35 @@ option { font-size:120%; padding:0 3px; }
 
 input[type=checkbox] { clear:left; margin:0px 6px 7px 2px; width:auto; }
 div.checkbox label { display:inline; width:160px!important;}
+.multiple_checks { float:left; margin-right:20px; }
+.multiple_checks label { text-align:left; width:auto!important; padding-right:10px!important; }
+
 input[type=radio] { float:left; width:auto; margin:6px 0; padding:0; line-height:26px; }
 
 .radio label { margin:0 0 6px 20px; line-height:26px; }
 input[type=submit] { display:inline; font-size:110%; width:auto; }
+
+.input-prepend, .input-append { margin-bottom: 5px; }
+.input-prepend input, .input-append input, .input-prepend select, .input-append select, .input-prepend .uneditable-input, .input-append .uneditable-input {
+*margin-left:0; -webkit-border-radius: 0 3px 3px 0; -moz-border-radius: 0 3px 3px 0; border-radius: 0 3px 3px 0; }
+.input-prepend input:focus, .input-append input:focus, .input-prepend select:focus, .input-append select:focus, .input-prepend .uneditable-input:focus, .input-append .uneditable-input:focus { position: relative; z-index: 2; }
+.input-prepend .uneditable-input, .input-append .uneditable-input { border-left-color: #ccc; }
+.input-prepend .add-on, .input-append .add-on { display: inline-block; width: auto; min-width: 16px; height: 18px; padding: 4px; font-weight: normal; text-align: center; text-shadow: 0 1px 0 #ffffff; vertical-align: middle; background-color: #eeeeee; border: 1px solid #ccc; margin:0; }
+.input-prepend .add-on, .input-append .add-on, .input-prepend .btn, .input-append .btn { -webkit-border-radius: 3px 0 0 3px; -moz-border-radius: 3px 0 0 3px; border-radius: 3px 0 0 3px; }
+.input-prepend .active, .input-append .active { background-color: #a9dba9; border-color: #46a546; }
+.input-prepend .add-on, .input-prepend .btn { margin-right: -1px; margin-top:-4px; }
+.input-append input, .input-append select .uneditable-input { -webkit-border-radius: 3px 0 0 3px; -moz-border-radius: 3px 0 0 3px; border-radius: 3px 0 0 3px; }
+.input-append .uneditable-input { border-left-color: #eee; border-right-color: #ccc; }
+.input-append .add-on, .input-append .btn { margin-left: -4px; -webkit-border-radius: 0 3px 3px 0; -moz-border-radius: 0 3px 3px 0; border-radius: 0 3px 3px 0; }
+.input-prepend.input-append input, .input-prepend.input-append select, .input-prepend.input-append .uneditable-input { -webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0; }
+.input-prepend.input-append .add-on:first-child, .input-prepend.input-append .btn:first-child { -webkit-border-radius: 4px 0 0 4px;
+  -moz-border-radius: 4px 0 0 4px;
+  -ms-border-radius: 4px 0 0 4px;
+  -o-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
+  margin-right: -1px; }
+.input-prepend.input-append .add-on:last-child, .input-prepend.input-append .btn:last-child { margin-left: -4px; -webkit-border-radius: 0 3px 3px 0; -moz-border-radius: 0 3px 3px 0; border-radius: 0 3px 3px 0; }
+
 
 /* Form errors */
 form .error { background:#FFDACC; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; font-weight:normal; }
@@ -163,12 +188,16 @@ p.error em { font-weight:normal; line-height:140%; }
 .close { float:right; font-size:20px; font-weight:bold; line-height:18px; color:#000; text-shadow:0 1px 0 #fff; opacity:0.2; filter:alpha(opacity=20); }
 .close:hover { color:#000; text-decoration:none; opacity:0.4; filter:alpha(opacity=40); cursor:pointer; }
 
-
+.textarea_label { width:175px; text-align:right; float:left; }
+.textarea_container { width:950px!important; margin-left:15px; float:left; }
 
 label, input, button, select, textarea { font-size:13px; font-weight:normal; line-height:18px; display:block; margin-bottom:3px; }
 input, button, select, textarea { font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; }
 .input label { display:block; margin-bottom:5px; color:#333; float:left; width:175px; padding-right:20px; text-align:right; }
 input, textarea, select, .uneditable-input { display:inline-block; height:18px; padding:4px; font-size:13px; line-height:18px; color:#555; border:1px solid #ccc; -webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px; margin-left:0; }
+.text input { min-width:250px; }
+input.antibot { min-width:105px!important; }
+
 .uneditable-textarea { width:auto; height:auto; }
 label input, label textarea, label select { display:block; }
 input[type="image"], input[type="checkbox"], input[type="radio"] { width:auto; height:auto; padding:0; margin:3px 0; *margin-top:0; line-height:normal; cursor:pointer; -webkit-border-radius:0; -moz-border-radius:0; border-radius:0; border:0 \9; }
@@ -178,7 +207,7 @@ input[type="button"], input[type="reset"], input[type="submit"] { width:auto; he
 
 select, input[type="file"] { height:28px; *margin-top:4px; line-height:28px; }
 select[multiple], select[size] { height:auto; }
-textarea { height:auto; }
+textarea { height:auto; width:79.6%!important; }
 
 input[type="hidden"] { display:none; }
 .radio, .checkbox { padding-left:18px; }
