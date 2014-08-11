@@ -21,27 +21,7 @@ class StaticPagesController extends AppController {
 	
 	public function home() {}
 
-	// SOCIAL MEDIA EXAMPLES
-	
-	/*
-	public function instagram() {
-		$instagram = $this->Instagram->get_content(array('user_id' => 47859376));
-		$this->set('instagram',$instagram);
-	}
-	
-	public function twitter() {
-		$twitter = $this->Twitter->get_content(array('username' => 'StephenAtHome'));		
-		$this->set('twitter',$twitter);
-	}
-	
-	public function facebook() {
-		$facebook = $this->Facebook->get_content(array('user_id' => '320576454965', 'debug_mode' => true));
-		$this->set('facebook',$facebook);
-	}
-	
-	public function youtube() {
-		$youtube = $this->Youtube->get_content(array('playlist_id' => 'PLUgBH9QfAOkXeRgLEJkLJ-Qh1i88zWwi2', 'debug_mode' => true));
-		$this->set('youtube',$youtube);
-	}
-	*/
+	public function scrapbook() {}
+
+	public function bill_walton_speaks() {}
 }

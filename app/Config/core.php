@@ -7,14 +7,14 @@ $dev_hosts = array('localhost');
 define('IS_PROD', (isset($_SERVER['HTTP_HOST']) && !in_array($_SERVER['HTTP_HOST'], $dev_hosts)) ? true : false);
 
 //security (every instance of cakePHP should have unique Salt and chiperSeed
-$security_salt = 'DYhG93b0qyJfdfg3rgVoUubWwvniR2G0FgaC9mi';
-$security_cipherSeed = '7685923423745234123424967414149683645';
+$security_salt = 'DYhVoUubG9fg3rgWwvniR2G03b0qyJfdFgaC9mi';
+$security_cipherSeed = '7667418234123424941495923423745683645';
 
 //timezone
 $default_time_zone = 'UTC';
 
 //set debug mode6
-$debug_mode = (IS_PROD) ? 0 : 2;
+$debug_mode = (IS_PROD) ? 2 : 2;
 //$debug_mode = 2;
 
 //debug mode
