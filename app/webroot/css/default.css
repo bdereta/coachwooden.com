@@ -77,17 +77,54 @@ footer { height:250px; padding-top:51px; text-align:center; }
 
 /* Page Titles
 ================================================== */
-.page_titles { height:250px; padding-top:55px; text-align:center; background:url(../img/decorative_line_long.png) no-repeat top center; }
+.page_titles { height:200px; padding-top:55px; text-align:center; background:url(../img/decorative_line_long.png) no-repeat top center; }
 .page_titles h1 { font-size:142px; color:#e4e2e0; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; text-transform:uppercase; margin:0 0 10px 0; line-height:150px; }
 .page_titles span { font-size:18px; color:#bf9f67; font-family:Georgia, serif; text-transform:capitalize; font-style:italic; text-shadow:1px 1px 1px #000; margin:0; }
-.page_titles.photo h1 { font-size:75px; }
-.page_titles.speaks h1 { font-size:75px; }
-.page_titles.speaks h1 span { font-family:Georgia, serif; }
+.page_titles h1.photo { font-size:142px; }
+.page_titles h1.speaks { font-size:75px; line-height:95px; }
+.page_titles h1.speaks img { vertical-align: super; }
+.page_titles h1.game { font-size:90px; line-height:95px; margin-top:-10px; }
+.page_titles h1.game span { font-size:90px; vertical-align:text-top; font-family:Georgia, serif; font-style:normal; color:#e4e2e0; }
 
 
-
-/* Photo Gallery
+/* Bill Walton Speaks
 ================================================== */
+.speaks_text { width:800px; height:360px; margin-top:25px; text-align:right; }
+.speaks_text p { font-family:Georgia, serif; font-style:italic; font-size:30px; color:#b0a492; }
+.speaks_text p b { color:#ccb475; font-weight:bold; }
+.speaks_text span { font-family:Georgia, serif; font-style:italic; font-size:18px; color:#6ab5c9; }
+.speak_video { width:1180px; height:694px; padding:34px 33px; background:url(../img/speak_video.jpg) no-repeat; margin-top:90px; padding-bottom:70px; }
+
+
+/* Favorite Maxims
+================================================== */
+.video_thumbs_container { padding-bottom:75px; }
+.video_thumbs { width:313px; height:265px; padding:25px 26px 0 26px; background:url(../img/bg_video.png) no-repeat; margin:25px; float:left; }
+.video_thumbs:hover { background:url(../img/bg_video_hover.png) no-repeat; }
+.video_thumbs .img {  width:313px; height:186px; margin-bottom:35px; opacity:.5; }
+.video_thumbs p { font-size:18px; line-height:23px; color:#f4e5cc; font-family:Georgia, serif; font-style:italic; width:313px; text-overflow:ellipsis; white-space:nowrap; overflow:hidden; }
+.video_thumbs:hover p { color:#fff; }
+.video_thumbs:hover .img { opacity:1; }
+.video_thumbs .btn_play { position:absolute; top:28%; left:50%; margin-left:-40px; z-index:99; width:81px; height:81px; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
+.video_thumbs:hover .btn_play { display:none; }
+
+
+/* Mcdonalds
+================================================== */
+.game_text { padding:0 0 50px 0; }
+.game_text h2 { font-size:30px; color:#dccc9b; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; line-height:35px; margin-bottom:35px; }
+.game_text p { font-size:24px; color:#fff; font-family:Georgia, serif; line-height:30px; }
+.game_text img { margin:0 75px 25px 0; }
+.mcdonalds_players { z-index:999; position:absolute; bottom:0; left:50%; margin-left:-258px;  }
+.clothesline_line { position:absolute; bottom:5px; left:50%; margin-left:-605px; }
+
+h2.title_game { font-size:30px; color:#dcbf78; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; margin:50px 0 0 0; }
+
+.btn_game { font-size:14px; color:#6b5a3d; font-family:Georgia, serif; line-height:50px; text-shadow: 1px 1px 10px rgba(0,0,0,1.00); -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
+.btn_game span { margin-left:5px; padding:15px 11px 14px 11px; background:url(../img/hex_white.png) no-repeat center; color:#434343; text-shadow:none; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
+.btn_game:hover { color:#fff; }
+.btn_game:hover span { background:url(../img/hex_blue.png) no-repeat center; color:#19272a; }
+
 
 
 

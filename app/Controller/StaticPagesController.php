@@ -24,4 +24,9 @@ class StaticPagesController extends AppController {
 	public function scrapbook() {}
 
 	public function bill_walton_speaks() {}
+	
+	public function favorite_maxims() {}
+	
+	public function mcdonalds_all_american_game () {}
+	
 }

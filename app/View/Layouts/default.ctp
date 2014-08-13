@@ -38,7 +38,7 @@
 							<li><p>bill walton</p><?php echo $this->Html->link('Speaks', array('controller' => 'StaticPages', 'action' => 'bill_walton_speaks')); ?></li>
 							<li><p>pyramid of</p><?php echo $this->Html->link('Success', array('controller' => 'StaticPages', 'action' => 'pyramid_of_success')); ?></li>
 							<li><p>coach's</p><?php echo $this->Html->link('bookstore', array('controller' => 'StaticPages', 'action' => 'coach_bookstore')); ?></li>
-							<li><p>mcdonald's</p><?php echo $this->Html->link('all american', array('controller' => 'StaticPages', 'action' => 'mcdonalds_all_american')); ?></li>
+							<li><p>mcdonald's</p><?php echo $this->Html->link('all american', array('controller' => 'StaticPages', 'action' => 'mcdonalds_all_american_game')); ?></li>
 							<li><p>scrap</p><?php echo $this->Html->link('book', array('controller' => 'StaticPages', 'action' => 'scrapbook')); ?></li>
 							<li><p>favorite</p><?php echo $this->Html->link('maxims', array('controller' => 'StaticPages', 'action' => 'favorite_maxims')); ?></li>
 							<li><p>wooden</p><?php echo $this->Html->link('award', array('controller' => 'StaticPages', 'action' => 'wooden_award')); ?></li>

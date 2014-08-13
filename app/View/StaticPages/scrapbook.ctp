@@ -8,7 +8,7 @@ $this->Html->script('photo', array('inline' => false));
 <div class="content">
 	<div class="page_titles photo">
 		<span>Photo</span>
-		<h1>Gallery</h1>
+		<h1 class="photo">Gallery</h1>
 		<?php echo $this->Html->image('decorative_line_long.png', array('alt' => 'separator')); ?>
 	</div>
 	<div class="clear"></div>

@@ -1,36 +1,20 @@
-<?php
-$this->Html->css('jquery.bxslider', array('inline' => false));
-$this->Html->script('jquery.bxslider.min', array('inline' => false));
-$this->Html->script('photo', array('inline' => false));
-?>
-
-
 <div class="content">
 	<div class="page_titles">
 		<span>Bill Walton:</span>
-		<h1 class="speaks"><span>"</span>WHAT COACH TAUGHT ME<span>"</span></h1>
+		<h1 class="speaks"><?php echo $this->Html->image('quote1.png', array('alt' => 'quote')); ?> WHAT COACH TAUGHT ME <?php echo $this->Html->image('quote2.png', array('alt' => 'end quote')); ?></h1>
 		<?php echo $this->Html->image('decorative_line_long.png', array('alt' => 'separator')); ?>
 	</div>
 	<div class="clear"></div>
-	<div id="photo">
-		<div class="photo_slider">
-			<div class="slide">
-				<?php echo $this->Html->link($this->Html->image("temp_photo.jpg", array("alt" => "title")),'https://link.com', array('target' => '_blank','escape' => false)); ?>
-				<div class="cap_btn"><a class="trigger" href="#">Info</a></div>
-				<div class="panel">
-					<p class="photo_number"><span>1</span>/20</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-				</div>
-			</div>
-			<div class="slide">
-				<?php echo $this->Html->link($this->Html->image("temp_photo.jpg", array("alt" => "title")),'https://link.com', array('target' => '_blank','escape' => false)); ?>
-				<div class="cap_btn"><a class="trigger" href="#">Info</a></div>
-				<div class="panel">
-					<p class="photo_number"><span>2</span>/20</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-				</div>
-			</div>
-		</div>
+	<?php echo $this->Html->image('header_speaks.png', array('alt' => 'Coach next to young Bill Walton, Photo of Bill Walton dunking a ball')); ?><br><br><br>
+
+	<?php echo $this->Html->image('speaks_photo.png', array('alt' => 'Adult Bill Walton next to aged Coach', 'class'=>'float_left')); ?>
+	<div class="speaks_text float_right">
+		<p>“Coach Wooden never talked about winning and losing, but rather about the <b>effort to win</b>. He rarely talked about basketball, but generally <b>about life</b>. He never talked about strategy, statistics or plays, but rather about <b>people and character</b>. Coach Wooden never tired of telling us that once you <b>become a good person</b>, then you have a chance of becoming a good basketball player.”</p>
+		<span>- Bill Walton</span>
+	</div>
+	<div class="clear"></div>
+	<div class="speak_video">
+		<iframe width="1180" height="694" src="//www.youtube.com/embed/T1WOjpegGyA" frameborder="0" allowfullscreen></iframe>
 	</div>
 	<div class="clear"></div>
 </div>

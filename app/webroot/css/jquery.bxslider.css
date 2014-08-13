@@ -68,7 +68,7 @@
 
 
 /* Photo Slider */
-#photo .bx-wrapper { position: relative; margin: 0 0 120px 0; padding: 0; *zoom: 1; }
+#photo .bx-wrapper { position: relative; margin: 50px 0 120px 0; padding: 0; *zoom: 1; }
 
 #photo .bx-wrapper .bx-viewport { background:url(../img/bg_photo_slider.jpg) no-repeat left top; padding:25px; }
 #photo .bx-wrapper .bx-viewport .slide { width:1196px; height:746px; position:relative; }
@@ -90,6 +90,20 @@ a.trigger{ font-size:13px; color:rgba(139,118,82,1); font-family:"gist_upright_e
 a.trigger:hover{ color:rgba(255,255,255,1); }
 a.active.trigger { background:url(../img/close_brown.png) center no-repeat; text-indent:-999999px; }
 a.active.trigger:hover { background:url(../img/close.png) center no-repeat; text-indent:-999999px; }
+
+
+
+/* McDonald's Game */
+#clothesline { height:725px; background:url(../img/game_clothesline.png) no-repeat center 62px; z-index:1; }
+#clothesline .centered { margin:0 auto; width:1078px; height:412px; position:relative; }
+#clothesline .bx-wrapper { position: relative; margin: 0 auto; padding: 0; *zoom: 1; }
+#clothesline .bx-wrapper .bx-viewport img { text-align:center; }
+
+#clothesline .bx-wrapper .bx-prev { left:-102px; background:url(../img/arrows_large.png) no-repeat top left; }
+#clothesline .bx-wrapper .bx-next { right:-102px; background:url(../img/arrows_large.png) no-repeat top right; }
+#clothesline .bx-wrapper .bx-prev:hover { background:url(../img/arrows_large_hover.png) no-repeat top left; }
+#clothesline .bx-wrapper .bx-next:hover { background:url(../img/arrows_large_hover.png) no-repeat top right; }
+#clothesline .bx-wrapper .bx-controls-direction a { position: absolute; top: 50%; margin-top:-25px; outline: 0; width:62px; height:72px; text-indent: -9999px; z-index: 9999; }
 
 
 
