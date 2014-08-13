@@ -5,13 +5,13 @@
 				<ul class="nav pull-left">
 					<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-dashboard"></i>Admin Menu <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><?php echo $this->Html->link('Page Seo', array('controller' => 'Pages', 'action'=>'index', 'admin' => true)); ?></li>
+							<li><?php echo $this->Html->link('Meta Data', array('controller' => 'MetaData', 'action'=>'index', 'admin' => true)); ?></li>
 							<li><?php echo $this->Html->link('Users', array('controller' => 'Users', 'action'=>'index', 'admin' => true)); ?></li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="nav pull-right">
-					<li><?php echo $this->Html->link('<i class="icon-home"></i> View Site', array('controller'=>'StaticPages', 'action'=>'home', 'admin'=>false), array('escape' => false)); ?></li>
+					<li><?php echo $this->Html->link('<i class="icon-home"></i> View Site', array('controller'=>'Pages', 'action'=>'home', 'admin'=>false), array('escape' => false)); ?></li>
 					<li><?php echo $this->Html->link('<i class="icon-user"></i>Logout',array('controller' => 'Users', 'action'=>'logout', 'admin' => false), array('escape' => false)); ?></li>
 				</ul>
 			</div>

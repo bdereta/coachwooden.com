@@ -1,11 +1,11 @@
 <?php
 
 //admin default
-Router::connect('/admin', array('controller' => 'pages', 'action' => 'index', 'admin' => true));
+Router::connect('/admin', array('controller' => 'Metadata', 'action' => 'index', 'admin' => true));
 
 //static pages
-Router::connect('/', array('controller' => 'StaticPages', 'action' => 'home', 'admin' => false));
-Router::connect('/:action', array('controller' => 'StaticPages', 'action' => ':action', 'admin' => false));
+Router::connect('/', array('controller' => 'pages', 'action' => 'home', 'admin' => false));
+Router::connect('/:action', array('controller' => 'pages', 'action' => ':action', 'admin' => false));
 
 CakePlugin::routes();
 

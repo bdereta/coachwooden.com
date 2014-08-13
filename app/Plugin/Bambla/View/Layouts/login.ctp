@@ -3,14 +3,11 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 
-	<title><?php echo $meta['title']; ?></title>
+	<title>Administration Login</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes"> 
 	<?php
-		echo $this->Html->meta('icon');
-		echo $this->Html->meta('description', $meta['description']);
-		echo $this->Html->meta('keywords', $meta['keywords']);
 
 		echo $this->Html->css(array(
 			'Bambla.assets',

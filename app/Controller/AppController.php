@@ -31,7 +31,7 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-	public $uses 		= array('Bambla.Bambla','Page','Section');
+	public $uses 		= array('Bambla.Bambla','Metadata','Section');
 	public $helpers		= array('Bambla.Bambla','Cache','Html','Form');
 	public $components 	= array('Session','Acl','DebugKit.Toolbar',
         'Auth' => array(
@@ -44,12 +44,12 @@ class AppController extends Controller {
 	public function beforeFilter() {
 		
 		//fetch page title, keywords, and description for layout
-		$metum = unserialize($this->Page->fetchPageMetum());
+		$metadata = unserialize($this->Metadata->FetchMetaData());
 		
-		if (!empty($metum)) {
-			$meta = array_key_exists($this->request->params['action'], $metum) 
-				? $metum[$this->request->params['action']] 
-				: $metum['default'];
+		if (!empty($metadata)) {
+			$meta = array_key_exists($this->request->params['action'], $metadata) 
+				? $metadata[$this->request->params['action']] 
+				: $metadata['default'];
 		}
 		
 		//capture all sections 
@@ -62,8 +62,8 @@ class AppController extends Controller {
 		//Configure AuthComponent
 		$this->Auth->authenticate = array(
 			AuthComponent::ALL => array(
-				'loginRedirect' => array('controller' => 'StaticPages', 'action' => 'home'),
-            	'logoutRedirect' => array('controller' => 'StaticPages', 'action' => 'home'),
+				'loginRedirect' => array('controller' => 'pages', 'action' => 'home'),
+            	'logoutRedirect' => array('controller' => 'pages', 'action' => 'home'),
 				'userModel' => 'User',
 				'scope' => array(
 					'User.active' => 1
@@ -78,7 +78,7 @@ class AppController extends Controller {
 		$current_user 	= $this->Auth->user();
 		$is_admin		= ($logged_in && $current_user['group_id'] < 3) ? true : false;
 		
-		$this->set(compact('meta','section','adminNavigation','logged_in','current_user','is_admin'));
+		$this->set(compact('meta','section','adminNavigation','logged_in','is_admin'));
 		
 		$this->Auth->deny();
 	}

@@ -149,7 +149,7 @@ class UsersController extends AppController {
 		//allow users to only add and edit on posts and widgets
 		$group->id = 3;
 		$this->Acl->deny($group, 'controllers');
-		$this->Acl->allow($group, 'controllers/StaticPages');
+		$this->Acl->allow($group, 'controllers/pages');
 		echo 'Done!<br>';
 		die();
 		

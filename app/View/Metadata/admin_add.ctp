@@ -1,9 +1,9 @@
-<div class="pages form">
-<?php echo $this->Form->create('Page'); ?>
+<div class="metadata form">
+<?php echo $this->Form->create('Metadata'); ?>
 	<fieldset>
-		<legend><?php echo __('Add Page SEO'); ?></legend>
+		<legend><?php echo __('Add Meta Data'); ?></legend>
 	<?php
-		echo $this->Form->input('name');
+		echo $this->Form->input('page_name');
 		echo $this->Form->input('title');
 		echo $this->Form->input('description');
 		echo $this->Form->input('keywords');

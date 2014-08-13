@@ -3,20 +3,19 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 
-	<title><?php echo $meta['title']; ?></title>
+	<title>Content Management System</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 
 	<?php
-		echo $this->Html->meta('icon');
-		echo $this->Html->meta('description', $meta['description']);
-		echo $this->Html->meta('keywords', $meta['keywords']);
-
+		
+		//css
 		echo $this->Html->css(array(
 			'Bambla.assets',
 			'Bambla.fonts/stylesheet',
 		));
-
+		
+		//js
 		echo $this->Html->script(array(
 			'//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',
 			'Bambla.ckeditor/ckeditor',
