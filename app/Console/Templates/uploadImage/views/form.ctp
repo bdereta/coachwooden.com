@@ -30,7 +30,7 @@
 				echo "\t\techo \$this->Form->input('{$field}');\n";
 			}
 		}
-		echo "\n\t\tif (isset(\$params)) {\n\t\t\tif (array_key_exists('uploadImages', \$params)) {\n\t\t\t\techo \$this->Bambla->uploadImages(\$params);\n\t\t}\n\t}";
+		echo "\n\t\tif (isset(\$params)) {\n\t\t\tif (array_key_exists('uploadImages', \$params)) {\n\t\t\t\techo \$this->ImageTools->uploadImages(\$params);\n\t\t}\n\t}";
 		
 		if (!empty($associations['hasAndBelongsToMany'])) {
 			foreach ($associations['hasAndBelongsToMany'] as $assocName => $assocData) {

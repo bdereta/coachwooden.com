@@ -10,7 +10,6 @@
 		echo $this->Html->meta('description', $meta['description']);
 		echo $this->Html->meta('keywords', $meta['keywords']);
 
-		echo $this->Html->css('Bambla.layout');
 		echo $this->Html->css('Bambla.assets');
 		echo $this->Html->css('Bambla.fonts/stylesheet');
 

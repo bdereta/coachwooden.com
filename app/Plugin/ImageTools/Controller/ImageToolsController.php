@@ -2,8 +2,8 @@
 
 App::uses('AppController', 'Controller');
 
-class ImagesController extends BamblaAppController {
-
+class ImageToolsController extends AppController {
+	
 	public $components = array('Session');
 	
 	public function beforeFilter() {
@@ -12,19 +12,19 @@ class ImagesController extends BamblaAppController {
 	}
 		
 	public function crop() {
-		$this->layout = 'Bambla.crop';
-		if ($this->Session->check('Bambla.postData')){		
-			$data = $this->Session->read('Bambla.postData');
+		$this->layout = 'ImageTools.crop';
+		if ($this->Session->check('ImageTools.postData')){		
+			$data = $this->Session->read('ImageTools.postData');
 			$count = 0;
 			//process cropped image
 			if ($this->request->is('post')) {
-				$label = $this->request->data['Image']['label'];
-				$count = $this->request->data['Image']['count'];
-				$result = $this->Image->cropImage($this->request->data);
+				$label = $this->request->data['ImageTool']['label'];
+				$count = $this->request->data['ImageTool']['count'];
+				$result = $this->ImageTool->cropImage($this->request->data);
 				$data['crop'][$label]['cropped'] = 1;
 				$count++;
-				$this->Session->delete('Bambla.postData');
-				$this->Session->write('Bambla.postData', $data);
+				$this->Session->delete('ImageTools.postData');
+				$this->Session->write('ImageTools.postData', $data);
 			}
 			if (!empty($data['crop'])) {
 				$total = count($data['crop']);
@@ -54,8 +54,7 @@ class ImagesController extends BamblaAppController {
 			$this->Session->setFlash(__('Error: Image data is missing.'));
 			$this->redirect('/');
 		}
-		
-
 	}
+	
 
 }

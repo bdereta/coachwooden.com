@@ -77,11 +77,11 @@
 			}
 		}
 		//save data
-		if ($this->Session->check('Bambla.postData')) {
+		if ($this->Session->check('ImageTools.postData')) {
 			//capture session
-			$session = $this->Session->read('Bambla.postData');
+			$session = $this->Session->read('ImageTools.postData');
 			$data['<?php echo $currentModelName; ?>'] = $session['uploadedData'];
-			$this->Session->delete('Bambla.postData');	
+			$this->Session->delete('ImageTools.postData');	
 			//save data to db
 			if (isset($data) && array_key_exists('<?php echo $currentModelName; ?>', $data)) {
 				$this-><?php echo $currentModelName; ?>->create();
@@ -167,11 +167,11 @@
 		} 
 		
 		//save data
-		if ($this->Session->check('Bambla.postData')) {
+		if ($this->Session->check('ImageTools.postData')) {
 			//capture session
-			$session = $this->Session->read('Bambla.postData');
+			$session = $this->Session->read('ImageTools.postData');
 			$data['<?php echo $currentModelName; ?>'] = $session['uploadedData'];
-			$this->Session->delete('Bambla.postData');		
+			$this->Session->delete('ImageTools.postData');		
 		}
 		
 		//save data to db

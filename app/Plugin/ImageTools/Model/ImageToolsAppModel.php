@@ -1,11 +1,9 @@
 <?php
+
 App::uses('AppModel', 'Model');
-/**
- * Image Model
- *
- */
-class Image extends AppModel {
-	
+
+class ImageToolsAppModel extends AppModel {
+
 	public $useTable = false;
 	
 	public function upload($params) {
@@ -70,13 +68,13 @@ class Image extends AppModel {
 	}
 
 	public function cropImage(array $data=NULL) {
-		$source = 'img/uploads/'.$data['Image']["filename"];
-		$x1 = !empty($data['Image']["x1"]) ? $data['Image']["x1"] : 0;
-		$y1 = !empty($data['Image']["y1"]) ? $data['Image']["y1"] : 0;
-		$w = !empty($data['Image']["w"]) ? $data['Image']["w"] : $data['Image']["width"];
-		$h = !empty($data['Image']["h"]) ? $data['Image']["h"] : $data['Image']["height"];
-		$width = $data['Image']["width"];
-		$height = $data['Image']["height"];		
+		$source = 'img/uploads/'.$data['ImageTool']["filename"];
+		$x1 = !empty($data['ImageTool']["x1"]) ? $data['ImageTool']["x1"] : 0;
+		$y1 = !empty($data['ImageTool']["y1"]) ? $data['ImageTool']["y1"] : 0;
+		$w = !empty($data['ImageTool']["w"]) ? $data['ImageTool']["w"] : $data['ImageTool']["width"];
+		$h = !empty($data['ImageTool']["h"]) ? $data['ImageTool']["h"] : $data['ImageTool']["height"];
+		$width = $data['ImageTool']["width"];
+		$height = $data['ImageTool']["height"];		
 		$scale = $width/$w;
 		$cropped = $this->cropIt($destination=$source,$source,$w,$h,$x1,$y1,$scale);
 		return true;
