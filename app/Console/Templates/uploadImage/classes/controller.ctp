@@ -27,7 +27,7 @@ echo "App::uses('{$plugin}AppController', '{$pluginPath}Controller');\n";
 <?php
 
 //add 'ImageProcessor' component
-$components[] = 'ImageProcessor';
+$components[] = 'Bambla.ImageProcessor';
 
 if (!$isScaffold) {
 	$defaultModel = Inflector::singularize($controllerName);
