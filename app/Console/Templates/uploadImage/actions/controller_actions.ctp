@@ -73,7 +73,7 @@
 				//capture post data
 				$params['requestData'] = $this->request->data['<?php echo $currentModelName; ?>'];
 				//process images via Component
-				$result = $this->ImageProcessor->process($params);
+				$result = $this->ImageTools->process($params);
 			}
 		}
 		//save data
@@ -161,7 +161,7 @@
 					//capture post data
 					$params['requestData'] = $this->request->data['<?php echo $currentModelName; ?>'];
 					//process images via Component
-					$result = $this->ImageProcessor->process($params);
+					$result = $this->ImageTools->process($params);
 				}
 			}
 		} 
