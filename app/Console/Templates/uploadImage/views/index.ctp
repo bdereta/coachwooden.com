@@ -57,6 +57,8 @@
 				$dateRelatedFields = array('modified', 'created', 'updated');
 				if (in_array($field, $dateRelatedFields)) {
 					echo "\t\t<td><?php echo \$this->Time->format('m/d/y - g:i A', \${$singularVar}['{$modelClass}']['{$field}']); ?>&nbsp;</td>\n";
+				} elseif(preg_match('/image/',$field)) {
+					echo "\t\t<td><?php echo \$this->Html->image('uploads/'.\${$singularVar}['{$modelClass}']['{$field}'], array('width' => 120)); ?>&nbsp;</td>\n";
 				} else {
 					echo "\t\t<td><?php echo h(\${$singularVar}['{$modelClass}']['{$field}']); ?>&nbsp;</td>\n";
 				}

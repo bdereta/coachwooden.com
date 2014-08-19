@@ -7,8 +7,8 @@ Router::connect('/admin', array('controller' => 'Metadata', 'action' => 'index',
 Router::connect('/ImageTools/ImageTools/:action', array('controller' => 'ImageTools', 'action' => ':action', 'plugin' => 'ImageTools'));
 
 //static pages
-Router::connect('/', array('controller' => 'pages', 'action' => 'home', 'admin' => false));
-Router::connect('/:action', array('controller' => 'pages', 'action' => ':action', 'admin' => false));
+Router::connect('/', array('controller' => 'Pages', 'action' => 'home', 'admin' => false));
+Router::connect('/:action', array('controller' => 'Pages', 'action' => ':action', 'admin' => false));
 
 CakePlugin::routes();
 

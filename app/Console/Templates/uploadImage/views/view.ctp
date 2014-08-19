@@ -34,7 +34,11 @@ foreach ($fields as $field) {
 	}
 	if ($isKey !== true) {
 		echo "\t\t<dt><?php echo __('" . Inflector::humanize($field) . "'); ?></dt>\n";
-		echo "\t\t<dd>\n\t\t\t<?php echo h(\${$singularVar}['{$modelClass}']['{$field}']); ?>\n\t\t\t&nbsp;\n\t\t</dd>\n";
+		if (preg_match('/image/',$field)) {
+			echo "\t\t<dd>\n\t\t\t<?php echo \$this->Html->image('uploads/'.\${$singularVar}['{$modelClass}']['{$field}'], array('width' => 120)); ?>\n\t\t\t&nbsp;\n\t\t</dd>\n";
+		} else {
+			echo "\t\t<dd>\n\t\t\t<?php echo h(\${$singularVar}['{$modelClass}']['{$field}']); ?>\n\t\t\t&nbsp;\n\t\t</dd>\n";
+		}
 	}
 }
 ?>
