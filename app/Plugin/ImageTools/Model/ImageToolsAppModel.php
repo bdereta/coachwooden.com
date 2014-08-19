@@ -31,10 +31,10 @@ class ImageToolsAppModel extends AppModel {
 			$ext = pathinfo($data['name'], PATHINFO_EXTENSION);
 			$new_name	= uniqid() . '.' . $ext;
 			$targetFile = rtrim($targetPath,'/') . '/' . $new_name;
-			if (@move_uploaded_file($tempFile,$targetFile)) {
+			if (move_uploaded_file($tempFile,$targetFile)) {
 				return $new_name;
 			} else {
-				return false;
+				throw new InternalErrorException('Image could not be uploaded. Most likely UPLOADS folder does not exists or is not writable.');
 			}
 		} else {
 			return false;
