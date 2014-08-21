@@ -101,13 +101,14 @@ if (!empty($actsAs)): ?>
 	
 	public $uploadImages = array(
 		//database field name
-		'image_large' => array( 
-			//use existing image source to create this image.
-			//'source' => 'image_large', 
+		'image' => array( 
 			'label' => 'Image',
-			'resize' => array(
-				'width' => 1600, //max width - if image is less than set witdth, it will remain the same width
-				'height' => 800, //max height  - if image is less than set height, it will remain the same height
+			//use existing image source to create this image.
+			//'source' => 'sources_image_field_name', 
+			//max width/height - if image is less than set witdth/height, it will remain the same width/height
+			'resize' => array(	
+				'width' => 1600, 
+				'height' => 800, 
 			),
 			'crop' => array(
 				'width' => 800,
@@ -122,7 +123,7 @@ if (!empty($validate)):
 	echo "\tpublic \$validate = array(\n";
 	
 	//image validation w/othe validations
-	echo "\t\t'image_large' => array(\n";
+	echo "\t\t'image' => array(\n";
 	echo "\t\t\t'file_type' => array('rule' => array('extension', array('gif', 'jpeg', 'png', 'jpg')), 'message' => 'Please supply a valid image.')\n";
 	echo "\t\t),\n";
 	
@@ -145,7 +146,7 @@ else:
 	echo "\tpublic \$validate = array(\n";
 	
 	//image validation w/othe validations
-	echo "\t\t'image_large' => array(\n";
+	echo "\t\t'image' => array(\n";
 	echo "\t\t\t'file_type' => array('rule' => array('extension', array('gif', 'jpeg', 'png', 'jpg')), 'message' => 'Please supply a valid image.')\n";
 	echo "\t\t),\n";
 	

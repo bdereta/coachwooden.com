@@ -206,17 +206,18 @@ class ViewTask extends BakeTask {
 		$this->Controller->connection = $this->connection;
 		$this->controllerName = $this->Controller->getName();
 
-		$prompt = __d('cake_console', "Would you like bake to build your views interactively?\nWarning: Choosing no will overwrite %s views if it exist.", $this->controllerName);
-		$interactive = $this->in($prompt, array('y', 'n'), 'n');
+		$prompt = __d('cake_console', "Would you like bake to build your views interactively?", $this->controllerName);
+		$interactive = $this->in($prompt, array('y', 'n'), 'y');
 
 		if (strtolower($interactive) === 'n') {
 			$this->interactive = false;
 		}
 
-		$prompt = __d('cake_console', "Would you like to create some CRUD views\n(index, add, view, edit) for this controller?\nNOTE: Before doing so, you'll need to create your controller\nand model classes (including associated models).");
+		$prompt = __d('cake_console', "Would you like to create some CRUD views\n(index, add, view, edit) for this controller?\n");
 		$wannaDoScaffold = $this->in($prompt, array('y', 'n'), 'y');
 
-		$wannaDoAdmin = $this->in(__d('cake_console', "Would you like to create the views for admin routing?"), array('y', 'n'), 'n');
+		//$wannaDoAdmin = $this->in(__d('cake_console', "Would you like to create the views for admin routing?"), array('y', 'n'), 'n');
+		$wannaDoAdmin = 'n';
 
 		if (strtolower($wannaDoScaffold) === 'y' || strtolower($wannaDoAdmin) === 'y') {
 			$vars = $this->_loadController();
