@@ -1,4 +1,6 @@
 <?php
+
+
 /**
  * Model template file.
  *
@@ -96,9 +98,12 @@ if (!empty($actsAs)): ?>
  * @resize array('width', 'height') [optional] - if set, the image will be resized if it's larger than the set width/height. You can set
  * @crop array('width', 'height') [optional] - if set, the image will be send to cropping after it's resized (if set)
  */
-	/*
+	
 	public $uploadImages = array(
-		'image_large' => array( //database field name
+		//database field name
+		'image_large' => array( 
+			//use existing image source to create this image.
+			//'source' => 'image_large', 
 			'label' => 'Image',
 			'resize' => array(
 				'width' => 1600, //max width - if image is less than set witdth, it will remain the same width
@@ -109,32 +114,18 @@ if (!empty($actsAs)): ?>
 				'height' => 600				
 			),
 		),
-		'image_thumb' => array( //database field name
-			'source' => 'image_large', //use image_large source to create this image.
-			'resize' => array(
-				'width' => 800, //max width - if image is less than set witdth, it will remain the same width
-				'height' => 1200, //max height  - if image is less than set height, it will remain the same height
-			),
-			'crop' => array(
-				'width' => 120,
-				'height' => 120				
-			),
-		),
 	);
 	
-	public $validate = array(
-		'image_large' => array(
-            'file_type' => array('rule' => array('extension', array('gif', 'jpeg', 'png', 'jpg')), 'message' => 'Please supply a valid image.'),
-        ),
-		'image_thumb' => array(
-			'file_type' => array('rule' => array('extension', array('gif', 'jpeg', 'png', 'jpg')), 'message' => 'Please supply a valid image.'),
-		),		
-	);*/
-
-
-<?php if (!empty($validate)):
+<?php 
+if (!empty($validate)):
 	echo "/**\n * Validation rules\n *\n * @var array\n */\n";
 	echo "\tpublic \$validate = array(\n";
+	
+	//image validation w/othe validations
+	echo "\t\t'image_large' => array(\n";
+	echo "\t\t\t'file_type' => array('rule' => array('extension', array('gif', 'jpeg', 'png', 'jpg')), 'message' => 'Please supply a valid image.')\n";
+	echo "\t\t),\n";
+	
 	foreach ($validate as $field => $validations):
 		echo "\t\t'$field' => array(\n";
 		foreach ($validations as $key => $validator):
@@ -150,6 +141,16 @@ if (!empty($actsAs)): ?>
 		echo "\t\t),\n";
 	endforeach;
 	echo "\t);\n";
+else:
+	echo "\tpublic \$validate = array(\n";
+	
+	//image validation w/othe validations
+	echo "\t\t'image_large' => array(\n";
+	echo "\t\t\t'file_type' => array('rule' => array('extension', array('gif', 'jpeg', 'png', 'jpg')), 'message' => 'Please supply a valid image.')\n";
+	echo "\t\t),\n";
+	
+	echo "\t);\n";
+
 endif;
 
 foreach ($associations as $assoc):
