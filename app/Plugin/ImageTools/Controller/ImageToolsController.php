@@ -4,7 +4,7 @@ App::uses('AppController', 'Controller');
 
 class ImageToolsController extends AppController {
 	
-	public $components = array('Session');
+	public $components = array('Session', 'ImageTools.ImageTools');
 	
 	public function beforeFilter() {
 		parent::beforeFilter();	
@@ -18,9 +18,9 @@ class ImageToolsController extends AppController {
 			$count = 0;
 			//process cropped image
 			if ($this->request->is('post')) {
-				$label = $this->request->data['ImageTool']['label'];
-				$count = $this->request->data['ImageTool']['count'];
-				$result = $this->ImageTool->cropImage($this->request->data);
+				$label = $this->request->data['Crop']['label'];
+				$count = $this->request->data['Crop']['count'];
+				$result = $this->ImageTools->cropImage($this->request->data);
 				$data['crop'][$label]['cropped'] = 1;
 				$count++;
 				$this->Session->delete('ImageTools.postData');
