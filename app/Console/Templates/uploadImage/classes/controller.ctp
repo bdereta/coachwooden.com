@@ -78,9 +78,10 @@ class <?php echo $controllerName; ?>Controller extends <?php echo $plugin; ?>App
 		endfor;
 		echo ");\n\n";
 	endif;
-	echo "\tpublic \$uses = array('$defaultModel','ImageTools.ImageTool');\n\n";
-	
-	echo trim($actions);
+		
+	if (!empty($actions)) {
+		echo trim($actions) . "\n";
+	}
 
 endif; ?>
 }

@@ -30,8 +30,8 @@ function preview(img, selection) {
 <div align="center">
 	<h2><?php echo Inflector::humanize(Inflector::underscore($label));  ?></h2>
 	<h3>You may resize and move selection to define cropping area.</h3>
-	<h4>Cropping <?php echo Inflector::humanize(Inflector::underscore($label)); ?> (<?php echo $count+1; ?> of <?php echo $total; ?>)
-	<p><?php echo $this->Form->create(); ?>
+	<h4>Cropping <?php echo Inflector::humanize(Inflector::underscore($label)); ?> (<?php echo $count+1; ?> of <?php echo $total; ?>)</h4>
+	<p><?php echo $this->Form->create('Crop'); ?>
 	
 	
 	<?php echo $this->Form->submit('Crop and Continue', array('style'=>'width:50%')); ?>

@@ -10,17 +10,18 @@ class ImageToolsComponent extends Component {
 		$this->Controller = $controller;
 	}
 	
-	public function prepare($params) {		
-		//capture url
+	public function process($params) {
+
 		$params['redirect']['controller'] = $this->Controller->request->params['controller'];
 		$params['redirect']['action'] = preg_replace('/^' . preg_quote('admin_', '/') . '/', '', $this->Controller->request->params['action']);
 		$params['redirect']['pass'] = $this->Controller->request->params['pass'];
 		$params['redirect']['admin'] = $this->Controller->request->params['admin'];
+		
 		//upload images
-		$params['uploadedData'] = $this->uploadImages($params);
+		$params['uploadedData'] = $this->upload($params);
 						
 		//copy, resize, prepare crop
-		$data = $this->process($params);
+		$data = $this->processImages($params);
 		
 		//create session to preserve data
 		$this->Session->delete('ImageTools.postData');
@@ -39,25 +40,17 @@ class ImageToolsComponent extends Component {
 			return $data;				
 		}
 	}
-	
-	public function uploadImages($params = array()) {
-		//extract image column names
-		$image_columns = array_keys($params['uploadImages']);
-		//extract request data columns
-		$request_columns = array_keys($params['requestData']);
-		//extract images from request data
-		$images = array_intersect($image_columns, $request_columns);
-		
-		foreach($params['requestData'] as $column => $value) {
-			if (!in_array($column,$images)) {
-				$non_image_column = $column;
-				$non_image_value = $value;
+
+	public function upload($params) {
+		foreach($params['requestData'] as $label=>$value) {
+			//extract image files
+			if (isset($value['size']) && is_int($value['size']) && $value['size'] > 0) {
+				$filename = $this->moveImage($value);
+				if (!empty($filename)) {
+					$data[$label] = $filename;
+				} 
 			} else {
-				foreach($value as $image) {
-					if (isset($image['size']) && is_int($image['size']) && $image['size'] > 0) {	
-						$data[] = array($non_image_column => $non_image_value, $column => $this->moveImage($image));
-					}
-				}
+				$data[$label] = $value;	
 			}
 		}
 		return $data;
@@ -76,34 +69,32 @@ class ImageToolsComponent extends Component {
 			if (move_uploaded_file($tempFile,$targetFile)) {
 				return $new_name;
 			} else {
-				throw new InternalErrorException('Failed to move uploaded file to it\'s destination folder.');
+				throw new InternalErrorException('Image could not be uploaded. Most likely UPLOADS folder does not exists or is not writable.');
 			}
 		} else {
 			return false;
 		}
 	}
 	
-	public function process($data) {
-		foreach($data['uploadImages'] as $column => $params) {
-			foreach($params as $param => $value) {
+	public function processImages($data) {
+		foreach($data['uploadImages'] as $label => $info) {
+			foreach($info as $action => $value) {
 				//check if any image should be duplicated
-				if ($param == 'source') {
+				if ($action == 'source') {
 					$copied_filename = $this->copyImage($data['uploadedData'][$value]);
 					if ($copied_filename) {
-						$data['uploadedData'][$column] = $copied_filename;	
+						$data['uploadedData'][$label] = $copied_filename;	
 					}
 				}
 				//resize images
-				if ($param == 'resize') {
-					foreach($data['uploadedData'][$column] as $image) {
-						$this->resizeImage($image, $value);
-					}
-				}
+				if ($action == 'resize') {
+					$this->resizeImage($data['uploadedData'][$label], $value);
+				}	
 				//prepare crop params
-				if ($param == 'crop') {
-					$data['crop'][$column]['filename'] = $data['uploadedData'][$column];
+				if ($action == 'crop') {
+					$data['crop'][$label]['filename'] = $data['uploadedData'][$label];
 					foreach($value as $property => $val) {
-						$data['crop'][$column][$property] = $val;
+						$data['crop'][$label][$property] = $val;
 					}
 				}		
 			}
@@ -112,13 +103,13 @@ class ImageToolsComponent extends Component {
 	}
 
 	public function cropImage(array $data=NULL) {
-		$source = 'img/uploads/'.$data['ImageTool']["filename"];
-		$x1 = !empty($data['ImageTool']["x1"]) ? $data['ImageTool']["x1"] : 0;
-		$y1 = !empty($data['ImageTool']["y1"]) ? $data['ImageTool']["y1"] : 0;
-		$w = !empty($data['ImageTool']["w"]) ? $data['ImageTool']["w"] : $data['ImageTool']["width"];
-		$h = !empty($data['ImageTool']["h"]) ? $data['ImageTool']["h"] : $data['ImageTool']["height"];
-		$width = $data['ImageTool']["width"];
-		$height = $data['ImageTool']["height"];		
+		$source = 'img/uploads/'.$data['Crop']["filename"];
+		$x1 = !empty($data['Crop']["x1"]) ? $data['Crop']["x1"] : 0;
+		$y1 = !empty($data['Crop']["y1"]) ? $data['Crop']["y1"] : 0;
+		$w = !empty($data['Crop']["w"]) ? $data['Crop']["w"] : $data['Crop']["width"];
+		$h = !empty($data['Crop']["h"]) ? $data['Crop']["h"] : $data['Crop']["height"];
+		$width = $data['Crop']["width"];
+		$height = $data['Crop']["height"];		
 		$scale = $width/$w;
 		$cropped = $this->cropIt($destination=$source,$source,$w,$h,$x1,$y1,$scale);
 		return true;
@@ -215,7 +206,7 @@ class ImageToolsComponent extends Component {
 		return $image['path'];
 	}
 	
-	private function cropIt($destination, $source, $width, $height, $start_width, $start_height, $scale){
+	public function cropIt($destination, $source, $width, $height, $start_width, $start_height, $scale){
 		list($imagewidth, $imageheight, $imageType) = getimagesize($source);
 		$imageType = image_type_to_mime_type($imageType);
 		
@@ -253,7 +244,5 @@ class ImageToolsComponent extends Component {
 		}
 		return $destination;
 	}
-
-	
 }
 	
