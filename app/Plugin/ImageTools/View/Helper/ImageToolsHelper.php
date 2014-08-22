@@ -6,24 +6,21 @@ class ImageToolsHelper extends AppHelper {
 
 	public function uploadImages($params = array(), $output = null) {
 		if (!empty($params['uploadImages'])) {
-			foreach($params['uploadImages'] as $fieldname=>$options){
-				$input_options = array('type'=>'file');
-				if (array_key_exists('label', $options)) {
-					$input_options['label'] = 'Upload Image';
-					$input_options['multiple'] = !empty($options['multiple']) ? true : NULL;
+			foreach($params['uploadImages'] as $fieldname=>$action){
+				$options = array('type'=>'file');
+				if (array_key_exists('label', $action)) {
+					$options['label'] = 'Upload Image';	
 				}
-				if (empty($options['source'])) {
+				if (!array_key_exists('source', $action)) {
 					//display existing image
-					if (!empty($params['model'])) { 
+					if (array_key_exists('model',$params)) { 
 						if (isset($this->request->data[$params['model']][$fieldname]) && !empty($this->request->data[$params['model']][$fieldname])) {
 							$output.= '<div class="input text"><label for="Preview">Current Image</label>';			
 							$output.= $this->Html->Image('uploads/'.$this->request->data[$params['model']][$fieldname], array('width' => 200));
 							$output.= '</div>';
 						}
 					}
-					//upload files into array
-					$fieldname = $fieldname.".";
-					$output.= $this->Form->input($fieldname, $input_options);
+					$output.= $this->Form->input($fieldname, $options);
 				}
 			}
 		}
