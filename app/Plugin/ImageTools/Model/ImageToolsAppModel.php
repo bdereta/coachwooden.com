@@ -7,16 +7,17 @@ class ImageToolsAppModel extends AppModel {
 	public $useTable = false;
 	
 	public function upload($params) {
-		foreach($params['requestData'] as $label=>$value) {
+		foreach($params['requestData'] as $column=>$value) {
 			//extract image files
-			if (isset($value['size']) && is_int($value['size']) && $value['size'] > 0) {
-				$filename = $this->moveImage($value);
-				if (!empty($filename)) {
-					$data[$label] = $filename;
-				} 
+			if (is_array($value)) {
+				foreach($value as $image) {
+					if (isset($image['size']) && is_int($image['size']) && $image['size'] > 0) {	
+						$data[$column][] = $this->moveImage($image);
+					}
+				}
 			} else {
-				$data[$label] = $value;	
-			}
+				$data[$column] = $value;	
+			}		
 		}
 		return $data;
 	}
@@ -34,7 +35,7 @@ class ImageToolsAppModel extends AppModel {
 			if (move_uploaded_file($tempFile,$targetFile)) {
 				return $new_name;
 			} else {
-				throw new InternalErrorException('Image could not be uploaded. Most likely UPLOADS folder does not exists or is not writable.');
+				throw new InternalErrorException('Failed to move uploaded file to it\'s destination folder.');
 			}
 		} else {
 			return false;
@@ -42,24 +43,26 @@ class ImageToolsAppModel extends AppModel {
 	}
 	
 	public function processImages($data) {
-		foreach($data['uploadImages'] as $label => $info) {
-			foreach($info as $action => $value) {
+		foreach($data['uploadImages'] as $column => $params) {
+			foreach($params as $param => $value) {
 				//check if any image should be duplicated
-				if ($action == 'source') {
+				if ($param == 'source') {
 					$copied_filename = $this->copyImage($data['uploadedData'][$value]);
 					if ($copied_filename) {
-						$data['uploadedData'][$label] = $copied_filename;	
+						$data['uploadedData'][$column] = $copied_filename;	
 					}
 				}
 				//resize images
-				if ($action == 'resize') {
-					$this->resizeImage($data['uploadedData'][$label], $value);
-				}	
+				if ($param == 'resize') {
+					foreach($data['uploadedData'][$column] as $image) {
+						$this->resizeImage($image, $value);
+					}
+				}
 				//prepare crop params
-				if ($action == 'crop') {
-					$data['crop'][$label]['filename'] = $data['uploadedData'][$label];
+				if ($param == 'crop') {
+					$data['crop'][$column]['filename'] = $data['uploadedData'][$column];
 					foreach($value as $property => $val) {
-						$data['crop'][$label][$property] = $val;
+						$data['crop'][$column][$property] = $val;
 					}
 				}		
 			}
