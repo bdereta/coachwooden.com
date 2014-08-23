@@ -31,7 +31,7 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-	public $uses 		= array('Bambla.Bambla','Metadata','Section');
+	public $uses 		= array('Bambla.Bambla','Bambla.AdminLink','Metadata','Section');
 	public $helpers		= array('Bambla.Bambla','Cache','Html','Form');
 	public $components 	= array('Session','Acl','DebugKit.Toolbar',
         'Auth' => array(
@@ -56,9 +56,7 @@ class AppController extends Controller {
 		$sections = $this->Section->fetchSections();
 		$section = ($sections) ? unserialize($this->Section->fetchSections()) : NULL;
 		
-		//admin navigation
-		$adminNavigation = $this->Bambla->adminNavigation;
-		
+			
 		//Configure AuthComponent
 		$this->Auth->authenticate = array(
 			AuthComponent::ALL => array(
@@ -74,11 +72,29 @@ class AppController extends Controller {
 			),
 		);
 		
-		$logged_in		= $this->Auth->loggedIn();
-		$current_user 	= $this->Auth->user();
-		$is_admin		= ($logged_in && $current_user['group_id'] < 3) ? true : false;
+		$logged_in = $this->Auth->loggedIn();
+		$current_user = $this->Auth->user();
+		$is_admin = ($logged_in && $current_user['group_id'] < 3) ? true : false;
+		$admin_links = array();	
 		
-		$this->set(compact('meta','section','adminNavigation','logged_in','is_admin'));
+		if ($is_admin) {
+			//admin navigation
+			$controllers = App::objects('controller');
+			foreach($controllers as $controller) {
+				$disabled_links = array(
+					'App',
+					'Groups',
+					'Pages',
+					'Sections',
+				);
+				$controller = str_replace('Controller', '', $controller);
+				if (!in_array($controller,$disabled_links)) {
+					$admin_links[] = $controller;
+				}
+			}
+		}
+				
+		$this->set(compact('meta','section','admin_links','logged_in','is_admin'));
 		
 		$this->Auth->deny();
 	}
