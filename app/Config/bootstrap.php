@@ -32,7 +32,7 @@ CakePlugin::load('Bambla', array('bootstrap' => true, 'routes' => true));
 CakePlugin::load('AclExtras');
 CakePlugin::load('Captcha');
 CakePlugin::load('DebugKit');
-CakePlugin::load('ImageTools');
+CakePlugin::load('ImageTools', array('routes' => true));
 CakePlugin::load('ReuseFileCache');
 CakePlugin::load('Instagram', array('bootstrap' => true));
 CakePlugin::load('Facebook', array('bootstrap' => true));

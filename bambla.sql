@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50532
 File Encoding         : 65001
 
-Date: 2014-08-22 23:37:14
+Date: 2014-08-23 12:44:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,77 +28,64 @@ CREATE TABLE `acos` (
   `lft` int(10) DEFAULT NULL,
   `rght` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=171 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=179 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of acos
 -- ----------------------------
-INSERT INTO `acos` VALUES ('1', null, null, null, 'controllers', '1', '132');
-INSERT INTO `acos` VALUES ('2', '1', null, null, 'Groups', '2', '13');
-INSERT INTO `acos` VALUES ('3', '2', null, null, 'admin_index', '3', '4');
-INSERT INTO `acos` VALUES ('4', '2', null, null, 'admin_view', '5', '6');
-INSERT INTO `acos` VALUES ('5', '2', null, null, 'admin_add', '7', '8');
-INSERT INTO `acos` VALUES ('6', '2', null, null, 'admin_edit', '9', '10');
-INSERT INTO `acos` VALUES ('7', '2', null, null, 'admin_delete', '11', '12');
-INSERT INTO `acos` VALUES ('8', '1', null, null, 'Pages', '14', '19');
-INSERT INTO `acos` VALUES ('14', '1', null, null, 'Sections', '20', '31');
-INSERT INTO `acos` VALUES ('15', '14', null, null, 'admin_index', '21', '22');
-INSERT INTO `acos` VALUES ('16', '14', null, null, 'admin_view', '23', '24');
-INSERT INTO `acos` VALUES ('17', '14', null, null, 'admin_add', '25', '26');
-INSERT INTO `acos` VALUES ('18', '14', null, null, 'admin_edit', '27', '28');
-INSERT INTO `acos` VALUES ('19', '14', null, null, 'admin_delete', '29', '30');
-INSERT INTO `acos` VALUES ('24', '1', null, null, 'Users', '32', '53');
-INSERT INTO `acos` VALUES ('25', '24', null, null, 'admin_index', '33', '34');
-INSERT INTO `acos` VALUES ('26', '24', null, null, 'admin_view', '35', '36');
-INSERT INTO `acos` VALUES ('27', '24', null, null, 'admin_add', '37', '38');
-INSERT INTO `acos` VALUES ('28', '24', null, null, 'admin_edit', '39', '40');
-INSERT INTO `acos` VALUES ('29', '24', null, null, 'admin_delete', '41', '42');
-INSERT INTO `acos` VALUES ('30', '24', null, null, 'login', '43', '44');
-INSERT INTO `acos` VALUES ('31', '24', null, null, 'logout', '45', '46');
-INSERT INTO `acos` VALUES ('32', '24', null, null, 'admin_setPermissions', '47', '48');
-INSERT INTO `acos` VALUES ('33', '1', null, null, 'AclExtras', '54', '55');
-INSERT INTO `acos` VALUES ('34', '1', null, null, 'Bambla', '56', '65');
-INSERT INTO `acos` VALUES ('35', '34', null, null, 'Files', '57', '60');
-INSERT INTO `acos` VALUES ('36', '35', null, null, 'upload', '58', '59');
-INSERT INTO `acos` VALUES ('37', '34', null, null, 'JASFinder', '61', '64');
-INSERT INTO `acos` VALUES ('38', '37', null, null, 'connector', '62', '63');
-INSERT INTO `acos` VALUES ('39', '1', null, null, 'ReuseFileCache', '66', '67');
-INSERT INTO `acos` VALUES ('40', '1', null, null, 'Twitter', '68', '69');
-INSERT INTO `acos` VALUES ('50', '24', null, null, 'admin_login', '49', '50');
-INSERT INTO `acos` VALUES ('59', '1', null, null, 'Facebook', '70', '71');
-INSERT INTO `acos` VALUES ('60', '1', null, null, 'Instagram', '72', '73');
-INSERT INTO `acos` VALUES ('73', '1', null, null, 'DebugKit', '74', '81');
-INSERT INTO `acos` VALUES ('74', '73', null, null, 'ToolbarAccess', '75', '80');
-INSERT INTO `acos` VALUES ('75', '74', null, null, 'history_state', '76', '77');
-INSERT INTO `acos` VALUES ('76', '74', null, null, 'sql_explain', '78', '79');
-INSERT INTO `acos` VALUES ('93', '1', null, null, 'Youtube', '82', '83');
-INSERT INTO `acos` VALUES ('95', '24', null, null, 'blackhole', '51', '52');
-INSERT INTO `acos` VALUES ('96', '1', null, null, 'Captcha', '84', '89');
-INSERT INTO `acos` VALUES ('97', '96', null, null, 'Captcha', '85', '88');
-INSERT INTO `acos` VALUES ('98', '97', null, null, 'get_image', '86', '87');
-INSERT INTO `acos` VALUES ('116', '8', null, null, 'blackhole', '15', '16');
-INSERT INTO `acos` VALUES ('117', '8', null, null, 'home', '17', '18');
-INSERT INTO `acos` VALUES ('125', '1', null, null, 'Metadata', '90', '101');
-INSERT INTO `acos` VALUES ('126', '125', null, null, 'admin_index', '91', '92');
-INSERT INTO `acos` VALUES ('127', '125', null, null, 'admin_view', '93', '94');
-INSERT INTO `acos` VALUES ('128', '125', null, null, 'admin_add', '95', '96');
-INSERT INTO `acos` VALUES ('129', '125', null, null, 'admin_edit', '97', '98');
-INSERT INTO `acos` VALUES ('130', '125', null, null, 'admin_delete', '99', '100');
-INSERT INTO `acos` VALUES ('131', '1', null, null, 'Albums', '102', '113');
-INSERT INTO `acos` VALUES ('132', '131', null, null, 'admin_index', '103', '104');
-INSERT INTO `acos` VALUES ('133', '131', null, null, 'admin_view', '105', '106');
-INSERT INTO `acos` VALUES ('134', '131', null, null, 'admin_add', '107', '108');
-INSERT INTO `acos` VALUES ('135', '131', null, null, 'admin_edit', '109', '110');
-INSERT INTO `acos` VALUES ('136', '131', null, null, 'admin_delete', '111', '112');
-INSERT INTO `acos` VALUES ('137', '1', null, null, 'Photos', '114', '125');
-INSERT INTO `acos` VALUES ('138', '137', null, null, 'admin_index', '115', '116');
-INSERT INTO `acos` VALUES ('139', '137', null, null, 'admin_view', '117', '118');
-INSERT INTO `acos` VALUES ('140', '137', null, null, 'admin_add', '119', '120');
-INSERT INTO `acos` VALUES ('141', '137', null, null, 'admin_edit', '121', '122');
-INSERT INTO `acos` VALUES ('142', '137', null, null, 'admin_delete', '123', '124');
-INSERT INTO `acos` VALUES ('143', '1', null, null, 'ImageTools', '126', '131');
-INSERT INTO `acos` VALUES ('147', '143', null, null, 'ImageTools', '127', '130');
-INSERT INTO `acos` VALUES ('148', '147', null, null, 'crop', '128', '129');
+INSERT INTO `acos` VALUES ('1', null, null, null, 'controllers', '1', '106');
+INSERT INTO `acos` VALUES ('8', '1', null, null, 'Pages', '2', '7');
+INSERT INTO `acos` VALUES ('33', '1', null, null, 'AclExtras', '8', '9');
+INSERT INTO `acos` VALUES ('34', '1', null, null, 'Bambla', '10', '75');
+INSERT INTO `acos` VALUES ('35', '34', null, null, 'Files', '11', '14');
+INSERT INTO `acos` VALUES ('36', '35', null, null, 'upload', '12', '13');
+INSERT INTO `acos` VALUES ('37', '34', null, null, 'JASFinder', '15', '18');
+INSERT INTO `acos` VALUES ('38', '37', null, null, 'connector', '16', '17');
+INSERT INTO `acos` VALUES ('39', '1', null, null, 'ReuseFileCache', '76', '77');
+INSERT INTO `acos` VALUES ('40', '1', null, null, 'Twitter', '78', '79');
+INSERT INTO `acos` VALUES ('59', '1', null, null, 'Facebook', '80', '81');
+INSERT INTO `acos` VALUES ('60', '1', null, null, 'Instagram', '82', '83');
+INSERT INTO `acos` VALUES ('73', '1', null, null, 'DebugKit', '84', '91');
+INSERT INTO `acos` VALUES ('74', '73', null, null, 'ToolbarAccess', '85', '90');
+INSERT INTO `acos` VALUES ('75', '74', null, null, 'history_state', '86', '87');
+INSERT INTO `acos` VALUES ('76', '74', null, null, 'sql_explain', '88', '89');
+INSERT INTO `acos` VALUES ('93', '1', null, null, 'Youtube', '92', '93');
+INSERT INTO `acos` VALUES ('96', '1', null, null, 'Captcha', '94', '99');
+INSERT INTO `acos` VALUES ('97', '96', null, null, 'Captcha', '95', '98');
+INSERT INTO `acos` VALUES ('98', '97', null, null, 'get_image', '96', '97');
+INSERT INTO `acos` VALUES ('116', '8', null, null, 'blackhole', '3', '4');
+INSERT INTO `acos` VALUES ('117', '8', null, null, 'home', '5', '6');
+INSERT INTO `acos` VALUES ('143', '1', null, null, 'ImageTools', '100', '105');
+INSERT INTO `acos` VALUES ('147', '143', null, null, 'ImageTools', '101', '104');
+INSERT INTO `acos` VALUES ('148', '147', null, null, 'crop', '102', '103');
+INSERT INTO `acos` VALUES ('149', '34', null, null, 'Groups', '19', '30');
+INSERT INTO `acos` VALUES ('150', '149', null, null, 'admin_index', '20', '21');
+INSERT INTO `acos` VALUES ('151', '149', null, null, 'admin_view', '22', '23');
+INSERT INTO `acos` VALUES ('152', '149', null, null, 'admin_add', '24', '25');
+INSERT INTO `acos` VALUES ('153', '149', null, null, 'admin_edit', '26', '27');
+INSERT INTO `acos` VALUES ('154', '149', null, null, 'admin_delete', '28', '29');
+INSERT INTO `acos` VALUES ('155', '34', null, null, 'Metadata', '31', '42');
+INSERT INTO `acos` VALUES ('156', '155', null, null, 'admin_index', '32', '33');
+INSERT INTO `acos` VALUES ('157', '155', null, null, 'admin_view', '34', '35');
+INSERT INTO `acos` VALUES ('158', '155', null, null, 'admin_add', '36', '37');
+INSERT INTO `acos` VALUES ('159', '155', null, null, 'admin_edit', '38', '39');
+INSERT INTO `acos` VALUES ('160', '155', null, null, 'admin_delete', '40', '41');
+INSERT INTO `acos` VALUES ('161', '34', null, null, 'Sections', '43', '54');
+INSERT INTO `acos` VALUES ('162', '161', null, null, 'admin_index', '44', '45');
+INSERT INTO `acos` VALUES ('163', '161', null, null, 'admin_view', '46', '47');
+INSERT INTO `acos` VALUES ('164', '161', null, null, 'admin_add', '48', '49');
+INSERT INTO `acos` VALUES ('165', '161', null, null, 'admin_edit', '50', '51');
+INSERT INTO `acos` VALUES ('166', '161', null, null, 'admin_delete', '52', '53');
+INSERT INTO `acos` VALUES ('167', '34', null, null, 'Users', '55', '74');
+INSERT INTO `acos` VALUES ('168', '167', null, null, 'blackhole', '56', '57');
+INSERT INTO `acos` VALUES ('169', '167', null, null, 'admin_index', '58', '59');
+INSERT INTO `acos` VALUES ('170', '167', null, null, 'admin_view', '60', '61');
+INSERT INTO `acos` VALUES ('171', '167', null, null, 'admin_add', '62', '63');
+INSERT INTO `acos` VALUES ('172', '167', null, null, 'admin_edit', '64', '65');
+INSERT INTO `acos` VALUES ('173', '167', null, null, 'admin_delete', '66', '67');
+INSERT INTO `acos` VALUES ('174', '167', null, null, 'admin_login', '68', '69');
+INSERT INTO `acos` VALUES ('177', '167', null, null, 'admin_setPermissions', '70', '71');
+INSERT INTO `acos` VALUES ('178', '167', null, null, 'admin_logout', '72', '73');
 
 -- ----------------------------
 -- Table structure for aros
@@ -226,5 +213,5 @@ CREATE TABLE `users` (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', '1', '2', 'Boris', 'Dereta', 'boris@cubismedia.com', '995409c4f105a8994ea48791c17e7f00de9b167b', '2014-08-13 00:38:47', '2013-12-07 06:55:25');
+INSERT INTO `users` VALUES ('1', '1', '2', 'Boris', 'Dereta', 'boris@cubismedia.com', '995409c4f105a8994ea48791c17e7f00de9b167b', '2014-08-23 19:00:49', '2013-12-07 06:55:25');
 INSERT INTO `users` VALUES ('2', '1', '1', 'Coraliz', 'Dereta', 'cora@cubismedia.com', 'dd7251e4bfc86d588887ca9b2a7b7a5123b7c4e4', '2014-01-08 10:01:39', '2013-12-07 06:55:43');

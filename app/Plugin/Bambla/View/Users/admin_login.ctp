@@ -15,7 +15,7 @@
 		<div class="float_right inline"><?php echo $this->Html->image(array('controller' => 'captcha', 'action' => 'get_image', 'plugin' => 'captcha', 'admin' => false ), array('id' => 'captcha')) ?></div>
 		
 		<div class="login-actions">
-			<div class="float_right inline"><?php echo $this->Html->link('<i class="icon-home"></i> Back to Site', array('controller' => 'pages', 'action' => 'home'), array('class' => 'button btn btn-med','escape' => false)); ?></div>	
+			<div class="float_right inline"><?php echo $this->Html->link('<i class="icon-home"></i> Back to Site', array('controller' => 'Pages', 'action' => 'home', 'plugin' => false, 'admin' => false), array('class' => 'button btn btn-med','escape' => false)); ?></div>	
 			<div class="float_left inline"><?php echo $this->Form->button('<i class="icon-lock"></i> Login', array('type' => 'submit', 'class' => 'button btn btn-info btn-large','escape' => false)); ?></div>
 		</div>
 		<?php

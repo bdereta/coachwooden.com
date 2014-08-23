@@ -11,11 +11,11 @@
 			<?php echo h($user['User']['active']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Group'); ?></dt>
+		<?php /*?><dt><?php echo __('Group'); ?></dt>
 		<dd>
 			<?php echo $this->Html->link($user['Group']['name'], array('controller' => 'groups', 'action' => 'view', $user['Group']['id'])); ?>
 			&nbsp;
-		</dd>
+		</dd><?php */?>
 		<dt><?php echo __('First Name'); ?></dt>
 		<dd>
 			<?php echo h($user['User']['first_name']); ?>

@@ -6,7 +6,7 @@ App::uses('AppController', 'Controller');
  * @property Metadata $Metadata
  * @property PaginatorComponent $Paginator
  */
-class MetadataController extends AppController {
+class MetadataController extends BamblaAppController {
 
 /**
  * Components

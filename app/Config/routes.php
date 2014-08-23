@@ -1,10 +1,7 @@
 <?php
 
 //admin default
-Router::connect('/admin', array('controller' => 'Metadata', 'action' => 'index', 'admin' => true));
-
-//plugin
-Router::connect('/ImageTools/ImageTools/:action', array('controller' => 'ImageTools', 'action' => ':action', 'plugin' => 'ImageTools'));
+Router::connect('/admin', array('controller' => 'Metadata', 'action' => 'index', 'admin' => true, 'plugin' => 'Bambla'));
 
 //static pages
 Router::connect('/', array('controller' => 'Pages', 'action' => 'home', 'admin' => false));

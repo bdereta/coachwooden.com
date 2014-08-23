@@ -8,20 +8,13 @@ App::uses('AppModel', 'Model');
 class Group extends AppModel {
 
 /**
- * Display field
- *
- * @var string
- */
-	public $displayField = 'name';
-
-/**
  * Validation rules
  *
  * @var array
  */
 	public $validate = array(
 		'name' => array(
-			'alphaNumeric' => array(
+			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,

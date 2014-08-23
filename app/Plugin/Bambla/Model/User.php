@@ -3,8 +3,6 @@ App::uses('AppModel', 'Model');
 App::uses('AuthComponent', 'Controller/Component');
 
 class User extends AppModel {
-
-	public $useTable = 'users';
 	
 	public $belongsTo = array(
 		'Group' => array(
@@ -15,7 +13,6 @@ class User extends AppModel {
 			'order' => ''
 		)
 	);
-
 	
 	public $validate = array(
 		'first_name' => array(

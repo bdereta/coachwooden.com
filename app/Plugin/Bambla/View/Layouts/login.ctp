@@ -31,10 +31,10 @@
 		<div style="text-align:right;">
 			<?php if ($logged_in) :	 ?>
 				Welcome <?php echo $current_user['first_name'];?>. 
-				<?php echo $this->Html->link('Logout',array('controller' => 'Users', 'action'=>'logout', 'admin' => false)); ?>
+				<?php echo $this->Html->link('Logout',array('controller' => 'Users', 'action'=>'logout', 'admin' => false, 'plugin' => 'Bambla')); ?>
 			<?php else : ?>
 				<?php if ($this->params['action'] != 'login') : ?>
-					<?php echo $this->Html->link('Login', array('controller' => 'Users', 'action'=>'login', 'admin' => false )); ?>
+					<?php echo $this->Html->link('Login', array('controller' => 'Users', 'action'=>'login', 'admin' => false, 'plugin' => 'Bambla')); ?>
 				<?php endif; ?>
 			<?php endif; ?>
 		</div>

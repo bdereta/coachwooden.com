@@ -82,10 +82,6 @@ class UsersController extends AppController {
 	}
 	
 	public function admin_login() {
-		return $this->redirect(array('controller' => 'users', 'action' => 'login', 'admin' => false));
-	}
-	
-	public function login() {
 		
 		$this->layout = "Bambla.login";
 		
@@ -122,7 +118,7 @@ class UsersController extends AppController {
 		}
 	}
 	
-	public function logout() {
+	public function admin_logout() {
 		$this->Session->setFlash('You have successfully logged out!', 'Bambla.green');
 		$this->redirect($this->Auth->logout());	
 	}

@@ -31,15 +31,9 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-	public $uses 		= array('Bambla.Bambla','Metadata','Section');
+	public $uses 		= array('Bambla.Bambla','Bambla.Metadata','Bambla.Section');
 	public $helpers		= array('Bambla.Bambla','Cache','Html','Form');
-	public $components 	= array('Session','Acl','DebugKit.Toolbar',
-        'Auth' => array(
-            'authorize' => array(
-                'Actions' => array('actionPath' => 'controllers')
-            )
-        )
-	);
+	public $components 	= array('Session','Acl','DebugKit.Toolbar', 'Auth' => array('authorize' => array('Actions' => array('actionPath' => 'controllers'))));
 
 	public function beforeFilter() {
 		
@@ -60,9 +54,9 @@ class AppController extends Controller {
 		//Configure AuthComponent
 		$this->Auth->authenticate = array(
 			AuthComponent::ALL => array(
-				'loginRedirect' => array('controller' => 'pages', 'action' => 'home'),
-            	'logoutRedirect' => array('controller' => 'pages', 'action' => 'home'),
-				'userModel' => 'User',
+				'loginRedirect' => array('controller' => 'pages', 'action' => 'home', 'plugin' => false),
+            	'logoutRedirect' => array('controller' => 'pages', 'action' => 'home', 'plugin' => false),
+				'userModel' => 'Bambla.User',
 				'scope' => array(
 					'User.active' => 1
 				)
@@ -80,15 +74,12 @@ class AppController extends Controller {
 		if ($is_admin) {
 			//admin navigation
 			$controllers = App::objects('controller');
+			$additional_controllers = array('MetaData', 'Users');
+			$controllers = array_merge($controllers, $additional_controllers);
 			foreach($controllers as $controller) {
-				$disabled_links = array(
-					'App',
-					'Groups',
-					'Pages',
-					'Sections',
-				);
+				$disabled_links = array('App','Pages');
 				$controller = str_replace('Controller', '', $controller);
-				if (!in_array($controller,$disabled_links)) {
+				if (!in_array($controller, $disabled_links)) {
 					$admin_links[] = $controller;
 				}
 			}
