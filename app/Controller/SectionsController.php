@@ -66,7 +66,7 @@ class SectionsController extends AppController {
 				$this->Session->setFlash(__('The section could not be saved. Please, try again.'), 'Bambla.red');
 			}
 		}
-		$this->request->data['Section']['page_name'] = isset($this->request->params['named']['page']) ? $this->request->params['named']['page'] : false;
+		$this->request->data['Section']['name'] = isset($this->request->params['named']['page']) ? $this->request->params['named']['page'] : false;
 		$this->request->data['Section']['index'] = isset($this->request->params['named']['index']) ? $this->request->params['named']['index'] : false;
 	}
 

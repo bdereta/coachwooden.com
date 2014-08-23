@@ -3,7 +3,7 @@
 	<fieldset>
 		<legend><?php echo __('Add Meta Data'); ?></legend>
 	<?php
-		echo $this->Form->input('page_name');
+		echo $this->Form->input('name');
 		echo $this->Form->input('title');
 		echo $this->Form->input('description');
 		echo $this->Form->input('keywords');

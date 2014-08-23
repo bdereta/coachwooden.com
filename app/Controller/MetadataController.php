@@ -47,7 +47,7 @@ class MetadataController extends AppController {
 			throw new NotFoundException(__('Invalid Meta data'));
 		}
 		$options = array('conditions' => array('Metadata.' . $this->Metadata->primaryKey => $id));
-		$this->set('meta', $this->Metadata->find('first', $options));
+		$this->set('metadata', $this->Metadata->find('first', $options));
 	}
 
 /**

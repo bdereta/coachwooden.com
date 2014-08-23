@@ -5,7 +5,7 @@
 		<legend><?php echo __(' Edit Section'); ?></legend>
 	<?php	
 		echo $this->Form->input('id');
-		echo $this->Form->input('page_name', array('readonly'=>true));
+		echo $this->Form->input('name', array('readonly'=>true));
 		echo $this->Form->input('index', array('readonly'=>true));
 		echo $this->Form->input('content', array('class'=>'ckeditor', 'label'=>false));
 	?>

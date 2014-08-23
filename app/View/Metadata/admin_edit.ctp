@@ -5,7 +5,7 @@
 
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('page_name', isset($readOnly) ? array('readonly', 'true') : false);
+		echo $this->Form->input('name', isset($readOnly) ? array('readonly', 'true') : false);
 		echo $this->Form->input('title');
 		echo $this->Form->input('description');
 		echo $this->Form->input('keywords');

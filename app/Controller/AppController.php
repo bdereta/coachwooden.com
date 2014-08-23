@@ -31,7 +31,7 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-	public $uses 		= array('Bambla.Bambla','Bambla.AdminLink','Metadata','Section');
+	public $uses 		= array('Bambla.Bambla','Metadata','Section');
 	public $helpers		= array('Bambla.Bambla','Cache','Html','Form');
 	public $components 	= array('Session','Acl','DebugKit.Toolbar',
         'Auth' => array(

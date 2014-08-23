@@ -4,9 +4,9 @@
 	<fieldset>
 		<legend><?php echo __(' Add Section'); ?></legend>
 	<?php
-		$readonly = !empty($this->request->data['Section']['page_name']) ? true : false;
+		$readonly = !empty($this->request->data['Section']['name']) ? true : false;
 	
-		echo $this->Form->input('page_name', array('readonly' => $readonly));
+		echo $this->Form->input('name', array('readonly' => $readonly));
 		echo $this->Form->input('index', array('readonly' => $readonly));
 		echo $this->Form->input('content', array('class'=>'ckeditor', 'label'=>false));
 	?>

@@ -16,7 +16,7 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('page_name'); ?></th>
+			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('title'); ?></th>
 			<th><?php echo $this->Paginator->sort('description'); ?></th>
 			<th><?php echo $this->Paginator->sort('keywords'); ?></th>
@@ -27,14 +27,15 @@
 	<?php foreach ($metadata as $metadata): ?>
 	<tr>
 		<td><?php echo h($metadata['Metadata']['id']); ?>&nbsp;</td>
-		<td><?php echo h($metadata['Metadata']['page_name']); ?>&nbsp;</td>
+		<td><?php echo h($metadata['Metadata']['name']); ?>&nbsp;</td>
 		<td><?php echo h($metadata['Metadata']['title']); ?>&nbsp;</td>
 		<td><?php echo h($metadata['Metadata']['description']); ?>&nbsp;</td>
 		<td><?php echo h($metadata['Metadata']['keywords']); ?>&nbsp;</td>
 		<td><?php echo $this->Time->format('m/d/y - g:i A', $metadata['Metadata']['modified']); ?>&nbsp;</td>
 		<td><?php echo $this->Time->format('m/d/y - g:i A', $metadata['Metadata']['created']); ?>&nbsp;</td>
 		<td nowrap class="actions">
-			<?php echo $this->Html->link(__('<i class="icon-edit"></i>'), array('action' => 'edit', $metadata['Metadata']['id']),array('class'=>'btn btn-info','escape' => false,'alt'=>'Edit','title'=>'Edit')); ?>
+			<?php echo $this->Html->link('<i class="icon-info-sign"></i>', array('action' => 'view', $metadata['Metadata']['id']), array('class'=>'btn btn-info','escape' => false,'alt'=>'View','title'=>'View')); ?>
+			<?php echo $this->Html->link(__('<i class="icon-edit"></i>'), array('action' => 'edit', $metadata['Metadata']['id']),array('class'=>'btn btn-warning','escape' => false,'alt'=>'Edit','title'=>'Edit')); ?>
 			<?php echo $this->Form->postLink(__('<i class="icon-remove"></i>'), array('action' => 'delete', $metadata['Metadata']['id']), array('class'=>'btn btn-danger','escape' => false,'alt'=>'Delete','title'=>'Delete'), __('Are you sure you want to delete # %s?', $metadata['Metadata']['id'])); ?>
 		</td>
 	</tr>

@@ -6,8 +6,6 @@ App::uses('AppModel', 'Model');
  */
 class Section extends AppModel {
 
-	public $displayField = 'page_name';
-	
 	public function fetchSections() {
 		$result = Cache::read('sections');
 		if (!$result) {
@@ -15,7 +13,7 @@ class Section extends AppModel {
 			if (!empty($result)) {
 				$section = array();
 				for($i=0; $i<count($result);$i++) {
-					$section[$result[$i]['Section']['page_name']][$result[$i]['Section']['index']] = array(
+					$section[$result[$i]['Section']['name']][$result[$i]['Section']['index']] = array(
 							'id' => $result[$i]['Section']['id'], 
 							'content' => $result[$i]['Section']['content']
 					);

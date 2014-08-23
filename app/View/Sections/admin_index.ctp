@@ -17,7 +17,7 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('page_name'); ?></th>
+			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('index'); ?></th>
 			<th><?php echo $this->Paginator->sort('content'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
@@ -27,7 +27,7 @@
 	<?php foreach ($sections as $section): ?>
 	<tr>
 		<td><?php echo h($section['Section']['id']); ?>&nbsp;</td>
-		<td><?php echo h($section['Section']['page_name']); ?>&nbsp;</td>
+		<td><?php echo h($section['Section']['name']); ?>&nbsp;</td>
 		<td><?php echo h($section['Section']['index']); ?>&nbsp;</td>
 		<td><?php echo h($section['Section']['content']); ?>&nbsp;</td>
 		<td><?php echo $this->Time->format('m/d/y - g:i A', $section['Section']['modified']); ?>&nbsp;</td>

@@ -8,7 +8,7 @@
 		</dd>
 		<dt><?php echo __('Page Name'); ?></dt>
 		<dd>
-			<?php echo h($section['Section']['page_name']); ?>
+			<?php echo h($section['Section']['name']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Index'); ?></dt>
