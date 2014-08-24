@@ -8,12 +8,11 @@ class ImageToolsHelper extends AppHelper {
 		if (!empty($params['uploadImages'])) {
 			foreach($params['uploadImages'] as $fieldname=>$options){
 				$input_options = array('type'=>'file');
-				if (array_key_exists('label', $options)) {
-					$input_options['label'] = 'Upload Image';
-					if (!empty($options['multiple'])) { 
-						$input_options['multiple'] = true;
-						$fieldname = $fieldname.".";
-					}
+				$input_options['label'] = 'Upload ';
+				$input_options['label'] .= !empty($options['label']) ? $options['label'] : NULL;
+				if (!empty($options['multiple'])) { 
+					$input_options['multiple'] = true;
+					$fieldname = $fieldname.".";
 				}
 				if (empty($options['source'])) {
 					//display existing image

@@ -4,27 +4,30 @@ App::uses('Component', 'Controller');
 class ImageToolsComponent extends Component {
 	
 	public $components = array('Session');
+	public $multiple = false;
 
 	//enable controller methods inside component
 	public function startup(Controller $controller) {
 		$this->Controller = $controller;
 	}
 	
-	public function process($params) {
+	public function process($params) {		
 		
-		echo '<pre>';
-		var_dump($params['requestData']['image']);
-		echo '</pre>';
+		//find out upload type (single vs multiple)
+		foreach($params['uploadImages'] as $settings) {
+			$this->multiple = !empty($settings['multiple']);
+		}
 		
-		exit(debug($params));
-
-		$params['redirect']['controller'] = $this->Controller->request->params['controller'];
-		$params['redirect']['action'] = preg_replace('/^' . preg_quote('admin_', '/') . '/', '', $this->Controller->request->params['action']);
-		$params['redirect']['pass'] = $this->Controller->request->params['pass'];
-		$params['redirect']['admin'] = $this->Controller->request->params['admin'];
-		
+		if (!$this->multiple) {	
+			//needed to return back from cropping UI
+			$params['redirect']['controller'] = $this->Controller->request->params['controller'];
+			$params['redirect']['action'] = preg_replace('/^' . preg_quote('admin_', '/') . '/', '', $this->Controller->request->params['action']);
+			$params['redirect']['pass'] = $this->Controller->request->params['pass'];
+			$params['redirect']['admin'] = $this->Controller->request->params['admin'];
+		}
+				
 		//upload images
-		$params['uploadedData'] = $this->upload($params);
+		$params['uploadedData'] = (!$this->multiple) ? $this->upload($params) : $this->uploadMultiple($params);
 						
 		//copy, resize, prepare crop
 		$data = $this->processImages($params);
@@ -48,20 +51,49 @@ class ImageToolsComponent extends Component {
 	}
 
 	public function upload($params) {
-		foreach($params['requestData'] as $label=>$value) {
+		foreach($params['requestData'] as $column=>$value) {			
 			//extract image files
 			if (isset($value['size']) && is_int($value['size']) && $value['size'] > 0) {
 				$filename = $this->moveImage($value);
 				if (!empty($filename)) {
-					$data[$label] = $filename;
+					$data[$column] = $filename;
 				} 
 			} else {
-				$data[$label] = $value;	
+				$data[$column] = $value;	
 			}
 		}
 		return $data;
 	}
 	
+	
+	public function uploadMultiple($params = array()) {
+		//extract image column names
+		$image_columns = array_keys($params['uploadImages']);
+		//extract request data columns
+		$request_columns = array_keys($params['requestData']);
+		//extract images from request data
+		$images = array_intersect($image_columns, $request_columns);
+		
+		foreach($params['requestData'] as $column => $value) {
+			if (!in_array($column,$images)) {
+				$non_image_column = $column;
+				$non_image_value = $value;
+			} else {
+				foreach($value as $image) {
+					if (empty($image['error'])) {	
+						$data[] = array($non_image_column => $non_image_value, $column => $this->moveImage($image));
+					} else {
+						$error_message = $this->uploadErrorCodeToMessage($image['error']);
+						debug();
+						throw new InternalErrorException($error_message);
+					}
+				}
+			}
+		}
+		return $data;
+	}
+	
+		
 	public function moveImage($data=NULL) {
 		// Define a destination
 		$targetFolder = "img/uploads"; // Relative to the root		
@@ -83,28 +115,37 @@ class ImageToolsComponent extends Component {
 	}
 	
 	public function processImages($data) {
-		foreach($data['uploadImages'] as $label => $info) {
+		foreach($data['uploadImages'] as $column => $info) {
 			foreach($info as $action => $value) {
 				//check if any image should be duplicated
 				if ($action == 'source') {
 					$copied_filename = $this->copyImage($data['uploadedData'][$value]);
 					if ($copied_filename) {
-						$data['uploadedData'][$label] = $copied_filename;	
+						$data['uploadedData'][$column] = $copied_filename;	
 					}
 				}
 				//resize images
 				if ($action == 'resize') {
-					$this->resizeImage($data['uploadedData'][$label], $value);
-				}	
-				//prepare crop params
-				if ($action == 'crop') {
-					$data['crop'][$label]['filename'] = $data['uploadedData'][$label];
-					foreach($value as $property => $val) {
-						$data['crop'][$label][$property] = $val;
+					if ($this->multiple) {	
+						foreach($data['uploadedData'] as $image) {
+							$this->resizeImage($image[$column], $value);
+						}
+					} else {
+						$this->resizeImage($data['uploadedData'][$column], $value);
 					}
-				}		
+				}	
+				//prepare crop params (multiple will be ignored)
+				if (!$this->multiple) {
+					if ($action == 'crop') {
+						$data['crop'][$column]['filename'] = $data['uploadedData'][$column];
+						foreach($value as $property => $val) {
+							$data['crop'][$column][$property] = $val;
+						}
+					}		
+				}
 			}
 		}
+		$data['multiple'] = $this->multiple;
 		return $data;		
 	}
 
@@ -250,5 +291,37 @@ class ImageToolsComponent extends Component {
 		}
 		return $destination;
 	}
+	
+	private function uploadErrorCodeToMessage($code) 
+    { 
+        switch ($code) { 
+            case UPLOAD_ERR_INI_SIZE: 
+                $message = "The uploaded file exceeds the upload_max_filesize directive in php.ini"; 
+                break; 
+            case UPLOAD_ERR_FORM_SIZE: 
+                $message = "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form"; 
+                break; 
+            case UPLOAD_ERR_PARTIAL: 
+                $message = "The uploaded file was only partially uploaded"; 
+                break; 
+            case UPLOAD_ERR_NO_FILE: 
+                $message = "No file was uploaded"; 
+                break; 
+            case UPLOAD_ERR_NO_TMP_DIR: 
+                $message = "Missing a temporary folder"; 
+                break; 
+            case UPLOAD_ERR_CANT_WRITE: 
+                $message = "Failed to write file to disk"; 
+                break; 
+            case UPLOAD_ERR_EXTENSION: 
+                $message = "File upload stopped by extension"; 
+                break; 
+
+            default: 
+                $message = "Unknown upload error"; 
+                break; 
+        } 
+        return $message; 
+    } 
 }
 	

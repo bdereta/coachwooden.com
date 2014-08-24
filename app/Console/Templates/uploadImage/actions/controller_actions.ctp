@@ -77,20 +77,35 @@
 				$result = $this->ImageTools->process($params);
 			}
 		}
+		
 		//save data
 		if ($this->Session->check('ImageTools.postData')) {
 			//capture session
 			$session = $this->Session->read('ImageTools.postData');
-			$data['<?php echo $currentModelName; ?>'] = $session['uploadedData'];
+			$multiple = $session['multiple'];
+			if ($multiple) {
+				$data = $session['uploadedData'];
+			} else {
+				$data['<?php echo $currentModelName; ?>'] = $session['uploadedData'];
+			}
 			$this->Session->delete('ImageTools.postData');	
-			//save data to db
-			if (isset($data) && array_key_exists('<?php echo $currentModelName; ?>', $data)) {
+			//save data to db						
+			if (!empty($data)) {
 				$this-><?php echo $currentModelName; ?>->create();
-				if ($this-><?php echo $currentModelName; ?>->save($data)) {
-					$this->Session->setFlash(__('<?php echo $currentModelName; ?> has been saved!'), 'Bambla.green');
-					return $this->redirect(array('action'=>'index'));	
+				if ($multiple) {
+					if ($this-><?php echo $currentModelName; ?>->saveMany($data)) {
+						$this->Session->setFlash(__('<?php echo $currentModelName; ?> have been saved!'), 'Bambla.green');
+						return $this->redirect(array('action'=>'index'));	
+					} else {
+						$this->Session->setFlash(__('<?php echo $currentModelName; ?> could not be saved. Please try again.'), 'Bambla.red');
+					}
 				} else {
-					$this->Session->setFlash(__('The <?php echo strtolower($singularHumanName); ?> could not be saved. Please try again.'), 'Bambla.red');
+					if ($this-><?php echo $currentModelName; ?>->save($data)) {
+						$this->Session->setFlash(__('<?php echo $currentModelName; ?> has been saved!'), 'Bambla.green');
+						return $this->redirect(array('action'=>'index'));	
+					} else {
+						$this->Session->setFlash(__('<?php echo $currentModelName; ?> could not be saved. Please try again.'), 'Bambla.red');
+					}
 				}
 			}	
 		}
@@ -197,7 +212,7 @@
 				$this->Session->setFlash(__('<?php echo $currentModelName; ?> has been saved!'), 'Bambla.green');
 				return $this->redirect(array('action'=>'index'));	
 			} else {
-				$this->Session->setFlash(__('The <?php echo strtolower($singularHumanName); ?> could not be saved. Please try again.'), 'Bambla.red');
+				$this->Session->setFlash(__('<?php echo $currentModelName; ?> could not be saved. Please try again.'), 'Bambla.red');
 			}
 		}
 			
@@ -246,9 +261,9 @@
 		}
 		
 		if ($this-><?php echo $currentModelName; ?>->delete()) {
-			$this->Session->setFlash(__('The <?php echo strtolower($singularHumanName); ?> has been deleted.'), 'Bambla.green');
+			$this->Session->setFlash(__('<?php echo $currentModelName; ?> has been deleted.'), 'Bambla.green');
 		} else {
-			$this->Session->setFlash(__('The <?php echo strtolower($singularHumanName); ?> could not be deleted. Please, try again.'), 'Bambla.red');
+			$this->Session->setFlash(__('<?php echo $currentModelName; ?> could not be deleted. Please, try again.'), 'Bambla.red');
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
