@@ -11,6 +11,12 @@ class ImageToolsComponent extends Component {
 	}
 	
 	public function process($params) {
+		
+		echo '<pre>';
+		var_dump($params['requestData']['image']);
+		echo '</pre>';
+		
+		exit(debug($params));
 
 		$params['redirect']['controller'] = $this->Controller->request->params['controller'];
 		$params['redirect']['action'] = preg_replace('/^' . preg_quote('admin_', '/') . '/', '', $this->Controller->request->params['action']);
