@@ -147,6 +147,11 @@
 		//image upload params
 		$params['uploadImages'] = $this-><?php echo $currentModelName; ?>->uploadImages;
 		
+		//disable multiple for editing	
+		foreach($params['uploadImages'] as $fieldname=>$options){
+			$params['uploadImages'][$fieldname]['multiple'] = false;
+		}
+		
 		if ($this->request->is(array('post', 'put'))) {
 			//check if user is trying to upload new image(s), otherwise keep the existing image
 			//match up model against post data
