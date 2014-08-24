@@ -49,9 +49,10 @@
 			throw new NotFoundException(__('Invalid <?php echo strtolower($singularHumanName); ?>'));
 		}
 		$options = array('conditions' => array('<?php echo $currentModelName; ?>.' . $this-><?php echo $currentModelName; ?>->primaryKey => $id));
-		$this->set('<?php echo strtolower($singularHumanName); ?>', $this-><?php echo $currentModelName; ?>->find('first', $options));
+		$this->set('<?php echo $singularName; ?>', $this-><?php echo $currentModelName; ?>->find('first', $options));
 	}
 
+<?php $compact = array(); ?>
 /**
  * <?php echo $admin ?>add method
  *
@@ -94,7 +95,7 @@
 			}	
 		}
 		
-		//data for view
+		
 <?php
 	foreach (array('belongsTo', 'hasAndBelongsToMany') as $assoc):
 		foreach ($modelObj->{$assoc} as $associationName => $relation):
@@ -111,15 +112,16 @@
 	endif;
 ?>
 	}
-	
+
+<?php $compact = array(); ?>
 /**
  * <?php echo $admin ?>edit method
  *
  * @throws NotFoundException
  * @param string $id
  * @return void
- */	
-	public function <?php echo $admin ?>edit($id = null) {
+ */
+	public function <?php echo $admin; ?>edit($id = null) {
 		//record exists?
 		if (!$this-><?php echo $currentModelName; ?>->exists($id)) {
 			throw new NotFoundException(__('Invalid <?php echo strtolower($singularHumanName); ?>'));
@@ -226,10 +228,10 @@
  * @param string $id
  * @return void
  */
-	public function <?php echo $admin ?>delete($id = null) {
+	public function <?php echo $admin; ?>delete($id = null) {
 		$this-><?php echo $currentModelName; ?>->id = $id;
 		if (!$this-><?php echo $currentModelName; ?>->exists()) {
-			throw new NotFoundException(__('Invalid '. strtolower($Model)));
+			throw new NotFoundException(__('Invalid <?php echo strtolower($singularHumanName); ?>'));
 		}
 		$this->request->onlyAllow('post', 'delete');
 		
