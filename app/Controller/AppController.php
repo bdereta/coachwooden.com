@@ -79,7 +79,6 @@ class AppController extends Controller {
 			foreach($controllers as $controller) {
 				$disabled_links = array('App','Pages');
 				$controller = str_replace('Controller', '', $controller);
-				$controller = Inflector::humanize(Inflector::underscore($controller));
 				if (!in_array($controller, $disabled_links)) {
 					$admin_links[] = $controller;
 				}
