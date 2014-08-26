@@ -48,4 +48,3 @@
 	?>
 	</div>
 </div>
-<?php echo $this->element('Bambla.admin_navigation'); ?>

@@ -41,4 +41,3 @@
 	echo "<?php echo \$this->Form->end(__('Submit')); ?>\n";
 ?>
 </div>
-<?php echo "<?php echo \$this->element('Bambla.admin_navigation'); ?>"; ?>

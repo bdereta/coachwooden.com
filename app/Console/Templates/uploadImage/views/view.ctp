@@ -41,8 +41,6 @@ foreach ($fields as $field) {
 	</dl>
 </div>
 
-<?php echo '<?php echo $this->element(\'Bambla.admin_navigation\'); ?>'; ?>
-
 <?php
 if (!empty($associations['hasOne'])) :
 	foreach ($associations['hasOne'] as $alias => $details): ?>

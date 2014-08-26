@@ -71,4 +71,3 @@
 	?>
 	</div>
 </div>
-<?php echo "<?php echo \$this->element('Bambla.admin_navigation'); ?>"; ?>

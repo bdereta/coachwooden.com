@@ -38,7 +38,6 @@
 		</dd>
 	</dl>
 </div>
-<?php echo $this->element('Bambla.admin_navigation'); ?>
 <div class="related">
 	<h3><?php echo __('Related Sections'); ?></h3>
 	<?php if (!empty($page['Section'])): ?>

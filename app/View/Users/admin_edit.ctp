@@ -15,4 +15,3 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
-<?php echo $this->element('Bambla.admin_navigation'); ?>

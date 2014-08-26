@@ -17,4 +17,3 @@
 	</div>
 <?php /*?><?php echo $this->Form->end(__('Submit')); ?><?php */?>
 </div>
-<?php echo $this->element('Bambla.admin_navigation'); ?>

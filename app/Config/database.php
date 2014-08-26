@@ -30,10 +30,10 @@ class DATABASE_CONFIG {
 	public $prod = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => '',
-		'login' => '',
-		'password' => '',
-		'database' => '',
+		'host' => 'coachwooden.db.6256345.hostedresource.com',
+		'login' => 'coachwooden',
+		'password' => 'gC8xtHnyvFj9!',
+		'database' => 'coachwooden',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);

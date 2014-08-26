@@ -77,5 +77,4 @@
 	</table>
 <?php endif; ?>
 
-	<?php echo $this->element('Bambla.admin_navigation'); ?>
 </div>

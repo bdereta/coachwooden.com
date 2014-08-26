@@ -36,10 +36,10 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .full h2 { font-size:36px; color:#dcccb9; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; text-transform:uppercase; margin:0; }
 .full:hover h2 { color:#fff; }
 
-.btn { font-size:14px; color:#8b7652; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; line-height:50px; text-shadow: 1px 1px 10px rgba(0,0,0,1.00); -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
-.btn span { margin-left:5px; padding:15px 11px 14px 11px; background:url(../img/hex_white.png) no-repeat center; color:#434343; text-shadow:none; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
-.btn:hover { color:#fff; }
-.btn:hover span { background:url(../img/hex_blue.png) no-repeat center; color:#19272a; }
+.btns { font-size:14px; color:#8b7652; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; line-height:50px; text-shadow: 1px 1px 10px rgba(0,0,0,1.00); -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
+.btns span { margin-left:5px; padding:5px; background:url(../img/hex_white.png) no-repeat center; color:#434343; text-shadow:none; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
+.btns:hover { color:#fff; }
+.btns:hover span { background:url(../img/hex_blue.png) no-repeat center; color:#19272a; }
 
 /* Home */
 .hp_news li { width:100%; height:65px; line-height:65px; border-bottom:1px solid rgba(184,170,124,0.11); }

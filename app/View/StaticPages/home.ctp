@@ -34,7 +34,7 @@ $this->Html->script('home', array('inline' => false));
 	<div class="half float_left padding">
 		<div class="title">
 			<h2 class="float_left">Coach in the News</h2>
-			<?php echo $this->Html->link('View all News <span class="icon-uniE601"></span>', array('controller' => 'StaticPages', 'action' => 'news'),array('class'=>'float_right btn','escape'=>false)); ?>
+			<?php echo $this->Html->link('View all News <span class="icon-uniE601"></span>', array('controller' => 'StaticPages', 'action' => 'news'),array('class'=>'float_right btns','escape'=>false)); ?>
 		</div>
 		<ul class="hp_news">
 			<li class="transition"><div class="date float_left"><?php echo $this->Html->link('06.19.14', array('controller' => 'StaticPages', 'action' => 'news')); ?></div>
@@ -59,7 +59,7 @@ $this->Html->script('home', array('inline' => false));
 	<div class="half float_right padding">
 		<div class="title">
 			<h2 class="float_left">Videos of Coach</h2>
-			<?php echo $this->Html->link('View all Videos <span class="icon-uniE601"></span>', array('controller' => 'StaticPages', 'action' => 'videos'),array('class'=>'float_right btn','escape'=>false)); ?>
+			<?php echo $this->Html->link('View all Videos <span class="icon-uniE601"></span>', array('controller' => 'StaticPages', 'action' => 'videos'),array('class'=>'float_right btns','escape'=>false)); ?>
 		</div>
 		<div class="hp_video">
 			<iframe width="500" height="310" src="//www.youtube.com/embed/0MM-psvqiG8" frameborder="0" allowfullscreen></iframe>
@@ -70,13 +70,13 @@ $this->Html->script('home', array('inline' => false));
 <div class="full sepia transition hp_pyramid">
 	<div>
 		<h2>Pyramid of Success</h2>
-		<?php echo $this->Html->link('Learn More <span class="icon-uniE601"></span>', array('controller' => 'StaticPages', 'action' => 'pyramid'), array('class'=>'btn','escape'=>false)); ?>
+		<?php echo $this->Html->link('Learn More <span class="icon-uniE601"></span>', array('controller' => 'StaticPages', 'action' => 'pyramid'), array('class'=>'btns','escape'=>false)); ?>
 	</div>
 </div>
 <div class="full sepia transition hp_memory">
 	<div>
 		<h2>Memory Wall</h2>
-		<?php echo $this->Html->link('Learn More <span class="icon-uniE601"></span>', array('controller' => 'StaticPages', 'action' => 'memory'), array('class'=>'btn','escape'=>false)); ?>
+		<?php echo $this->Html->link('Learn More <span class="icon-uniE601"></span>', array('controller' => 'StaticPages', 'action' => 'memory'), array('class'=>'btns','escape'=>false)); ?>
 	</div>
 </div>
 <div class="content">
@@ -84,14 +84,14 @@ $this->Html->script('home', array('inline' => false));
 	<div class="half float_left center padding">
 		<?php echo $this->Html->image('hp_mcdonalds.png', array('alt' => 'Mcdonalds All American Game','class'=>'float_right')); ?>
 		<?php echo $this->Html->image('decorative_line.png', array('alt' => 'separator')); ?>
-		<?php echo $this->Html->link('Learn More <span class="icon-uniE601"></span>', array('controller' => 'StaticPages', 'action' => 'news'),array('class'=>'btn','escape'=>false)); ?>
+		<?php echo $this->Html->link('Learn More <span class="icon-uniE601"></span>', array('controller' => 'StaticPages', 'action' => 'news'),array('class'=>'btns','escape'=>false)); ?>
 	</div>
 	
 	<!--Book-->
 	<div class="half float_right">
 		<div class="title">
 			<h2 class="float_left">Featured Book</h2>
-			<?php echo $this->Html->link('Learn More <span class="icon-uniE601"></span>', array('controller' => 'StaticPages', 'action' => 'videos'),array('class'=>'float_right btn','escape'=>false)); ?>
+			<?php echo $this->Html->link('Learn More <span class="icon-uniE601"></span>', array('controller' => 'StaticPages', 'action' => 'videos'),array('class'=>'float_right btns','escape'=>false)); ?>
 		</div>
 		<div id="hpbook">
 			<ul class="book_slider">

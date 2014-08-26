@@ -13,43 +13,19 @@
 		echo $this->Html->meta('keywords', $meta['keywords']);
 
 		echo $this->Html->css(array(
-			'Bambla.layout',
 			'Bambla.assets',
 			'Bambla.fonts/stylesheet',
-			'Bambla.bootstrap.min','Bambla.bootstrap-responsive.min','//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600','Bambla.font-awesome','Bambla.style','Bambla.pages/signin',
 		));
 		
 		echo $this->Html->script(array(
 			'//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',
-			'Bambla.ckeditor/ckeditor',
-			'Bambla.bootstrap','Bambla.signin'
+			'Bambla.default'
 		));
 		 
 		echo $this->fetch('script');
 	?>
 </head>
 <body>
-	<div class="navbar navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
-			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</a>
-			<!--<a class="brand" href="index.html">
-				Admin Menu				
-			</a>	-->	
-			<div class="nav-collapse">
-				<ul class="nav pull-right">
-					<li>	
-						<?php echo $this->Html->link('Back to Homepage', array('formaction' => Router::url(array('controller' => 'StaticPages', 'action' => 'home')))); ?>					
-					</li>
-				</ul>
-			</div><!--/.nav-collapse -->	
-		</div> <!-- /container -->
-	</div> <!-- /navbar-inner -->
-</div> <!-- /navbar -->
 <div class="account-container">
 	<div class="content clearfix">
 		<?php echo $this->Session->flash(); ?>

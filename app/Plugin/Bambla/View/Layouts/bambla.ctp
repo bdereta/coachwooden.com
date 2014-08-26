@@ -13,20 +13,15 @@
 		echo $this->Html->meta('keywords', $meta['keywords']);
 
 		echo $this->Html->css(array(
-			'Bambla.layout',
 			'Bambla.assets',
 			'Bambla.fonts/stylesheet',
-			'Bambla.bootstrap.min','Bambla.bootstrap-responsive.min','//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600','Bambla.font-awesome','Bambla.style','Bambla.pages/dashboard',
 		));
 
 		echo $this->Html->script(array(
 			'//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',
 			'Bambla.ckeditor/ckeditor',
-			'Bambla.main',
-			'Bambla.excanvas.min','Bambla.bootstrap','Bambla.base'
+			'Bambla.default',
 		));
-
-		 
 		echo $this->fetch('script');
 	?>
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -36,8 +31,8 @@
 </head>
 <body>
 	<?php echo $this->element('Bambla.admin_toolbar'); ?>
-	<div id="container">
-		<div id="content">
+	<div id="bambla_container">
+		<div id="bambla_content">
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->fetch('content'); ?>
 		</div>
