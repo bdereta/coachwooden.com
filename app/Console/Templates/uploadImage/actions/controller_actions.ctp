@@ -122,8 +122,9 @@
 			endif;
 		endforeach;
 	endforeach;
+	$compact[] = "'params'";
 	if (!empty($compact)):
-		echo "\t\t\$this->set(compact('params',".join(', ', $compact)."));\n";
+		echo "\t\t\$this->set(compact(".join(', ', $compact)."));\n";
 	endif;
 ?>
 	}
@@ -235,8 +236,9 @@
 			endif;
 		endforeach;
 	endforeach;
+	$compact[] = "'params'";
 	if (!empty($compact)):
-		echo "\t\t\$this->set(compact('params',".join(', ', $compact)."));\n";
+		echo "\t\t\$this->set(compact(".join(', ', $compact)."));\n";
 	endif;
 ?>
 	}

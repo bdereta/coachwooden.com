@@ -5,8 +5,8 @@ App::uses('CakeEmail', 'Network/Email');
 class PagesController extends AppController {
 	
 	public $components = array('Security');
-	public $uses = array('Instagram.Instagram', 'Facebook.Facebook', 'Twitter.Twitter', 'Youtube.Youtube');
-	public $helpers = array('Instagram.Instagram', 'Facebook.Facebook', 'Twitter.Twitter', 'Youtube.Youtube');
+	public $uses = array('PhotoGallery');
+	public $helpers = array();
 	
 	public function beforeFilter() {
 		parent::beforeFilter();
@@ -21,5 +21,15 @@ class PagesController extends AppController {
 	}
 	
 	public function home() {}
+
+	public function scrapbook() {
+		
+		}
+
+	public function bill_walton_speaks() {}
+	
+	public function favorite_maxims() {}
+	
+	public function mcdonalds_all_american_game () {}
 	
 }

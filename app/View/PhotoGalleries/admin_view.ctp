@@ -23,7 +23,7 @@
 		</dd>
 		<dt><?php echo __('Image'); ?></dt>
 		<dd>
-			<?php echo h($photoGallery['PhotoGallery']['image']); ?>
+			<?php echo $this->Html->image('uploads/'.$photoGallery['PhotoGallery']['image'], array('width' => 120)); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Modified'); ?></dt>
@@ -37,5 +37,9 @@
 			&nbsp;
 		</dd>
 	</dl>
+	<br>
+	<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $photoGallery['PhotoGallery']['id']), array('class'=>'btn btn-info')); ?>
+		&nbsp;
+	<?php echo $this->Html->link(__('List All'), array('action' => 'index'), array('class'=>'btn')); ?>
 </div>
 

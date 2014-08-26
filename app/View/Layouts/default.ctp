@@ -14,6 +14,7 @@
 		echo $this->Html->css(array(
 			'Bambla.assets',
 			'Bambla.fonts/stylesheet',
+			'fonts/stylesheet',
 			'default'
 		));
 		//js

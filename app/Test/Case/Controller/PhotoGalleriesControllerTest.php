@@ -14,9 +14,8 @@ class PhotoGalleriesControllerTest extends ControllerTestCase {
  */
 	public $fixtures = array(
 		'app.photo_gallery',
-		'app.image',
 		'app.bambla',
-		'app.page',
+		'app.metadata',
 		'app.section'
 	);
 
