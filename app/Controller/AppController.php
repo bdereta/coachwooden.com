@@ -31,43 +31,34 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-	public $uses 		= array('Bambla.Bambla','Page','Section');
+	public $uses 		= array('Bambla.Bambla','Bambla.Metadata','Bambla.Section');
 	public $helpers		= array('Bambla.Bambla','Cache','Html','Form');
-	public $components 	= array('Session','Acl','DebugKit.Toolbar',
-        'Auth' => array(
-            'authorize' => array(
-                'Actions' => array('actionPath' => 'controllers')
-            )
-        )
-	);
+	public $components 	= array('Session','Acl','DebugKit.Toolbar', 'Auth' => array('authorize' => array('Actions' => array('actionPath' => 'controllers'))));
 
 	public function beforeFilter() {
 		
 		//fetch page title, keywords, and description for layout
-		$metum = unserialize($this->Page->fetchPageMetum());
+		$metadata = unserialize($this->Metadata->FetchMetaData());
 		
-		if (!empty($metum)) {
-			$meta = array_key_exists($this->request->params['action'], $metum) 
-				? $metum[$this->request->params['action']] 
-				: $metum['default'];
+		if (!empty($metadata)) {
+			$meta = array_key_exists($this->request->params['action'], $metadata) 
+				? $metadata[$this->request->params['action']] 
+				: $metadata['default'];
 		}
 		
 		//capture all sections 
 		$sections = $this->Section->fetchSections();
 		$section = ($sections) ? unserialize($this->Section->fetchSections()) : NULL;
 		
-		//admin navigation
-		$adminNavigation = $this->Bambla->adminNavigation;
-		
+			
 		//Configure AuthComponent
 		$this->Auth->authenticate = array(
 			AuthComponent::ALL => array(
-				'loginRedirect' => array('controller' => 'StaticPages', 'action' => 'home'),
-            	'logoutRedirect' => array('controller' => 'StaticPages', 'action' => 'home'),
-				'userModel' => 'User',
+				'loginRedirect' => array('controller' => 'pages', 'action' => 'home', 'plugin' => false),
+            	'logoutRedirect' => array('controller' => 'pages', 'action' => 'home', 'plugin' => false),
+				'userModel' => 'Bambla.User',
 				'scope' => array(
-					'User.active' => 1, 
-					'User.suspended' => 0
+					'User.active' => 1
 				)
 			),
 			'Form' => array(
@@ -75,11 +66,26 @@ class AppController extends Controller {
 			),
 		);
 		
-		$logged_in		= $this->Auth->loggedIn();
-		$current_user 	= $this->Auth->user();
-		$is_admin		= ($logged_in && $current_user['group_id'] < 3) ? true : false;
+		$logged_in = $this->Auth->loggedIn();
+		$current_user = $this->Auth->user();
+		$is_admin = ($logged_in && $current_user['group_id'] < 3) ? true : false;
+		$admin_links = array();	
 		
-		$this->set(compact('meta','section','adminNavigation','logged_in','current_user','is_admin'));
+		if ($is_admin) {
+			//admin navigation
+			$controllers = App::objects('controller');
+			$additional_controllers = array('MetaData', 'Users');
+			$controllers = array_merge($controllers, $additional_controllers);
+			foreach($controllers as $controller) {
+				$disabled_links = array('App','Pages');
+				$controller = str_replace('Controller', '', $controller);
+				if (!in_array($controller, $disabled_links)) {
+					$admin_links[] = $controller;
+				}
+			}
+		}
+				
+		$this->set(compact('meta','section','admin_links','logged_in','is_admin'));
 		
 		$this->Auth->deny();
 	}

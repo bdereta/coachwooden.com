@@ -5,7 +5,7 @@ Cache::config('default', array(
 	'engine' => 'File',
 	'duration' => '+999 days',
 	'path' => CACHE.'models'.DS,
-	'prefix' => 'default_',
+	'prefix' => 'bambla_',
 ));
 
 Configure::write('Dispatcher.filters', array(
@@ -32,8 +32,11 @@ CakePlugin::load('Bambla', array('bootstrap' => true, 'routes' => true));
 CakePlugin::load('AclExtras');
 CakePlugin::load('Captcha');
 CakePlugin::load('DebugKit');
+CakePlugin::load('ImageTools', array('routes' => true));
 CakePlugin::load('ReuseFileCache');
-CakePlugin::load('Twitter', array('bootstrap' => true));
 CakePlugin::load('Instagram', array('bootstrap' => true));
 CakePlugin::load('Facebook', array('bootstrap' => true));
+CakePlugin::load('Twitter', array('bootstrap' => true));
 CakePlugin::load('Youtube', array('bootstrap' => true));
+
+

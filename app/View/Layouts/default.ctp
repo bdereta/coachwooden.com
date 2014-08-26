@@ -2,16 +2,19 @@
 <html>
 <head>
 	<?php echo $this->Html->charset(); ?>
-	<title><?php echo $meta['title']; ?></title>
+	<title><?php echo (!empty($meta['title'])) ? $meta['title'] : NULL; ?></title>
 	<?php
 		//meta
-		echo $this->Html->meta('icon');
-		echo $this->Html->meta('description', $meta['description']);
-		echo $this->Html->meta('keywords', $meta['keywords']); 
+		if (!empty($meta)) {
+			echo $this->Html->meta('icon');
+			echo $this->Html->meta('description', $meta['description']);
+			echo $this->Html->meta('keywords', $meta['keywords']); 
+		}
 		//css
 		echo $this->Html->css(array(
 			'Bambla.assets',
-			'default','fonts/stylesheet'
+			'Bambla.fonts/stylesheet',
+			'default'
 		));
 		//js
 		echo $this->Html->script(array(
@@ -23,7 +26,7 @@
 	?>
 </head>
 <body>
-	<?php if ($is_admin) echo $this->element('Bambla.admin_toolbar'); ?>
+	<?php if (isset($is_admin) && $is_admin) echo $this->element('Bambla.admin_toolbar'); ?>
 	<?php echo $this->Session->flash(); ?>
 	<div id="wrapper">
 		<div id="container" class="relative">

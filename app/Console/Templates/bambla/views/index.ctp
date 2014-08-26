@@ -17,13 +17,27 @@
  */
 ?>
 <div class="<?php echo $pluralVar; ?> index">
-	<h2><?php echo "<?php echo __('{$pluralHumanName}'); ?>"; ?></h2>
+	<h2 class="page_title"><?php echo "<?php echo __('{$pluralHumanName}'); ?>"; ?></h2>
+	<div class="subnavbar">
+		<div class="subnavbar-inner">
+			<div class="bambla_container">
+				<ul>
+					<li><?php echo "<?php echo \$this->Html->link('<i class=\"icon-plus-sign float_left\"></i><span>Add New</span>', array('action' => 'add'), array('escape' => false)); ?>"; ?></li>
+					<!--
+					<li><?php echo "<?php echo \$this->Html->link('<i class=\"icon-list float_left\"></i><span>List All</span>', array('action' => 'index', 'all'), array('escape' => false)); ?>"; ?></li>
+					<li><?php echo "<?php echo \$this->Html->link('<i class=\"icon-user float_left\"></i><span>List Active</span>', array('action' => 'index', 'active'), array('escape' => false)); ?>"; ?></li>
+					<li><?php echo "<?php echo \$this->Html->link('<i class=\"icon-question-sign float_left\"></i><span>List Deactive</span>', array('action' => 'index', 'deactive'), array('escape' => false)); ?>"; ?></li>
+					-->
+				</ul>
+			</div>
+		</div>
+	</div>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 	<?php foreach ($fields as $field): ?>
 		<th><?php echo "<?php echo \$this->Paginator->sort('{$field}'); ?>"; ?></th>
 	<?php endforeach; ?>
-		<th class="actions"><?php echo "<?php echo __('Actions'); ?>"; ?></th>
+		<th width="1%">&nbsp;</th>
 	</tr>
 	<?php
 	echo "<?php foreach (\${$pluralVar} as \${$singularVar}): ?>\n";
@@ -40,14 +54,20 @@
 				}
 			}
 			if ($isKey !== true) {
-				echo "\t\t<td><?php echo h(\${$singularVar}['{$modelClass}']['{$field}']); ?>&nbsp;</td>\n";
+				$dateRelatedFields = array('modified', 'created', 'updated');
+				if (in_array($field, $dateRelatedFields)) {
+					echo "\t\t<td><?php echo \$this->Time->format('m/d/y - g:i A', \${$singularVar}['{$modelClass}']['{$field}']); ?>&nbsp;</td>\n";
+				} else {
+					echo "\t\t<td><?php echo h(\${$singularVar}['{$modelClass}']['{$field}']); ?>&nbsp;</td>\n";
+				}
+				
 			}
 		}
 
-		echo "\t\t<td class=\"actions\">\n";
-		echo "\t\t\t<?php echo \$this->Html->link(__('View'), array('action' => 'view', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>\n";
-		echo "\t\t\t<?php echo \$this->Html->link(__('Edit'), array('action' => 'edit', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>\n";
-		echo "\t\t\t<?php echo \$this->Form->postLink(__('Delete'), array('action' => 'delete', \${$singularVar}['{$modelClass}']['{$primaryKey}']), null, __('Are you sure you want to delete # %s?', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>\n";
+		echo "\t\t<td nowrap class=\"actions\">\n";
+		echo "\t\t\t<?php echo \$this->Html->link('<i class=\"icon-info-sign\"></i>', array('action' => 'view', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class'=>'btn btn-info','escape' => false,'alt'=>'View','title'=>'View')); ?>\n";
+		echo "\t\t\t<?php echo \$this->Html->link('<i class=\"icon-edit\"></i>', array('action' => 'edit', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class'=>'btn btn-warning','escape' => false,'alt'=>'Edit','title'=>'Edit')); ?>\n";
+		echo "\t\t\t<?php echo \$this->Form->postLink('<i class=\"icon-remove\"></i>', array('action' => 'delete', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class'=>'btn btn-danger','escape' => false,'alt'=>'Delete','title'=>'Delete'), __('Are you sure you want to delete # %s?', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>\n";
 		echo "\t\t</td>\n";
 	echo "\t</tr>\n";
 

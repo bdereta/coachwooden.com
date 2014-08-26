@@ -27,7 +27,8 @@ echo "App::uses('{$plugin}AppController', '{$pluginPath}Controller');\n";
 <?php
 
 //add 'ImageProcessor' component
-$components[] = 'ImageProcessor';
+$components[] = 'ImageTools.ImageTools';
+$helpers[] = 'ImageTools.ImageTools';
 
 if (!$isScaffold) {
 	$defaultModel = Inflector::singularize($controllerName);
@@ -77,9 +78,10 @@ class <?php echo $controllerName; ?>Controller extends <?php echo $plugin; ?>App
 		endfor;
 		echo ");\n\n";
 	endif;
-	echo "\tpublic \$uses = array('$defaultModel','Bambla.Image');\n\n";
-	
-	echo trim($actions);
+		
+	if (!empty($actions)) {
+		echo trim($actions) . "\n";
+	}
 
 endif; ?>
 }

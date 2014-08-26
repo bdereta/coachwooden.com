@@ -16,20 +16,21 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 ?>
+
 <div class="<?php echo $pluralVar; ?> form">
 <?php echo "<?php echo \$this->Form->create('{$modelClass}', array('type' => 'file', 'novalidate'=>'true')); ?>\n"; ?>
 	<fieldset>
-		<legend><?php printf("<?php echo __('%s %s'); ?>", Inflector::humanize($action), $singularHumanName); ?></legend>
+		<legend><?php printf("<?php echo __('%s %s'); ?>", Inflector::humanize(str_replace('admin', '', $action)), $singularHumanName); ?></legend>
 <?php
 		echo "\t<?php\n";
 		foreach ($fields as $field) {
 			if (strpos($action, 'add') !== false && $field == $primaryKey) {
 				continue;
-			} elseif (!in_array($field, array('created', 'modified', 'updated'))) {
+			} elseif (!in_array($field, array('created', 'modified', 'updated')) && !preg_match('/image/',$field)) {
 				echo "\t\techo \$this->Form->input('{$field}');\n";
 			}
 		}
-		echo "\n\t\tif (isset(\$params)) {\n\t\t\tif (array_key_exists('uploadImages', \$params)) {\n\t\t\t\techo \$this->Bambla->uploadImages(\$params);\n\t\t}\n\t}";
+		echo "\n\t\tif (isset(\$params)) {\n\t\t\tif (array_key_exists('uploadImages', \$params)) {\n\t\t\t\techo \$this->ImageTools->uploadImages(\$params);\n\t\t}\n\t}";
 		
 		if (!empty($associations['hasAndBelongsToMany'])) {
 			foreach ($associations['hasAndBelongsToMany'] as $assocName => $assocData) {
@@ -39,7 +40,9 @@
 		echo "\t?>\n";
 ?>
 	</fieldset>
-<?php
-	echo "<?php echo \$this->Form->end(__('Submit')); ?>\n";
-?>
+	<div class="form-actions">
+		<?php echo "<?php echo \$this->Form->button('Save', array('type' => 'submit', 'class'=>'btn btn-primary')); ?>\n"; ?>
+		<?php echo "<?php echo \$this->Form->end(); ?>\n"; ?> &nbsp;
+		<?php echo "<?php echo \$this->Form->postLink('Cancel', array('action' => 'index'), array('type' => 'button', 'class'=>'btn'), 'Are you sure you want to cancel changes?'); ?>\n"; ?>
+	</div>
 </div>

@@ -34,11 +34,19 @@ foreach ($fields as $field) {
 	}
 	if ($isKey !== true) {
 		echo "\t\t<dt><?php echo __('" . Inflector::humanize($field) . "'); ?></dt>\n";
-		echo "\t\t<dd>\n\t\t\t<?php echo h(\${$singularVar}['{$modelClass}']['{$field}']); ?>\n\t\t\t&nbsp;\n\t\t</dd>\n";
+		if (preg_match('/image/',$field)) {
+			echo "\t\t<dd>\n\t\t\t<?php echo \$this->Html->image('uploads/'.\${$singularVar}['{$modelClass}']['{$field}'], array('width' => 120)); ?>\n\t\t\t&nbsp;\n\t\t</dd>\n";
+		} else {
+			echo "\t\t<dd>\n\t\t\t<?php echo h(\${$singularVar}['{$modelClass}']['{$field}']); ?>\n\t\t\t&nbsp;\n\t\t</dd>\n";
+		}
 	}
 }
 ?>
 	</dl>
+	<br>
+	<?php echo "<?php echo \$this->Html->link(__('Edit'), array('action' => 'edit', \${$singularVar}['{$modelClass}']['id']), array('class'=>'btn btn-info')); ?>\n"; ?>
+		&nbsp;
+	<?php echo "<?php echo \$this->Html->link(__('List All'), array('action' => 'index'), array('class'=>'btn')); ?>\n"; ?>
 </div>
 
 <?php
@@ -95,21 +103,18 @@ echo "\t<?php foreach (\${$singularVar}['{$alias}'] as \${$otherSingularVar}): ?
 				echo "\t\t\t<td><?php echo \${$otherSingularVar}['{$field}']; ?></td>\n";
 			}
 
-			echo "\t\t\t<td class=\"actions\">\n";
-			echo "\t\t\t\t<?php echo \$this->Html->link(__('View'), array('controller' => '{$details['controller']}', 'action' => 'view', \${$otherSingularVar}['{$details['primaryKey']}'])); ?>\n";
-			echo "\t\t\t\t<?php echo \$this->Html->link(__('Edit'), array('controller' => '{$details['controller']}', 'action' => 'edit', \${$otherSingularVar}['{$details['primaryKey']}'])); ?>\n";
-			echo "\t\t\t\t<?php echo \$this->Form->postLink(__('Delete'), array('controller' => '{$details['controller']}', 'action' => 'delete', \${$otherSingularVar}['{$details['primaryKey']}']), null, __('Are you sure you want to delete # %s?', \${$otherSingularVar}['{$details['primaryKey']}'])); ?>\n";
-			echo "\t\t\t</td>\n";
-		echo "\t\t</tr>\n";
+			echo "\t\t<td nowrap class=\"actions\">\n";
+		echo "\t\t\t<?php echo \$this->Html->link('<i class=\"icon-info-sign\"></i>', array('action' => 'view', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class'=>'btn btn-info','escape' => false,'alt'=>'View','title'=>'View')); ?>\n";
+		echo "\t\t\t<?php echo \$this->Html->link('<i class=\"icon-edit\"></i>', array('action' => 'edit', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class'=>'btn btn-warning','escape' => false,'alt'=>'Edit','title'=>'Edit')); ?>\n";
+		echo "\t\t\t<?php echo \$this->Form->postLink('<i class=\"icon-remove\"></i>', array('action' => 'delete', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class'=>'btn btn-danger','escape' => false,'alt'=>'Delete','title'=>'Delete'), __('Are you sure you want to delete # %s?', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>\n";
+		echo "\t\t</td>\n";
+	echo "\t</tr>\n";
 
 echo "\t<?php endforeach; ?>\n";
 ?>
 	</table>
 <?php echo "<?php endif; ?>\n\n"; ?>
-	<div class="actions">
-		<ul>
-			<li><?php echo "<?php echo \$this->Html->link(__('New " . Inflector::humanize(Inflector::underscore($alias)) . "'), array('controller' => '{$details['controller']}', 'action' => 'add')); ?>"; ?> </li>
-		</ul>
-	</div>
+	<?php echo "<?php echo \$this->Html->link('<i class=\"icon-plus-sign\"></i> New " . Inflector::humanize(Inflector::underscore($alias)) . "', array('controller' => '{$details['controller']}', 'action' => 'add'), array('class'=>'btn btn-info','escape' => false,'alt'=>'New " . Inflector::humanize(Inflector::underscore($alias)) . "','title'=>'New " . Inflector::humanize(Inflector::underscore($alias)) . "')); ?>"; ?>
+	
 </div>
 <?php endforeach; ?>
