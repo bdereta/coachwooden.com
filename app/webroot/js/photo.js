@@ -4,7 +4,7 @@ $(document).ready(function(){
 
 	$('.photo_slider').bxSlider({
 		mode: 'fade',
-		slideWidth: 1196,
+		slideWidth: 1194,
 		controls: true,
 		pager: false,
 		auto: false,

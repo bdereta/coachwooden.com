@@ -7,30 +7,30 @@ $this->Html->script('photo', array('inline' => false));
 
 <div class="content">
 	<div class="page_titles photo">
-		<span>Photo</span>
-		<h1 class="photo">Gallery</h1>
+		<span>Scrap</span>
+		<h1 class="photo">Book</h1>
 		<?php echo $this->Html->image('decorative_line_long.png', array('alt' => 'separator')); ?>
 	</div>
 	<div class="clear"></div>
-	<div id="photo">
-		<div class="photo_slider">
-			<div class="slide">
-				<?php echo $this->Html->link($this->Html->image("temp_photo.jpg", array("alt" => "title")),'https://link.com', array('target' => '_blank','escape' => false)); ?>
-				<div class="cap_btn"><a class="trigger" href="#">Info</a></div>
-				<div class="panel">
-					<p class="photo_number"><span>1</span>/20</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-				</div>
-			</div>
-			<div class="slide">
-				<?php echo $this->Html->link($this->Html->image("temp_photo.jpg", array("alt" => "title")),'https://link.com', array('target' => '_blank','escape' => false)); ?>
-				<div class="cap_btn"><a class="trigger" href="#">Info</a></div>
-				<div class="panel">
-					<p class="photo_number"><span>2</span>/20</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-				</div>
+	<?php if (!empty($galleries)) : ?>
+		<div id="photo">
+			<div class="top_left"></div>
+			<div class="top_right"></div>
+			<div class="bottom_left"></div>
+			<div class="bottom_right"></div>
+			<div class="photo_slider">
+				<?php foreach($galleries as $gallery) : ?>
+					<div class="slide">
+						<?php echo $this->Html->image('uploads/'.$gallery['PhotoGallery']['image'], array('alt' => $gallery['PhotoGallery']['title'])); ?>
+						<div class="cap_btn"><a class="trigger" href="#">Info</a></div>
+						<div class="panel">
+							<p class="photo_number"><span><?php echo $gallery['PhotoGallery']['id']; ?></span>/<?php echo $photo_totals; ?></p>
+							<?php echo $gallery['PhotoGallery']['content']; ?>
+						</div>
+					</div>
+				<?php endforeach; ?>
 			</div>
 		</div>
-	</div>
+	<?php endif; ?>
 	<div class="clear"></div>
 </div>

@@ -23,13 +23,17 @@ class PagesController extends AppController {
 	public function home() {}
 
 	public function scrapbook() {
-		
-		}
+		$galleries = $this->PhotoGallery->find('all', array('order' => array('ordering_position')));
+		$photo_totals = $this->PhotoGallery->find('count');
+		$this->set(compact('galleries','photo_totals'));		
+	}
 
 	public function bill_walton_speaks() {}
 	
 	public function favorite_maxims() {}
 	
 	public function mcdonalds_all_american_game () {}
+	
+	public function wooden_award () {}
 	
 }

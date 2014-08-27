@@ -42,6 +42,7 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .btns:hover span { background:url(../img/hex_blue.png) no-repeat center; color:#19272a; }
 
 /* Home */
+
 .hp_news li { width:100%; height:65px; line-height:65px; border-bottom:1px solid rgba(184,170,124,0.11); }
 .hp_news li:last-child { border:none; }
 .hp_news li .date { width:90px; }
@@ -78,13 +79,24 @@ footer { height:250px; padding-top:51px; text-align:center; }
 /* Page Titles
 ================================================== */
 .page_titles { height:200px; padding-top:55px; text-align:center; background:url(../img/decorative_line_long.png) no-repeat top center; }
-.page_titles h1 { font-size:142px; color:#e4e2e0; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; text-transform:uppercase; margin:0 0 10px 0; line-height:150px; }
+.page_titles h1 { font-size:142px; color:#e4e2e0; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; text-transform:uppercase; margin:0 0 10px 0; line-height:150px; text-shadow:5px 5px 30px #000; }
 .page_titles span { font-size:18px; color:#bf9f67; font-family:Georgia, serif; text-transform:capitalize; font-style:italic; text-shadow:1px 1px 1px #000; margin:0; }
 .page_titles h1.photo { font-size:142px; }
 .page_titles h1.speaks { font-size:75px; line-height:95px; }
 .page_titles h1.speaks img { vertical-align: super; }
 .page_titles h1.game { font-size:90px; line-height:95px; margin-top:-10px; }
 .page_titles h1.game span { font-size:90px; vertical-align:text-top; font-family:Georgia, serif; font-style:normal; color:#e4e2e0; }
+.page_titles h1.award { font-size:119px; }
+
+
+/* Bill Walton Speaks
+================================================== */
+#photo { margin: 50px 0 120px 0; width:1246px; height:796px; position:relative; }
+#photo .top_left { position:absolute; top:25px; left:25px; z-index:999; background:url(../img/frame_corner_tl.jpg) no-repeat; width:11px; height:9px; }
+#photo .top_right { position:absolute; top:25px; right:25px; z-index:999; background:url(../img/frame_corner_tr.jpg) no-repeat; width:11px; height:9px; }
+#photo .bottom_left { position:absolute; bottom:25px; left:25px; z-index:999; background:url(../img/frame_corner_bl.jpg) no-repeat; width:11px; height:9px; }
+#photo .bottom_right { position:absolute; bottom:25px; right:25px; z-index:999; background:url(../img/frame_corner_br.jpg) no-repeat; width:11px; height:9px; }
+
 
 
 /* Bill Walton Speaks
@@ -126,6 +138,36 @@ h2.title_game { font-size:30px; color:#dcbf78; font-family:"gist_upright_extrabo
 .btn_game:hover span { background:url(../img/hex_blue.png) no-repeat center; color:#19272a; }
 
 
+/* Awards
+================================================== */
+.award_text { padding:15px 25px 50px 0; }
+.award_text h2 { font-size:30px; color:#dccc9b; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; line-height:35px; margin:70px 0 35px 0; }
+.award_text p { font-size:24px; color:#fff; font-family:Georgia, serif; line-height:30px; }
+
+.facts { height:330px; padding-top:70px; display: block; position: relative; background:rgba(0,0,0,0.65); margin-bottom:100px; }
+.facts .text { height:300px; width:966px; margin:0 auto; }
+.facts .text h2 { color:#dcbf78; font-size:30px; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; margin-bottom:10px; }
+.facts .text p { font-family:Georgia, serif; font-size:24px; font-style:italic; color:#f4e5cc; }
+.facts .line_top { position:absolute; top:0; left:0; }
+.facts .line_bottom { position:absolute; bottom:0; left:0; }
+
+.award_photos_container { padding-bottom:100px; }
+.award_photo { width:305px; height:254px; padding:31px 32px; background:url(../img/bg_award_photos.png) no-repeat; opacity:.6; margin:19px; float:left; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
+.award_photo:hover { opacity:1; }
+
+.st-accordion { width:1183px; min-width:270px; margin: 0 auto; padding-bottom:20px; }
+.st-accordion ul li { height:auto; overflow: hidden; margin-bottom:18px; min-height:108px; }
+.st-accordion ul li > a { font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; text-transform:uppercase; font-size:30px; color:#dccc9b; display:block; position:relative; height:104px; line-height:104px; outline:none; -webkit-transition:all 0.2s; -moz-transition:all 0.2s; -o-transition:all 0.2s; -ms-transition:all 0.2s; transition:all 0.2s; border:2px solid rgba(93,71,46,0.3); background:rgba(8,4,1,0.3); padding:0 44px; margin-bottom:18px; }
+.st-accordion ul li > a span { border:2px solid #624b32; border-radius:50%; padding:0 19px; color:#766345; background:url(../img/plus.png) no-repeat center; margin-right:60px; -webkit-transition:all 0.2s; -moz-transition:all 0.2s; -o-transition:all 0.2s; -ms-transition:all 0.2s; transition:all 0.2s; }
+.st-accordion ul li > a:hover, 
+.st-accordion ul li.st-open > a { color:#fff; border:2px solid rgba(93,71,46,1); background:rgba(8,4,1,1); }
+.st-accordion ul li > a:hover span,
+.st-accordion ul li.st-open > a span { border:2px solid #4f7f7b; background:url(../img/minus.png) no-repeat center; }
+.st-content {  padding-bottom:50px; }
+.st-content .table_header { border:1px solid #53402c; background:rgba(8,4,1,0.3); height:60px; width:100%; margin-bottom:21px; }
+.st-content .table_header th { font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; font-size:18px; color:#dccc9b; line-height:60px; text-align:left; text-indent:100px; }
+.st-content .table_bg { background:url(../img/bg_winners_list.jpg); width:100%; border-bottom:4px solid #4f7570; }
+.st-content .table_bg td { height:76px; font-family:Georgia, serif; font-size:18px; color:#fff; line-height:60px; text-indent:100px; }
 
 
 

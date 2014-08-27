@@ -68,10 +68,10 @@
 
 
 /* Photo Slider */
-#photo .bx-wrapper { position: relative; margin: 50px 0 120px 0; padding: 0; *zoom: 1; }
+#photo .bx-wrapper { position: relative; margin:0; padding: 0; *zoom: 1; }
 
-#photo .bx-wrapper .bx-viewport { background:url(../img/bg_photo_slider.jpg) no-repeat left top; padding:25px; }
-#photo .bx-wrapper .bx-viewport .slide { width:1196px; height:746px; position:relative; }
+#photo .bx-wrapper .bx-viewport { background:url(../img/bg_photo_slider.jpg) no-repeat left top; padding:25px; position:absolute; }
+#photo .bx-wrapper .bx-viewport .slide { width:1194px; height:744px; position:relative; border:1px solid #5d4635; }
 #photo .bx-wrapper .bx-viewport .slide img { position:absolute; top:0; left:0; }
 
 #photo .bx-wrapper .bx-prev { left:-25px; background:url(../img/arrows_viewer.png) no-repeat top left; }
@@ -106,4 +106,10 @@ a.active.trigger:hover { background:url(../img/close.png) center no-repeat; text
 #clothesline .bx-wrapper .bx-controls-direction a { position: absolute; top: 50%; margin-top:-25px; outline: 0; width:62px; height:72px; text-indent: -9999px; z-index: 9999; }
 
 
-
+/* Award Facts */
+.facts .bx-wrapper { position: relative; margin: 0 0 100px 0; padding: 0; *zoom: 1; }
+.facts .bx-wrapper .bx-prev { left:-180px; background:url(../img/arrows_large.png) no-repeat top left; }
+.facts .bx-wrapper .bx-next { right:-180px; background:url(../img/arrows_large.png) no-repeat top right; }
+.facts .bx-wrapper .bx-prev:hover { background:url(../img/arrows_large_hover.png) no-repeat top left; }
+.facts .bx-wrapper .bx-next:hover { background:url(../img/arrows_large_hover.png) no-repeat top right; }
+.facts .bx-wrapper .bx-controls-direction a { position: absolute; top: 50%; margin-top:-25px; outline: 0; width:62px; height:72px; text-indent: -9999px; z-index: 9999; }

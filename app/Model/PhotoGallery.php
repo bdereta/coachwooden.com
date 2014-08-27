@@ -25,8 +25,8 @@ class PhotoGallery extends AppModel {
 				'height' => 800, 
 			),
 			'crop' => array(
-				'width' => 1196,
-				'height' => 746				
+				'width' => 1194,
+				'height' => 744				
 			),
 		),
 	);

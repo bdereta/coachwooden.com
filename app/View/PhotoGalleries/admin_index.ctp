@@ -16,24 +16,16 @@
 	</div>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('ordering_position'); ?></th>
 			<th><?php echo $this->Paginator->sort('title'); ?></th>
-			<th><?php echo $this->Paginator->sort('content'); ?></th>
 			<th><?php echo $this->Paginator->sort('image'); ?></th>
-			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th width="1%">&nbsp;</th>
 	</tr>
 	<?php foreach ($photoGalleries as $photoGallery): ?>
 	<tr>
-		<td><?php echo h($photoGallery['PhotoGallery']['id']); ?>&nbsp;</td>
 		<td><?php echo h($photoGallery['PhotoGallery']['ordering_position']); ?>&nbsp;</td>
 		<td><?php echo h($photoGallery['PhotoGallery']['title']); ?>&nbsp;</td>
-		<td><?php echo h($photoGallery['PhotoGallery']['content']); ?>&nbsp;</td>
 		<td><?php echo $this->Html->image('uploads/'.$photoGallery['PhotoGallery']['image'], array('width' => 120)); ?>&nbsp;</td>
-		<td><?php echo $this->Time->format('m/d/y - g:i A', $photoGallery['PhotoGallery']['modified']); ?>&nbsp;</td>
-		<td><?php echo $this->Time->format('m/d/y - g:i A', $photoGallery['PhotoGallery']['created']); ?>&nbsp;</td>
 		<td nowrap class="actions">
 			<?php echo $this->Html->link('<i class="icon-info-sign"></i>', array('action' => 'view', $photoGallery['PhotoGallery']['id']), array('class'=>'btn btn-info','escape' => false,'alt'=>'View','title'=>'View')); ?>
 			<?php echo $this->Html->link('<i class="icon-edit"></i>', array('action' => 'edit', $photoGallery['PhotoGallery']['id']), array('class'=>'btn btn-warning','escape' => false,'alt'=>'Edit','title'=>'Edit')); ?>
