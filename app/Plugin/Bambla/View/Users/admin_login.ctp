@@ -12,7 +12,7 @@
 			'class'=>'login captcha-field antibot', 
 			'autocomplete' => 'off'
 		)); ?></div>
-		<div class="float_right inline"><?php echo $this->Html->image(array('controller' => 'captcha', 'action' => 'get_image', 'plugin' => 'captcha', 'admin' => false ), array('id' => 'captcha')) ?></div>
+		<div class="float_right inline"><?php echo $this->Html->image(array('controller' => 'captcha', 'action' => 'get_image', 'plugin' => 'captcha', 'admin' => false, time()), array('id' => 'captcha')) ?></div>
 		
 		<div class="login-actions">
 			<div class="float_right inline"><?php echo $this->Html->link('<i class="icon-home"></i> Back to Site', array('controller' => 'Pages', 'action' => 'home', 'plugin' => false, 'admin' => false), array('class' => 'button btn btn-med','escape' => false)); ?></div>	
