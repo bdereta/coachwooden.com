@@ -59,7 +59,7 @@ class MetadataController extends BamblaAppController {
 		if ($this->request->is('post')) {
 			$this->Metadata->create();
 			if ($this->Metadata->save($this->request->data)) {
-				$this->Metadata->ClearCache('metum');
+				$this->Metadata->ClearCache('Metadata');
 				$this->Session->setFlash(__('The meta data has been saved.'), 'Bambla.green');
 				return $this->redirect(array('action' => 'index'));
 			} else {
@@ -85,7 +85,7 @@ class MetadataController extends BamblaAppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Metadata->save($this->request->data)) {
-				$this->Metadata->ClearCache('metum');
+				$this->Metadata->ClearCache('Metadata');
 				$this->Session->setFlash(__('The meta data has been saved.'), 'Bambla.green');
 				return $this->redirect(array('action' => 'index'));
 			} else {
@@ -115,7 +115,7 @@ class MetadataController extends BamblaAppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Metadata->delete()) {
-			$this->Metadata->ClearCache('metum');
+			$this->Metadata->ClearCache('Metadata');
 			$this->Session->setFlash(__('The meta data has been deleted.'), 'Bambla.green');
 		} else {
 			$this->Session->setFlash(__('The meta data could not be deleted. Please, try again.'), 'Bambla.red');

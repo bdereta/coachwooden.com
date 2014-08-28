@@ -5,11 +5,11 @@ App::uses('AppModel', 'Model');
  *
  * @property Section $Section
  */
-class Metadata extends AppModel {
+class Metadata extends BamblaAppModel {
 	
 	public $recursive = -1;
 	
-	public function FetchMetaData() {
+	public function FetchMetadata($output = null) {
 		$cache_key = 'Metadata';
 		$output = Cache::read($cache_key);
 		if (!$output) {	

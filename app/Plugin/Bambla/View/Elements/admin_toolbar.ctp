@@ -7,7 +7,7 @@
 					<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-dashboard"></i>Admin Menu <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<?php foreach($admin_links as $controller) : ?>
-								<?php $plugin = in_array($controller, array('MetaData', 'Users')) ? 'Bambla' : false; ?>
+								<?php $plugin = in_array($controller, array('Metadata', 'Users')) ? 'Bambla' : false; ?>
 								<li><?php echo $this->Html->link(Inflector::humanize(Inflector::underscore($controller)), array('controller' => $controller, 'action'=>'index', 'admin' => true, 'plugin' => $plugin)); ?></li>
 							<?php endforeach; ?>
 						</ul>
