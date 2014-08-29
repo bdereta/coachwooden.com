@@ -5,7 +5,7 @@ App::uses('CakeEmail', 'Network/Email');
 class PagesController extends AppController {
 	
 	public $components = array('Security');
-	public $uses = array('PhotoGallery');
+	public $uses = array('PhotoGallery','Book');
 	public $helpers = array();
 	
 	public function beforeFilter() {
@@ -20,7 +20,10 @@ class PagesController extends AppController {
 		return $this->redirect($this->referer());
 	}
 	
-	public function home() {}
+	public function home() {
+		$books = $this->Book->find('all', array('order' => array('ordering_position')));
+		$this->set(compact('books'));		
+	}
 
 	public function scrapbook() {
 		$galleries = $this->PhotoGallery->find('all', array('order' => array('ordering_position')));

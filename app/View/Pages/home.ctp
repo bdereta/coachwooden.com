@@ -93,12 +93,15 @@ $this->Html->script('home', array('inline' => false));
 			<h2 class="float_left">Featured Book</h2>
 			<?php echo $this->Html->link('Learn More <span class="icon-uniE601"></span>', array('controller' => 'StaticPages', 'action' => 'videos'),array('class'=>'float_right btns','escape'=>false)); ?>
 		</div>
-		<div id="hpbook">
-			<ul class="book_slider">
-				<li><?php echo $this->Html->link($this->Html->image("temp_book.jpg", array("class" => "img", "alt" => "title")),'https://link.com', array('target' => '_blank','escape' => false)); ?></li>
-				<li><?php echo $this->Html->link($this->Html->image("temp_book.jpg", array("class" => "img", "alt" => "title")),'https://link.com', array('target' => '_blank','escape' => false)); ?></li>
-			</ul>
-		</div>
+		<?php if (!empty($books)) : ?>
+			<div id="hpbook">
+				<ul class="book_slider">
+					<?php foreach($books as $book) : ?>
+						<li><?php echo $this->Html->link($this->Html->image('uploads/'.$book['Book']['image_thumb'], array("class" => "img", "alt" => $book['Book']['title'])),$book['Book']['amazon_link'], array('target' => '_blank','escape' => false)); ?></li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+		<?php endif; ?>
 	</div>
 </div>
 <div class="clear"></div>
