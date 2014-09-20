@@ -4,3 +4,8 @@ $(document).ready(function(){
 	$('.alert').delay(5000).fadeOut(400);
 	
 });
+
+function yt_load_video(url) {
+	$("#yt_big").attr("src",url);
+	return;
+}

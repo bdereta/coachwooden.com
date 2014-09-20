@@ -5,36 +5,14 @@
 		<?php echo $this->Html->image('decorative_line_long.png', array('alt' => 'separator')); ?>
 	</div>
 	<div class="clear"></div>
-	<div class="speak_video">
-		<iframe width="1180" height="694" src="//www.youtube.com/embed/T1WOjpegGyA" frameborder="0" id="youtube_iFrameVideo" allowfullscreen></iframe>
-	</div>
-	<div class="clear"></div>
-	<div class="video_thumbs_container">
-		<div class="video_thumbs relative transition">
-			<?php echo $this->Html->link($this->Html->image("video_temp.jpg", array("class" => "img float_left", "alt" => "title")),'', array('escape' => false, 'class' => 'transition')); ?>
-			<?php echo $this->Html->image('btn_video.png', array('class' => 'btn_play')); ?>
-			<p class="transition">Lorem Ipsum dolor sit amet, consecte more</p>
+	<?php if (!empty($youtube)) : ?>
+		<div class="speak_video">
+			<?php echo $this->Youtube->get_content($youtube, array('limit' => 1, 'template' => 'big')); ?>
 		</div>
-		<div class="video_thumbs relative transition">
-			<?php echo $this->Html->link($this->Html->image("video_temp.jpg", array("class" => "img float_left", "alt" => "title")),'', array('escape' => false, 'class' => 'transition')); ?>
-			<?php echo $this->Html->image('btn_video.png', array('class' => 'btn_play')); ?>
-			<p class="transition">Lorem Ipsum dolor sit amet, consecte more</p>
+		<div class="clear"></div>
+		<div class="video_thumbs_container">
+			<?php echo $this->Youtube->get_content($youtube, array('template' => 'thumbs')); ?>
 		</div>
-		<div class="video_thumbs relative transition">
-			<?php echo $this->Html->link($this->Html->image("video_temp.jpg", array("class" => "img float_left", "alt" => "title")),'', array('escape' => false, 'class' => 'transition')); ?>
-			<?php echo $this->Html->image('btn_video.png', array('class' => 'btn_play')); ?>
-			<p class="transition">Lorem Ipsum dolor sit amet, consecte more</p>
-		</div>
-		<div class="video_thumbs relative transition">
-			<?php echo $this->Html->link($this->Html->image("video_temp.jpg", array("class" => "img float_left", "alt" => "title")),'', array('escape' => false, 'class' => 'transition')); ?>
-			<?php echo $this->Html->image('btn_video.png', array('class' => 'btn_play')); ?>
-			<p class="transition">Lorem Ipsum dolor sit amet, consecte more</p>
-		</div>
-		<div class="video_thumbs relative transition">
-			<?php echo $this->Html->link($this->Html->image("video_temp.jpg", array("class" => "img float_left", "alt" => "title")),'', array('escape' => false, 'class' => 'transition')); ?>
-			<?php echo $this->Html->image('btn_video.png', array('class' => 'btn_play')); ?>
-			<p class="transition">Lorem Ipsum dolor sit amet, consecte more</p>
-		</div>
-	</div>
+	<?php endif; ?>
 	<div class="clear"></div>
 </div>

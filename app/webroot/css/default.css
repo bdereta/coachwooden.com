@@ -1,7 +1,7 @@
 /* CSS Document */
 
 body { font-family:Georgia, serif; font-size:12px; padding: 0; margin: 0; background:url(../img/background.jpg) top center; color:#fff; }
-#wrapper { width:100%; min-width:1246px; margin:0 auto; height:auto; position:relative; background:url(../img/bg_top.jpg) top center no-repeat; }
+#wrapper { width:100%; min-width:1246px; margin:0 auto; height:auto; position:relative; background:url(../img/bg_top.jpg) top center no-repeat; overflow:hidden; }
 #container { max-width:1600px; min-width:1246px; margin:0 auto; height:auto; position:relative; }
 .content { width:1246px; margin:0 auto; }
 a { text-decoration:none; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
@@ -36,7 +36,7 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .full h2 { font-size:36px; color:#dcccb9; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; text-transform:uppercase; margin:0; }
 .full:hover h2 { color:#fff; }
 
-.btns { font-size:14px; color:#8b7652; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; line-height:50px; text-shadow: 1px 1px 10px rgba(0,0,0,1.00); -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
+.btns { font-size:12px; color:#8b7652; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; line-height:50px; text-shadow: 1px 1px 10px rgba(0,0,0,1.00); -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
 .btns span { margin-left:5px; padding:5px; background:url(../img/hex_white.png) no-repeat center; color:#434343; text-shadow:none; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
 .btns:hover { color:#fff; }
 .btns:hover span { background:url(../img/hex_blue.png) no-repeat center; color:#19272a; }
@@ -47,8 +47,8 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .hp_news li:last-child { border:none; }
 .hp_news li .date { width:90px; }
 .hp_news li .date a { font-family:Georgia, serif; font-size:18px; font-style:italic; color:#836f58; opacity:0.5; }
-.hp_news li .link { width:510px; }
-.hp_news li .link a { font-family:Georgia, serif; font-size:18px; font-style:italic; color:#f4e5cc; opacity:0.5; }
+.hp_news li .link { width:510px; overflow:hidden; }
+.hp_news li .link a { font-family:Georgia, serif; font-size:18px; font-style:italic; color:#f4e5cc; opacity:0.5; white-space:nowrap; }
 .hp_news li:hover { padding-left:10px; }
 .hp_news li:hover .date a { color:#bf9e6b; opacity:1; }
 .hp_news li:hover .link a { opacity:1; color:#fff; font-weight:bold; }
@@ -68,8 +68,8 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .hp_quote .line_top { position:absolute; top:0; left:0; }
 .hp_quote .line_bottom { position:absolute; bottom:0; left:0; }
 
-.hp_quote2 { height:545px; margin-top:50px; display: block; position: relative; background:url(../img/bg_hp_quote2.jpg) no-repeat top center; }
-.hp_quote2 .caption { position: absolute; top:40px; left:50%; margin-left:-265px; width: 0px; height: 0px; border-style: inset; border-width: 0 235px 300px 235px; border-color: transparent; float: left; transform:rotate(360deg); -ms-transform:rotate(360deg); -moz-transform:rotate(360deg); -webkit-transform:rotate(360deg); -o-transform:rotate(360deg); }
+.hp_quote2 { height:585px; margin-top:50px; display: block; position: relative; background:url(../img/bg_hp_quote2.jpg) no-repeat top center; }
+.hp_quote2 .caption { position: absolute; top:90px; left:50%; margin-left:-350px; width: 0px; height: 0px; border-style: inset; border-width: 0 235px 300px 235px; border-color: transparent; float: left; transform:rotate(360deg); -ms-transform:rotate(360deg); -moz-transform:rotate(360deg); -webkit-transform:rotate(360deg); -o-transform:rotate(360deg); }
 .hp_quote2 .caption .text { text-align: center; top: 140px; left: -125px; position: relative; width:470px; height:100px; margin: 0px; }
 .hp_quote2 .caption p { font-family:Georgia, serif; font-size:18px; color:#fff; text-transform:uppercase; line-height:23px; margin-bottom:25px; text-transform:uppercase; text-shadow:1px 1px 2px rgba(0,0,0,1.00); }
 .hp_quote2 .caption span { font-family:Georgia, serif; font-style:italic; color:#6ab5c9; text-transform:capitalize; font-size:18px; text-shadow:1px 1px 2px rgba(0,0,0,1.00); }
@@ -80,7 +80,7 @@ footer { height:250px; padding-top:51px; text-align:center; }
 ================================================== */
 .page_titles { height:200px; padding-top:55px; text-align:center; background:url(../img/decorative_line_long.png) no-repeat top center; }
 .page_titles h1 { font-size:142px; color:#e4e2e0; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; text-transform:uppercase; margin:0 0 10px 0; line-height:150px; text-shadow:5px 5px 30px #000; }
-.page_titles span { font-size:18px; color:#bf9f67; font-family:Georgia, serif; text-transform:capitalize; font-style:italic; text-shadow:1px 1px 1px #000; margin:0; }
+.page_titles span { font-size:30px; color:#bf9f67; font-family:Georgia, serif; text-transform:capitalize; font-style:italic; text-shadow:1px 1px 1px #000; margin:0; }
 .page_titles h1.photo { font-size:142px; }
 .page_titles h1.speaks { font-size:75px; line-height:95px; }
 .page_titles h1.speaks img { vertical-align: super; }
@@ -89,7 +89,7 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .page_titles h1.award { font-size:119px; }
 
 
-/* Bill Walton Speaks
+/* Scrapbook
 ================================================== */
 #photo { margin: 50px 0 120px 0; width:1246px; height:796px; position:relative; }
 #photo .top_left { position:absolute; top:25px; left:25px; z-index:999; background:url(../img/frame_corner_tl.jpg) no-repeat; width:11px; height:9px; }
@@ -98,6 +98,19 @@ footer { height:250px; padding-top:51px; text-align:center; }
 #photo .bottom_right { position:absolute; bottom:25px; right:25px; z-index:999; background:url(../img/frame_corner_br.jpg) no-repeat; width:11px; height:9px; }
 
 
+/* Pyramid
+================================================== */
+#pyramid { margin: 50px 0 20px 0; width:1246px; height:874px; position:relative; background:url(../img/bg_pyramid.png) no-repeat top center; }
+#pyramid h2 { font-size:48px; color:#fff; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; text-transform:uppercase; padding-top:110px; margin:0 0 43px 0; text-shadow:3px 3px 3px #000, 0px 0px 40px #e8dcb3; text-align:center; }
+#pyramid h3 { font-size:26px; color:#ded1b9; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; margin:50px 0 0 0; text-align:center; text-shadow:3px 3px 3px #000; }
+#pyramid .full { margin-bottom:7px; height:111px; }
+#pyramid .full ul { list-style:none; margin:0 auto; padding:0; height:111px; display:inline-table; }
+#pyramid .full ul li { float:left; margin:0 4px 0 3px; }
+#pyramid .large_blocks { width:201px; height:86px; background:url(../img/btn_pyramid_large.jpg) no-repeat top left; text-align:center; padding-top:25px; margin:0 auto; }
+#pyramid .full.first .large_blocks { height:96px; padding-top:15px; }
+#pyramid .large_blocks p { font-size:20px; color:#fff; font-family:"college_semi-condensedregular", Georgia, serif; text-transform:uppercase; line-height:25px; text-shadow: 1px 1px 1px #000, 0px 0px 10px #000; }
+#pyramid .large_blocks:hover { background:url(../img/btn_pyramid_large_hover.jpg) no-repeat top left; }
+.pyramid_back { margin-bottom:10px; }
 
 /* Bill Walton Speaks
 ================================================== */
@@ -132,10 +145,8 @@ footer { height:250px; padding-top:51px; text-align:center; }
 
 h2.title_game { font-size:30px; color:#dcbf78; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; margin:50px 0 0 0; }
 
-.btn_game { font-size:14px; color:#6b5a3d; font-family:Georgia, serif; line-height:50px; text-shadow: 1px 1px 10px rgba(0,0,0,1.00); -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
-.btn_game span { margin-left:5px; padding:15px 11px 14px 11px; background:url(../img/hex_white.png) no-repeat center; color:#434343; text-shadow:none; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
+.btn_game { font-size:14px; color:#6b5a3d; font-family:Georgia, serif; line-height:50px; padding:3px 30px 3px 0; background:url(../img/mcdonalds_seal_small.png) no-repeat right center; text-shadow: 1px 1px 10px rgba(0,0,0,1.00); -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
 .btn_game:hover { color:#fff; }
-.btn_game:hover span { background:url(../img/hex_blue.png) no-repeat center; color:#19272a; }
 
 
 /* Awards

@@ -1,0 +1,87 @@
+/* Colio - White Theme
+================================================== */
+
+
+/* container */
+
+.colio-theme-white { margin-right: 20px; }
+.colio-theme-white .colio-container { background:url(../../img/bg_book_info.png); }
+.colio-theme-white.colio-placement-before { margin-bottom: 0; }
+.colio-theme-white.colio-placement-before.colio-expanded { margin-bottom: 20px; }
+
+/* colio close */
+
+.colio-theme-white .colio-close span { display: inline-block; width:96px; height:85px; text-indent: -9999px; }
+.colio-theme-white .colio-close { position: absolute; top:0; right:38px; }
+.colio-theme-white .colio-close span { background:url(../../img/close_bookstore.png) no-repeat; }
+.colio-theme-white .colio-close:hover { opacity: 0.8; }
+
+/* colio navigation */
+
+.colio-theme-white .colio-navigation { position: absolute; top:0; left:0; width:100%; height:1px; }
+.colio-theme-white .colio-navigation span { display: inline-block; width:38px; height:74px; text-indent: -9999px; }
+.colio-theme-white .colio-prev span { background:url(../../img/arrows_viewer.png) top left no-repeat; position: absolute; top:275px; left:0; }
+.colio-theme-white .colio-next span { background:url(../../img/arrows_viewer.png) top right no-repeat; position: absolute; top:275px; right:0; }
+.colio-theme-white .colio-prev span:hover { background:url(../../img/arrows_viewer_hover.png) top left no-repeat; }
+.colio-theme-white .colio-next span:hover { background:url(../../img/arrows_viewer_hover.png) top right no-repeat; }
+
+/* content */
+
+.colio-theme-white .side { float: left; width:368px; margin-right: 40px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; position:relative; }
+.colio-theme-white .side .bottom { position:absolute; bottom:0; left:0; }
+.img_main { width:298px; padding:31px 35px; background:url(../../img/bg_book_frame.png) no-repeat top left; }
+.colio-theme-white .main { float: left; width: 646px; padding-right: 20px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+/* typography */
+
+.colio-theme-white { color: #666; }
+.colio-theme-white a,
+.colio-theme-white a:visited { color: #47dfff; font-weight: bold; text-decoration: none; }
+.colio-theme-white a:hover { color: #555; }
+.colio-theme-white .main h3 { padding: 0; margin:20px 0 10px; font-family:"college_semi-condensedregular", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif; text-transform:uppercase; font-size:48px; color:#fff; }
+.colio-theme-white .main p.publisher { font-family:Georgia, serif; font-size:14px; color:#f4e5cc; font-style:italic; }
+.colio-theme-white .main p.publisher span { color:#94866f; }
+.colio-theme-white .main .info { min-height:271px; background:url(../../img/decorative_line.png) no-repeat top left; background-size:100% auto; border-bottom:1px solid #1a140c; padding:65px 0 30px 0; margin-bottom:30px; }
+.colio-theme-white .main .info p { font-family:Georgia, serif; font-size:24px; color:#f4e5cc; font-style:italic; }
+.colio-theme-white .main a img { margin-right:34px; opacity:.5; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
+.colio-theme-white .main a:hover img { opacity:1; }
+
+/* flexslider */
+
+.colio-theme-white .flexslider { position: relative; padding: 2px; background: #fff; border: 1px solid #cecece; }
+.colio-theme-white .flexslider li { padding: 0; margin: 0; }
+.colio-theme-white .flex-control-nav { float: left; position: relative; left: 50%; margin-top: 15px; }
+.colio-theme-white .flex-control-nav li { float: left; position: relative; left: -50%; margin: 0 5px; line-height: 0; }
+.colio-theme-white .flex-control-nav a { display: block; width: 10px; height: 10px; background: #d2d2d2; border-radius: 5px; -moz-border-radius: 5px; text-indent: -9999px; cursor: pointer; text-decoration: none; -webkit-tap-highlight-color: rgba(0,0,0,0); }
+.colio-theme-white .flex-control-nav .flex-active { background: #b6b6b6; }
+.colio-theme-white .flex-direction-nav .flex-prev,
+.colio-theme-white .flex-direction-nav .flex-next { position: absolute; height: 100%; width: 50%; text-indent: -9999px; z-index: 10; }
+.colio-theme-white .flex-direction-nav .flex-next { top: 0; right: 0; }
+.colio-theme-white .flex-direction-nav .flex-prev { top: 0; left: 0; }
+
+/* social icons */
+
+.colio-theme-white .social { width: 100%; margin-bottom: 21px; overflow: hidden; }
+.colio-theme-white .social li { float: left; margin: 0 7px 0 0; }
+.colio-theme-white .social a { display: inline-block; width: 24px; height: 24px; text-indent: -9999px; opacity: 0.8; border-radius: 12px; -moz-border-radius: 12px; background-size: 24px 24px !important; }
+.colio-theme-white .social a:hover { opacity: 1; -webkit-transition: opacity .2s; -moz-transition: opacity .2s; -o-transition: opacity .2s; transition: opacity .2s; }
+.colio-theme-white .social .delicious { background: url(images/social/delicious.png) no-repeat center; }
+.colio-theme-white .social .digg { background: url(images/social/digg.png) no-repeat center; }
+.colio-theme-white .social .dribble { background: url(images/social/dribble.png) no-repeat center; }
+.colio-theme-white .social .ember { background: url(images/social/ember.png) no-repeat center; }
+.colio-theme-white .social .facebook { background: url(images/social/facebook.png) no-repeat center; }
+.colio-theme-white .social .flickr { background: url(images/social/flickr.png) no-repeat center; }
+.colio-theme-white .social .forrst { background: url(images/social/forrst.png) no-repeat center; }
+.colio-theme-white .social .google { background: url(images/social/google.png) no-repeat center; }
+.colio-theme-white .social .last_fm { background: url(images/social/last_fm.png) no-repeat center; }
+.colio-theme-white .social .linkedin { background: url(images/social/linkedin.png) no-repeat center; }
+.colio-theme-white .social .my_space { background: url(images/social/my_space.png) no-repeat center; }
+.colio-theme-white .social .quora { background: url(images/social/quora.png) no-repeat center; }
+.colio-theme-white .social .rss { background: url(images/social/rss.png) no-repeat center; }
+.colio-theme-white .social .sharethis { background: url(images/social/sharethis.png) no-repeat center; }
+.colio-theme-white .social .skype { background: url(images/social/skype.png) no-repeat center; }
+.colio-theme-white .social .stumbleupon { background: url(images/social/stumbleupon.png) no-repeat center; }
+.colio-theme-white .social .tumblr { background: url(images/social/tumblr.png) no-repeat center; }
+.colio-theme-white .social .twitter { background: url(images/social/twitter.png) no-repeat center; }
+.colio-theme-white .social .vimeo { background: url(images/social/vimeo.png) no-repeat center; }
+.colio-theme-white .social .youtube { background: url(images/social/you_tube.png) no-repeat center; }

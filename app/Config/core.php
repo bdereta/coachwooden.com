@@ -14,7 +14,7 @@ $security_cipherSeed = '7685923423745234123424967414149683645';
 $default_time_zone = 'UTC';
 
 //set debug mode6
-$debug_mode = (IS_PROD) ? 0 : 2;
+$debug_mode = (IS_PROD) ? 1 : 2;
 
 //debug mode
 Configure::write('debug', $debug_mode); 

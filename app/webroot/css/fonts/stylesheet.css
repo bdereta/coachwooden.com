@@ -16,24 +16,23 @@
 
 @font-face {
     font-family: 'college_semi-condensedregular';
-    src: url('colleges-webfont.eot');
-    src: url('colleges-webfont.eot?#iefix') format('embedded-opentype'),
-         url('colleges-webfont.woff') format('woff'),
-         url('colleges-webfont.ttf') format('truetype'),
-         url('colleges-webfont.svg#college_semi-condensedregular') format('svg');
+    src: url('college_semi_condensed-webfont.eot');
+    src: url('college_semi_condensed-webfont.eot?#iefix') format('embedded-opentype'),
+         url('college_semi_condensed-webfont.woff') format('woff'),
+         url('college_semi_condensed-webfont.ttf') format('truetype'),
+         url('college_semi_condensed-webfont.svg#college_semi-condensedregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
 }
 
-
 @font-face {
 	font-family: 'icomoon';
-	src:url('icomoon.eot?-mejxk9');
-	src:url('icomoon.eot?#iefix-mejxk9') format('embedded-opentype'),
-		url('icomoon.woff?-mejxk9') format('woff'),
-		url('icomoon.ttf?-mejxk9') format('truetype'),
-		url('icomoon.svg?-mejxk9#icomoon') format('svg');
+	src:url('icomoon.eot?tb39q8');
+	src:url('icomoon.eot?#iefixtb39q8') format('embedded-opentype'),
+		url('icomoon.woff?tb39q8') format('woff'),
+		url('icomoon.ttf?tb39q8') format('truetype'),
+		url('icomoon.svg?tb39q8#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -52,9 +51,12 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-uniE601:before {
-	content: "\e601";
+.icon-uniE602:before {
+	content: "\e602";
 }
-.icon-uniE600:before {
+.icon-arrow-right:before {
 	content: "\e600";
+}
+.icon-arrow-left:before {
+	content: "\e601";
 }

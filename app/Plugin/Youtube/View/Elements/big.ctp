@@ -1,0 +1,1 @@
+<iframe width="1180" height="694" src="<?php echo $content; ?>" frameborder="0" id="yt_big" allowfullscreen></iframe>

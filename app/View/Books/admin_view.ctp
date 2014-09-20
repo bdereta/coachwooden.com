@@ -41,14 +41,9 @@
 			<?php echo h($book['Book']['barns_noble_link']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Image Large'); ?></dt>
+		<dt><?php echo __('Image'); ?></dt>
 		<dd>
-			<?php echo $this->Html->image('uploads/'.$book['Book']['image_large'], array('width' => 120)); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Image Thumb'); ?></dt>
-		<dd>
-			<?php echo $this->Html->image('uploads/'.$book['Book']['image_thumb'], array('width' => 120)); ?>
+			<?php echo $this->Html->image('uploads/'.$book['Book']['image'], array('width' => 120)); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Modified'); ?></dt>

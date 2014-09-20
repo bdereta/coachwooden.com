@@ -14,7 +14,7 @@ $(document).ready(function(){
 
 	$('.book_slider').bxSlider({
 		mode: 'horizontal',
-		slideWidth: 286,
+		slideWidth: 400,
 		controls: true,
 		pager: false,
 		auto: true,

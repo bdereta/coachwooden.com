@@ -21,7 +21,7 @@
 			<th><?php echo $this->Paginator->sort('title'); ?></th>
 			<th><?php echo $this->Paginator->sort('publisher'); ?></th>
 			<th><?php echo $this->Paginator->sort('author'); ?></th>
-			<th><?php echo $this->Paginator->sort('image_thumb'); ?></th>
+			<th><?php echo $this->Paginator->sort('image'); ?></th>
 			<th width="1%">&nbsp;</th>
 	</tr>
 	<?php foreach ($books as $book): ?>
@@ -31,7 +31,7 @@
 		<td><?php echo h($book['Book']['title']); ?>&nbsp;</td>
 		<td><?php echo h($book['Book']['publisher']); ?>&nbsp;</td>
 		<td><?php echo h($book['Book']['author']); ?>&nbsp;</td>
-		<td><?php echo $this->Html->image('uploads/'.$book['Book']['image_thumb'], array('width' => 100)); ?>&nbsp;</td>
+		<td><?php echo $this->Html->image('uploads/'.$book['Book']['image'], array('width' => 100)); ?>&nbsp;</td>
 		<td nowrap class="actions">
 			<?php echo $this->Html->link('<i class="icon-info-sign"></i>', array('action' => 'view', $book['Book']['id']), array('class'=>'btn btn-info','escape' => false,'alt'=>'View','title'=>'View')); ?>
 			<?php echo $this->Html->link('<i class="icon-edit"></i>', array('action' => 'edit', $book['Book']['id']), array('class'=>'btn btn-warning','escape' => false,'alt'=>'Edit','title'=>'Edit')); ?>
