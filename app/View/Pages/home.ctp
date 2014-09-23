@@ -3,8 +3,6 @@ $this->Html->css('jquery.bxslider', array('inline' => false));
 $this->Html->script('jquery.bxslider.min', array('inline' => false));
 $this->Html->script('home', array('inline' => false));
 ?>
-
-
 <div class="content">
 	<div id="homeslider">
 		<div class="hp_slider">
@@ -105,7 +103,7 @@ $this->Html->script('home', array('inline' => false));
 			<?php echo $this->Html->image('decoration_quotes.png', array('alt' => 'separator')); ?>
 			<ul class="quote_slider">
 				<?php foreach($quotes as $quote) : ?>
-					<li><p>"<?php echo $quote['Quote']['quote']; ?>"</p></li>
+					<li><p>"<?php echo $quote['Quote']['info']; ?>"</p></li>
 				<?php endforeach; ?>
 			</ul>
 		</div>

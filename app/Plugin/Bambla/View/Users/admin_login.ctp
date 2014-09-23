@@ -4,7 +4,7 @@
 		<p>Please provide your login credentials.</p>
 		<?php echo $this->Form->create(); ?>
 		<div class="field"><?php echo $this->Form->input('email', array('placeholder'=>'Email','class'=>'login username-field')); ?></div> 
-		<div class="field"><?php echo $this->Form->input('password', array('placeholder'=>'Password','class'=>'login password-field')); ?></div> 
+		<div class="field"><?php echo $this->Form->input('password', array('placeholder'=>'Password','class'=>'login password-field', 'value' => '')); ?></div> 
 		<div class="field float_left inline"><?php echo $this->Form->input('captcha', array(
 			'placeholder'=>'Anti-bot code',
 			'value' => NULL, 

@@ -10,13 +10,17 @@ class Metadata extends BamblaAppModel {
 	public $recursive = -1;
 	
 	public function FetchMetadata($output = null) {
+		$output = NULL;
 		$cache_key = 'Metadata';
-		$output = Cache::read($cache_key);
-		if (!$output) {	
+		$data = Cache::read($cache_key);
+		if (!empty($data)) {	
 			$result = $this->find('all', array('fields' => array('name','title','description','keywords')));	
 			$reorder = Hash::combine($result, '{n}.Metadata.name','{n}.Metadata');
-			$output = serialize($reorder);
-			Cache::write($cache_key, $output);
+			$data = serialize($reorder);
+			Cache::write($cache_key, $data);
+		}
+		if (!empty($data)) {
+			$output = unserialize($data);
 		}
 		return $output;
 	}

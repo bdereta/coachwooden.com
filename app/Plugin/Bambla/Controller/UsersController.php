@@ -8,9 +8,20 @@ class UsersController extends AppController {
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->layout = 'Bambla.bambla';
-		$allowed_actions = array('login','logout');
+		$allowed_actions = array('login');
 		if (!IS_PROD) {
-			array_push($allowed_actions, 'admin_index','admin_add','admin_edit');
+			$this->Auth->allow();
+		} else {			
+			if ($logged_in = $this->Auth->loggedIn()) {				
+				$group_id = $this->Auth->user('group_id');
+				$admin_levels = unserialize(ADMIN_LEVELS);
+				$is_admin = (in_array($group_id, $admin_levels)) ? true : false;
+			}
+			if (!empty($is_admin)) {
+				$this->Auth->allow();
+			} else {
+				array_push($allowed_actions, 'logout');
+			}				
 		}
 		$this->Auth->allow($allowed_actions);		
 		$this->Security->blackHoleCallback = 'blackhole';

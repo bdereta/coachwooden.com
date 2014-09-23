@@ -37,6 +37,7 @@ CakePlugin::load('ReuseFileCache');
 CakePlugin::load('Instagram', array('bootstrap' => true));
 CakePlugin::load('Facebook', array('bootstrap' => true));
 CakePlugin::load('Twitter', array('bootstrap' => true));
+CakePlugin::load('Tumblr', array('bootstrap' => true));
 CakePlugin::load('Youtube', array('bootstrap' => true));
 
 

@@ -4,14 +4,8 @@ class DATABASE_CONFIG {
 
 	public $default = NULL;
 	
-	function __construct() {
-				
-		if (IS_PROD) {
-			$this->default = $this->prod;
-		} else {
-			$this->default = $this->dev;
-		}
-		//pr($this->default);
+	function __construct() {	
+		$this->default = (IS_PROD) ? $this->prod : $this->dev;	
     }
 
 	//development
@@ -38,4 +32,3 @@ class DATABASE_CONFIG {
 		//'encoding' => 'utf8',
 	);
 }
-

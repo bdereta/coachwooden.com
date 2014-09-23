@@ -13,8 +13,6 @@ Router::connect('/pyramid-of-success', array('controller' => 'Pages', 'action' =
 Router::connect('/', array('controller' => 'Pages', 'action' => 'home', 'admin' => false));
 Router::connect('/:action', array('controller' => 'Pages', 'action' => ':action', 'admin' => false));
 
-
-
 CakePlugin::routes();
 
 require CAKE . 'Config' . DS . 'routes.php';

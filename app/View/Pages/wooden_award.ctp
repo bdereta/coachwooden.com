@@ -21,21 +21,23 @@ $this->Html->script('award', array('inline' => false));
 	</div>
 	<div class="clear"></div>
 </div>
-<div class="facts">
-	<?php echo $this->Html->image('line_stipes.jpg', array('class' => 'line_top')); ?>
-	<div class="text center">
-		<h2>Award Facts</h2>
-		<?php echo $this->Html->image('decoration_quotes.png', array('alt' => 'separator')); ?>
-		<ul class="award_facts">
-			<li><p>The 10 man All American Team is announced shortly after the “Final Four” is determined. The five players who receive the most votes are invited to The Los Angeles Athletic Club after the NCAA championship game for the All American Team presentation.</p></li>
-			<li><p>The 10 man All American Team is announced shortly after the “Final Four” is determined. The five players who receive the most votes are invited to The Los Angeles Athletic Club after the NCAA championship game for the All American Team presentation.</p></li>
-			<li><p>The 10 man All American Team is announced shortly after the “Final Four” is determined. The five players who receive the most votes are invited to The Los Angeles Athletic Club after the NCAA championship game for the All American Team presentation.</p></li>
-			<li><p>The 10 man All American Team is announced shortly after the “Final Four” is determined. The five players who receive the most votes are invited to The Los Angeles Athletic Club after the NCAA championship game for the All American Team presentation.</p></li>
-			<li><p>The 10 man All American Team is announced shortly after the “Final Four” is determined. The five players who receive the most votes are invited to The Los Angeles Athletic Club after the NCAA championship game for the All American Team presentation.</p></li>
-		</ul>
+<?php if(!empty($quotes)) : ?>
+	<div class="full facts">
+		<?php echo $this->Html->image('line_stipes.jpg', array('class' => 'line_top')); ?>
+		<div class="text center">
+			<h2>Award Facts</h2>
+			<?php echo $this->Html->image('decoration_quotes.png', array('alt' => 'separator')); ?>
+			<ul class="award_facts">
+				<?php foreach($quotes as $quote) : ?>
+					<li><p>"<?php echo $quote['Quote']['info']; ?>"</p></li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+		<?php echo $this->Html->image('line_stipes.jpg', array('class' => 'line_bottom')); ?>
 	</div>
-	<?php echo $this->Html->image('line_stipes.jpg', array('class' => 'line_bottom')); ?>
-</div>
+<?php endif; ?>
+
+
 <div class="clear"></div>
 <div class="content">
 	<div class="award_photos_container">

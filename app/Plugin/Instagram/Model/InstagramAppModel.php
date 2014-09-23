@@ -1,21 +1,18 @@
 <?php
 App::uses('AppModel', 'Model');
+App::uses('CakeTime', 'Utility');
 
 class InstagramAppModel extends AppModel {
-	
-	public $useTable = false;
-	
-	public $user_id = false;
-	public $hashtag_id = false;
-	public $min_tag_id = false;
-	public $max_tag_id = false;
-	public $cache_key = false;
-	public $clear_cache_file = false;
-	public $no_cache = false;
-	public $duration = false;
-	public $feed_url = false;
-	public $debug_mode = false;
-	public $webadmin = false;
+		
+	public $user_id;
+	public $hashtag_id;
+	public $cache_key;
+	public $clear_cache_file;
+	public $no_cache;
+	public $duration;
+	public $feed_url;
+	public $earliest_date;
+	public $debug_mode;
 	
 	public function get_content($options) {
 				
@@ -39,18 +36,34 @@ class InstagramAppModel extends AppModel {
 			
 		//get feed url
 		$this->feed_url = $this->get_feed_url();
-		
+				
 		//debug
 		$this->debug_mode = (isset($options['debug_mode'])) ? $options['debug_mode'] : false;
-		
-		//web admin 
-		$this->webadmin = (isset($options['webadmin'])) ? $options['webadmin'] : false;
-	
+			
 		//clear cache data
 		if ($this->delete_cache) Cache::delete($this->cache_key,'CacheInstagramFeed');
 		
+		$feed = $this->FetchData();
+		
+		if (!empty($options['earliest_date'])) {
+			if (!empty($feed['data'])) {
+				ini_set('max_execution_time', 300);
+				while($this->FetchEarliestPost($feed['data'], $options['earliest_date'])) {
+					$next_url = !empty($next_url) ? $next_url : $feed['pagination']['next_url'];
+					$new_data = $this->FetchData($next_url);
+					if (empty($new_data['data'])) break;
+					$next_url = !empty($new_data['pagination']['next_url']) ? $new_data['pagination']['next_url'] : null;
+					$feed['data'] = array_merge($feed['data'], $new_data['data']);
+					unset($new_data['data']);
+				}
+			}
+		}
+		return $feed['data'];
+	}
+	
+	private function FetchData($next_url = null) {
 		//get cached data
-		if (!$this->no_cache) {
+		if (!$this->no_cache && !$next_url) {
 			$cached =  Cache::read($this->cache_key,'CacheInstagramFeed');
 			//cache is available and it hasn't expired
 			if ($cached) {
@@ -76,7 +89,8 @@ class InstagramAppModel extends AppModel {
 			}
 		} else {
 			//get live feed when "no-cache" is set to true
-			$fresh_feed	= $this->get_live_feed();
+			$next_url = !empty($next_url) ? $next_url : null;
+			$fresh_feed	= $this->get_live_feed($next_url);
 			if ($fresh_feed) { 
 				return $this->decoded($fresh_feed);
 			} else {
@@ -84,29 +98,26 @@ class InstagramAppModel extends AppModel {
 				return false;
 			}
 		}
+		
 	}
 	
 	private function get_feed_url(){
+		$feed = null;
 		if ($this->user_id) {
-			$feed	= "https://api.instagram.com/v1/users/{$this->user_id}/media/recent/?access_token=212829546.9dbbbf8.9327aa30c29046e09bcf4e340a9074ae";
-			$feed  .= ($this->min_tag_id) ? "&min_tag_id={$this->min_tag_id}" : "";
-			$feed  .= ($this->max_tag_id) ? "&min_tag_id={$this->max_tag_id}" : "";
-			return $feed;
-		} elseif($this->hashtag_id) {
-			$feed	= "https://api.instagram.com/v1/tags/{$this->hashtag_id}/media/recent/?access_token=212829546.9dbbbf8.9327aa30c29046e09bcf4e340a9074ae";
-			$feed  .= ($this->min_tag_id) ? "&min_tag_id={$this->min_tag_id}" : "";
-			$feed  .= ($this->max_tag_id) ? "&min_tag_id={$this->max_tag_id}" : "";
-			return $feed;
-		} else {
-			return false;	
+			$feed = "https://api.instagram.com/v1/users/{$this->user_id}/media/recent/?access_token=212829546.9dbbbf8.9327aa30c29046e09bcf4e340a9074ae";
+		} 
+		if($this->hashtag_id) {
+			$feed = "https://api.instagram.com/v1/tags/{$this->hashtag_id}/media/recent/?access_token=212829546.9dbbbf8.9327aa30c29046e09bcf4e340a9074ae";
 		}
+		return $feed;
 	}
 	
-	private function get_live_feed() {
-		if ($this->feed_url) {
-			$feed = $this->curl();
+	private function get_live_feed($next_url = null) {
+		if ($this->feed_url || $next_url) {
+			$feed_url = ($next_url) ? $next_url : $this->feed_url;
+			$feed = $this->curl($feed_url);
 			if (!$feed) {
-				$feed = @file_get_contents($this->feed_url);	
+				$feed = @file_get_contents($feed_url);	
 			}
 			if($feed) {
 				$error = $this->feed_error_check($feed);
@@ -126,13 +137,13 @@ class InstagramAppModel extends AppModel {
 		}
 	}
 	
-	private function curl() {
+	private function curl($url) {
 		// Get cURL resource
 		$curl = curl_init();
 		// Set some options - we are passing in a useragent too here
 		curl_setopt_array($curl, array(
 			CURLOPT_RETURNTRANSFER => 1,
-			CURLOPT_URL => $this->feed_url,
+			CURLOPT_URL => $url,
 			CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1'
 		));
 		// Send the request & save response to $resp
@@ -145,8 +156,10 @@ class InstagramAppModel extends AppModel {
 	}
 
 	private function decoded($feed) {
-		$decoded = @json_decode($feed, true);
-		return $decoded['data'];
+		if ($decoded = @json_decode($feed, true)) {
+			$feed = $decoded;
+		} 
+		return $feed;
 	}
 	
 	
@@ -156,9 +169,6 @@ class InstagramAppModel extends AppModel {
 			$description.= "File: ".$file."\n";
 			$description.= "Line: ".$line."\n\n";
 			debug($description);
-			if ($this->webadmin) {
-				@mail($this->webadmin, 'Twitter error Report', $description, 'From: noreply@'.$_SERVER['HTTP_HOST']);	
-			}
 		} 
 	}
 
@@ -171,6 +181,17 @@ class InstagramAppModel extends AppModel {
 		} else {
 			return false;	
 		}
-	}
+	}	
 	
+	private function FetchEarliestPost($data, $earliest_date) {
+		if (!empty($data)) {
+			$last_entry = end($data);
+			if (!empty($last_entry['created_time'])) {
+				if ($last_entry['created_time'] > CakeTime::fromString($earliest_date)) {
+					return true;	
+				}
+			}
+		} 
+		return false;
+	}
 }

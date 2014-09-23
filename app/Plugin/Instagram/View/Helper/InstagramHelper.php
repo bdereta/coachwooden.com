@@ -3,7 +3,6 @@
 class InstagramHelper extends AppHelper {
 		
 	public function get_content($feed, array $options=NULL) {	
-				
 		$output = NULL;
 		$template = (isset($options['template'])) ? $options['template'] : 'default' ;
 		if (!empty($feed)) {
@@ -14,6 +13,7 @@ class InstagramHelper extends AppHelper {
 					'type'			=> $feed[$i]['type'], //video, image
 					'image'			=> $feed[$i]['images']['standard_resolution']['url'],
 					'created' 		=> $this->calculate_time($feed[$i]['created_time']),
+					'timestamp'		=> CakeTime::format('M jS, Y', $feed[$i]['created_time']),
 					'link'			=> $feed[$i]['link'],
 					'text'			=> $this->format_content($feed[$i]['caption']['text']),
 					'user'			=> $feed[$i]['user']['full_name'],

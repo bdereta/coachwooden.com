@@ -5,8 +5,9 @@
 		<legend><?php echo __(' Edit Quote'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
+		echo $this->Form->input('quote_category_id');
 		echo $this->Form->input('ordering_position');
-		echo $this->Form->input('quote');
+		echo $this->Form->input('info');
 	?>
 	</fieldset>
 	<div class="form-actions">

@@ -142,6 +142,7 @@
 		if (!$this-><?php echo $currentModelName; ?>->exists($id)) {
 			throw new NotFoundException(__('Invalid <?php echo strtolower($singularHumanName); ?>'));
 		}
+		
 		//required for displaying existing images via helper
 		$params['model'] = "<?php echo $currentModelName; ?>";
 		

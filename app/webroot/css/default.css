@@ -8,8 +8,9 @@ a { text-decoration:none; -webkit-transition: all 0.2s; -moz-transition: all 0.2
 ul { list-style:none; padding:0; margin:0; }
 
 .whistle { position:absolute; top:0; left:0; }
-header { height:231px; padding-top:65px; }
-.top_logo { margin:30px 0 0 11px; }
+header { height:231px; padding-top:65px; margin-bottom:58px; }
+.top_logo { margin:30px 0 0 25px; }
+.header_title { font-size: 16px; font-family:Georgia, serif; color:#ded1b9; text-shadow: 1.5px 2.598px 3px rgba(0, 0, 0, 0.71); margin:35px 0 0 175px; }
 .main_nav { width:665px; height:100%; }
 .main_nav ul { width:100%; } 
 .main_nav ul li { width:33.33%; float:left; height:72px; }
@@ -89,6 +90,34 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .page_titles h1.award { font-size:119px; }
 
 
+/* Journey
+================================================== */
+.joy_title { padding-bottom:25px; }
+.joy_title h2 { color:#dcbf78; font-size:30px; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; text-shadow: 2px 2px 2px #000; margin:75px 0 10px 0!important; }
+.joy_title h2 span { color:#dcbf78; font-size:30px; font-family:Helvetica, Arial, sans-serif; }
+.joy_title span { color:#8b7652; font-size:14px; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; text-shadow: 1px 1px 1px #000; }
+
+.records { height:330px; padding-top:70px; display: block; position: relative; background:rgba(0,0,0,0.65); margin-bottom:100px; }
+.records .text { height:300px; width:966px; margin:0 auto; }
+.records .text h2 { color:#dcbf78; font-size:30px; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; margin-bottom:10px; text-transform:none; }
+.records .text h2 span { font-size:30px; font-family:Helvetica, Arial, sans-serif; }
+.records .text p { font-family:Georgia, serif; font-size:24px; font-style:italic; color:#f4e5cc; }
+.records .line_top { position:absolute; top:0; left:0; }
+.records .line_bottom { position:absolute; bottom:0; left:0; }
+
+.journey_instructions { background:rgba(0,0,0,0.6); width: 472px; height:105px; margin:0 auto; padding-top:5px; }
+.journey_instructions p { font-size: 18px; font-family:Georgia, serif; color:#fff; font-style: italic; line-height:23px; text-align: center; }
+
+
+.iosSlider_container { width:1455px; margin:50px 0; padding:0 72px; background-image:url(../img/journey_slider_line.png),url(../img/journey_slider_line.png); background-repeat:no-repeat,no-repeat; background-position:left 21px, 1527px 21px; }
+.iosSlider { width: 100%; height: 635px; }
+.iosSlider .slider { width: 100%; height: 100%; }
+.iosSlider .slider .item { position: relative; top: 0; left: 0; width: 341px; height: 635px; padding:0 72px; background:url(../img/journey_frame.png) no-repeat bottom center; margin:0; text-align: center; }
+.iosSlider .slider .item h3 { margin:0 0 65px 0; font-size: 36px; font-family: Georgia, serif; color:#d1c081; font-weight:normal; }
+.iosSlider .slider .item img { max-width:341px; height:auto; margin-bottom:10px; }
+.iosSlider .slider .item p { font-size:18px; font-family: Georgia, serif; color:#fff; line-height:23px; }
+
+
 /* Scrapbook
 ================================================== */
 #photo { margin: 50px 0 120px 0; width:1246px; height:796px; position:relative; }
@@ -97,6 +126,19 @@ footer { height:250px; padding-top:51px; text-align:center; }
 #photo .bottom_left { position:absolute; bottom:25px; left:25px; z-index:999; background:url(../img/frame_corner_bl.jpg) no-repeat; width:11px; height:9px; }
 #photo .bottom_right { position:absolute; bottom:25px; right:25px; z-index:999; background:url(../img/frame_corner_br.jpg) no-repeat; width:11px; height:9px; }
 
+
+/* Memory Wall
+================================================== */
+#memory { margin:55px auto; width:790px; height:447px; }
+#memory .top_left { position:absolute; top:25px; left:52px; z-index:999; background:url(../img/frame_corner_tl.jpg) no-repeat; width:11px; height:9px; }
+#memory .top_right { position:absolute; top:25px; right:0; z-index:999; background:url(../img/frame_corner_tr.jpg) no-repeat; width:11px; height:9px; }
+#memory .bottom_left { position:absolute; bottom:25px; left:52px; z-index:999; background:url(../img/frame_corner_bl.jpg) no-repeat; width:11px; height:9px; }
+#memory .bottom_right { position:absolute; bottom:25px; right:0; z-index:999; background:url(../img/frame_corner_br.jpg) no-repeat; width:11px; height:9px; }
+.memory_left { position:absolute; left:-560px; top:-40px; }
+.memory_right { position:absolute; right:-573px; top:0; }
+
+.memory_textbox { width:897px; height:235px; margin:23px auto; padding:20px 38px; background:url(../img/bg_memory_container.png) no-repeat; }
+.memory_textbox p { font-size: 24px; font-family:Georgia, serif; color:#e9e9e9; font-style: italic; line-height:29px; }
 
 /* Pyramid
 ================================================== */
@@ -111,6 +153,7 @@ footer { height:250px; padding-top:51px; text-align:center; }
 #pyramid .large_blocks p { font-size:20px; color:#fff; font-family:"college_semi-condensedregular", Georgia, serif; text-transform:uppercase; line-height:25px; text-shadow: 1px 1px 1px #000, 0px 0px 10px #000; }
 #pyramid .large_blocks:hover { background:url(../img/btn_pyramid_large_hover.jpg) no-repeat top left; }
 .pyramid_back { margin-bottom:10px; }
+
 
 /* Bill Walton Speaks
 ================================================== */
@@ -136,7 +179,7 @@ footer { height:250px; padding-top:51px; text-align:center; }
 
 /* Mcdonalds
 ================================================== */
-.game_text { padding:0 0 50px 0; }
+.game_text { padding:0 35px 50px 35px; }
 .game_text h2 { font-size:30px; color:#dccc9b; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; line-height:35px; margin-bottom:35px; }
 .game_text p { font-size:24px; color:#fff; font-family:Georgia, serif; line-height:30px; }
 .game_text img { margin:0 75px 25px 0; }
@@ -144,9 +187,6 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .clothesline_line { position:absolute; bottom:5px; left:50%; margin-left:-605px; }
 
 h2.title_game { font-size:30px; color:#dcbf78; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; margin:50px 0 0 0; }
-
-.btn_game { font-size:14px; color:#6b5a3d; font-family:Georgia, serif; line-height:50px; padding:3px 30px 3px 0; background:url(../img/mcdonalds_seal_small.png) no-repeat right center; text-shadow: 1px 1px 10px rgba(0,0,0,1.00); -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
-.btn_game:hover { color:#fff; }
 
 
 /* Awards

@@ -6,6 +6,9 @@ $dev_hosts = array('localhost');
 //production vs development
 define('IS_PROD', (isset($_SERVER['HTTP_HOST']) && !in_array($_SERVER['HTTP_HOST'], $dev_hosts)) ? true : false);
 
+//admin group levels
+define('ADMIN_LEVELS', serialize(array(1,2)));
+
 //security (every instance of cakePHP should have unique Salt and chiperSeed
 $security_salt = 'DYhG93b0qyJfdfg3rgVoUubWwvniR2G0FgaC9mi';
 $security_cipherSeed = '7685923423745234123424967414149683645';
@@ -14,7 +17,7 @@ $security_cipherSeed = '7685923423745234123424967414149683645';
 $default_time_zone = 'UTC';
 
 //set debug mode6
-$debug_mode = (IS_PROD) ? 1 : 2;
+$debug_mode = (IS_PROD) ? 0 : 2;
 
 //debug mode
 Configure::write('debug', $debug_mode); 
@@ -85,7 +88,7 @@ date_default_timezone_set($default_time_zone);
 $engine = 'File';
 
 // Prefix each application on the same server with a different string, to avoid Memcache and APC conflicts.
-$prefix = 'myapp_';
+$prefix = 'bambla_';
 
 /**
  * Configure the cache used for general framework caching. Path information,

@@ -10,31 +10,35 @@
 			echo $this->Html->meta('description', $meta['description']);
 			echo $this->Html->meta('keywords', $meta['keywords']); 
 		}
-		//css
-		echo $this->Html->css(array(
-			'Bambla.assets',
-			'Bambla.fonts/stylesheet',
-			'fonts/stylesheet',
-			'default'
-		));
+		
+		//css - bambla hybrid
+		if (!empty($is_admin)) echo $this->Html->css(array('Bambla.assets', 'Bambla.fonts/stylesheet'));
+		
+		//css for site only
+		echo $this->Html->css(array('default','fonts/stylesheet'));
+		
 		//js
 		echo $this->Html->script(array(
 			'//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js',
 			'default'
 		));
+		
 		//page specific
 		echo $scripts_for_layout;
 	?>
 </head>
 <body>
-	<?php if (isset($is_admin) && $is_admin) echo $this->element('Bambla.admin_toolbar'); ?>
+	<?php if (!empty($is_admin)) echo $this->element('Bambla.admin_toolbar'); ?>
 	<?php echo $this->Session->flash(); ?>
 	<div id="wrapper">
 		<div id="container" class="relative">
 			<?php echo $this->Html->image('top_whistle.png', array('alt' => 'whistle','class' => 'whistle')); ?>
 			<header>
 				<div class="content relative">
-					<?php echo $this->Html->image("top_logo.jpg", array( "alt" => "Coach Wooden Logo", "class"=>"top_logo", 'url' => array('controller' => 'Pages', 'action' => '/'))); ?>
+					<div class="float_left">
+						<?php echo $this->Html->image("top_logo.png", array( "alt" => "Coach Wooden Logo", "class"=>"top_logo", 'url' => array('controller' => 'Pages', 'action' => '/'))); ?>
+						<p class="header_title">Coach &amp; Teacher</p>
+					</div>
 					<div class="main_nav float_right">
 						<ul>
 							<li><p>the</p><?php echo $this->Html->link('Journey', array('controller' => 'Pages', 'action' => 'the_journey')); ?></li>

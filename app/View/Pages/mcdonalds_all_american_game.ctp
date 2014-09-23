@@ -35,6 +35,7 @@ $this->Html->script('game', array('inline' => false));
 </div>
 <div class="clear"></div>
 <div class="content center">
-	<h2 class="title_game">For More Information</h2>
-	<?php echo $this->Html->link('McDonaldsAllAmerican.com', 'http://www.mcdonaldsallamerican.com', array('class' => 'btn_game')); ?>
+	<h2 class="title_game">For More Information</h2><br />
+	<?php echo $this->Html->link($this->Html->image("mcdonalds_seal_small.png", array("alt" => "Mcdonald's All American")),'http://www.mcdonaldsallamerican.com', array('target' => '_blank','escape' => false)); ?><br />
+	<?php echo $this->Html->link('McDonaldsAllAmerican.com <span class="icon-arrow-right"></span>', 'http://www.mcdonaldsallamerican.com', array('class'=>'btns','escape'=>false)); ?>
 </div>

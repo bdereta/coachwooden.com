@@ -6,14 +6,19 @@
 			<?php echo h($quote['Quote']['id']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Quote Category Id'); ?></dt>
+		<dd>
+			<?php echo h($quote['Quote']['quote_category_id']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Ordering Position'); ?></dt>
 		<dd>
 			<?php echo h($quote['Quote']['ordering_position']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Quote'); ?></dt>
+		<dt><?php echo __('Info'); ?></dt>
 		<dd>
-			<?php echo h($quote['Quote']['quote']); ?>
+			<?php echo h($quote['Quote']['info']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Modified'); ?></dt>

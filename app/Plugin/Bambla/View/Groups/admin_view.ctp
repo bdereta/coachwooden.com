@@ -54,9 +54,9 @@
 			<td><?php echo $user['modified']; ?></td>
 			<td><?php echo $user['created']; ?></td>
 		<td nowrap class="actions">
-			<?php echo $this->Html->link('<i class="icon-info-sign"></i>', array('action' => 'view', $group['Group']['id']), array('class'=>'btn btn-info','escape' => false,'alt'=>'View','title'=>'View')); ?>
-			<?php echo $this->Html->link('<i class="icon-edit"></i>', array('action' => 'edit', $group['Group']['id']), array('class'=>'btn btn-warning','escape' => false,'alt'=>'Edit','title'=>'Edit')); ?>
-			<?php echo $this->Form->postLink('<i class="icon-remove"></i>', array('action' => 'delete', $group['Group']['id']), array('class'=>'btn btn-danger','escape' => false,'alt'=>'Delete','title'=>'Delete'), __('Are you sure you want to delete # %s?', $group['Group']['id'])); ?>
+			<?php echo $this->Html->link('<i class="icon-info-sign"></i>', array('controller' => 'Users', 'action' => 'view', $group['Group']['id']), array('class'=>'btn btn-info','escape' => false,'alt'=>'View','title'=>'View')); ?>
+			<?php echo $this->Html->link('<i class="icon-edit"></i>', array('controller' => 'Users','action' => 'edit', $group['Group']['id']), array('class'=>'btn btn-warning','escape' => false,'alt'=>'Edit','title'=>'Edit')); ?>
+			<?php echo $this->Form->postLink('<i class="icon-remove"></i>', array('controller' => 'Users','action' => 'delete', $group['Group']['id']), array('class'=>'btn btn-danger','escape' => false,'alt'=>'Delete','title'=>'Delete'), __('Are you sure you want to delete # %s?', $group['Group']['id'])); ?>
 		</td>
 	</tr>
 	<?php endforeach; ?>

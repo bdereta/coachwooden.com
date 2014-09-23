@@ -17,8 +17,9 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
+			<th><?php echo $this->Paginator->sort('quote_category_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('ordering_position'); ?></th>
-			<th><?php echo $this->Paginator->sort('quote'); ?></th>
+			<th><?php echo $this->Paginator->sort('info'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th width="1%">&nbsp;</th>
@@ -26,8 +27,9 @@
 	<?php foreach ($quotes as $quote): ?>
 	<tr>
 		<td><?php echo h($quote['Quote']['id']); ?>&nbsp;</td>
+		<td><?php echo h($quote['Quote']['quote_category_id']); ?>&nbsp;</td>
 		<td><?php echo h($quote['Quote']['ordering_position']); ?>&nbsp;</td>
-		<td><?php echo h($quote['Quote']['quote']); ?>&nbsp;</td>
+		<td><?php echo h($quote['Quote']['info']); ?>&nbsp;</td>
 		<td><?php echo $this->Time->format('m/d/y - g:i A', $quote['Quote']['modified']); ?>&nbsp;</td>
 		<td><?php echo $this->Time->format('m/d/y - g:i A', $quote['Quote']['created']); ?>&nbsp;</td>
 		<td nowrap class="actions">

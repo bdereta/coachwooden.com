@@ -92,6 +92,19 @@ a.active.trigger { background:url(../img/close_brown.png) center no-repeat; text
 a.active.trigger:hover { background:url(../img/close.png) center no-repeat; text-indent:-999999px; }
 
 
+/* The journey */
+.records .bx-wrapper { position: relative; margin: 0 0 100px 0; padding: 0; *zoom: 1; }
+.records .bx-wrapper .bx-prev { left:-180px; background:url(../img/arrows_large.png) no-repeat top left; }
+.records .bx-wrapper .bx-next { right:-180px; background:url(../img/arrows_large.png) no-repeat top right; }
+.records .bx-wrapper .bx-prev:hover { background:url(../img/arrows_large_hover.png) no-repeat top left; }
+.records .bx-wrapper .bx-next:hover { background:url(../img/arrows_large_hover.png) no-repeat top right; }
+.records .bx-wrapper .bx-controls-direction a { position: absolute; top: 50%; margin-top:-25px; outline: 0; width:62px; height:72px; text-indent: -9999px; z-index: 9999; }
+
+.records .bx-wrapper .bx-pager { height:28px; }
+.records .bx-wrapper .bx-pager.bx-default-pager a { text-indent:-9999px; display:block; width:23px; height:26px; margin:0 7px; outline:0; background:url(../img/bullet_viewer.png) no-repeat; position: relative; }
+.records .bx-wrapper .bx-pager.bx-default-pager a:hover,
+.records .bx-wrapper .bx-pager.bx-default-pager a.active { background:url(../img/bullet_viewer_hover.png) no-repeat; }
+
 
 /* McDonald's Game */
 #clothesline { height:725px; background:url(../img/game_clothesline.png) no-repeat center 62px; z-index:1; }
@@ -113,6 +126,7 @@ a.active.trigger:hover { background:url(../img/close.png) center no-repeat; text
 .facts .bx-wrapper .bx-prev:hover { background:url(../img/arrows_large_hover.png) no-repeat top left; }
 .facts .bx-wrapper .bx-next:hover { background:url(../img/arrows_large_hover.png) no-repeat top right; }
 .facts .bx-wrapper .bx-controls-direction a { position: absolute; top: 50%; margin-top:-25px; outline: 0; width:62px; height:72px; text-indent: -9999px; z-index: 9999; }
+
 
 /* Pyramid */
 #pyramid_slider { margin: 50px 0 20px 0; width:1246px; height:874px; position:relative; text-align:center; }
@@ -148,3 +162,17 @@ a.active.trigger:hover { background:url(../img/close.png) center no-repeat; text
 #pyramid_slider #bx-pager a:nth-child(13) { position:absolute; top:150px; left:113px; }
 #pyramid_slider #bx-pager a:nth-child(14) { position:absolute; top:150px; left:158px; }
 #pyramid_slider #bx-pager a:nth-child(15) { position:absolute; top:150px; left:202px; }
+
+
+/* Memory Wall */
+#memory .bx-wrapper { position: relative; margin: 0 0 100px 0; padding: 0; *zoom: 1; }
+
+#memory .bx-wrapper .bx-viewport { background:url(../img/bg_memory_slider.png) no-repeat left top; padding:25px; width:736px; }
+#memory .bx-wrapper .bx-viewport .slide { width:736px; height:394px; }
+#memory .bx-wrapper .bx-viewport .slide .img { width: 736px; height:auto; display: block; position:absolute; top:0; left:0; z-index:1; border:1px solid #5d4635; }
+
+#memory .bx-wrapper .bx-prev { left:-25px; background:url(../img/arrows_viewer.png) no-repeat top left; }
+#memory .bx-wrapper .bx-next { right:-76px; background:url(../img/arrows_viewer.png) no-repeat top right; }
+#memory .bx-wrapper .bx-prev:hover { background:url(../img/arrows_viewer_hover.png) no-repeat top left; }
+#memory .bx-wrapper .bx-next:hover { background:url(../img/arrows_viewer_hover.png) no-repeat top right; }
+#memory .bx-wrapper .bx-controls-direction a { position: absolute; top: 50%; margin-top:-25px; outline: 0; width:38px; height:74px; text-indent: -9999px; z-index: 9999; }

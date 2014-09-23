@@ -39,7 +39,6 @@ class AppController extends Controller {
 		
 		//fetch page title, keywords, and description for layout
 		$metadata = $this->Metadata->FetchMetadata();
-		$metadata = !empty($metadata) ? unserialize($metadata) : NULL;
 		
 		if (!empty($metadata)) {
 			$meta = array_key_exists($this->request->params['action'], $metadata) 
@@ -67,13 +66,16 @@ class AppController extends Controller {
 			),
 		);
 		
-		$logged_in = $this->Auth->loggedIn();
-		$current_user = $this->Auth->user();
-		$is_admin = ($logged_in && $current_user['group_id'] < 3) ? true : false;
-		$admin_links = array();	
 		
-		if ($is_admin) {
+		if ($logged_in = $this->Auth->loggedIn()) {				
+			$group_id = $this->Auth->user('group_id');
+			$admin_levels = unserialize(ADMIN_LEVELS);
+			$is_admin = (in_array($group_id, $admin_levels)) ? true : false;
+		}
+		
+		if (!empty($is_admin)) {
 			//admin navigation
+			$admin_links = array();	
 			$controllers = App::objects('controller');
 			$additional_controllers = array('Metadata', 'Users');
 			$controllers = array_merge($controllers, $additional_controllers);
@@ -87,7 +89,6 @@ class AppController extends Controller {
 		}
 				
 		$this->set(compact('meta','section','admin_links','logged_in','is_admin'));
-		
 		$this->Auth->deny();
 	}
 }
