@@ -5,13 +5,14 @@ Router::connect('/admin', array('controller' => 'Metadata', 'action' => 'index',
 
 //static pages
 Router::connect('/bill-walton-speaks', array('controller' => 'Pages', 'action' => 'bill_walton_speaks'));
-Router::connect('/pyramid-of-success-content', array('controller' => 'Pages', 'action' => 'pyramid_of_success_content'));
 Router::connect('/favorite-maxims', array('controller' => 'Pages', 'action' => 'favorite_maxims'));
-Router::connect('/memory-wall', array('controller' => 'Pages', 'action' => 'memory_wall'));
+Router::connect('/last-words', array('controller' => 'Pages', 'action' => 'last_words'));
 Router::connect('/mcdonalds-all-american-game', array('controller' => 'Pages', 'action' => 'mcdonalds_all_american_game'));
-Router::connect('/wooden-award', array('controller' => 'Pages', 'action' => 'wooden_award'));
+Router::connect('/memory-wall', array('controller' => 'Pages', 'action' => 'memory_wall'));
 Router::connect('/pyramid-of-success', array('controller' => 'Pages', 'action' => 'pyramid_of_success'));
-Router::connect('/journey', array('controller' => 'Pages', 'action' => 'the_journey'));
+Router::connect('/the-journey', array('controller' => 'Pages', 'action' => 'the_journey'));
+Router::connect('/wooden-award', array('controller' => 'Pages', 'action' => 'wooden_award'));
+Router::connect('/true-to-yourself', array('controller' => 'Pages', 'action' => 'true_to_yourself'));
 Router::connect('/', array('controller' => 'Pages', 'action' => 'home', 'admin' => false));
 Router::connect('/:action', array('controller' => 'Pages', 'action' => ':action', 'admin' => false));
 

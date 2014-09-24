@@ -110,10 +110,11 @@ $this->Html->script('home', array('inline' => false));
 		<?php echo $this->Html->image('line_stipes.jpg', array('class' => 'line_bottom')); ?>
 	</div>
 <?php endif; ?>
-<div id="content">
+<div class="content bottom_padding">
 	<div id="parallax-bg">
 		<?php echo $this->Html->image('hp_medal.png', array('id' => 'hp-1')); ?>
 		<?php echo $this->Html->image('hp_clipboard.png', array('id' => 'hp-2')); ?>
 		<?php echo $this->Html->image('hp_basketball.png', array('id' => 'hp-3')); ?>
 	</div>
 </div>
+<div class="clear"></div>

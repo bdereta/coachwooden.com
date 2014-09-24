@@ -1,4 +1,4 @@
-<div class="content">
+<div class="content bottom_padding">
 	<div class="page_titles photo">
 		<span>Favorite</span>
 		<h1 class="photo">Maxims</h1>

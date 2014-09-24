@@ -38,7 +38,7 @@ $this->Html->script('journey', array('inline' => false));
 	</div>
 <?php endif; ?>
 <?php if (!empty($timelines)) : ?>
-	<div class="content">
+	<div class="content bottom_padding">
 		<div class="center joy_title">
 			<h2>Coach<span>'</span>s Timeline</h2>
 			<span>Brief Professional and Personal History</span><br><br>

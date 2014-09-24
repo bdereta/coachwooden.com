@@ -10,7 +10,7 @@ $this->Html->script('jquery.colio.min', array('inline' => false));
 $this->Html->script('book', array('inline' => false));
 ?>
 
-<div class="content">
+<div class="content bottom_padding">
 	<div class="page_titles photo">
 		<span>Coach's</span>
 		<h1 class="photo">Bookstore</h1>

@@ -14,10 +14,7 @@ $this->Html->script('award', array('inline' => false));
 	<div class="clear"></div>
 	<div class="award_text">
 		<?php echo $this->Html->image('award.png', array('alt' => 'The Los Angeles Athletes Club trophy', 'class'=>'float_left')); ?>
-		<h2>The John R  Wooden Award</h2>
-		<p>The Player of the Year and All American Team members are selected each year by a hand-selected panel of voters. Voters are college basketball experts selected to collectively represent each of the 50 states.</p>
-		<p>The Awards' National Advisory Board seeds each National Ballot (men's and women's) with the top candidates for each award category. The National Advisory Board is charged with selecting those players who meet the Award criteria as established by the Award's founders. The Award criteria includes that the student-athlete must have a cumulative grade point average of 2.00 or higher throughout the candidate's college career. The players who are selected for the Final Ballot are announced prior to the NCAA Tournament and are listed on a ballot that is sent to nearly a 1,000 voters. Voting is opened to the national voting panel prior to the First Round of the NCAA Tournament.</p>
-		<p>Voters may vote via an online system that allows them to evaluate players up until just after the Third Round of the NCAA Tournament.  The official accounting firm of the John R.Wooden Award, Deloitte, tabulates all votes.</p>
+		<?php echo $this->Bambla->fetchSection(1); ?>
 	</div>
 	<div class="clear"></div>
 </div>
@@ -60,7 +57,7 @@ $this->Html->script('award', array('inline' => false));
 	<div class="clear"></div>
 	<div class="award_text center">
 		<h2>Winners List</h2>
-		<p>Since its inception, the John R. Wooden Award Trophy presented to “The Outstanding College Basketball Player in the United States,” is given to the player who receives the most points in the annual balloting. A candidate’s performance in the regular season, conference tournaments and postseason are taken into account by voters, as is the player’s character.</p>
+		<?php echo $this->Bambla->fetchSection(2); ?>
 	</div>
 	<div id="st-accordion" class="st-accordion">
 		<ul>

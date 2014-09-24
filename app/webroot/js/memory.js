@@ -12,5 +12,6 @@ $(document).ready(function(){
 		pause: 8000,
 	});
 	
+	//Auto scroll Content
 	
 });

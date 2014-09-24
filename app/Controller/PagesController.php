@@ -5,7 +5,7 @@ App::uses('CakeEmail', 'Network/Email');
 class PagesController extends AppController {
 	
 	public $components = array('Security');
-	public $uses = array('PhotoGallery','Book','Youtube.Youtube','AwardFact','News','Pyramid','QuoteCategory','Quote','WinnerCategory','Winner','Timeline');
+	public $uses = array('PhotoGallery','Book','Youtube.Youtube','AwardFact','News','Pyramid','QuoteCategory','Quote','WinnerCategory','Winner','Timeline','ShareMemory');
 	public $helpers = array('Youtube.Youtube');
 	
 	public function beforeFilter() {
@@ -35,9 +35,39 @@ class PagesController extends AppController {
 	}
 
 	public function memory_wall() {
-		
+		if ($this->request->is('post')) {
+			if (!empty($this->request->data['ShareMemory'])) {
+				
+				//email
+				$message = "Request Appearance Form\n\n";
+				foreach($this->request->data['ShareMemory'] as $key => $val) {
+					$form[] = Inflector::humanize($key).': '.$val;	
+				} 
+				$message.= implode("\n", $form);
+	
+				$Email = new CakeEmail();
+				$Email->from(array('noreply@'.$_SERVER['HTTP_HOST'] => $_SERVER['HTTP_HOST']))
+					->to('cora@cubismedia.com')
+					->subject('Share Memory Form')
+					->send($message);		
+				
+				//save to database
+				$this->ShareMemory->create();
+				if ($this->ShareMemory->save($this->request->data)) {
+					$this->Session->setFlash(__('<h3>Thank You!</h3><p>Your request has been sent.</p>'),'popup');
+				} else {
+					$this->Session->setFlash(__('<p>Sorry, we were unable to submit your request. Please, try again.</p>'),'popup');
+				}
+			} else {
+				$this->Session->setFlash(__('<p>Sorry, we were unable to submit your request. Please, try again.</p>'),'popup');
+			}
+		}
 	}
 
+	public function last_words () {}
+
+	public function true_to_yourself () {}
+	
 	public function bookstore () {
 		$books = $this->Book->find('all', array('order' => array('ordering_position')));
 		$this->set(compact('books'));		

@@ -1,11 +1,11 @@
 <?php
 $this->Html->css('jquery.bxslider', array('inline' => false));
-$this->Html->script('jquery.bxslider.min', array('inline' => false));
+$this->Html->script('jquery.bxslider', array('inline' => false));
 $this->Html->script('photo', array('inline' => false));
 ?>
 
 
-<div class="content">
+<div class="content bottom_padding">
 	<div class="page_titles photo">
 		<span>Scrap</span>
 		<h1 class="photo">Book</h1>

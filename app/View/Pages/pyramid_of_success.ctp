@@ -7,7 +7,7 @@ $this->Html->script('jquery.fullPage.min', array('inline' => false));
 $this->Html->script('jquery.bxslider.min', array('inline' => false));
 $this->Html->script('pyramid', array('inline' => false));
 ?>
-<div class="content">
+<div class="content bottom_padding">
 	<div class="page_titles photo">
 		<span>Pyramid of</span>
 		<h1 class="photo">Success</h1>
