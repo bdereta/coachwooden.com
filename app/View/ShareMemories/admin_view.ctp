@@ -26,6 +26,11 @@
 			<?php echo h($shareMemory['ShareMemory']['message']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Active'); ?></dt>
+		<dd>
+			<?php echo h($shareMemory['ShareMemory']['active']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Modified'); ?></dt>
 		<dd>
 			<?php echo h($shareMemory['ShareMemory']['modified']); ?>

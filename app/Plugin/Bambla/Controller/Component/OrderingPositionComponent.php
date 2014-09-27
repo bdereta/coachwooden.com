@@ -35,6 +35,7 @@ App::uses('Component', 'Controller');
  * 		} else {
  * 			$this->Session->setFlash(__('Order position error.'), 'Bambla.red');
  * 		}
+ *		return $this->redirect(array('action'=>'index'));
  * 	?>
  * 
  * 4. Add the following line to Controller admin_index() method (above $this->set()):
@@ -107,6 +108,7 @@ App::uses('Component', 'Controller');
  * 		} else {
  * 			$this->Session->setFlash(__('Order position error.'), 'Bambla.red');
  * 		}
+ *		return $this->redirect(array('action'=>'index'));
  * 	?>
  * 
  * 4. Add the following line to Controller admin_index() method (above $this->set()):

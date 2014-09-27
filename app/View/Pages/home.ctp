@@ -74,7 +74,7 @@ $this->Html->script('home', array('inline' => false));
 	<div class="half float_left center padding">
 		<?php echo $this->Html->image('hp_mcdonalds.png', array('alt' => 'Mcdonalds All American Game','class'=>'float_right')); ?>
 		<?php echo $this->Html->image('decorative_line.png', array('alt' => 'separator')); ?>
-		<?php echo $this->Html->link('Learn More <span class="icon-arrow-right"></span>', array('controller' => 'Pages', 'action' => 'news'),array('class'=>'btns','escape'=>false)); ?>
+		<?php echo $this->Html->link('Learn More <span class="icon-arrow-right"></span>', array('controller' => 'Pages', 'action' => 'mcdonalds_all_american_game'),array('class'=>'btns','escape'=>false)); ?>
 	</div>
 	
 	<!--Book-->

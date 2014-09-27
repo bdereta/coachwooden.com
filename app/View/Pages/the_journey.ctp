@@ -54,8 +54,10 @@ $this->Html->script('journey', array('inline' => false));
 			<div class ="slider">
 				<?php foreach($timelines as $timeline) : ?>
 					<div class ="item">
-						<h3><?php echo $timeline['Timeline']['date']; ?></h3>
-						<?php echo $this->Html->image($timeline['Timeline']['image'], array('alt' => $timeline['Timeline']['date'])); ?>
+						<div class="slider_title"><h3><?php echo $timeline['Timeline']['date']; ?></h3></div>
+						<?php if(!empty($timeline['Timeline']['image'])) : ?>
+							<?php echo $this->Html->image('uploads/'.$timeline['Timeline']['image'], array('alt' => $timeline['Timeline']['date'])); ?>
+						<?php endif; ?>
 						<p><?php echo $timeline['Timeline']['description']; ?></p>
 					</div>
 				<?php endforeach; ?>

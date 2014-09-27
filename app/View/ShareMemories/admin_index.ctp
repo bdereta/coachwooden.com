@@ -21,6 +21,7 @@
 			<th><?php echo $this->Paginator->sort('email'); ?></th>
 			<th><?php echo $this->Paginator->sort('city_state'); ?></th>
 			<th><?php echo $this->Paginator->sort('message'); ?></th>
+			<th><?php echo $this->Paginator->sort('active'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th width="1%">&nbsp;</th>
@@ -32,6 +33,7 @@
 		<td><?php echo h($shareMemory['ShareMemory']['email']); ?>&nbsp;</td>
 		<td><?php echo h($shareMemory['ShareMemory']['city_state']); ?>&nbsp;</td>
 		<td><?php echo h($shareMemory['ShareMemory']['message']); ?>&nbsp;</td>
+		<td><?php echo h($shareMemory['ShareMemory']['active']); ?>&nbsp;</td>
 		<td><?php echo $this->Time->format('m/d/y - g:i A', $shareMemory['ShareMemory']['modified']); ?>&nbsp;</td>
 		<td><?php echo $this->Time->format('m/d/y - g:i A', $shareMemory['ShareMemory']['created']); ?>&nbsp;</td>
 		<td nowrap class="actions">

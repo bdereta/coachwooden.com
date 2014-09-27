@@ -132,8 +132,8 @@ a.active.trigger:hover { background:url(../img/close.png) center no-repeat; text
 #pyramid_slider { margin: 50px 0 20px 0; width:1246px; height:874px; position:relative; text-align:center; }
 #pyramid_slider .bx-wrapper { position: relative; margin: 0 auto; padding: 0; *zoom: 1; }
 
-#pyramid_slider .bx-wrapper ul li h2 { text-align:center; font-size:46px; color:#fff; font-family:"college_semi-condensedregular", Georgia, serif; text-transform:uppercase; line-height:130px; font-weight:normal; }
-#pyramid_slider .bx-wrapper ul li p { text-align:left; font-size:24px; color:#b0a492; font-family:Georgia, serif; line-height:29px; margin-bottom:35px; font-style:italic; }
+#pyramid_slider .bx-wrapper ul li h2 { text-align:center; font-size:46px; color:#fff; font-family:"college_semi-condensedregular", Georgia, serif; text-transform:uppercase; line-height:75px; font-weight:normal; margin-top:25px; }
+#pyramid_slider .bx-wrapper ul li p { text-align:left; font-size:24px; color:#b0a492; font-family:Georgia, serif; line-height:29px; margin-bottom:25px; font-style:italic; }
 #pyramid_slider .bx-wrapper ul li p b { color:#ccb475; font-weight:bold; }
 
 #pyramid_slider .bx-wrapper .bx-prev { left:0; background:url(../img/arrows_large.png) no-repeat top left; }

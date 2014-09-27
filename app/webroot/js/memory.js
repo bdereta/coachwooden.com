@@ -9,9 +9,7 @@ $(document).ready(function(){
 		auto: true,
 		infiniteLoop: true,
 		hideControlOnEnd: false,
-		pause: 8000,
+		pause: 8000
 	});
-	
-	//Auto scroll Content
-	
+		
 });

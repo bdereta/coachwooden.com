@@ -3,6 +3,56 @@ $this->Html->css('jquery.bxslider', array('inline' => false));
 $this->Html->script('jquery.bxslider.min', array('inline' => false));
 $this->Html->script('memory', array('inline' => false));
 ?>
+
+//<script>
+//$(document).ready(function() {
+//	//Auto scroll Content
+//	var track_load = 0; //total loaded record group(s)
+//	var loading  = false; //to prevents multipal ajax loads
+//	var total_groups = <?php echo $total_groups; ?>; //total record group(s)
+//	
+//	//$('#results').load("<?php echo $this->Html->url(array('action' => 'memory_wall_ajax')); ?>", {'group_number':track_load}/*, function() {track_load++;}*/); //load first group
+//	
+//	/*$( "#results" ).load( "<?php echo $this->Html->url(array('action' => 'memory_wall_ajax')); ?>", function() {
+//	  track_load++;
+//	});*/
+//	
+//	$(window).scroll(function() { //detect page scroll
+//		
+//		if($(window).scrollTop() + $(window).height() == $(document).height())  //user scrolled to bottom of the page?
+//		{
+//			
+//			if(track_load <= total_groups && loading==false) //there's more data to load
+//			{
+//				loading = true; //prevent further ajax loading
+//				$('.animation_image').show(); //show loading image
+//				
+//				//load data from the server using a HTTP POST request
+//				$.post("<?php echo $this->Html->url(array('action' => 'memory_wall_ajax')); ?>",{'group_number': track_load}, function(data){
+//									
+//					$("#results").append(data); //append received data into the element
+//
+//					//hide loading image
+//					$('.animation_image').hide(); //hide loading image once data is received
+//					
+//					track_load++; //loaded group increment
+//					loading = false; 
+//				
+//				}).fail(function(xhr, ajaxOptions, thrownError) { //any errors?
+//					
+//					alert(thrownError); //alert with HTTP error
+//					$('.animation_image').hide(); //hide loading image
+//					loading = false;
+//				
+//				});
+//				
+//			}
+//		}
+//	});
+//});
+//</script>
+
+
 <style>
 #wrapper { background:url(./img/bg_top_clouds.jpg) top center no-repeat; }
 </style>
@@ -41,8 +91,8 @@ $this->Html->script('memory', array('inline' => false));
 		<?php echo $this->Html->image('walton_signature.png', array('alt' => 'Bill Walton')); ?>
 	</div>
 	<div class="float_right last_visit_container">
-		<?php echo $this->Html->image('last_visit.png', array('alt' => 'My Last Visith with Coach')); ?><br /><br />
-		<?php echo $this->Html->link('Steve Jamisons trubute to Coach<br><span class="icon-arrow-right"></span>', array('controller' => 'Pages', 'action' => 'last_words'),array('class'=>'btns','escape'=>false)); ?>		
+		<?php echo $this->Html->image('be_true.png', array('alt' => 'Be True to Yourself, Johnny')); ?><br /><br />
+		<?php echo $this->Html->link('Steve Jamison<span class="quote">\'</span>s trubute to Coach<br><span class="icon-arrow-right"></span>', array('controller' => 'Pages', 'action' => 'true_to_yourself'),array('class'=>'btns','escape'=>false)); ?>		
 	</div>
 	<?php echo $this->Html->image('decorative_line_long.png', array('alt' => 'separator')); ?>
 	<div class="memory_share">
@@ -52,6 +102,10 @@ $this->Html->script('memory', array('inline' => false));
 			<div class="float_left"><?php echo $this->Form->input('email', array('type'=>'email','label' => false,  'value' => 'Email')); ?></div>
 			<div class="float_left"><?php echo $this->Form->input('city_state', array('label' => false, 'value' => 'City/State')); ?></div>
 			<?php echo $this->Form->input('message', array('label' => false, 'type' => 'textarea', 'value' => 'Your Message')); ?>
+			<div class="captcha">
+				<?php echo $this->Html->image(array('controller' => 'captcha', 'action' => 'get_image', 'plugin' => 'captcha'), array('id' => 'captcha')); ?><br /><br />
+				<?php echo $this->Form->input('captcha', array('label' => false, 'value' => 'Security Code')); ?>
+			</div>
 			<div class="submit_area">
 				<?php echo $this->Form->submit('Submit'); ?>
 				<p class="submit_text">Send Message</p>
@@ -62,34 +116,10 @@ $this->Html->script('memory', array('inline' => false));
 	</div>
 	<div class="clear"></div>
 </div>
-<div class="comments">
+<div class="comments bottom_padding">
 	<h2 class="float_left">Comments</h2>
 	<p class="float_right"><span>452</span>Memories Shared</p>
 	<div class="clear"></div>
-	<ul>
-		<li>
-			<span class="date">On 10/14/2013</span>
-			<h4>Robb Trexler <span>from</span> San Diego, CA <span>shared</span></h4>
-			<p>Happy Birthday, Coach! I know you are in the Ultimate place to celebrate your Birthday and as a bonus, with your beloved wife Nell. I will never forget what you did while here on earth, not only as a basketball coach, but as a great man! You teachings live on forever in so many hearts and minds! Happy, Happy Birthday! You are sorely missed by the many you have touched. God Bless you and Nell</p>
-			<p>- Robb</p>
-		</li>
-		<li>
-			<span class="date">On 10/14/2013</span>
-			<h4>Robb Trexler <span>from</span> San Diego, CA <span>shared</span></h4>
-			<p>Happy Birthday, Coach! I know you are in the Ultimate place to celebrate your Birthday and as a bonus, with your beloved wife Nell. I will never forget what you did while here on earth, not only as a basketball coach, but as a great man! You teachings live on forever in so many hearts and minds! Happy, Happy Birthday! You are sorely missed by the many you have touched. God Bless you and Nell</p>
-			<p>- Robb</p>
-		</li>
-		<li>
-			<span class="date">On 10/14/2013</span>
-			<h4>Robb Trexler <span>from</span> San Diego, CA <span>shared</span></h4>
-			<p>Happy Birthday, Coach! I know you are in the Ultimate place to celebrate your Birthday and as a bonus, with your beloved wife Nell. I will never forget what you did while here on earth, not only as a basketball coach, but as a great man! You teachings live on forever in so many hearts and minds! Happy, Happy Birthday! You are sorely missed by the many you have touched. God Bless you and Nell</p>
-			<p>- Robb</p>
-		</li>
-		<li>
-			<span class="date">On 10/14/2013</span>
-			<h4>Robb Trexler <span>from</span> San Diego, CA <span>shared</span></h4>
-			<p>Happy Birthday, Coach! I know you are in the Ultimate place to celebrate your Birthday and as a bonus, with your beloved wife Nell. I will never forget what you did while here on earth, not only as a basketball coach, but as a great man! You teachings live on forever in so many hearts and minds! Happy, Happy Birthday! You are sorely missed by the many you have touched. God Bless you and Nell</p>
-			<p>- Robb</p>
-		</li>
-	</ul>
+	<?php /*?><ul id="results"></ul><?php */?>
+	<div class="animation_image" style="display:none" align="center"><?php //echo $this->Html->image("ajax-loader.gif", array('alt' => 'Loading ...')); ?>></div>
 </div>

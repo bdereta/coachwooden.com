@@ -6,7 +6,7 @@
 		<span>Memory</span>
 		<h1 class="photo">Wall</h1>
 		<?php echo $this->Html->image('decorative_line_long.png', array('alt' => 'separator')); ?>
-		<h2>Be True to Yourself Johnny</h2>
+		<h2>Be True to Yourself<span>,</span> Johnny</h2>
 		<span>By Steve Jamison</span><br><br><br><br>
 		<?php echo $this->Html->image('decorative_line_long.png', array('alt' => 'separator')); ?>
 		<div class="clear"></div>
@@ -70,7 +70,7 @@
 		<p class="light">And I am also sure he is pleased that just several weeks before he was scheduled to celebrate his 100th birthday the good Lord gathered Coach’s frail body into his arms and probably said, “Johnny, your work here is done and you did it well. You were true to me; you were true to Nellie; and you were true to yourself. It’s time for you to go. Somebody’s waiting for you and she’s been waiting for a long time.”</p>
 		<p class="light">And with that our friend departed and left us behind, but not alone. His lessons still make sense. And always will. And why shouldn’t they? Some things don’t change. Thankfully.</p>
 		<div class="link">
-			<?php echo $this->Html->link('Read My Last Visit with Coach <span class="icon-arrow-right"></span>', array('controller' => 'Pages', 'action' => 'last_words'),array('class'=>'btns','escape'=>false)); ?>
+			<?php echo $this->Html->link('Read My Last Visit with Coach <span class="icon-arrow-right"></span>', array('controller' => 'Pages', 'action' => 'last_visit_with_coach'),array('class'=>'btns','escape'=>false)); ?>
 		</div> 
 	</div>
 	<div class="clear"></div>

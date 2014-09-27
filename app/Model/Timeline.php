@@ -21,12 +21,8 @@ class Timeline extends AppModel {
 			//'source' => 'sources_image_field_name', 
 			//max width/height - if image is less than set width/height, it will remain the same width/height
 			'resize' => array(	
-				'width' => 1600, 
-				'height' => 800, 
-			),
-			'crop' => array(
-				'width' => 800,
-				'height' => 600				
+				'width' => 341, 
+				'height' => 351, 
 			),
 		),
 	);

@@ -19,19 +19,13 @@
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('date'); ?></th>
 			<th><?php echo $this->Paginator->sort('title'); ?></th>
-			<th><?php echo $this->Paginator->sort('link'); ?></th>
-			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th width="1%">&nbsp;</th>
 	</tr>
 	<?php foreach ($news as $news): ?>
 	<tr>
 		<td><?php echo h($news['News']['id']); ?>&nbsp;</td>
-		<td><?php echo h($news['News']['date']); ?>&nbsp;</td>
+		<td><?php echo $this->Time->format('m/d/y', $news['News']['date']); ?>&nbsp;</td>
 		<td><?php echo h($news['News']['title']); ?>&nbsp;</td>
-		<td><?php echo h($news['News']['link']); ?>&nbsp;</td>
-		<td><?php echo $this->Time->format('m/d/y - g:i A', $news['News']['modified']); ?>&nbsp;</td>
-		<td><?php echo $this->Time->format('m/d/y - g:i A', $news['News']['created']); ?>&nbsp;</td>
 		<td nowrap class="actions">
 			<?php echo $this->Html->link('<i class="icon-info-sign"></i>', array('action' => 'view', $news['News']['id']), array('class'=>'btn btn-info','escape' => false,'alt'=>'View','title'=>'View')); ?>
 			<?php echo $this->Html->link('<i class="icon-edit"></i>', array('action' => 'edit', $news['News']['id']), array('class'=>'btn btn-warning','escape' => false,'alt'=>'Edit','title'=>'Edit')); ?>

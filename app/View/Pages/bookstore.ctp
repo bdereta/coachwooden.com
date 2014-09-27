@@ -22,10 +22,11 @@ $this->Html->script('book', array('inline' => false));
 			<ul class="list">
 				<?php foreach($books as $book) : ?>
 					<li data-content="#colio_c<?php echo $book['Book']['id']; ?>">
-						<div class="thumb">
+						<div class="thumb colio-link">
 							<div class="view">
 								<h4><?php echo $book['Book']['title']; ?></h4>
-								<?php echo $this->Html->image('decoration_quotes.png', array('alt' => 'separator','class' => 'line_separator')); ?><br>
+								<?php echo $this->Html->image('decoration_quotes.png', array('alt' => 'separator','class' => 'line_separator')); ?>
+								<div class="clear"></div>
 								<?php echo $this->Html->link('Learn More <span class="icon-arrow-right"></span>', '#', array('class'=>'btns colio-link','escape'=>false)); ?>
 							</div>
 							<?php echo $this->Html->image('uploads/' . $book['Book']['image'], array('alt' => $book['Book']['title'], 'class'=>'img')); ?>

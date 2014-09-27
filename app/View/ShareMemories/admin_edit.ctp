@@ -9,6 +9,7 @@
 		echo $this->Form->input('email');
 		echo $this->Form->input('city_state');
 		echo $this->Form->input('message');
+		echo $this->Form->input('active');
 	?>
 	</fieldset>
 	<div class="form-actions">

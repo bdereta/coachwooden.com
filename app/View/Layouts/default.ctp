@@ -3,6 +3,7 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title><?php echo (!empty($meta['title'])) ? $meta['title'] : NULL; ?></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
 		//meta
 		if (!empty($meta)) {

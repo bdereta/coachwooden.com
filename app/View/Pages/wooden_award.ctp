@@ -1,9 +1,11 @@
 <?php
 $this->Html->css('jquery.bxslider', array('inline' => false));
+$this->Html->css('/files/fancybox/jquery.fancybox', array('inline' => false));
 $this->Html->script('jquery.bxslider.min', array('inline' => false));
 $this->Html->script('jquery.accordion', array('inline' => false));
 $this->Html->script('jquery.easing.1.3', array('inline' => false));
 $this->Html->script('award', array('inline' => false));
+$this->Html->script('/files/fancybox/jquery.fancybox', array('inline' => false));
 ?>
 <div class="content">
 	<div class="page_titles">
@@ -37,98 +39,45 @@ $this->Html->script('award', array('inline' => false));
 
 <div class="clear"></div>
 <div class="content">
-	<div class="award_photos_container">
-		<div class="award_photo">
-		
+	<?php if(!empty($photos)) : ?>
+		<div class="award_photos_container">
+			<?php foreach($photos as $photo) : ?>
+				<?php echo $this->Html->link($this->Html->image("uploads/".$photo['AwardPhoto']['image_thumb'], array("alt" => $photo['AwardPhoto']['name'])),'/img/uploads/'.$photo['AwardPhoto']['image_large'], array('class' => 'fancybox', 'data-fancybox-group' => 'gallery', 'escape' => false)); ?>
+			<?php endforeach; ?>
 		</div>
-		<div class="award_photo">
-		
-		</div>
-		<div class="award_photo">
-		
-		</div>
-		<div class="award_photo">
-		
-		</div>
-		<div class="award_photo">
-		
-		</div>
-	</div>
+	<?php endif; ?>
 	<div class="clear"></div>
-	<div class="award_text center">
-		<h2>Winners List</h2>
-		<?php echo $this->Bambla->fetchSection(2); ?>
-	</div>
-	<div id="st-accordion" class="st-accordion">
-		<ul>
-			<li>
-				<a href="#"><span class="st-arrow">&nbsp;</span>Womens Winners</a>
-				<div class="st-content">
-					<table cellpadding="0" cellspacing="0" class="table_header">
-						<tr>
-							<th width="300">Year</th>
-							<th width="400">Player</th>
-							<th>School</th>
-						</tr>
-					</table>
-					<table cellpadding="0" cellspacing="0" class="table_bg">
-						<tr>
-							<td width="300">2013</td>
-							<td width="400">Alfonso "Trey" Burke</td>
-							<td>Michigan</td>
-						</tr>
-						<tr>
-							<td>2013</td>
-							<td>Alfonso "Trey" Burke</td>
-							<td>Michigan</td>
-						</tr>
-						<tr>
-							<td>2013</td>
-							<td>Alfonso "Trey" Burke</td>
-							<td>Michigan</td>
-						</tr>
-						<tr>
-							<td>2013</td>
-							<td>Alfonso "Trey" Burke</td>
-							<td>Michigan</td>
-						</tr>
-					</table>
-				</div>
-			</li>
-			<li>
-				<a href="#"><span class="st-arrow">&nbsp;</span>Mens Winners</a>
-				<div class="st-content">
-					<table cellpadding="0" cellspacing="0" class="table_header">
-						<tr>
-							<th width="300">Year</th>
-							<th width="400">Player</th>
-							<th>School</th>
-						</tr>
-					</table>
-					<table cellpadding="0" cellspacing="0" class="table_bg">
-						<tr>
-							<td width="300">2013</td>
-							<td width="400">Alfonso "Trey" Burke</td>
-							<td>Michigan</td>
-						</tr>
-						<tr>
-							<td>2013</td>
-							<td>Alfonso "Trey" Burke</td>
-							<td>Michigan</td>
-						</tr>
-						<tr>
-							<td>2013</td>
-							<td>Alfonso "Trey" Burke</td>
-							<td>Michigan</td>
-						</tr>
-						<tr>
-							<td>2013</td>
-							<td>Alfonso "Trey" Burke</td>
-							<td>Michigan</td>
-						</tr>
-					</table>
-				</div>
-			</li>
-		</ul>
-	</div>
+	<?php if(!empty($winners)) : ?>
+		<div class="award_text center">
+			<h2>Winners List</h2>
+			<?php echo $this->Bambla->fetchSection(2); ?>
+		</div>
+		<div id="st-accordion" class="st-accordion">
+			<ul>
+				<?php foreach($winners as $winner_category) : ?>
+				<li>
+					<a href="#"><span class="st-arrow">&nbsp;</span><?php echo $winner_category['WinnerCategory']['name']; ?>s Winners</a>
+					<div class="st-content">
+						<table cellpadding="0" cellspacing="0" class="table_header">
+							<tr>
+								<th width="300">Year</th>
+								<th width="400">Player</th>
+								<th>School</th>
+							</tr>
+						</table>
+						<table cellpadding="0" cellspacing="0" class="table_bg">
+							<?php foreach($winner_category['Winner'] as $winner) : ?>
+								<tr>
+									<td width="300"><?php echo $winner['year']; ?></td>
+									<td width="400"><?php echo $winner['name']; ?></td>
+									<td><?php echo $winner['school']; ?></td>
+								</tr>
+							<?php endforeach; ?>
+						</table>
+					</div>
+				</li>
+			<?php endforeach; ?>
+			</ul>
+		</div>
+	<?php endif; ?>
 </div>

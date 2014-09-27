@@ -16,24 +16,22 @@
 	</div>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('ordering_position'); ?></th>
 			<th><?php echo $this->Paginator->sort('date'); ?></th>
 			<th><?php echo $this->Paginator->sort('image'); ?></th>
 			<th><?php echo $this->Paginator->sort('description'); ?></th>
-			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th width="1%">&nbsp;</th>
 	</tr>
 	<?php foreach ($timelines as $timeline): ?>
 	<tr>
-		<td><?php echo h($timeline['Timeline']['id']); ?>&nbsp;</td>
-		<td><?php echo h($timeline['Timeline']['ordering_position']); ?>&nbsp;</td>
-		<td><?php echo h($timeline['Timeline']['date']); ?>&nbsp;</td>
-		<td><?php echo $this->Html->image('uploads/'.$timeline['Timeline']['image'], array('width' => 120)); ?>&nbsp;</td>
+		<td width="50"><?php echo h($timeline['Timeline']['ordering_position']); ?>&nbsp;</td>
+		<td width="130"><?php echo h($timeline['Timeline']['date']); ?>&nbsp;</td>
+		<td>
+			<?php if(!empty($timeline['Timeline']['image'])) : ?>
+				<?php echo $this->Html->image('uploads/'.$timeline['Timeline']['image'], array('width' => 120)); ?>
+			<?php endif; ?>
+			</td>
 		<td><?php echo h($timeline['Timeline']['description']); ?>&nbsp;</td>
-		<td><?php echo $this->Time->format('m/d/y - g:i A', $timeline['Timeline']['modified']); ?>&nbsp;</td>
-		<td><?php echo $this->Time->format('m/d/y - g:i A', $timeline['Timeline']['created']); ?>&nbsp;</td>
 		<td nowrap class="actions">
 			<?php echo $this->Html->link('<i class="icon-info-sign"></i>', array('action' => 'view', $timeline['Timeline']['id']), array('class'=>'btn btn-info','escape' => false,'alt'=>'View','title'=>'View')); ?>
 			<?php echo $this->Html->link('<i class="icon-edit"></i>', array('action' => 'edit', $timeline['Timeline']['id']), array('class'=>'btn btn-warning','escape' => false,'alt'=>'Edit','title'=>'Edit')); ?>

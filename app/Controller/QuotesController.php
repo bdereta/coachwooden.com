@@ -65,6 +65,10 @@ class QuotesController extends AppController {
 				$this->Session->setFlash(__('The quote could not be saved. Please, try again.'), 'Bambla.red');
 			}
 		}
+		//data for view
+		$quoteCategories = $this->Quote->QuoteCategory->find('list');
+		$this->set(compact('params','quoteCategories'));
+
 	}
 
 /**
@@ -89,6 +93,9 @@ class QuotesController extends AppController {
 			$options = array('conditions' => array('Quote.' . $this->Quote->primaryKey => $id));
 			$this->request->data = $this->Quote->find('first', $options);
 		}
+		//data for view
+		$quoteCategories = $this->Quote->QuoteCategory->find('list');
+		$this->set(compact('params','quoteCategories'));
 	}
 
 /**

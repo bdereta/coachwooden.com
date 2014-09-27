@@ -20,7 +20,7 @@
     -webkit-box-sizing: border-box; /* Safari<=5 Android<=3 */
     -moz-box-sizing: border-box; /* <=28 */
     box-sizing: border-box;
-	height:950px!important;
+	height:1050px!important;
 }
 .fp-slide {
     float: left;

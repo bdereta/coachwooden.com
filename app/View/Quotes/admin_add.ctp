@@ -4,7 +4,7 @@
 	<fieldset>
 		<legend><?php echo __(' Add Quote'); ?></legend>
 	<?php
-		echo $this->Form->input('quote_category_id');
+		echo $this->Form->input('quote_category_id',array('field' => $quoteCategories));
 		echo $this->Form->input('ordering_position');
 		echo $this->Form->input('info');
 	?>

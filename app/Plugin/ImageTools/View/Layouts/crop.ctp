@@ -3,13 +3,9 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 
-	<title><?php echo $meta['title']; ?></title>
+	<title>Image Cropper</title>
 
 	<?php
-		echo $this->Html->meta('icon');
-		echo $this->Html->meta('description', $meta['description']);
-		echo $this->Html->meta('keywords', $meta['keywords']);
-
 		echo $this->Html->css('Bambla.assets');
 		echo $this->Html->css('Bambla.fonts/stylesheet');
 

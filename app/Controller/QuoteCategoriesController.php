@@ -66,6 +66,7 @@ class QuoteCategoriesController extends AppController {
 			}
 		}
 	}
+	
 
 /**
  * admin_edit method
