@@ -16,8 +16,8 @@
 	</div>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('ordering_position'); ?></th>
+			<th>Change Ordering</th>
 			<th><?php echo $this->Paginator->sort('title'); ?></th>
 			<th><?php echo $this->Paginator->sort('publisher'); ?></th>
 			<th><?php echo $this->Paginator->sort('author'); ?></th>
@@ -26,8 +26,9 @@
 	</tr>
 	<?php foreach ($books as $book): ?>
 	<tr>
-		<td><?php echo h($book['Book']['id']); ?>&nbsp;</td>
-		<td><?php echo h($book['Book']['ordering_position']); ?>&nbsp;</td>
+		<td><?php echo h($book['Book']['ordering_position']/10); ?>&nbsp;</td>
+		<td width="100"><?php echo $this->Html->link('<i class="icon-arrow-up"></i>', array('action' => 'reorder_position', $book['Book']['id'], 'up'), array('escape' => false, 'class'=>'bambla_arrows')); ?>
+  			<?php echo $this->Html->link('<i class="icon-arrow-down"></i>', array('action' => 'reorder_position', $book['Book']['id'], 'down'), array('escape' => false, 'class'=>'bambla_arrows')); ?></td>
 		<td><?php echo h($book['Book']['title']); ?>&nbsp;</td>
 		<td><?php echo h($book['Book']['publisher']); ?>&nbsp;</td>
 		<td><?php echo h($book['Book']['author']); ?>&nbsp;</td>

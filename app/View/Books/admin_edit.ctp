@@ -5,7 +5,6 @@
 		<legend><?php echo __(' Edit Book'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('ordering_position');
 		echo $this->Form->input('title');
 		echo $this->Form->input('publisher');
 		echo $this->Form->input('author'); ?>

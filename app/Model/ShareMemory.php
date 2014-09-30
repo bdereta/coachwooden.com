@@ -6,4 +6,6 @@ App::uses('AppModel', 'Model');
  */
 class ShareMemory extends AppModel {
 
+	public $order  = "ShareMemory.created desc";
+
 }

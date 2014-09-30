@@ -20,8 +20,6 @@
 			<th>Change Ordering</th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('image_thumb'); ?></th>
-			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th width="1%">&nbsp;</th>
 	</tr>
 	<?php foreach ($awardPhotos as $awardPhoto): ?>
@@ -32,8 +30,6 @@
   		</td>
 		<td><?php echo h($awardPhoto['AwardPhoto']['name']); ?>&nbsp;</td>
 		<td><?php echo $this->Html->image('uploads/'.$awardPhoto['AwardPhoto']['image_thumb'], array('width' => 120)); ?>&nbsp;</td>
-		<td><?php echo $this->Time->format('m/d/y - g:i A', $awardPhoto['AwardPhoto']['modified']); ?>&nbsp;</td>
-		<td><?php echo $this->Time->format('m/d/y - g:i A', $awardPhoto['AwardPhoto']['created']); ?>&nbsp;</td>
 		<td nowrap class="actions">
 			<?php echo $this->Html->link('<i class="icon-info-sign"></i>', array('action' => 'view', $awardPhoto['AwardPhoto']['id']), array('class'=>'btn btn-info','escape' => false,'alt'=>'View','title'=>'View')); ?>
 			<?php echo $this->Html->link('<i class="icon-edit"></i>', array('action' => 'edit', $awardPhoto['AwardPhoto']['id']), array('class'=>'btn btn-warning','escape' => false,'alt'=>'Edit','title'=>'Edit')); ?>

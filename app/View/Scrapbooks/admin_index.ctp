@@ -16,24 +16,22 @@
 	</div>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('ordering_position'); ?></th>
+			<th>Change Ordering</th>
 			<th><?php echo $this->Paginator->sort('title'); ?></th>
 			<th><?php echo $this->Paginator->sort('content'); ?></th>
 			<th><?php echo $this->Paginator->sort('image'); ?></th>
-			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th width="1%">&nbsp;</th>
 	</tr>
 	<?php foreach ($scrapbooks as $scrapbook): ?>
 	<tr>
-		<td><?php echo h($scrapbook['Scrapbook']['id']); ?>&nbsp;</td>
-		<td><?php echo h($scrapbook['Scrapbook']['ordering_position']); ?>&nbsp;</td>
+		<td><?php echo h($scrapbook['Scrapbook']['ordering_position']/10); ?>&nbsp;</td>
+		<td><?php echo $this->Html->link('<i class="icon-arrow-up"></i>', array('action' => 'reorder_position', $scrapbook['Scrapbook']['id'], 'up'), array('escape' => false, 'class'=>'bambla_arrows')); ?>
+  			<?php echo $this->Html->link('<i class="icon-arrow-down"></i>', array('action' => 'reorder_position', $scrapbook['Scrapbook']['id'], 'down'), array('escape' => false, 'class'=>'bambla_arrows')); ?>
+  		</td>
 		<td><?php echo h($scrapbook['Scrapbook']['title']); ?>&nbsp;</td>
-		<td><?php echo h($scrapbook['Scrapbook']['content']); ?>&nbsp;</td>
+		<td width="400"><?php echo h($scrapbook['Scrapbook']['content']); ?>&nbsp;</td>
 		<td><?php echo $this->Html->image('uploads/'.$scrapbook['Scrapbook']['image'], array('width' => 120)); ?>&nbsp;</td>
-		<td><?php echo $this->Time->format('m/d/y - g:i A', $scrapbook['Scrapbook']['modified']); ?>&nbsp;</td>
-		<td><?php echo $this->Time->format('m/d/y - g:i A', $scrapbook['Scrapbook']['created']); ?>&nbsp;</td>
 		<td nowrap class="actions">
 			<?php echo $this->Html->link('<i class="icon-info-sign"></i>', array('action' => 'view', $scrapbook['Scrapbook']['id']), array('class'=>'btn btn-info','escape' => false,'alt'=>'View','title'=>'View')); ?>
 			<?php echo $this->Html->link('<i class="icon-edit"></i>', array('action' => 'edit', $scrapbook['Scrapbook']['id']), array('class'=>'btn btn-warning','escape' => false,'alt'=>'Edit','title'=>'Edit')); ?>

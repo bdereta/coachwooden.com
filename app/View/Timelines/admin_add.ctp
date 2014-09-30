@@ -5,8 +5,14 @@
 		<legend><?php echo __(' Add Timeline'); ?></legend>
 	<?php
 		echo $this->Form->input('ordering_position');
-		echo $this->Form->input('date');
-		echo $this->Form->input('description');
+		echo $this->Form->input('date'); ?>
+		<div class="textarea_label">
+			<p>Content</p>
+		</div>
+		<div class="textarea_container">
+			<?php echo $this->Form->input('description', array('class' => 'ckeditor','label' => false)); ?>
+		</div>
+		<?php 
 
 		if (isset($params)) {
 			if (array_key_exists('uploadImages', $params)) {

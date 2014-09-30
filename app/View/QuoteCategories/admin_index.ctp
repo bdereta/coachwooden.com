@@ -18,16 +18,12 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
-			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th width="1%">&nbsp;</th>
 	</tr>
 	<?php foreach ($quoteCategories as $quoteCategory): ?>
 	<tr>
 		<td><?php echo h($quoteCategory['QuoteCategory']['id']); ?>&nbsp;</td>
 		<td><?php echo h($quoteCategory['QuoteCategory']['name']); ?>&nbsp;</td>
-		<td><?php echo $this->Time->format('m/d/y - g:i A', $quoteCategory['QuoteCategory']['modified']); ?>&nbsp;</td>
-		<td><?php echo $this->Time->format('m/d/y - g:i A', $quoteCategory['QuoteCategory']['created']); ?>&nbsp;</td>
 		<td nowrap class="actions">
 			<?php echo $this->Html->link('<i class="icon-info-sign"></i>', array('action' => 'view', $quoteCategory['QuoteCategory']['id']), array('class'=>'btn btn-info','escape' => false,'alt'=>'View','title'=>'View')); ?>
 			<?php echo $this->Html->link('<i class="icon-edit"></i>', array('action' => 'edit', $quoteCategory['QuoteCategory']['id']), array('class'=>'btn btn-warning','escape' => false,'alt'=>'Edit','title'=>'Edit')); ?>

@@ -21,7 +21,7 @@ class BooksController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'ImageTools.ImageTools');
+	public $components = array('Paginator', 'ImageTools.ImageTools','Bambla.OrderingPosition');
 
 /**
  * beforeFilter method
@@ -33,6 +33,19 @@ class BooksController extends AppController {
 		$this->layout = 'Bambla.bambla';
 	}
 
+	public function admin_reorder_position($id = NULL, $action = NULL) {
+  		$result = $this->OrderingPosition->ChangePositionReorder(array(
+  			'model' => Inflector::classify($this->params['controller']), 
+  			'id' => $id, 
+  			'action' => $action
+  		));
+  		if ($result) {
+  			$this->Session->setFlash(__('Order position changed.'), 'Bambla.green');
+  		} else {
+  			$this->Session->setFlash(__('Order position error.'), 'Bambla.red');
+  		}
+ 		return $this->redirect(array('action'=>'index'));
+	}
 /**
  * admin_index method
  *
@@ -40,6 +53,7 @@ class BooksController extends AppController {
  */
 	public function admin_index() {
 		$this->Book->recursive = 0;
+		$this->Paginator->settings = array('order' => array('ordering_position' => 'ASC'));
 		$this->set('books', $this->Paginator->paginate());
 	}
 
@@ -106,6 +120,7 @@ class BooksController extends AppController {
 					}
 				} else {
 					if ($this->Book->save($data)) {
+						$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller'])));
 						$this->Session->setFlash(__('Book has been saved!'), 'Bambla.green');
 						return $this->redirect(array('action'=>'index'));	
 					} else {
@@ -204,6 +219,7 @@ class BooksController extends AppController {
 		if (isset($data)) {
 			$this->Book->create();
 			if ($this->Book->save($data)) {
+				$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller'])));
 				$this->Session->setFlash(__('Book has been saved!'), 'Bambla.green');
 				return $this->redirect(array('action'=>'index'));	
 			} else {
@@ -242,6 +258,7 @@ class BooksController extends AppController {
 		}
 		
 		if ($this->Book->delete()) {
+			$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller'])));
 			$this->Session->setFlash(__('Book has been deleted.'), 'Bambla.green');
 		} else {
 			$this->Session->setFlash(__('Book could not be deleted. Please, try again.'), 'Bambla.red');

@@ -13,7 +13,7 @@ class QuotesController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Paginator','Bambla.OrderingPosition');
 
 /**
  * beforeFilter method
@@ -24,7 +24,21 @@ class QuotesController extends AppController {
 		parent::beforeFilter();
 		$this->layout = 'Bambla.bambla';
 	}
-
+	
+	public function admin_reorder_position($id = NULL, $action = NULL) {
+  		$result = $this->OrderingPosition->ChangePositionReorder(array(
+  			'model' => Inflector::classify($this->params['controller']), 
+  			'id' => $id, 
+  			'action' => $action
+  		));
+  		if ($result) {
+  			$this->Session->setFlash(__('Order position changed.'), 'Bambla.green');
+  		} else {
+  			$this->Session->setFlash(__('Order position error.'), 'Bambla.red');
+  		}
+ 		return $this->redirect(array('action'=>'index'));
+	}
+	
 /**
  * admin_index method
  *
@@ -32,6 +46,7 @@ class QuotesController extends AppController {
  */
 	public function admin_index() {
 		$this->Quote->recursive = 0;
+		$this->Paginator->settings = array('order' => array('ordering_position' => 'ASC'));
 		$this->set('quotes', $this->Paginator->paginate());
 	}
 
@@ -59,6 +74,7 @@ class QuotesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Quote->create();
 			if ($this->Quote->save($this->request->data)) {
+				$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller'])));
 				$this->Session->setFlash(__('The quote has been saved.'),'Bambla.green');
 				return $this->redirect(array('action' => 'index'));
 			} else {
@@ -84,6 +100,7 @@ class QuotesController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Quote->save($this->request->data)) {
+				$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller'])));
 				$this->Session->setFlash(__('The quote has been saved.'),'Bambla.green');
 				return $this->redirect(array('action' => 'index'));
 			} else {
@@ -112,6 +129,7 @@ class QuotesController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Quote->delete()) {
+			$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller'])));
 			$this->Session->setFlash(__('The quote has been deleted.'), 'Bambla.green');
 		} else {
 			$this->Session->setFlash(__('The quote could not be deleted. Please, try again.'), 'Bambla.red');

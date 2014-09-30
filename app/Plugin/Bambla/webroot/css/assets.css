@@ -207,7 +207,8 @@ input[type="button"], input[type="reset"], input[type="submit"] { width:auto; he
 
 select, input[type="file"] { height:28px; *margin-top:4px; line-height:28px; }
 select[multiple], select[size] { height:auto; }
-textarea { height:auto; width:79.6%!important; }
+textarea { height:auto; width:79.6%; }
+.ckeditor textarea { width:100%!important; }
 
 input[type="hidden"] { display:none; }
 .radio, .checkbox { padding-left:18px; }

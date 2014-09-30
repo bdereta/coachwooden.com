@@ -109,6 +109,7 @@ App::uses('Component', 'Controller');
  * 			$this->Session->setFlash(__('Order position error.'), 'Bambla.red');
  * 		}
  *		return $this->redirect(array('action'=>'index'));
+ * 		}
  * 	?>
  * 
  * 4. Add the following line to Controller admin_index() method (above $this->set()):
@@ -139,17 +140,12 @@ App::uses('Component', 'Controller');
  * 	
  * 10. Replace first data column (ID column) with the following:
  * 
- * 	<td><?php if ($example['Example']['active']) : ?>
- * 			<?php echo h($example['Example']['ordering_position']/10); ?>
- * 		<?php endif; ?>&nbsp;
- * 	</td>
+ * 	<td><?php echo h($example['Example']['ordering_position']/10); ?></td>
  * 	
  * 11. Add following column right next to the previous one:
  * 
- * 	<td><?php if ($example['Example']['active']) : ?>
- * 			<?php echo $this->Html->link('<i class="icon-arrow-up"></i>', array('action' => 'reorder_position', $example['Example']['id'], 'up'), array('escape' => false, 'class'=>'bambla_arrows')); ?>
+ * 	<td><?php echo $this->Html->link('<i class="icon-arrow-up"></i>', array('action' => 'reorder_position', $example['Example']['id'], 'up'), array('escape' => false, 'class'=>'bambla_arrows')); ?>
  * 			<?php echo $this->Html->link('<i class="icon-arrow-down"></i>', array('action' => 'reorder_position', $example['Example']['id'], 'down'), array('escape' => false, 'class'=>'bambla_arrows')); ?>
- * 		<?php endif; ?>&nbsp;
  * 	</td>
  * 
  * 12. Replace 'Example' variable with corresponding Model you're using.
@@ -160,12 +156,12 @@ App::uses('Component', 'Controller');
 class OrderingPositionComponent extends Component {
 		
 	public function init($params = array()) {
-		$this->PositionFieldName = array_key_exists('PositionFieldName', $params) ? $params['PositionFieldName'] : 'ordering_position';
-		$this->ModelName = array_key_exists('model', $params) ? $params['model'] : NULL;
+		$this->PositionFieldName = !empty($params['PositionFieldName']) ? $params['PositionFieldName'] : 'ordering_position';
+		$this->ModelName = !empty($params['model']) ? $params['model'] : NULL;
 		$this->ModelObject = ($this->ModelName) ? ClassRegistry::init($this->ModelName) : NULL;
-		$this->ModelObject->id = array_key_exists('id', $params) ? $params['id'] : false;
-		$this->Action = array_key_exists('action', $params) ? $params['action'] : NULL;
-		$this->Conditions = array_key_exists('conditions', $params) ? $params['conditions'] : NULL;
+		$this->ModelObject->id = !empty($params['id']) ? $params['id'] : false;
+		$this->Action = !empty($params['action']) ? $params['action'] : NULL;
+		$this->Conditions = !empty($params['conditions']) ?  $params['conditions'] : NULL;
 		
 	}
 			
@@ -192,14 +188,16 @@ class OrderingPositionComponent extends Component {
 	public function Reorder($params = array()) {
 		$this->init($params);
 		$data = $this->ModelObject->find('all', array('conditions' => $this->Conditions, 'order' => array($this->PositionFieldName)));
-		//$this->log(json_encode($data),'tracker');
 		if (!empty($data)) {
 			foreach($data as $count => $val) {
-				//$this->log("Reorder Values - ACTIVE: ".json_encode($val[$this->ModelName]), 'tracker');
 				$data[$count][$this->ModelName][$this->PositionFieldName] = ($count+1)*10;		
 			}
 		}
-		$this->ModelObject->saveMany($data);
-		return true;
+		if ($this->ModelObject->saveMany($data)) {
+			return true;		
+		} else {
+			return false;
+		}
+		
 	}
 }

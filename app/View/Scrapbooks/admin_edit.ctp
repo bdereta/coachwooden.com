@@ -6,8 +6,14 @@
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('ordering_position');
-		echo $this->Form->input('title');
-		echo $this->Form->input('content');
+		echo $this->Form->input('title');?>
+		<div class="textarea_label">
+			<p>Content</p>
+		</div>
+		<div class="textarea_container">
+			<?php echo $this->Form->input('content', array('class' => 'ckeditor','label' => false)); ?>
+		</div>
+		<?php 
 
 		if (isset($params)) {
 			if (array_key_exists('uploadImages', $params)) {

@@ -21,7 +21,7 @@ class ScrapbooksController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'ImageTools.ImageTools');
+	public $components = array('Paginator', 'ImageTools.ImageTools','Bambla.OrderingPosition');
 
 /**
  * beforeFilter method
@@ -32,6 +32,20 @@ class ScrapbooksController extends AppController {
 		parent::beforeFilter();
 		$this->layout = 'Bambla.bambla';
 	}
+	
+	public function admin_reorder_position($id = NULL, $action = NULL) {
+  		$result = $this->OrderingPosition->ChangePositionReorder(array(
+  			'model' => Inflector::classify($this->params['controller']), 
+  			'id' => $id, 
+  			'action' => $action
+  		));
+  		if ($result) {
+  			$this->Session->setFlash(__('Order position changed.'), 'Bambla.green');
+  		} else {
+  			$this->Session->setFlash(__('Order position error.'), 'Bambla.red');
+  		}
+ 		return $this->redirect(array('action'=>'index'));
+  	}
 
 /**
  * admin_index method
@@ -40,6 +54,7 @@ class ScrapbooksController extends AppController {
  */
 	public function admin_index() {
 		$this->Scrapbook->recursive = 0;
+		$this->Paginator->settings = array('order' => array('ordering_position' => 'ASC'));
 		$this->set('scrapbooks', $this->Paginator->paginate());
 	}
 
@@ -106,6 +121,7 @@ class ScrapbooksController extends AppController {
 					}
 				} else {
 					if ($this->Scrapbook->save($data)) {
+						$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller'])));
 						$this->Session->setFlash(__('Scrapbook has been saved!'), 'Bambla.green');
 						return $this->redirect(array('action'=>'index'));	
 					} else {
@@ -205,6 +221,7 @@ class ScrapbooksController extends AppController {
 		if (isset($data)) {
 			$this->Scrapbook->create();
 			if ($this->Scrapbook->save($data)) {
+				$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller'])));
 				$this->Session->setFlash(__('Scrapbook has been saved!'), 'Bambla.green');
 				return $this->redirect(array('action'=>'index'));	
 			} else {
@@ -243,6 +260,7 @@ class ScrapbooksController extends AppController {
 		}
 		
 		if ($this->Scrapbook->delete()) {
+			$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller'])));
 			$this->Session->setFlash(__('Scrapbook has been deleted.'), 'Bambla.green');
 		} else {
 			$this->Session->setFlash(__('Scrapbook could not be deleted. Please, try again.'), 'Bambla.red');

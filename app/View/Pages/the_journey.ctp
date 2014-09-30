@@ -58,7 +58,7 @@ $this->Html->script('journey', array('inline' => false));
 						<?php if(!empty($timeline['Timeline']['image'])) : ?>
 							<?php echo $this->Html->image('uploads/'.$timeline['Timeline']['image'], array('alt' => $timeline['Timeline']['date'])); ?>
 						<?php endif; ?>
-						<p><?php echo $timeline['Timeline']['description']; ?></p>
+						<?php echo $timeline['Timeline']['description']; ?>
 					</div>
 				<?php endforeach; ?>
 			</div>

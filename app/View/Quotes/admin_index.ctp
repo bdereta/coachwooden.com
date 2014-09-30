@@ -16,18 +16,20 @@
 	</div>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('quote_category_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('ordering_position'); ?></th>
+			<th>Change Ordering</th>
 			<th><?php echo $this->Paginator->sort('info'); ?></th>
 			<th width="1%">&nbsp;</th>
 	</tr>
 	<?php foreach ($quotes as $quote): ?>
 	<tr>
-		<td><?php echo h($quote['Quote']['id']); ?>&nbsp;</td>
 		<td><?php echo h($quote['QuoteCategory']['name']); ?>&nbsp;</td>
-		<td><?php echo h($quote['Quote']['ordering_position']); ?>&nbsp;</td>
-		<td><?php echo h($quote['Quote']['info']); ?>&nbsp;</td>
+		<td><?php echo h($quote['Quote']['ordering_position']/10); ?>&nbsp;</td>
+		<td><?php echo $this->Html->link('<i class="icon-arrow-up"></i>', array('action' => 'reorder_position', $quote['Quote']['id'], 'up'), array('escape' => false, 'class'=>'bambla_arrows')); ?>
+  			<?php echo $this->Html->link('<i class="icon-arrow-down"></i>', array('action' => 'reorder_position', $quote['Quote']['id'], 'down'), array('escape' => false, 'class'=>'bambla_arrows')); ?>
+  		</td>
+		<td width="500"><?php echo h($quote['Quote']['info']); ?>&nbsp;</td>
 		<td nowrap class="actions">
 			<?php echo $this->Html->link('<i class="icon-info-sign"></i>', array('action' => 'view', $quote['Quote']['id']), array('class'=>'btn btn-info','escape' => false,'alt'=>'View','title'=>'View')); ?>
 			<?php echo $this->Html->link('<i class="icon-edit"></i>', array('action' => 'edit', $quote['Quote']['id']), array('class'=>'btn btn-warning','escape' => false,'alt'=>'Edit','title'=>'Edit')); ?>

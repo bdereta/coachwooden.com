@@ -4,55 +4,6 @@ $this->Html->script('jquery.bxslider.min', array('inline' => false));
 $this->Html->script('memory', array('inline' => false));
 ?>
 
-//<script>
-//$(document).ready(function() {
-//	//Auto scroll Content
-//	var track_load = 0; //total loaded record group(s)
-//	var loading  = false; //to prevents multipal ajax loads
-//	var total_groups = <?php echo $total_groups; ?>; //total record group(s)
-//	
-//	//$('#results').load("<?php echo $this->Html->url(array('action' => 'memory_wall_ajax')); ?>", {'group_number':track_load}/*, function() {track_load++;}*/); //load first group
-//	
-//	/*$( "#results" ).load( "<?php echo $this->Html->url(array('action' => 'memory_wall_ajax')); ?>", function() {
-//	  track_load++;
-//	});*/
-//	
-//	$(window).scroll(function() { //detect page scroll
-//		
-//		if($(window).scrollTop() + $(window).height() == $(document).height())  //user scrolled to bottom of the page?
-//		{
-//			
-//			if(track_load <= total_groups && loading==false) //there's more data to load
-//			{
-//				loading = true; //prevent further ajax loading
-//				$('.animation_image').show(); //show loading image
-//				
-//				//load data from the server using a HTTP POST request
-//				$.post("<?php echo $this->Html->url(array('action' => 'memory_wall_ajax')); ?>",{'group_number': track_load}, function(data){
-//									
-//					$("#results").append(data); //append received data into the element
-//
-//					//hide loading image
-//					$('.animation_image').hide(); //hide loading image once data is received
-//					
-//					track_load++; //loaded group increment
-//					loading = false; 
-//				
-//				}).fail(function(xhr, ajaxOptions, thrownError) { //any errors?
-//					
-//					alert(thrownError); //alert with HTTP error
-//					$('.animation_image').hide(); //hide loading image
-//					loading = false;
-//				
-//				});
-//				
-//			}
-//		}
-//	});
-//});
-//</script>
-
-
 <style>
 #wrapper { background:url(./img/bg_top_clouds.jpg) top center no-repeat; }
 </style>
@@ -97,7 +48,7 @@ $this->Html->script('memory', array('inline' => false));
 	<?php echo $this->Html->image('decorative_line_long.png', array('alt' => 'separator')); ?>
 	<div class="memory_share">
 		<h2>Share Your Memory of Coach</h2>
-		<?php echo $this->Form->create('RequestAppearance', array('id'=>'request_form')); ?>
+		<?php echo $this->Form->create('ShareMemory', array('id'=>'request_form')); ?>
 			<div class="float_left"><?php echo $this->Form->input('name', array('label' => false, 'value' => 'Name')); ?></div>
 			<div class="float_left"><?php echo $this->Form->input('email', array('type'=>'email','label' => false,  'value' => 'Email')); ?></div>
 			<div class="float_left"><?php echo $this->Form->input('city_state', array('label' => false, 'value' => 'City/State')); ?></div>
@@ -116,10 +67,20 @@ $this->Html->script('memory', array('inline' => false));
 	</div>
 	<div class="clear"></div>
 </div>
+<?php if (!empty($comments)) : ?>
 <div class="comments bottom_padding">
 	<h2 class="float_left">Comments</h2>
 	<p class="float_right"><span>452</span>Memories Shared</p>
 	<div class="clear"></div>
-	<?php /*?><ul id="results"></ul><?php */?>
-	<div class="animation_image" style="display:none" align="center"><?php //echo $this->Html->image("ajax-loader.gif", array('alt' => 'Loading ...')); ?>></div>
+	<ul id="results">
+		<?php foreach($comments as $comment) : ?>
+			<li>
+				<span class="date">On <?php echo $this->Time->format('n/d/Y', $comment['ShareMemory']['created']); ?></span>
+				<h4><?php echo $comment['ShareMemory']['name']; ?> <span>from</span> <?php echo $comment['ShareMemory']['city_state']; ?> <span>shared</span></h4>
+				<p><?php echo $comment['ShareMemory']['message']; ?></p>
+			</li>
+		<?php endforeach; ?>
+	</ul>
+    <div id="loadMore" class="btns transition">Load more</div>
 </div>
+<?php endif; ?>

@@ -4,7 +4,6 @@
 	<fieldset>
 		<legend><?php echo __(' Add Book'); ?></legend>
 	<?php
-		echo $this->Form->input('ordering_position');
 		echo $this->Form->input('title');
 		echo $this->Form->input('publisher');
 		echo $this->Form->input('author'); ?>

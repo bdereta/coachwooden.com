@@ -1,7 +1,7 @@
 /* CSS Document */
 
 body { font-family:Georgia, serif; font-size:12px; padding: 0; margin: 0; background:url(../img/background.jpg) top center; color:#fff; width:100%; }
-#wrapper { width:100%; min-width:1300px; margin:0 auto; height:auto; position:relative; background:url(../img/bg_top.jpg) top center no-repeat; overflow:hidden; }
+#wrapper { width:100%; min-width:1300px; margin:0 auto; height:auto; position:relative; background:url(../img/bg_top.jpg) top center no-repeat; overflow:hidden!important; }
 #container { width:100%; min-width:1300px; margin:0 auto; height:auto; position:relative; }
 .content { width:1246px; margin:0 auto; }
 a { text-decoration:none; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
@@ -9,7 +9,7 @@ ul { list-style:none; padding:0; margin:0; }
 
 .whistle { position:absolute; top:0; left:0; }
 header { height:231px; padding-top:65px; margin-bottom:58px; }
-.top_logo { margin:30px 0 0 24px; }
+.top_logo { margin:30px 0 0 25px; }
 .header_title { font-size: 16px; font-family:Georgia, serif; color:#ded1b9; text-shadow: 1.5px 2.598px 3px rgba(0, 0, 0, 0.71); margin:35px 0 0 175px; }
 .main_nav { width:665px; height:100%; }
 .main_nav ul { width:100%; } 
@@ -197,6 +197,11 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .comments ul li p { font-size:18px; font-family:Georgia, serif; font-style:italic; color:#fff; line-height:23px; margin:0 0 20px 0; }
 
 .animation_image {background: #F9FFFF;border: 1px solid #E1FFFF;padding: 10px;width: 500px;margin-right: auto;margin-left: auto;}
+
+#results li{ display:none; }
+
+#loadMore { cursor:pointer; margin:35px auto 0 auto; width:72px; height:20px; background:url(../img/arrows_down.png) no-repeat; padding-top:55px; }
+#loadMore:hover { background:url(../img/arrows_down_hover.png) no-repeat; }
 
 
 /* True to Yourself and Last Words

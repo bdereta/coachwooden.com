@@ -18,20 +18,14 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
-			<th><?php echo $this->Paginator->sort('content'); ?></th>
 			<th><?php echo $this->Paginator->sort('image'); ?></th>
-			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th width="1%">&nbsp;</th>
 	</tr>
 	<?php foreach ($pyramids as $pyramid): ?>
 	<tr>
 		<td><?php echo h($pyramid['Pyramid']['id']); ?>&nbsp;</td>
 		<td><?php echo h($pyramid['Pyramid']['name']); ?>&nbsp;</td>
-		<td><?php echo h($pyramid['Pyramid']['content']); ?>&nbsp;</td>
 		<td><?php echo $this->Html->image('uploads/'.$pyramid['Pyramid']['image'], array('width' => 120)); ?>&nbsp;</td>
-		<td><?php echo $this->Time->format('m/d/y - g:i A', $pyramid['Pyramid']['modified']); ?>&nbsp;</td>
-		<td><?php echo $this->Time->format('m/d/y - g:i A', $pyramid['Pyramid']['created']); ?>&nbsp;</td>
 		<td nowrap class="actions">
 			<?php echo $this->Html->link('<i class="icon-info-sign"></i>', array('action' => 'view', $pyramid['Pyramid']['id']), array('class'=>'btn btn-info','escape' => false,'alt'=>'View','title'=>'View')); ?>
 			<?php echo $this->Html->link('<i class="icon-edit"></i>', array('action' => 'edit', $pyramid['Pyramid']['id']), array('class'=>'btn btn-warning','escape' => false,'alt'=>'Edit','title'=>'Edit')); ?>

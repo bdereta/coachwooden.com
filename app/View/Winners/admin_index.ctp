@@ -21,8 +21,6 @@
 			<th><?php echo $this->Paginator->sort('year'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('school'); ?></th>
-			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th width="1%">&nbsp;</th>
 	</tr>
 	<?php foreach ($winners as $winner): ?>
@@ -34,8 +32,6 @@
 		<td><?php echo h($winner['Winner']['year']); ?>&nbsp;</td>
 		<td><?php echo h($winner['Winner']['name']); ?>&nbsp;</td>
 		<td><?php echo h($winner['Winner']['school']); ?>&nbsp;</td>
-		<td><?php echo $this->Time->format('m/d/y - g:i A', $winner['Winner']['modified']); ?>&nbsp;</td>
-		<td><?php echo $this->Time->format('m/d/y - g:i A', $winner['Winner']['created']); ?>&nbsp;</td>
 		<td nowrap class="actions">
 			<?php echo $this->Html->link('<i class="icon-info-sign"></i>', array('action' => 'view', $winner['Winner']['id']), array('class'=>'btn btn-info','escape' => false,'alt'=>'View','title'=>'View')); ?>
 			<?php echo $this->Html->link('<i class="icon-edit"></i>', array('action' => 'edit', $winner['Winner']['id']), array('class'=>'btn btn-warning','escape' => false,'alt'=>'Edit','title'=>'Edit')); ?>

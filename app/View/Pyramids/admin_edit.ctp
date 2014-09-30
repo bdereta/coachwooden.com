@@ -5,8 +5,14 @@
 		<legend><?php echo __(' Edit Pyramid'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('name');
-		echo $this->Form->input('content');
+		echo $this->Form->input('name'); ?>
+		<div class="textarea_label">
+			<p>Content</p>
+		</div>
+		<div class="textarea_container">
+			<?php echo $this->Form->input('content', array('class' => 'ckeditor','label' => false)); ?>
+		</div>
+		<?php 
 
 		if (isset($params)) {
 			if (array_key_exists('uploadImages', $params)) {

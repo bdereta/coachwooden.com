@@ -38,7 +38,7 @@ class PagesController extends AppController {
 		if ($this->request->is('post')) {
 			//captcha
 			$captcha_session = $this->Session->read('captcha');
-			$captcha_input = $this->request->data['RequestAppearance']['captcha'];
+			$captcha_input = $this->request->data['ShareMemory']['captcha'];
 			if (empty($captcha_session) || empty($captcha_input) || $captcha_session != $captcha_input) {
 				$this->Session->delete('captcha');
 				return $this->Session->setFlash(__('Please enter correct Security Code'), 'popup');
@@ -47,7 +47,7 @@ class PagesController extends AppController {
 			if (!empty($this->request->data['ShareMemory'])) {
 				
 				//email
-				$message = "Request Appearance Form\n\n";
+				$message = "Share Memory Form\n\n";
 				foreach($this->request->data['ShareMemory'] as $key => $val) {
 					$form[] = Inflector::humanize($key).': '.$val;	
 				} 
@@ -55,7 +55,7 @@ class PagesController extends AppController {
 	
 				$Email = new CakeEmail();
 				$Email->from(array('noreply@'.$_SERVER['HTTP_HOST'] => $_SERVER['HTTP_HOST']))
-					->to('cora@cubismedia.com')
+					->to('stevejamison@sbcglobal.net')
 					->subject('Share Memory Form')
 					->send($message);		
 				
@@ -70,32 +70,10 @@ class PagesController extends AppController {
 				$this->Session->setFlash(__('<p>Sorry, we were unable to submit your request. Please, try again.</p>'),'popup');
 			}
 		}
-		$items_per_group = 10;
-		$total_records = $this->ShareMemory->find('count');
-		$total_groups = ceil($total_records/$items_per_group);
-		$this->set(compact('total_groups'));		
+		$comments = $this->ShareMemory->find('all', array('order' => array('created desc')));
+		$this->set(compact('comments'));		
 	}
 	
-	public function memory_wall_ajax() {
-		$this->layout = "ajax";
-		$items_per_group = 10;
-		
-		if ($this->request->is('post')) {
-			debug($this->request->data);
-			//sanitize post value
-			$group_number = !empty($this->request->data['group_number']) ? $this->request->data['group_number'] : 0;
-
-			//get current starting point of records
-			$position = ($group_number * $items_per_group);
-			
-						
-			//Limit our results within a specified range. 
-			$comments = $this->ShareMemory->find('all', array('order' => array('created desc'), 'limit' => array($position, $items_per_group)));
-			$this->set('comments', $comments );		
-		}
-
-	}
-
 	public function last_visit_with_coach () {}
 
 	public function true_to_yourself () {}

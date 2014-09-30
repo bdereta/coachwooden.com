@@ -21,7 +21,7 @@ class TimelinesController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'ImageTools.ImageTools');
+	public $components = array('Paginator', 'ImageTools.ImageTools','Bambla.OrderingPosition');
 
 /**
  * beforeFilter method
@@ -33,6 +33,20 @@ class TimelinesController extends AppController {
 		$this->layout = 'Bambla.bambla';
 	}
 
+	public function admin_reorder_position($id = NULL, $action = NULL) {
+  		$result = $this->OrderingPosition->ChangePositionReorder(array(
+  			'model' => Inflector::classify($this->params['controller']), 
+  			'id' => $id, 
+  			'action' => $action
+  		));
+  		if ($result) {
+  			$this->Session->setFlash(__('Order position changed.'), 'Bambla.green');
+  		} else {
+  			$this->Session->setFlash(__('Order position error.'), 'Bambla.red');
+  		}
+ 		return $this->redirect(array('action'=>'index'));
+  	}
+	
 /**
  * admin_index method
  *
@@ -40,6 +54,7 @@ class TimelinesController extends AppController {
  */
 	public function admin_index() {
 		$this->Timeline->recursive = 0;
+		$this->Paginator->settings = array('order' => array('ordering_position' => 'ASC'));
 		$this->set('timelines', $this->Paginator->paginate());
 	}
 
@@ -106,6 +121,7 @@ class TimelinesController extends AppController {
 					}
 				} else {
 					if ($this->Timeline->save($data)) {
+						$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller'])));
 						$this->Session->setFlash(__('Timeline has been saved!'), 'Bambla.green');
 						return $this->redirect(array('action'=>'index'));	
 					} else {
@@ -205,6 +221,7 @@ class TimelinesController extends AppController {
 		if (isset($data)) {
 			$this->Timeline->create();
 			if ($this->Timeline->save($data)) {
+				$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller'])));
 				$this->Session->setFlash(__('Timeline has been saved!'), 'Bambla.green');
 				return $this->redirect(array('action'=>'index'));	
 			} else {
@@ -243,6 +260,7 @@ class TimelinesController extends AppController {
 		}
 		
 		if ($this->Timeline->delete()) {
+			$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller'])));
 			$this->Session->setFlash(__('Timeline has been deleted.'), 'Bambla.green');
 		} else {
 			$this->Session->setFlash(__('Timeline could not be deleted. Please, try again.'), 'Bambla.red');
