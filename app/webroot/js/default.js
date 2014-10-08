@@ -6,6 +6,7 @@ $(document).ready(function(){
 });
 
 function yt_load_video(url) {
+	var url = url + '?rel=0&autoplay=1';
 	$("#yt_big").attr("src",url);
 	return;
 }

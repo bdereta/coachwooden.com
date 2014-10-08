@@ -16,7 +16,6 @@ $this->Html->script('journey', array('inline' => false));
 	<div class="game_text">
 		<div class="center joy_title">
 			<h2>The Joy of the Journey</h2>
-			<span>By Steve Jamison</span>
 		</div>
 		<?php echo $this->Bambla->fetchSection(1); ?>
 	</div>

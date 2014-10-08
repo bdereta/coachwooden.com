@@ -21,12 +21,7 @@ $this->Html->script('memory', array('inline' => false));
 		<div class="bottom_left"></div>
 		<div class="bottom_right"></div>
 		<div class="memory relative">
-			<div class="slide">
-				<?php echo $this->Html->link($this->Html->image("temp_memory.jpg", array("class" => "img", "alt" => "title")),'https://link.com', array('target' => '_blank','escape' => false)); ?>
-			</div>
-			<div class="slide">
-				<?php echo $this->Html->link($this->Html->image("temp_memory.jpg", array("class" => "img", "alt" => "title")),'https://link.com', array('target' => '_blank','escape' => false)); ?>
-			</div>
+			<?php echo $this->Html->image("temp_memory.jpg", array('alt' => 'John Wooden')); ?>
 		</div>
 	</div>
 	<?php echo $this->Html->image('memory_decorative_line.png', array('alt' => 'separator')); ?>

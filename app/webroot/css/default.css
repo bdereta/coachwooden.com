@@ -14,8 +14,8 @@ header { height:231px; padding-top:65px; margin-bottom:58px; }
 .main_nav { width:665px; height:100%; }
 .main_nav ul { width:100%; } 
 .main_nav ul li { width:33.33%; float:left; height:72px; }
-.main_nav ul li p { font-family:Georgia, serif; font-size:13px; font-style:italic; color:#ac8748; text-shadow:1px 1px 1px #000; margin:5px 0; padding-left:25px; }
-.main_nav ul li a { font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; font-size:15px; color:#ded1b9; text-shadow:1px 1px 1px #000; text-transform:uppercase; padding-left:25px; }
+.main_nav ul li p { font-family:Georgia, serif; font-size:13px; font-style:italic; color:#ac8748; text-shadow:1px 1px 1px #000; margin:5px 0; padding-left:18px; }
+.main_nav ul li a { font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; font-size:15px; color:#ded1b9; text-shadow:1px 1px 1px #000; text-transform:uppercase; padding-left:18px; }
 .main_nav ul li a:hover { color:#fefdec; background:url(../img/arrow_nav.png) no-repeat left center; }
 
 footer { height:250px; padding-top:51px; text-align:center; }
@@ -37,6 +37,8 @@ footer { height:250px; padding-top:51px; text-align:center; }
 
 .full { max-width:1600px; width:100%; text-align:center; margin:0 auto; }
 .full h2 { font-size:36px; color:#dcccb9; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; text-transform:uppercase; margin:0; }
+.full.hp_quote h2 { font-size:36px; color:#dcccb9; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; margin:0; text-transform:none; }
+.full.hp_quote h2 span { font-family:Georgia, serif; }
 .full:hover h2 { color:#fff; }
 
 .btns { font-size:12px; color:#8b7652; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; line-height:50px; text-shadow: 1px 1px 10px rgba(0,0,0,1.00); -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
@@ -88,7 +90,7 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .page_titles h1.photo { font-size:142px; }
 .page_titles h1.speaks { font-size:75px; line-height:95px; }
 .page_titles h1.speaks img { vertical-align: super; }
-.page_titles h1.game { font-size:90px; line-height:95px; margin-top:-10px; }
+.page_titles h1.game { font-size:90px; line-height:95px; }
 .page_titles h1.game span { font-size:90px; vertical-align:text-top; font-family:Georgia, serif; font-style:normal; color:#e4e2e0; }
 .page_titles h1.award { font-size:119px; }
 .page_titles h2 { font-size:67px; color:#e4e2e0; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; text-transform:uppercase; margin:0 0 10px 0; line-height:75px; text-shadow:5px 5px 30px #000; white-space:nowrap; margin-top:60px; }
@@ -125,8 +127,8 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .iosSlider { width: 100%; height: 635px; }
 .iosSlider .slider { width: 100%; height: 100%; }
 .iosSlider .slider .item { position: relative; top: 0; left: 0; width: 341px; height: 635px; padding:0 72px; background:url(../img/journey_frame.png) no-repeat bottom center; margin:0; text-align: center; }
-.iosSlider .slider .slider_title { height:105px; }
-.iosSlider .slider .item h3 { margin:0; font-size: 36px; line-height:25px; font-family: Georgia, serif; color:#d1c081; font-weight:normal; }
+.iosSlider .slider .slider_title { height:100px; }
+.iosSlider .slider .item h3 { margin:0; font-size: 36px; line-height:36px; font-family: Georgia, serif; color:#d1c081; font-weight:normal; }
 .iosSlider .slider .item img { max-width:341px; max-height:351px; width:auto; height:auto; margin-bottom:10px; }
 .iosSlider .slider .item p { font-size:16px; font-family: Georgia, serif; color:#fff; line-height:21px; }
 .iosSlider .slider .item h3 span { font-size:16px; }
@@ -134,7 +136,7 @@ footer { height:250px; padding-top:51px; text-align:center; }
 
 /* Scrapbook
 ================================================== */
-#photo { margin: 50px 0 120px -26px; width:1246px; height:796px; position:relative; }
+#photo { margin: 50px 0 120px -26px; width:1246px; height:797px; position:relative; }
 #photo .top_left { position:absolute; top:25px; left:51px; z-index:999; background:url(../img/frame_corner_tl.jpg) no-repeat; width:11px; height:9px; }
 #photo .top_right { position:absolute; top:25px; right:0px; z-index:999; background:url(../img/frame_corner_tr.jpg) no-repeat; width:11px; height:9px; }
 #photo .bottom_left { position:absolute; bottom:25px; left:51px; z-index:999; background:url(../img/frame_corner_bl.jpg) no-repeat; width:11px; height:9px; }
@@ -143,11 +145,11 @@ footer { height:250px; padding-top:51px; text-align:center; }
 
 /* Memory Wall
 ================================================== */
-#memory { margin:55px auto; width:790px; height:447px; }
-#memory .top_left { position:absolute; top:25px; left:52px; z-index:999; background:url(../img/frame_corner_tl.jpg) no-repeat; width:11px; height:9px; }
-#memory .top_right { position:absolute; top:25px; right:0; z-index:999; background:url(../img/frame_corner_tr.jpg) no-repeat; width:11px; height:9px; }
-#memory .bottom_left { position:absolute; bottom:25px; left:52px; z-index:999; background:url(../img/frame_corner_bl.jpg) no-repeat; width:11px; height:9px; }
-#memory .bottom_right { position:absolute; bottom:25px; right:0; z-index:999; background:url(../img/frame_corner_br.jpg) no-repeat; width:11px; height:9px; }
+#memory { margin:55px auto; height:394px; background:url(../img/bg_memory_slider.png) no-repeat left top; padding:25px; width:740px; }
+#memory .top_left { position:absolute; top:25px; left:27px; z-index:999; background:url(../img/frame_corner_tl.jpg) no-repeat; width:11px; height:9px; }
+#memory .top_right { position:absolute; top:25px; right:26px; z-index:999; background:url(../img/frame_corner_tr.jpg) no-repeat; width:11px; height:9px; }
+#memory .bottom_left { position:absolute; bottom:24px; left:27px; z-index:999; background:url(../img/frame_corner_bl.jpg) no-repeat; width:11px; height:9px; }
+#memory .bottom_right { position:absolute; bottom:24px; right:26px; z-index:999; background:url(../img/frame_corner_br.jpg) no-repeat; width:11px; height:9px; }
 .memory_left { position:absolute; left:-560px; top:-40px; }
 .memory_right { position:absolute; right:-573px; top:0; }
 
@@ -209,8 +211,7 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .true_to_yourself { padding:34px 0 750px 0; text-align:left; background:url(../img/bg_true_footer.jpg) no-repeat bottom center; margin-bottom:-60px; }
 .true_to_yourself .btns { padding-left:34px; }
 .true_to_yourself .btns span { margin-right:20px; }
-.true_to_yourself p { font-size: 24px; font-family:Georgia, serif; color:#998f7e; line-height:30px; padding:0 34px; }
-.true_to_yourself p.light { color:#c6bfb3; }
+.true_to_yourself p { font-size: 24px; font-family:Georgia, serif; color:#fff; line-height:30px; padding:0 34px; }
 .true_to_yourself img { margin-right:44px; }
 .true_to_yourself h3 { font-size: 55px; font-family:"college_semi-condensedregular", Georgia, serif; color:#fff; line-height:60px; text-align: center; font-weight:normal; }
 .true_to_yourself .goals { width:1120px; height:135px; margin:0 auto; }
@@ -243,7 +244,7 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .pyramid_back { margin-bottom:10px; }
 .pyramid_image { width:255px; height:379px; padding:34px 28px; background:url(../img/bg_pyramid_book.png) no-repeat; margin:20px 55px 0 0; text-align:center; }
 .pyramid_image img { width:100%; height:auto; max-height:379px; max-width:255px; }
-.pyramid_text { padding-top:15px; }
+.pyramid_text { padding-top:15px; width:780px; }
 
 
 /* Bill Walton Speaks
@@ -284,6 +285,7 @@ h2.title_game { font-size:30px; color:#dcbf78; font-family:"gist_upright_extrabo
 ================================================== */
 .award_text { padding:15px 25px 50px 0; }
 .award_text h2 { font-size:30px; color:#dccc9b; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; line-height:35px; margin:70px 0 35px 0; }
+.award_text h2 span { font-family:Georgia, serif; }
 .award_text p { font-size:24px; color:#fff; font-family:Georgia, serif; line-height:30px; }
 
 .facts { height:330px; padding-top:70px; display: block; position: relative; background:rgba(0,0,0,0.65); margin-bottom:100px; }

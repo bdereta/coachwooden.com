@@ -3,7 +3,7 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title><?php echo (!empty($meta['title'])) ? $meta['title'] : NULL; ?></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="viewport" content="width=1300">
 	<?php
 		//meta
@@ -51,7 +51,7 @@
 							<li><p>mcdonald's</p><?php echo $this->Html->link('all american', array('controller' => 'Pages', 'action' => 'mcdonalds_all_american_game')); ?></li>
 							<li><p>scrap</p><?php echo $this->Html->link('book', array('controller' => 'Pages', 'action' => 'scrapbook')); ?></li>
 							<li><p>favorite</p><?php echo $this->Html->link('maxims', array('controller' => 'Pages', 'action' => 'favorite_maxims')); ?></li>
-							<li><p>wooden</p><?php echo $this->Html->link('award', array('controller' => 'Pages', 'action' => 'wooden_award')); ?></li>
+							<li><p>john r. wooden</p><?php echo $this->Html->link('award', array('controller' => 'Pages', 'action' => 'wooden_award')); ?></li>
 						</ul>
 					</div>
 				</div>

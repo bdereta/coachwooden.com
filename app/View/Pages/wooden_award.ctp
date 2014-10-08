@@ -9,7 +9,7 @@ $this->Html->script('/files/fancybox/jquery.fancybox', array('inline' => false))
 ?>
 <div class="content">
 	<div class="page_titles">
-		<span>John</span>
+		<span>John R.</span>
 		<h1 class="award">Wooden Award</h1>
 		<?php echo $this->Html->image('decorative_line_long.png', array('alt' => 'separator')); ?>
 	</div>

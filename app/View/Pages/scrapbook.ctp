@@ -1,6 +1,6 @@
 <?php
 $this->Html->css('jquery.bxslider', array('inline' => false));
-$this->Html->script('jquery.bxslider.scrapbook', array('inline' => false));
+$this->Html->script('jquery.bxslider.min', array('inline' => false));
 $this->Html->script('photo', array('inline' => false));
 ?>
 
@@ -22,7 +22,6 @@ $this->Html->script('photo', array('inline' => false));
 				<?php foreach($galleries as $gallery) : ?>
 					<div class="slide">
 						<?php echo $this->Html->image('uploads/'.$gallery['Scrapbook']['image'], array('alt' => $gallery['Scrapbook']['title'])); ?>
-						<div class="cap_btn"><a class="trigger" href="#">Info</a></div>
 						<div class="panel">
 							<p class="photo_number"><span><?php echo $gallery['Scrapbook']['id']; ?></span>/<?php echo $photo_totals; ?></p>
 							<?php echo $gallery['Scrapbook']['content']; ?>

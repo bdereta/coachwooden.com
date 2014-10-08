@@ -12,25 +12,6 @@ $(document).ready(function(){
 		hideControlOnEnd: false,
 		pause: 8000,
 	});
-
-	$(".trigger").click(function(){
-		$(".panel").toggle("fast");
-		$(this).toggleClass("active");
-		return false;
-	});
 	
 });
 
-/*
-* This function will maintain proper toggle for the info trigger button
-* We added this function in jquery.bxslider.js on line 716 and line 730.
-* 
-*/
-
-function toggleTrigger() {
-	if ($(".panel").attr("style") == 'display: block;') {
-		$(".trigger").addClass("active");
-	} else {
-		$(".trigger").removeClass("active");
-	}	
-}

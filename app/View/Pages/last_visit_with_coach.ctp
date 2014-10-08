@@ -37,9 +37,9 @@
 			<?php echo $this->Html->image('quote.png', array('alt' => 'quote','class' => 'float_left')); ?>
 			<h4>Put your arms around me, John. Your work here is done. You served well. Now there’s somebody who wants to see you. Let’s not make her wait any longer.</h4>
 		</div>
-		<p class="light">And with that our dear friend left us -- slipped his mortal bonds to become part of eternity.</p>
-		<p class="light">I know for certain where Coach Wooden is now -- once again whole in body, mind, and spirit; free from pain and at peace. For eternity. With Nellie. He’s so happy he is crying.</p>
-		<p class="light">We all love you Coach. I will look for you among the stars tonight. And know which one is you.</p> 
+		<p>And with that our dear friend left us -- slipped his mortal bonds to become part of eternity.</p>
+		<p>I know for certain where Coach Wooden is now -- once again whole in body, mind, and spirit; free from pain and at peace. For eternity. With Nellie. He’s so happy he is crying.</p>
+		<p>We all love you Coach. I will look for you among the stars tonight. And know which one is you.</p> 
 	</div>
 </div>
 <div class="clear"></div>

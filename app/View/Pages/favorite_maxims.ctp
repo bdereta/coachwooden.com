@@ -1,7 +1,7 @@
 <div class="content bottom_padding">
 	<div class="page_titles photo">
-		<span>Favorite</span>
-		<h1 class="photo">Maxims</h1>
+		<span>The Voice of</span>
+		<h1 class="game">COACH JOHN WOODEN</h1>
 		<?php echo $this->Html->image('decorative_line_long.png', array('alt' => 'separator')); ?>
 	</div>
 	<div class="clear"></div>

@@ -11,7 +11,7 @@ $this->Html->script('home', array('inline' => false));
 				<div class="caption">
 					<div class="text">
 						<p>Welcome to the official website of Coach John Wooden.</p>
-						<span>Sponsored By </span><?php echo $this->Html->image('logo_mcdonalds.png', array('alt' => 'Mcdonalds')); ?>
+						<p><span>Sponsored By </span><?php echo $this->Html->image('logo_mcdonalds.png', array('alt' => 'Mcdonalds')); ?></p>
 					</div>
 				</div>
 			</div>
@@ -20,7 +20,7 @@ $this->Html->script('home', array('inline' => false));
 				<div class="caption">
 					<div class="text">
 						<p>Welcome to the official website of Coach John Wooden.</p>
-						<span>Sponsored By </span><?php echo $this->Html->image('logo_mcdonalds.png', array('alt' => 'Mcdonalds')); ?>
+						<p><span>Sponsored By </span><?php echo $this->Html->image('logo_mcdonalds.png', array('alt' => 'Mcdonalds')); ?></p>
 					</div>
 				</div>
 			</div>
@@ -38,7 +38,7 @@ $this->Html->script('home', array('inline' => false));
 			<ul class="hp_news">
 				<? foreach($news as $news) : ?>
 					<li class="transition"><div class="date float_left"><?php echo $this->Html->link($this->Time->format('m.d.y', $news['News']['date']), $news['News']['link']); ?></div>
-						<div class="link float_left"><?php echo $this->Html->link($news['News']['title'], $news['News']['link']); ?></div>
+						<div class="link float_left"><?php echo $this->Html->link($news['News']['title'], $news['News']['link'], array('target' =>'_blank')); ?></div>
 					</li>
 				<?php endforeach; ?>
 			</ul>
@@ -99,7 +99,7 @@ $this->Html->script('home', array('inline' => false));
 	<div class="full hp_quote">
 		<?php echo $this->Html->image('line_stipes.jpg', array('class' => 'line_top')); ?>
 		<div class="text center">
-			<h2>Inspirational Quotes from Coach</h2>
+			<h2>America<span>’</span>s Favorite Coach Wooden Quotes</h2>
 			<?php echo $this->Html->image('decoration_quotes.png', array('alt' => 'separator')); ?>
 			<ul class="quote_slider">
 				<?php foreach($quotes as $quote) : ?>

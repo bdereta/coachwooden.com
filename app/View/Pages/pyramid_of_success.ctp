@@ -136,7 +136,7 @@ $this->Html->script('pyramid', array('inline' => false));
 												<?php echo $this->Html->image('uploads/'.$block['Pyramid']['image'], array('alt' => $block['Pyramid']['name'])); ?>
 											</div>
 										<?php endif; ?>
-										<div class="pyramid_text">
+										<div class="pyramid_text float_right">
 											<?php echo $block['Pyramid']['content']; ?>
 										</div>
 									</li>
