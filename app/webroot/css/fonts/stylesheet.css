@@ -15,12 +15,13 @@
 }
 
 @font-face {
-    font-family: 'college_semi-condensedregular';
-    src: url('college_semi_condensed-webfont.eot');
-    src: url('college_semi_condensed-webfont.eot?#iefix') format('embedded-opentype'),
-         url('college_semi_condensed-webfont.woff') format('woff'),
-         url('college_semi_condensed-webfont.ttf') format('truetype'),
-         url('college_semi_condensed-webfont.svg#college_semi-condensedregular') format('svg');
+    font-family: 'college_condensedregular';
+    src: url('collegec-webfont.eot');
+    src: url('collegec-webfont.eot?#iefix') format('embedded-opentype'),
+         url('collegec-webfont.woff2') format('woff2'),
+         url('collegec-webfont.woff') format('woff'),
+         url('collegec-webfont.ttf') format('truetype'),
+         url('collegec-webfont.svg#college_condensedregular') format('svg');
     font-weight: normal;
     font-style: normal;
 

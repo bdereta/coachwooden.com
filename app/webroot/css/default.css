@@ -45,7 +45,8 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .btns span { margin-left:5px; padding:5px; background:url(../img/hex_white.png) no-repeat center; color:#434343; text-shadow:none; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
 .btns:hover { color:#fff; }
 .btns:hover span { background:url(../img/hex_blue.png) no-repeat center; color:#19272a; }
-.btns span.quote { font-family:Georgia, serif; padding:0; margin:0; background:none; font-weight:bold; font-size:15px; }
+.btns span.quote { font-family:Georgia, serif; padding:0; margin:0; background:none; font-weight:bold; font-size:15px; color:#8b7652!important; }
+.btns:hover span.quote { color:#fff!important; }
 
 
 /* Home
@@ -85,9 +86,10 @@ footer { height:250px; padding-top:51px; text-align:center; }
 /* Pages
 ================================================== */
 .page_titles { min-height:200px; padding-top:55px; text-align:center; background:url(../img/decorative_line_long.png) no-repeat top center; }
-.page_titles h1 { font-size:142px; color:#e4e2e0; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; text-transform:uppercase; margin:0 0 10px 0; line-height:150px; text-shadow:5px 5px 30px #000; }
+.page_titles h1 { font-size:142px; color:#e4e2e0; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; text-transform:uppercase; margin:0 0 10px 0; line-height:150px; text-shadow:5px 5px 30px #000; white-space:nowrap; }
 .page_titles span { font-size:30px; color:#bf9f67; font-family:Georgia, serif; text-transform:capitalize; font-style:italic; text-shadow:1px 1px 1px #000; margin:0; }
 .page_titles h1.photo { font-size:142px; }
+.page_titles h1.news { font-size:128px; }
 .page_titles h1.speaks { font-size:75px; line-height:95px; }
 .page_titles h1.speaks img { vertical-align: super; }
 .page_titles h1.game { font-size:90px; line-height:95px; }
@@ -165,7 +167,7 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .last_visit_container .btns { line-height:30px; }
 
 .memory_share { width:1150px; padding-top:60px; margin:0 auto; text-align:center; }
-.memory_share h2 { font-size:30px; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; color:#dcbf78; line-height:35px; text-shadow: 3px 5.196px 0px rgba(17, 10, 4, 0.69); margin-bottom:55px; }
+.memory_share h2 { font-size:30px; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; color:#dcbf78; line-height:35px; text-shadow:3px 5.196px 0px rgba(17, 10, 4, 0.69); margin-bottom:55px; }
 
 #request_form { width:100%; height:860px; }
 #request_form input[type="text"], 
@@ -206,20 +208,39 @@ footer { height:250px; padding-top:51px; text-align:center; }
 #loadMore:hover { background:url(../img/arrows_down_hover.png) no-repeat; }
 
 
-/* True to Yourself and Last Words
+/* Articles
 ================================================== */
-.true_to_yourself { padding:34px 0 750px 0; text-align:left; background:url(../img/bg_true_footer.jpg) no-repeat bottom center; margin-bottom:-60px; }
-.true_to_yourself .btns { padding-left:34px; }
-.true_to_yourself .btns span { margin-right:20px; }
-.true_to_yourself p { font-size: 24px; font-family:Georgia, serif; color:#fff; line-height:30px; padding:0 34px; }
-.true_to_yourself img { margin-right:44px; }
-.true_to_yourself h3 { font-size: 55px; font-family:"college_semi-condensedregular", Georgia, serif; color:#fff; line-height:60px; text-align: center; font-weight:normal; }
-.true_to_yourself .goals { width:1120px; height:135px; margin:0 auto; }
-.true_to_yourself .goals h4 { font-size: 35px; font-family:"college_semi-condensedregular", Georgia, serif; color:#fff; line-height:36px; font-weight:normal; }
-.true_to_yourself .arms { height:195px; width:760px; padding:55px 0 0 310px; background:url(../img/memory_arms.png) no-repeat 60px top; }
-.true_to_yourself .arms h4 { font-size: 35px; font-family:"college_semi-condensedregular", Georgia, serif; color:#fff; line-height:36px; font-weight:normal; margin:0; }
-.true_to_yourself .goals img, .true_to_yourself .arms img { margin:0 20px 100px 0; }
-.true_to_yourself .link { width:100%; height:25px; text-align:center; padding-top:10px; }
+.article { padding:34px 0 750px 0; text-align:left; background:url(../img/bg_true_footer.jpg) no-repeat bottom center; margin-bottom:-60px; }
+.article .btns span { margin-right:20px; }
+.article .content { width:1180px; }
+.article p { font-size: 24px; font-family:Georgia, serif; color:#fff; line-height:30px; padding:0 34px; }
+.article img { margin-right:44px; }
+.article h2 { font-size:48px; font-family:"college_condensedregular",Georgia,serif; text-transform:uppercase; color:#fff; line-height:53px; text-align:center; font-weight:normal; width:80%; margin:0 auto 75px auto; }
+.article h3 { font-size: 55px; font-family:"college_condensedregular", Georgia, serif; text-transform:uppercase; color:#fff; line-height:60px; text-align: center; font-weight:normal; }
+.article .goals { width:1120px; height:135px; margin:0 auto; }
+.article .goals h4 { font-size: 35px; font-family:"college_condensedregular", Georgia, serif; text-transform:uppercase; color:#fff; line-height:36px; font-weight:normal; }
+.article .arms { height:195px; width:760px; padding:55px 0 0 310px; background:url(../img/memory_arms.png) no-repeat 60px top; }
+.article .arms h4 { font-size: 35px; font-family:"college_condensedregular", Georgia, serif; text-transform:uppercase; color:#fff; line-height:36px; font-weight:normal; margin:0; }
+.article .goals img, .article .arms img { margin:0 20px 100px 0; }
+.article .link { width:100%; height:25px; text-align:center; padding-top:10px; }
+
+.article_list { padding-top:80px; min-height:950px; }
+.article_list li { height:175px; background:rgba(0,0,0,0.45); }
+.article_list li .content { width:1180px; }
+.article_list .separator { width:100%; height:5px; background:url(../img/listing_topline.jpg); }
+.article_list li p { font-size:18px; font-family:Georgia, serif; font-style:italic; color:#6c6559; line-height:23px; padding:25px 10px 15px 10px; margin:0; }
+.article_list li a { font-size:70px; font-family:"college_condensedregular", Georgia, serif; text-transform:uppercase; color:#5b4217; line-height:70px; letter-spacing:0.05em; margin:0; }
+.article_list li:hover { background:rgba(0,0,0,0.45) url(../img/bg_listing.jpg) top center; }
+.article_list li:hover a { color:#fff; padding-left:35px; }
+.article_list li:hover p { color:#fff; }
+.btns_listings { padding-left:37px; margin:0 auto 45px auto; width:133px; white-space:nowrap; height:15px; background:url(../img/icon_listings.png) no-repeat left center; }
+.btns_listings a { font-size:13px; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; color:#bba37a; }
+.btns_listings:hover a { color:#fff; }
+
+.article_prev {  position:absolute; top:55px; width:61px; height:72px; z-index:9999; -webkit-transition:all 0.2s; -moz-transition:all 0.2s; transition:all 0.2s; text-indent:-9999px; left:50px; background:url(../img/arrows_large.png) no-repeat top left; }
+.article_next {  position:absolute; top:55px; width:61px; height:72px; z-index:9999; -webkit-transition:all 0.2s; -moz-transition:all 0.2s; transition:all 0.2s; text-indent:-9999px; right:50px; background:url(../img/arrows_large.png) no-repeat top right; }
+.article_prev:hover { background:url(../img/arrows_large_hover.png) no-repeat top left; }
+.article_next:hover { background:url(../img/arrows_large_hover.png) no-repeat top right; }
 
 
 
@@ -238,7 +259,7 @@ footer { height:250px; padding-top:51px; text-align:center; }
 #pyramid .full ul li { float:left; margin:0 4px 0 3px; }
 #pyramid .large_blocks { width:201px; height:86px; background:url(../img/btn_pyramid_large.jpg) no-repeat top left; text-align:center; padding-top:25px; margin:0 auto; }
 #pyramid .full.first .large_blocks { height:96px; padding-top:15px; }
-#pyramid .large_blocks p { font-size:20px; color:#fff; font-family:"college_semi-condensedregular", Georgia, serif; text-transform:uppercase; line-height:25px; text-shadow: 1px 1px 1px #000, 0px 0px 10px #000; }
+#pyramid .large_blocks p { font-size:20px; color:#fff; font-family:"college_condensedregular", Georgia, serif; text-transform:uppercase; line-height:25px; text-shadow: 1px 1px 1px #000, 0px 0px 10px #000; }
 #pyramid .large_blocks:hover { background:url(../img/btn_pyramid_large_hover.jpg) no-repeat top left; }
 #pyramid .large_blocks:hover p { text-shadow: 1px 1px 1px #000, 0px 0px 15px #624d15; }
 .pyramid_back { margin-bottom:10px; }

@@ -13,16 +13,16 @@
 
 .bx-wrapper .bx-pager,
 .bx-wrapper .bx-controls-auto { position: absolute; bottom: -50px; width: 100%; }
-.bx-wrapper .bx-loading { min-height: 50px; background: url(../img/bx_loader.gif) center center no-repeat #fff; height: 100%; width: 100%; position: absolute; top: 0; left: 0; z-index: 2000; }
+.bx-wrapper .bx-loading { min-height: 50px; background: url(../img/bx_loader.gif) center center no-repeat; height: 100%; width: 100%; position: absolute; top: 0; left: 0; z-index: 2000; }
 .bx-wrapper .bx-controls-direction a.disabled { display: none; }
 .bx-wrapper .bx-pager .bx-pager-item,
 .bx-wrapper .bx-controls-auto .bx-controls-auto-item { display: inline-block; *zoom: 1; *display: inline; }
 
 /* Top Slider */
 #homeslider .bx-wrapper { position: relative; margin: 0 0 100px 0; padding: 0; *zoom: 1; }
-#homeslider .bx-wrapper .bx-viewport .slide .img { width: 1196px; height:auto; display: block; position:absolute; bottom:0; left:0; z-index:1; }
+#homeslider .bx-wrapper .bx-viewport .slide .img { width: 1196px; height:auto; display: block; position:absolute; bottom:1px; left:0; z-index:1; }
 
-#homeslider .bx-wrapper .bx-viewport { background:url(../img/bg_viewer.png) no-repeat left 59px; padding:25px; }
+#homeslider .bx-wrapper .bx-viewport { background:url(../img/bg_viewer.png) no-repeat left 59px; padding:25px; height:565px; }
 #homeslider .bx-wrapper .bx-viewport .slide { width:1196px; height:565px; }
 
 #homeslider .bx-wrapper .bx-pager { padding: 22px 216px 0 840px; width:190px; height:28px; background:url(../img/bg_viewer_bullets.png) no-repeat; }
@@ -31,16 +31,15 @@
 #homeslider .bx-wrapper .bx-pager.bx-default-pager a.active { background:url(../img/bullet_viewer_hover.png) no-repeat; }
 
 #homeslider .bx-wrapper .bx-prev { left:-25px; background:url(../img/arrows_viewer.png) no-repeat top left; }
-#homeslider .bx-wrapper .bx-next { right:-76px; background:url(../img/arrows_viewer.png) no-repeat top right; }
+#homeslider .bx-wrapper .bx-next { right:-75px; background:url(../img/arrows_viewer.png) no-repeat top right; }
 #homeslider .bx-wrapper .bx-prev:hover { background:url(../img/arrows_viewer_hover.png) no-repeat top left; }
 #homeslider .bx-wrapper .bx-next:hover { background:url(../img/arrows_viewer_hover.png) no-repeat top right; }
 #homeslider .bx-wrapper .bx-controls-direction a { position: absolute; top: 50%; margin-top:-25px; outline: 0; width:38px; height:74px; text-indent: -9999px; z-index: 9999; }
 
-#homeslider .bx-wrapper .caption { position: absolute; bottom:35px; right:97px; z-index:10; width: 0px; height: 0px; border-style: inset; border-width: 0 249px 278px 249px; border-color: transparent; background-image:url(../img/bg_viewer_text.png); background-position:center top; float: left; transform:rotate(360deg); -ms-transform:rotate(360deg); -moz-transform:rotate(360deg); -webkit-transform:rotate(360deg); -o-transform:rotate(360deg);
- }
-#homeslider .bx-wrapper .caption .text { text-align: center; top: 140px; left: -125px; position: relative; width:250px; height:100px; margin: 0px; }
-#homeslider .bx-wrapper .caption p { font-family:"college_semi-condensedregular",Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif; font-size:18px; color:#fff; text-transform:uppercase; line-height:23px; margin-bottom:10px; vertical-align:middle; }
-#homeslider .bx-wrapper .caption p span { font-family:"college_semi-condensedregular",Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif; font-size:12px; vertical-align:super; }
+#homeslider .bx-wrapper .caption { position: absolute; bottom:35px; right:97px; z-index:10; width: 0px; height: 0px; border-style: inset; border-width: 0 249px 278px 249px; border-color: transparent; background-image:url(../img/bg_viewer_text.png); background-position:center top; float: left; transform:rotate(360deg); -ms-transform:rotate(360deg); -moz-transform:rotate(360deg); -webkit-transform:rotate(360deg); -o-transform:rotate(360deg); }
+#homeslider .bx-wrapper .caption .text { text-align: center; top: 155px; left: -120px; position: relative; width:240px; height:100px; margin: 0px; }
+#homeslider .bx-wrapper .caption p { font-family:"college_condensedregular",Georgia,serif; text-transform:uppercase; font-size:18px; color:#fff; line-height:23px; margin:5px 0; vertical-align:middle; }
+#homeslider .bx-wrapper .caption p span { font-family:"college_condensedregular",Georgia,serif; text-transform:uppercase; font-size:12px; vertical-align:super; }
 
 
 

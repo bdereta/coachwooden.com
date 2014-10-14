@@ -233,6 +233,8 @@ class ImageToolsComponent extends Component {
 			case "image/png":
 			case "image/x-png":
 				$source=imagecreatefrompng($image['path']); 
+				imagealphablending($source, false);
+				imagesavealpha($source, true);
 				break;
 		}
 		imagecopyresampled($newImage,$source,0,0,0,0,$image['final_width'],$image['final_height'],$image['info'][0],$image['info'][1]);

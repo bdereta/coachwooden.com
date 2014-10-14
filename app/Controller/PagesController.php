@@ -4,8 +4,8 @@ App::uses('CakeEmail', 'Network/Email');
 
 class PagesController extends AppController {
 	
-	public $components = array('Security', 'Captcha.Captcha');
-	public $uses = array('Homeslide','Scrapbook','Book','Youtube.Youtube','AwardPhoto','News','Pyramid','QuoteCategory','Quote','WinnerCategory','Winner','Timeline','ShareMemory');
+	public $components = array('Security', 'Captcha.Captcha','Paginator');
+	public $uses = array('Homeslide','Scrapbook','Book','Youtube.Youtube','AwardPhoto','News','Article','Pyramid','QuoteCategory','Quote','WinnerCategory','Winner','Timeline','ShareMemory');
 	public $helpers = array('Youtube.Youtube');
 	
 	public function beforeFilter() {
@@ -21,11 +21,12 @@ class PagesController extends AppController {
 	}
 	
 	public function home() {
+		$slides = $this->Homeslide->find('all', array('order' => array('ordering_position')));
 		$books = $this->Book->find('all', array('order' => array('ordering_position')));
 		$quotes = $this->Quote->find('all', array('conditions' => array('quote_category_id' => 1)));
 		$news = $this->News->find('all', array('order' => array('date desc')));
 		//$youtube = $this->Youtube->get_content(array('playlist_id' => 'PLgFCaetxoiCjVst8anjAechJkVMokbCxW'));
-		$this->set(compact('books','quotes','news'));		
+		$this->set(compact('slides','books','quotes','news'));		
 	}
 
 	public function the_journey () {
@@ -77,6 +78,26 @@ class PagesController extends AppController {
 	public function last_visit_with_coach () {}
 
 	public function true_to_yourself () {}
+	
+	//News
+	public function memory_wall_news() {
+		//$this->Article->recursive = 0;
+//		$this->Paginator->settings = array('limit' => 25);
+//		$this->set('article', $this->Paginator->paginate('article'));
+		$articles = $this->Article->find('all');
+		$this->set(compact('articles'));
+	}
+
+	public function memory_wall_article($id = null) {
+		if (!$this->Article->exists($id)) {
+			throw new NotFoundException(__('Invalid news release'));
+		}		
+		$options = array('conditions' => array('Article.' . $this->Article->primaryKey => $id));
+		$articles = $this->Article->find('first', $options);
+		$neighbor_articles = $this->Article->find('neighbors', array('field' => 'Article.date', 'value' => $articles['Article']['date']));
+		$this->set(compact('articles','neighbor_articles'));
+	}
+
 	
 	public function contact () {}
 

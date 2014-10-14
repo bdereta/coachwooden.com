@@ -2,11 +2,8 @@
 $this->Html->css('jquery.bxslider', array('inline' => false));
 $this->Html->script('jquery.bxslider.min', array('inline' => false));
 $this->Html->script('memory', array('inline' => false));
+$this->Html->css('memory', array('inline' => false));
 ?>
-
-<style>
-#wrapper { background:url(./img/bg_top_clouds.jpg) top center no-repeat; }
-</style>
 <div class="content center">
 	<div class="page_titles photo">
 		<span>Memory</span>

@@ -1,13 +1,13 @@
 <?php
 App::uses('AppController', 'Controller');
 /**
- * AwardPhotos Controller
+ * Homeslides Controller
  *
- * @property AwardPhoto $AwardPhoto
+ * @property Homeslide $Homeslide
  * @property PaginatorComponent $Paginator
  * @property ImageTools.ImageToolsComponent $ImageTools.ImageTools
  */
-class AwardPhotosController extends AppController {
+class HomeslidesController extends AppController {
 
 /**
  * Helpers
@@ -53,9 +53,9 @@ class AwardPhotosController extends AppController {
  * @return void
  */
 	public function admin_index() {
-		$this->AwardPhoto->recursive = 0;
+		$this->Homeslide->recursive = 0;
 		$this->Paginator->settings = array('order' => array('ordering_position' => 'ASC'));
-		$this->set('awardPhotos', $this->Paginator->paginate());
+		$this->set('homeslides', $this->Paginator->paginate());
 	}
 
 /**
@@ -66,11 +66,11 @@ class AwardPhotosController extends AppController {
  * @return void
  */
 	public function admin_view($id = null) {
-		if (!$this->AwardPhoto->exists($id)) {
-			throw new NotFoundException(__('Invalid award photo'));
+		if (!$this->Homeslide->exists($id)) {
+			throw new NotFoundException(__('Invalid homeslide'));
 		}
-		$options = array('conditions' => array('AwardPhoto.' . $this->AwardPhoto->primaryKey => $id));
-		$this->set('awardPhoto', $this->AwardPhoto->find('first', $options));
+		$options = array('conditions' => array('Homeslide.' . $this->Homeslide->primaryKey => $id));
+		$this->set('homeslide', $this->Homeslide->find('first', $options));
 	}
 
 /**
@@ -80,19 +80,19 @@ class AwardPhotosController extends AppController {
  */
 	public function admin_add() {
 		//image upload params
-		$params['uploadImages'] = $this->AwardPhoto->uploadImages;
+		$params['uploadImages'] = $this->Homeslide->uploadImages;
 		//process form data
 		if ($this->request->is('post')) {
 			//capture post data
-			$params['requestData'] = $this->request->data['AwardPhoto'];
+			$params['requestData'] = $this->request->data['Homeslide'];
 			//validate Images before upload
-			$this->AwardPhoto->set($this->request->data);
-			if (!$this->AwardPhoto->validates($this->AwardPhoto->validate)) {
+			$this->Homeslide->set($this->request->data);
+			if (!$this->Homeslide->validates($this->Homeslide->validate)) {
 				//display validation message
-				$errors = $this->AwardPhoto->validationErrors;
+				$errors = $this->Homeslide->validationErrors;
 			} else {
 				//capture post data
-				$params['requestData'] = $this->request->data['AwardPhoto'];
+				$params['requestData'] = $this->request->data['Homeslide'];
 				//process images via Component
 				$result = $this->ImageTools->process($params);
 			}
@@ -106,26 +106,26 @@ class AwardPhotosController extends AppController {
 			if ($multiple) {
 				$data = $session['uploadedData'];
 			} else {
-				$data['AwardPhoto'] = $session['uploadedData'];
+				$data['Homeslide'] = $session['uploadedData'];
 			}
 			$this->Session->delete('ImageTools.postData');	
 			//save data to db						
 			if (!empty($data)) {
-				$this->AwardPhoto->create();
+				$this->Homeslide->create();
 				if ($multiple) {
-					if ($this->AwardPhoto->saveMany($data)) {
-						$this->Session->setFlash(__('AwardPhoto have been saved!'), 'Bambla.green');
+					if ($this->Homeslide->saveMany($data)) {
+						$this->Session->setFlash(__('Homeslide have been saved!'), 'Bambla.green');
 						return $this->redirect(array('action'=>'index'));	
 					} else {
-						$this->Session->setFlash(__('AwardPhoto could not be saved. Please try again.'), 'Bambla.red');
+						$this->Session->setFlash(__('Homeslide could not be saved. Please try again.'), 'Bambla.red');
 					}
 				} else {
-					if ($this->AwardPhoto->save($data)) {
+					if ($this->Homeslide->save($data)) {
 						$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller'])));
-						$this->Session->setFlash(__('AwardPhoto has been saved!'), 'Bambla.green');
+						$this->Session->setFlash(__('Homeslide has been saved!'), 'Bambla.green');
 						return $this->redirect(array('action'=>'index'));	
 					} else {
-						$this->Session->setFlash(__('AwardPhoto could not be saved. Please try again.'), 'Bambla.red');
+						$this->Session->setFlash(__('Homeslide could not be saved. Please try again.'), 'Bambla.red');
 					}
 				}
 			}	
@@ -144,15 +144,15 @@ class AwardPhotosController extends AppController {
  */
 	public function admin_edit($id = null) {
 		//record exists?
-		if (!$this->AwardPhoto->exists($id)) {
-			throw new NotFoundException(__('Invalid award photo'));
+		if (!$this->Homeslide->exists($id)) {
+			throw new NotFoundException(__('Invalid homeslide'));
 		}
 		
 		//required for displaying existing images via helper
-		$params['model'] = "AwardPhoto";
+		$params['model'] = "Homeslide";
 		
 		//image upload params
-		$params['uploadImages'] = $this->AwardPhoto->uploadImages;
+		$params['uploadImages'] = $this->Homeslide->uploadImages;
 		
 		//disable multiple for editing	
 		foreach($params['uploadImages'] as $fieldname=>$options){
@@ -164,29 +164,29 @@ class AwardPhotosController extends AppController {
 			//match up model against post data
 			foreach($params['uploadImages'] as $key => $uploadImage) {
 				//check if request data contains any of the image fields
-				if (!empty($this->request->data['AwardPhoto'][$key])) {
+				if (!empty($this->request->data['Homeslide'][$key])) {
 					//check if a file for the image field has been uploaded
-					if (!empty($this->request->data['AwardPhoto'][$key]['tmp_name'])) {
+					if (!empty($this->request->data['Homeslide'][$key]['tmp_name'])) {
 						//file exists and is not empty
 						//there's at least one pair (it could be more, but it's enough to know there's at least one match)
 						$params['updateImages'] = true;
 					} else {
 						//file exists, but it's empty - we need to remove it from the model and post array
-						unset($this->request->data['AwardPhoto'][$key], $params['uploadImages'][$key]);
+						unset($this->request->data['Homeslide'][$key], $params['uploadImages'][$key]);
 					}
 				} else {
 					//check if the image field is using another image for source (like thumbnails use large image as their source)
 					if (!empty($params['uploadImages'][$key]['source'])) {
 						//check if the source field is not empty
-						if(!empty($this->request->data['AwardPhoto'][$params['uploadImages'][$key]['source']]['tmp_name'])) {
+						if(!empty($this->request->data['Homeslide'][$params['uploadImages'][$key]['source']]['tmp_name'])) {
 							$params['updateImages'] = true;	
 						} else {
 							//source field is empty, delete it from model and post array
-							unset($this->request->data['AwardPhoto'][$key], $params['uploadImages'][$key]);		
+							unset($this->request->data['Homeslide'][$key], $params['uploadImages'][$key]);		
 						}
 					} else {					
 						//the file doesn't match the model (it doesn't exist) and/or the source for another image is empty - remove them from model and post array
-						unset($this->request->data['AwardPhoto'][$key], $params['uploadImages'][$key]);	
+						unset($this->request->data['Homeslide'][$key], $params['uploadImages'][$key]);	
 					}
 				}
 				//if no images are selected for updating, assign data variable for saving
@@ -195,14 +195,14 @@ class AwardPhotosController extends AppController {
 		
 			if (!empty($params['updateImages'])) {
 				//send form data to model for validation
-				$this->AwardPhoto->set($this->request->data);
+				$this->Homeslide->set($this->request->data);
 				//validate form data
-				if (!$this->AwardPhoto->validates($this->AwardPhoto->validate)) {
+				if (!$this->Homeslide->validates($this->Homeslide->validate)) {
 					//display validation message
-					$errors = $this->AwardPhoto->validationErrors;
+					$errors = $this->Homeslide->validationErrors;
 				} else {
 					//capture post data
-					$params['requestData'] = $this->request->data['AwardPhoto'];
+					$params['requestData'] = $this->request->data['Homeslide'];
 					//process images via Component
 					$result = $this->ImageTools->process($params);
 				}
@@ -213,25 +213,25 @@ class AwardPhotosController extends AppController {
 		if ($this->Session->check('ImageTools.postData')) {
 			//capture session
 			$session = $this->Session->read('ImageTools.postData');
-			$data['AwardPhoto'] = $session['uploadedData'];
+			$data['Homeslide'] = $session['uploadedData'];
 			$this->Session->delete('ImageTools.postData');		
 		}
 		
 		//save data to db
 		if (isset($data)) {
-			$this->AwardPhoto->create();
-			if ($this->AwardPhoto->save($data)) {
+			$this->Homeslide->create();
+			if ($this->Homeslide->save($data)) {
 				$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller'])));
-				$this->Session->setFlash(__('AwardPhoto has been saved!'), 'Bambla.green');
+				$this->Session->setFlash(__('Homeslide has been saved!'), 'Bambla.green');
 				return $this->redirect(array('action'=>'index'));	
 			} else {
-				$this->Session->setFlash(__('AwardPhoto could not be saved. Please try again.'), 'Bambla.red');
+				$this->Session->setFlash(__('Homeslide could not be saved. Please try again.'), 'Bambla.red');
 			}
 		}
 			
 		//data for view
-		$options = array('conditions' => array('AwardPhoto.' . $this->AwardPhoto->primaryKey => $id));
-		$this->request->data = $this->AwardPhoto->find('first', $options);
+		$options = array('conditions' => array('Homeslide.' . $this->Homeslide->primaryKey => $id));
+		$this->request->data = $this->Homeslide->find('first', $options);
 		$this->set(compact('params'));
 	}
 
@@ -243,27 +243,27 @@ class AwardPhotosController extends AppController {
  * @return void
  */
 	public function admin_delete($id = null) {
-		$this->AwardPhoto->id = $id;
-		if (!$this->AwardPhoto->exists()) {
-			throw new NotFoundException(__('Invalid award photo'));
+		$this->Homeslide->id = $id;
+		if (!$this->Homeslide->exists()) {
+			throw new NotFoundException(__('Invalid homeslide'));
 		}
 		$this->request->onlyAllow('post', 'delete');
 		
 		//delete image files
-		$uploadImages = $this->AwardPhoto->uploadImages;
+		$uploadImages = $this->Homeslide->uploadImages;
 		foreach($uploadImages as $key=>$val) { 
-			$fields[] = 'AwardPhoto.'.$key; 
+			$fields[] = 'Homeslide.'.$key; 
 		}
-		$images = $this->AwardPhoto->find('all', array('fields' => $fields, 'conditions' => array('AwardPhoto.id' => $id), 'recursive' => -1));
-		foreach($images[0]['AwardPhoto'] as $key=>$val) {
+		$images = $this->Homeslide->find('all', array('fields' => $fields, 'conditions' => array('Homeslide.id' => $id), 'recursive' => -1));
+		foreach($images[0]['Homeslide'] as $key=>$val) {
 			@unlink('img/uploads/'.$val);	
 		}
 		
-		if ($this->AwardPhoto->delete()) {
+		if ($this->Homeslide->delete()) {
 			$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller'])));
-			$this->Session->setFlash(__('AwardPhoto has been deleted.'), 'Bambla.green');
+			$this->Session->setFlash(__('Homeslide has been deleted.'), 'Bambla.green');
 		} else {
-			$this->Session->setFlash(__('AwardPhoto could not be deleted. Please, try again.'), 'Bambla.red');
+			$this->Session->setFlash(__('Homeslide could not be deleted. Please, try again.'), 'Bambla.red');
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

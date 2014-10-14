@@ -4,36 +4,36 @@ $this->Html->script('jquery.bxslider.min', array('inline' => false));
 $this->Html->script('home', array('inline' => false));
 ?>
 <div class="content">
+	<?php if (!empty($slides)) : ?>
 	<div id="homeslider">
 		<div class="hp_slider">
-			<div class="slide">
-				<?php echo $this->Html->link($this->Html->image("temp_slider.png", array("class" => "img", "alt" => "title")),'https://link.com', array('target' => '_blank','escape' => false)); ?>
-				<div class="caption">
-					<div class="text">
-						<p>Welcome to the official website of Coach John Wooden.</p>
-						<p><span>Sponsored By </span><?php echo $this->Html->image('logo_mcdonalds.png', array('alt' => 'Mcdonalds')); ?></p>
+			<?php foreach($slides as $slide) : ?>
+				<div class="slide">
+					<?php echo $this->Html->image('uploads/'.$slide['Homeslide']['image'], array("class" => "img", "alt" => $slide['Homeslide']['title'])); ?>
+					<div class="caption">
+						<div class="text">
+							<?php echo $slide['Homeslide']['content']; ?>
+							<?php if(!empty($slide['Homeslide']['link']) && ($slide['Homeslide']['target'] == '_blank')) : ?>
+								<?php echo $this->Html->link('Read More <span class="icon-arrow-right"></span>', $slide['Homeslide']['link'],array('class'=>'btns','escape'=>false,'target'=>'_blank')); ?>
+							<?php elseif(!empty($slide['Homeslide']['link']) && ($slide['Homeslide']['target'] == '_self')) : ?>
+								<?php echo $this->Html->link('Read More <span class="icon-arrow-right"></span>', array(
+									'controller'=>'Pages', 'action'=>$slide['Homeslide']['link']),array('class'=>'btns','escape'=>false)); ?>
+							<?php else : ?>
+							<?php endif; ?>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="slide">
-				<?php echo $this->Html->link($this->Html->image("temp_slider.png", array("class" => "img", "alt" => "title")),'https://link.com', array('target' => '_blank','escape' => false)); ?>
-				<div class="caption">
-					<div class="text">
-						<p>Welcome to the official website of Coach John Wooden.</p>
-						<p><span>Sponsored By </span><?php echo $this->Html->image('logo_mcdonalds.png', array('alt' => 'Mcdonalds')); ?></p>
-					</div>
-				</div>
-			</div>
+			<? endforeach; ?>
 		</div>
 	</div>
 	<div class="clear"></div>
-	
+	<?php endif; ?>
 	<!--News-->
 	<?php if(!empty($news)) : ?>
 		<div class="half float_left padding">
 			<div class="title">
 				<h2 class="float_left">Coach in the News</h2>
-				<?php echo $this->Html->link('View all News <span class="icon-arrow-right"></span>', array('controller' => 'Pages', 'action' => 'news'),array('class'=>'float_right btns','escape'=>false)); ?>
+				<?php echo $this->Html->link('View all News <span class="icon-arrow-right"></span>', array('controller' => 'Pages', 'action' => 'memory_wall_news'),array('class'=>'float_right btns','escape'=>false)); ?>
 			</div>
 			<ul class="hp_news">
 				<? foreach($news as $news) : ?>

@@ -1,6 +1,4 @@
-<style>
-#wrapper { background:url(./img/bg_top_clouds.jpg) top center no-repeat; }
-</style>
+<?php $this->Html->css('memory', array('inline' => false)); ?>
 <div class="content center">
 	<div class="page_titles photo">
 		<span>Memory</span>
@@ -13,7 +11,7 @@
 	</div>
 </div>
 <div class="clear"></div>
-<div class="true_to_yourself">
+<div class="article">
 	<div class="content">
 		<?php echo $this->Html->link('<span class="icon-arrow-left"></span> Back', array('controller' => 'Pages', 'action' => 'memory_wall'),array('class'=>'float_left btns','escape'=>false)); ?>
 		<div class="clear"></div>
