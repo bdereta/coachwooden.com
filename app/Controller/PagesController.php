@@ -56,7 +56,7 @@ class PagesController extends AppController {
 	
 				$Email = new CakeEmail();
 				$Email->from(array('noreply@'.$_SERVER['HTTP_HOST'] => $_SERVER['HTTP_HOST']))
-					->to('stevejamison@sbcglobal.net')
+					->to('coachwooden@yahoo.com')
 					->subject('Share Memory Form')
 					->send($message);		
 				

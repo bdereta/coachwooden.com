@@ -7,7 +7,7 @@ App::uses('AppModel', 'Model');
  */
 class Winner extends AppModel {
 
-	public $order  = "Winner.year desc";
+	public $order = "Winner.year DESC";
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

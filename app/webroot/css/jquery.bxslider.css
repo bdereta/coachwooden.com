@@ -13,7 +13,7 @@
 
 .bx-wrapper .bx-pager,
 .bx-wrapper .bx-controls-auto { position: absolute; bottom: -50px; width: 100%; }
-.bx-wrapper .bx-loading { min-height: 50px; background: url(../img/bx_loader.gif) center center no-repeat; height: 100%; width: 100%; position: absolute; top: 0; left: 0; z-index: 2000; }
+.bx-wrapper .bx-loading { display:none; }
 .bx-wrapper .bx-controls-direction a.disabled { display: none; }
 .bx-wrapper .bx-pager .bx-pager-item,
 .bx-wrapper .bx-controls-auto .bx-controls-auto-item { display: inline-block; *zoom: 1; *display: inline; }
@@ -38,7 +38,7 @@
 
 #homeslider .bx-wrapper .caption { position: absolute; bottom:35px; right:97px; z-index:10; width: 0px; height: 0px; border-style: inset; border-width: 0 249px 278px 249px; border-color: transparent; background-image:url(../img/bg_viewer_text.png); background-position:center top; float: left; transform:rotate(360deg); -ms-transform:rotate(360deg); -moz-transform:rotate(360deg); -webkit-transform:rotate(360deg); -o-transform:rotate(360deg); }
 #homeslider .bx-wrapper .caption .text { text-align: center; top: 155px; left: -120px; position: relative; width:240px; height:100px; margin: 0px; }
-#homeslider .bx-wrapper .caption p { font-family:"college_condensedregular",Georgia,serif; font-size:18px; color:#fff; line-height:23px; margin:5px 0; vertical-align:middle; }
+#homeslider .bx-wrapper .caption p { font-family:"college_condensedregular",Georgia,serif; font-size:18px; color:#fff; line-height:23px; margin:5px 0; vertical-align:middle; text-transform:uppercase; }
 #homeslider .bx-wrapper .caption p span { font-family:"college_condensedregular",Georgia,serif; font-size:12px; vertical-align:super; }
 
 

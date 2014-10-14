@@ -1,7 +1,7 @@
 <div class="content center">
 	<div class="page_titles photo">
 		<span>Coach</span>
-		<h1 class="news">In the News</h1>
+		<h1 class="speaks">In the News</h1>
 		<?php echo $this->Html->image('decorative_line_long.png', array('alt' => 'separator')); ?>
 		<div class="clear"></div>
 	</div>

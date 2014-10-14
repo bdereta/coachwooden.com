@@ -219,6 +219,8 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .article .btns span { margin-right:20px; }
 .article .content { width:1180px; }
 .article p { font-size: 24px; font-family:Georgia, serif; color:#fff; line-height:30px; padding:0 34px; }
+.article p strong { font-size: 35px; font-family:"college_condensedregular", Georgia, serif; text-transform:uppercase; color:#fff; line-height:36px; font-weight:normal; width:1000px; }
+.article p strong img { margin-right:10px!important; }
 .article img { margin-right:44px; }
 .article h2 { font-size:48px; font-family:"college_condensedregular",Georgia,serif; text-transform:uppercase; color:#fff; line-height:53px; text-align:center; font-weight:normal; width:80%; margin:0 auto 75px auto; }
 .article h3 { font-size: 55px; font-family:"college_condensedregular", Georgia, serif; text-transform:uppercase; color:#fff; line-height:60px; text-align: center; font-weight:normal; padding:40px 0; }
