@@ -4,7 +4,7 @@
 		<span>Memory</span>
 		<h1 class="photo">Wall</h1>
 		<?php echo $this->Html->image('decorative_line_long.png', array('alt' => 'separator')); ?>
-		<h2>Be True to Yourself<span>,</span> Johnny</h2>
+		<h2><span>"</span> Be True to Yourself<span>,</span> Johnny<span>"</span></h2>
 		<span>By Steve Jamison</span><br><br><br><br>
 		<?php echo $this->Html->image('decorative_line_long.png', array('alt' => 'separator')); ?>
 		<div class="clear"></div>

@@ -10,6 +10,7 @@ ul { list-style:none; padding:0; margin:0; }
 .whistle { position:absolute; top:0; left:0; }
 header { height:231px; padding-top:65px; margin-bottom:58px; }
 .top_logo { margin:30px 0 0 25px; }
+.top_mcd { position:absolute; top:-55px; left:198px; }
 .header_title { font-size: 16px; font-family:Georgia, serif; color:#ded1b9; text-shadow: 1.5px 2.598px 3px rgba(0, 0, 0, 0.71); margin:35px 0 0 175px; }
 .main_nav { width:665px; height:100%; }
 .main_nav ul { width:100%; } 
@@ -51,7 +52,7 @@ footer { height:250px; padding-top:51px; text-align:center; }
 
 /* Home
 ================================================== */
-.hp_news li { width:100%; height:65px; line-height:65px; border-bottom:1px solid rgba(184,170,124,0.11); }
+.hp_news li { width:100%; height:65px; line-height:65px; border-bottom:1px solid rgba(184,170,124,0.11); overflow:hidden; }
 .hp_news li:last-child { border:none; }
 .hp_news li .date { width:90px; }
 .hp_news li .date a { font-family:Georgia, serif; font-size:18px; font-style:italic; color:#836f58; opacity:0.5; }
@@ -95,7 +96,7 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .page_titles h1.game { font-size:90px; line-height:95px; }
 .page_titles h1.game span { font-size:90px; vertical-align:text-top; font-family:Georgia, serif; font-style:normal; color:#e4e2e0; }
 .page_titles h1.award { font-size:119px; }
-.page_titles h2 { font-size:67px; color:#e4e2e0; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; text-transform:uppercase; margin:0 0 10px 0; line-height:75px; text-shadow:5px 5px 30px #000; white-space:nowrap; margin-top:60px; }
+.page_titles h2 { font-size:63px; color:#e4e2e0; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; text-transform:uppercase; margin:0 0 10px 0; line-height:70px; text-shadow:5px 5px 30px #000; margin-top:35px; width:100%; }
 .page_titles h2 span { font-family:Georgia, serif; color:#e4e2e0; font-size:67px; }
 
 .pages { padding:0 45px; min-height:200px; }
@@ -105,6 +106,10 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .pages p { font-size:24px; color:#fff; font-family:Georgia, serif; line-height:30px; }
 .pages p strong { color:#dcbf78; }
 .pages p a { color:#dcbf78; }
+
+.news_title { padding-top:55px; text-align:center; background:url(../img/decorative_line_long.png) no-repeat top center; }
+.news_title h1 { font-size:30px; color:#bf9f67; font-family:Georgia, serif; text-transform:capitalize; font-style:italic; text-shadow:1px 1px 1px #000; margin:0 0 30px 0; }
+
 
 /* Journey
 ================================================== */
@@ -210,13 +215,13 @@ footer { height:250px; padding-top:51px; text-align:center; }
 
 /* Articles
 ================================================== */
-.article { padding:34px 0 750px 0; text-align:left; background:url(../img/bg_true_footer.jpg) no-repeat bottom center; margin-bottom:-60px; }
+.article { padding:34px 0 800px 0; text-align:left; background:url(../img/bg_true_footer.jpg) no-repeat bottom center; margin-bottom:-60px; }
 .article .btns span { margin-right:20px; }
 .article .content { width:1180px; }
 .article p { font-size: 24px; font-family:Georgia, serif; color:#fff; line-height:30px; padding:0 34px; }
 .article img { margin-right:44px; }
 .article h2 { font-size:48px; font-family:"college_condensedregular",Georgia,serif; text-transform:uppercase; color:#fff; line-height:53px; text-align:center; font-weight:normal; width:80%; margin:0 auto 75px auto; }
-.article h3 { font-size: 55px; font-family:"college_condensedregular", Georgia, serif; text-transform:uppercase; color:#fff; line-height:60px; text-align: center; font-weight:normal; }
+.article h3 { font-size: 55px; font-family:"college_condensedregular", Georgia, serif; text-transform:uppercase; color:#fff; line-height:60px; text-align: center; font-weight:normal; padding:40px 0; }
 .article .goals { width:1120px; height:135px; margin:0 auto; }
 .article .goals h4 { font-size: 35px; font-family:"college_condensedregular", Georgia, serif; text-transform:uppercase; color:#fff; line-height:36px; font-weight:normal; }
 .article .arms { height:195px; width:760px; padding:55px 0 0 310px; background:url(../img/memory_arms.png) no-repeat 60px top; }
@@ -227,11 +232,12 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .article_list { padding-top:80px; min-height:950px; }
 .article_list li { height:175px; background:rgba(0,0,0,0.45); }
 .article_list li .content { width:1180px; }
+.article_list li .article_title { width:100%; overflow:hidden; height:60px; }
 .article_list .separator { width:100%; height:5px; background:url(../img/listing_topline.jpg); }
-.article_list li p { font-size:18px; font-family:Georgia, serif; font-style:italic; color:#6c6559; line-height:23px; padding:25px 10px 15px 10px; margin:0; }
-.article_list li a { font-size:70px; font-family:"college_condensedregular", Georgia, serif; text-transform:uppercase; color:#5b4217; line-height:70px; letter-spacing:0.05em; margin:0; }
+.article_list li p { font-size:18px; font-family:Georgia, serif; font-style:italic; color:#6c6559; line-height:23px; padding:25px 10px 10px 10px; margin:0; }
+.article_list li a { font-size:70px; font-family:"college_condensedregular", Georgia, serif; text-transform:uppercase; color:#5b4217; line-height:70px; letter-spacing:0.05em; margin:0; height:60px; }
 .article_list li:hover { background:rgba(0,0,0,0.45) url(../img/bg_listing.jpg) top center; }
-.article_list li:hover a { color:#fff; padding-left:35px; }
+.article_list li:hover a { color:#fff; padding-left:25px; }
 .article_list li:hover p { color:#fff; }
 .btns_listings { padding-left:37px; margin:0 auto 45px auto; width:133px; white-space:nowrap; height:15px; background:url(../img/icon_listings.png) no-repeat left center; }
 .btns_listings a { font-size:13px; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; color:#bba37a; }
@@ -259,7 +265,7 @@ footer { height:250px; padding-top:51px; text-align:center; }
 #pyramid .full ul li { float:left; margin:0 4px 0 3px; }
 #pyramid .large_blocks { width:201px; height:86px; background:url(../img/btn_pyramid_large.jpg) no-repeat top left; text-align:center; padding-top:25px; margin:0 auto; }
 #pyramid .full.first .large_blocks { height:96px; padding-top:15px; }
-#pyramid .large_blocks p { font-size:20px; color:#fff; font-family:"college_condensedregular", Georgia, serif; text-transform:uppercase; line-height:25px; text-shadow: 1px 1px 1px #000, 0px 0px 10px #000; }
+#pyramid .large_blocks p { font-size:20px; color:#fff; font-family:"college_condensedregular", Georgia, serif; text-transform:uppercase; line-height:25px; text-shadow: 1px 1px 1px #000, 0px 0px 10px #000; width:155px; margin:18px auto; }
 #pyramid .large_blocks:hover { background:url(../img/btn_pyramid_large_hover.jpg) no-repeat top left; }
 #pyramid .large_blocks:hover p { text-shadow: 1px 1px 1px #000, 0px 0px 15px #624d15; }
 .pyramid_back { margin-bottom:10px; }

@@ -38,7 +38,8 @@
 			<header>
 				<div class="content relative">
 					<div class="float_left">
-						<?php echo $this->Html->image("top_logo.png", array( "alt" => "Coach Wooden Logo", "class"=>"top_logo", 'url' => array('controller' => 'Pages', 'action' => '/'))); ?>
+						<?php echo $this->Html->image("mcdonalds_seal_top.png", array("alt" => "Mcdonalds Logo", "class"=>"top_mcd")); ?>
+						<?php echo $this->Html->image("top_logo.png", array("alt" => "Coach Wooden Logo", "class"=>"top_logo", 'url' => array('controller' => 'Pages', 'action' => '/'))); ?>
 						<p class="header_title">Coach &amp; Teacher</p>
 					</div>
 					<div class="main_nav float_right">

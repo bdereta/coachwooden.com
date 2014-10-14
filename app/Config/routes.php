@@ -13,8 +13,8 @@ Router::connect('/pyramid-of-success', array('controller' => 'Pages', 'action' =
 Router::connect('/the-journey', array('controller' => 'Pages', 'action' => 'the_journey'));
 Router::connect('/wooden-award', array('controller' => 'Pages', 'action' => 'wooden_award'));
 Router::connect('/true-to-yourself', array('controller' => 'Pages', 'action' => 'true_to_yourself'));
-Router::connect('/memory-wall-news', array('controller' => 'Pages', 'action' => 'memory_wall_news'));
-Router::connect('/memory-wall-article/:id/:slug', array('controller' => 'Pages', 'action' => 'memory_wall_article'), array('id' => '[0-9]+', 'slug' => '[A-Za-z0-9\._-]+','pass' => array('id','title')));
+Router::connect('/jamison-news', array('controller' => 'Pages', 'action' => 'jamison_news'));
+Router::connect('/jamison-news-article/:id/:slug', array('controller' => 'Pages', 'action' => 'jamison_news_article'), array('id' => '[0-9]+', 'slug' => '[A-Za-z0-9\._-]+','pass' => array('id','title')));
 Router::connect('/', array('controller' => 'Pages', 'action' => 'home', 'admin' => false));
 Router::connect('/:action', array('controller' => 'Pages', 'action' => ':action', 'admin' => false));
 

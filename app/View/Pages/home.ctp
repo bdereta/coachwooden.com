@@ -33,12 +33,12 @@ $this->Html->script('home', array('inline' => false));
 		<div class="half float_left padding">
 			<div class="title">
 				<h2 class="float_left">Coach in the News</h2>
-				<?php echo $this->Html->link('View all News <span class="icon-arrow-right"></span>', array('controller' => 'Pages', 'action' => 'memory_wall_news'),array('class'=>'float_right btns','escape'=>false)); ?>
+				<?php echo $this->Html->link('View all News <span class="icon-arrow-right"></span>', array('controller' => 'Pages', 'action' => 'news'),array('class'=>'float_right btns','escape'=>false)); ?>
 			</div>
 			<ul class="hp_news">
 				<? foreach($news as $news) : ?>
 					<li class="transition"><div class="date float_left"><?php echo $this->Html->link($this->Time->format('m.d.y', $news['News']['date']), $news['News']['link']); ?></div>
-						<div class="link float_left"><?php echo $this->Html->link($news['News']['title'], $news['News']['link'], array('target' =>'_blank')); ?></div>
+						<div class="link"><?php echo $this->Html->link($news['News']['title'], $news['News']['link'], array('target' =>'_blank')); ?></div>
 					</li>
 				<?php endforeach; ?>
 			</ul>

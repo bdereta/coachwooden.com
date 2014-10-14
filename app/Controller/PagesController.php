@@ -80,7 +80,7 @@ class PagesController extends AppController {
 	public function true_to_yourself () {}
 	
 	//News
-	public function memory_wall_news() {
+	public function jamison_news() {
 		//$this->Article->recursive = 0;
 //		$this->Paginator->settings = array('limit' => 25);
 //		$this->set('article', $this->Paginator->paginate('article'));
@@ -88,7 +88,7 @@ class PagesController extends AppController {
 		$this->set(compact('articles'));
 	}
 
-	public function memory_wall_article($id = null) {
+	public function jamison_news_article($id = null) {
 		if (!$this->Article->exists($id)) {
 			throw new NotFoundException(__('Invalid news release'));
 		}		
@@ -98,6 +98,13 @@ class PagesController extends AppController {
 		$this->set(compact('articles','neighbor_articles'));
 	}
 
+	public function news() {
+		//$this->Article->recursive = 0;
+//		$this->Paginator->settings = array('limit' => 25);
+//		$this->set('article', $this->Paginator->paginate('article'));
+		$news = $this->News->find('all', array('order' => array('date desc')));
+		$this->set(compact('news'));
+	}
 	
 	public function contact () {}
 

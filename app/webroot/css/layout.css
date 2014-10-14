@@ -59,7 +59,7 @@ input[type="button"]:active { border: none; background: #f2504e; }
 .portfolio .list .thumb:hover .img { filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'old-timey\'><feColorMatrix type=\'matrix\' values=\'0.14 0.45 0.05 0 0 0.12 0.39 0.04 0 0 0.08 0.28 0.03 0 0 0 0 0 1 0\'/></filter></svg>#old-timey"); -webkit-filter:blur(1px); -webkit-filter:blur(1%); -moz-filter:blur(1%); -ms-filter:blur(1%); -o-filter:blur(1%); filter:blur(1%); opacity:.4; }
 .portfolio .list .thumb:hover .view { visibility: visible; opacity: 1; -webkit-transition-delay: 0s; -moz-transition-delay: 0s; -o-transition-delay: 0s; transition-delay: 0s; z-index:10; vertical-align:middle; }
 
-.portfolio .list .view h4 { font-family:"college_semi-condensedregular", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif; text-transform:uppercase; font-size:24px; color:#fff; text-shadow:1px 1px 50px #000; margin:0; }
+.portfolio .list .view h4 { font-family:"college_condensedregular",Georgia,serif; text-transform:uppercase; font-size:24px; color:#fff; text-shadow:1px 1px 50px #000; margin:0; }
 .portfolio .list .view a { text-shadow:1px 1px 50px #000; }
 .portfolio .list .view .line_separator { margin:10% auto 5% auto; }
 

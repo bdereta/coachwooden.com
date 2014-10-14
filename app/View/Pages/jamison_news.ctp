@@ -1,9 +1,7 @@
 <div class="content center">
-	<div class="page_titles photo">
-		<span>News from</span>
-		<h1 class="news">Steve Jamison</h1>
+	<div class="news_title">
+		<h1>Coach Wooden Articles by Steve Jamison</h1>
 		<?php echo $this->Html->image('decorative_line_long.png', array('alt' => 'separator')); ?>
-		<div class="clear"></div>
 	</div>
 </div>
 <div class="article">
@@ -18,9 +16,9 @@
 					<div class="content">
 						<p><?php echo $this->Time->format('F Y', $article['Article']['date']); ?></p>
 						<?php echo $this->Html->link($article['Article']['title'],array(
-							'action' => 'memory_wall_article', 
+							'action' => 'jamison_news_article', 
 							'id' => $article['Article']['id'],
-							'slug' => Inflector::slug($article['Article']['title']))); ?>
+							'slug' => Inflector::slug($article['Article']['title'])),array('escape'=>false)); ?>
 					</div>
 				</li>
 			<?php endforeach; ?>

@@ -38,8 +38,8 @@
 
 #homeslider .bx-wrapper .caption { position: absolute; bottom:35px; right:97px; z-index:10; width: 0px; height: 0px; border-style: inset; border-width: 0 249px 278px 249px; border-color: transparent; background-image:url(../img/bg_viewer_text.png); background-position:center top; float: left; transform:rotate(360deg); -ms-transform:rotate(360deg); -moz-transform:rotate(360deg); -webkit-transform:rotate(360deg); -o-transform:rotate(360deg); }
 #homeslider .bx-wrapper .caption .text { text-align: center; top: 155px; left: -120px; position: relative; width:240px; height:100px; margin: 0px; }
-#homeslider .bx-wrapper .caption p { font-family:"college_condensedregular",Georgia,serif; text-transform:uppercase; font-size:18px; color:#fff; line-height:23px; margin:5px 0; vertical-align:middle; }
-#homeslider .bx-wrapper .caption p span { font-family:"college_condensedregular",Georgia,serif; text-transform:uppercase; font-size:12px; vertical-align:super; }
+#homeslider .bx-wrapper .caption p { font-family:"college_condensedregular",Georgia,serif; font-size:18px; color:#fff; line-height:23px; margin:5px 0; vertical-align:middle; }
+#homeslider .bx-wrapper .caption p span { font-family:"college_condensedregular",Georgia,serif; font-size:12px; vertical-align:super; }
 
 
 
@@ -125,7 +125,7 @@
 #pyramid_slider { margin: 50px 0 20px 0; width:1246px; height:1000px; position:relative; text-align:center; }
 #pyramid_slider .bx-wrapper { position: relative; margin: 0 auto; padding: 0; *zoom: 1; }
 
-#pyramid_slider .bx-wrapper ul li h2 { text-align:center; font-size:46px; color:#fff; font-family:"college_semi-condensedregular", Georgia, serif; text-transform:uppercase; line-height:75px; font-weight:normal; margin-top:25px; }
+#pyramid_slider .bx-wrapper ul li h2 { text-align:center; font-size:47px; color:#fff; font-family:"college_condensedregular",Georgia,serif; text-transform:lowercase; line-height:75px; font-weight:normal; margin-top:25px; }
 #pyramid_slider .bx-wrapper ul li p { text-align:left; font-size:24px; color:#b0a492; font-family:Georgia, serif; line-height:29px; margin-bottom:25px; font-style:italic; }
 #pyramid_slider .bx-wrapper ul li p b { color:#ccb475; font-weight:bold; }
 #pyramid_slider .bx-wrapper ul li p small { font-size:16px; }
