@@ -231,7 +231,8 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .article .goals img, .article .arms img { margin:0 20px 100px 0; }
 .article .link { width:100%; height:25px; text-align:center; padding-top:10px; }
 
-.article_list { padding-top:80px; min-height:950px; }
+.article_listings { padding:0 0 100px 0; text-align:left; }
+.article_list { padding-top:80px; }
 .article_list li { height:175px; background:rgba(0,0,0,0.45); }
 .article_list li .content { width:1180px; }
 .article_list li .article_title { width:100%; overflow:hidden; height:60px; }

@@ -6,9 +6,9 @@
 		<div class="clear"></div>
 	</div>
 </div>
-<div class="article">
+<div class="article_listings">
 	<div class="content">
-		<?php echo $this->Html->link('<span class="icon-arrow-left"></span> Back', array('controller' => 'Pages', 'action' => 'home'),array('class'=>'float_left btns','escape'=>false)); ?>
+		<?php echo $this->Html->link('<span class="icon-arrow-left"></span> &nbsp; Back', array('controller' => 'Pages', 'action' => 'home'),array('class'=>'float_left btns','escape'=>false)); ?>
 	</div>
 	<?php if(!empty($news)) : ?>
 		<ul class="article_list">
