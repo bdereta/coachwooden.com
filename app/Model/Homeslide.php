@@ -26,7 +26,7 @@ class Homeslide extends AppModel {
 			),
 			'crop' => array(
 				'width' => 1196,
-				'height' => 580				
+				'height' => 506				
 			),
 		),
 	);

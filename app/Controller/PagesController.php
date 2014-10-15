@@ -71,7 +71,7 @@ class PagesController extends AppController {
 				$this->Session->setFlash(__('<p>Sorry, we were unable to submit your request. Please, try again.</p>'),'popup');
 			}
 		}
-		$comments = $this->ShareMemory->find('all', array('order' => array('created desc')));
+		$comments = $this->ShareMemory->find('all', array('order' => array('created desc'), 'conditions' => array('active' => 1)));
 		$this->set(compact('comments'));		
 	}
 	
