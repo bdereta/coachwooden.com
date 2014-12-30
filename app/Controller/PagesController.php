@@ -21,10 +21,10 @@ class PagesController extends AppController {
 	}
 	
 	public function home() {
-		$slides = $this->Homeslide->find('all', array('order' => array('ordering_position')));
+		$slides = $this->Homeslide->find('all', array('limit' => 5,'order' => array('ordering_position')));
 		$books = $this->Book->find('all', array('order' => array('ordering_position')));
 		$quotes = $this->Quote->find('all', array('conditions' => array('quote_category_id' => 1)));
-		$news = $this->News->find('all', array('order' => array('date desc')));
+		$news = $this->News->find('all', array('limit' => 5,'order' => array('date desc')));
 		//$youtube = $this->Youtube->get_content(array('playlist_id' => 'PLgFCaetxoiCjVst8anjAechJkVMokbCxW'));
 		$this->set(compact('slides','books','quotes','news'));		
 	}

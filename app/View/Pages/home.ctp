@@ -57,13 +57,13 @@ $this->Html->script('home', array('inline' => false));
 	</div>
 </div>
 <div class="clear"></div>
-<div class="full sepia transition hp_pyramid">
+<div class="full sepia transition hp_pyramid" onClick="document.location.href = 'pyramid_of_success'">
 	<div>
 		<h2>Pyramid of Success</h2>
 		<?php echo $this->Html->link('Learn More <span class="icon-arrow-right"></span>', array('controller' => 'Pages', 'action' => 'pyramid_of_success'), array('class'=>'btns','escape'=>false)); ?>
 	</div>
 </div>
-<div class="full sepia transition hp_memory">
+<div class="full sepia transition hp_memory" onClick="document.location.href = 'memory_wall'">
 	<div>
 		<h2>Memory Wall</h2>
 		<?php echo $this->Html->link('Learn More <span class="icon-arrow-right"></span>', array('controller' => 'Pages', 'action' => 'memory_wall'), array('class'=>'btns','escape'=>false)); ?>
@@ -96,8 +96,8 @@ $this->Html->script('home', array('inline' => false));
 </div>
 <div class="clear"></div>
 <?php if(!empty($quotes)) : ?>
-	<div class="full hp_quote">
-		<?php echo $this->Html->image('line_stipes.jpg', array('class' => 'line_top')); ?>
+	<div class="full hp_quote relative">
+		<div class="line_border line_top"></div>
 		<div class="text center">
 			<h2>America<span>’</span>s Favorite Coach Wooden Quotes</h2>
 			<?php echo $this->Html->image('decoration_quotes.png', array('alt' => 'separator')); ?>
@@ -107,7 +107,7 @@ $this->Html->script('home', array('inline' => false));
 				<?php endforeach; ?>
 			</ul>
 		</div>
-		<?php echo $this->Html->image('line_stipes.jpg', array('class' => 'line_bottom')); ?>
+		<div class="line_border line_bottom"></div>
 	</div>
 <?php endif; ?>
 <div class="content bottom_padding">

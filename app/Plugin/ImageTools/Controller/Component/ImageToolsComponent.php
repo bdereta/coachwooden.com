@@ -84,7 +84,6 @@ class ImageToolsComponent extends Component {
 						$data[] = array($non_image_column => $non_image_value, $column => $this->moveImage($image));
 					} else {
 						$error_message = $this->uploadErrorCodeToMessage($image['error']);
-						debug();
 						throw new InternalErrorException($error_message);
 					}
 				}
@@ -233,10 +232,14 @@ class ImageToolsComponent extends Component {
 			case "image/png":
 			case "image/x-png":
 				$source=imagecreatefrompng($image['path']); 
-				imagealphablending($source, false);
-				imagesavealpha($source, true);
 				break;
 		}
+		//image transparency
+		imagealphablending($newImage, false);
+		imagesavealpha($newImage,true);
+		$transparent = imagecolorallocatealpha($newImage, 255, 255, 255, 127);
+		imagefilledrectangle($newImage, 0, 0, $image['final_width'], $image['final_height'], $transparent);
+
 		imagecopyresampled($newImage,$source,0,0,0,0,$image['final_width'],$image['final_height'],$image['info'][0],$image['info'][1]);
 		switch($image['info']['mime']) {
 			case "image/gif":
@@ -276,6 +279,12 @@ class ImageToolsComponent extends Component {
 				$source=imagecreatefrompng($source); 
 				break;
 		}
+		//image transparency
+		imagealphablending($newImage, false);
+		imagesavealpha($newImage,true);
+		$transparent = imagecolorallocatealpha($newImage, 255, 255, 255, 127);
+		imagefilledrectangle($newImage, 0, 0, $newImageWidth, $newImageHeight, $transparent);
+		
 		imagecopyresampled($newImage,$source,0,0,$start_width,$start_height,$newImageWidth,$newImageHeight,$width,$height);
 		switch($imageType) {
 			case "image/gif":

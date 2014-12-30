@@ -36,7 +36,7 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .title { padding:10px 30px 0 30px; height:65px; background:url(../img/decorative_line.png) no-repeat bottom center; margin-bottom:34px; }
 .title h2 { font-size:30px; color:#dcbf78; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; margin:0; }
 
-.full { max-width:1600px; width:100%; text-align:center; margin:0 auto; }
+.full { width:100%; text-align:center; margin:0 auto; }
 .full h2 { font-size:36px; color:#dcccb9; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; text-transform:uppercase; margin:0; }
 .full.hp_quote h2 { font-size:36px; color:#dcccb9; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; margin:0; text-transform:none; }
 .full.hp_quote h2 span { font-family:Georgia, serif; }
@@ -64,20 +64,21 @@ footer { height:250px; padding-top:51px; text-align:center; }
 
 .hp_video { width:500px; height:310px; border:1px solid #372d1a; background:rgba(0,0,0,0.50); padding:10px; }
 
-.hp_pyramid { height:160px; padding-top:70px; display: block; position: relative; }
-.hp_memory { height:166px; text-align:center; padding-top:70px; display: block; position: relative; margin-bottom:75px; }
-.hp_pyramid::after { background:#000 url(../img/bg_pyramid.jpg) no-repeat top center; content: ""; opacity: 0.3; top: 0; left: 0; bottom: 0; right: 0; position: absolute; z-index: -1; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
-.hp_memory::after { background:#000 url(../img/bg_memory.jpg) no-repeat top center; content: ""; opacity: 0.3; top: 0; left: 0; bottom: 0; right: 0; position: absolute; z-index: -1; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
+.hp_pyramid { height:160px; padding-top:70px; display: block; position: relative; cursor:pointer; }
+.hp_memory { height:166px; text-align:center; padding-top:70px; display: block; position: relative; margin-bottom:75px; cursor:pointer; }
+.hp_pyramid::after { background:#000 url(../img/bg_pyramid.jpg) no-repeat top center; content: ""; opacity: 0.3; top: 0; left: 0; bottom: 0; right: 0; position: absolute; z-index: -1; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; background-size:cover; background-position:center; }
+.hp_memory::after { background:#000 url(../img/bg_memory.jpg) no-repeat top center; content: ""; opacity: 0.3; top: 0; left: 0; bottom: 0; right: 0; position: absolute; z-index: -1; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; background-size:cover; background-position:center; }
 .hp_pyramid:hover::after, .hp_memory:hover::after { opacity:1; }
 
 .hp_quote { height:330px; padding-top:70px; display: block; position: relative; background:rgba(0,0,0,0.65); }
 .hp_quote .text { height:300px; width:900px; margin:0 auto; }
 .hp_quote .text h2 { color:#dcbf78; }
 .hp_quote .text p { font-family:Georgia, serif; font-size:30px; font-style:italic; color:#afa491; }
-.hp_quote .line_top { position:absolute; top:0; left:0; }
-.hp_quote .line_bottom { position:absolute; bottom:0; left:0; }
+.line_border { height:5px; width:100%; background:url(../img/line_stipes.jpg) repeat center; }
+.line_top { position:absolute; top:0; left:0; }
+.line_bottom { position:absolute; bottom:0; left:0; }
 
-.hp_quote2 { height:585px; display: block; position: relative; background:url(../img/bg_hp_quote2.png) no-repeat top center; }
+.hp_quote2 { height:585px; display: block; position: relative; background:url(../img/bg_quote_footer.png) no-repeat top center; background-size:cover; background-position:center; }
 .hp_quote2 .caption { position: absolute; top:90px; left:50%; margin-left:-350px; width: 0px; height: 0px; border-style: inset; border-width: 0 235px 300px 235px; border-color: transparent; float: left; transform:rotate(360deg); -ms-transform:rotate(360deg); -moz-transform:rotate(360deg); -webkit-transform:rotate(360deg); -o-transform:rotate(360deg); }
 .hp_quote2 .caption .text { text-align: center; top: 140px; left: -125px; position: relative; width:470px; height:100px; margin: 0px; }
 .hp_quote2 .caption p { font-family:Georgia, serif; font-size:18px; color:#fff; text-transform:uppercase; line-height:23px; margin-bottom:25px; text-transform:uppercase; text-shadow:1px 1px 2px rgba(0,0,0,1.00); }
@@ -95,6 +96,7 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .page_titles h1.speaks img { vertical-align: super; }
 .page_titles h1.game { font-size:90px; line-height:95px; }
 .page_titles h1.game span { font-size:90px; vertical-align:text-top; font-family:Georgia, serif; font-style:normal; color:#e4e2e0; }
+.page_titles h1.game span.small { font-size:30px!important; }
 .page_titles h1.award { font-size:119px; }
 .page_titles h2 { font-size:63px; color:#e4e2e0; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; text-transform:uppercase; margin:0 0 10px 0; line-height:70px; text-shadow:5px 5px 30px #000; margin-top:35px; width:100%; }
 .page_titles h2 span { font-family:Georgia, serif; color:#e4e2e0; font-size:67px; }
@@ -129,8 +131,7 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .journey_instructions { background:rgba(0,0,0,0.6); width: 472px; height:105px; margin:0 auto; padding-top:5px; }
 .journey_instructions p { font-size: 18px; font-family:Georgia, serif; color:#fff; font-style: italic; line-height:23px; text-align: center; }
 
-
-.iosSlider_container { width:1455px; margin:50px auto; padding:0 72px; background-image:url(../img/journey_slider_line.png),url(../img/journey_slider_line.png); background-repeat:no-repeat,no-repeat; background-position:left 21px, 1527px 21px; }
+.iosSlider_container { margin:50px 0; padding:0 ; }
 .iosSlider { width: 100%; height: 635px; }
 .iosSlider .slider { width: 100%; height: 100%; }
 .iosSlider .slider .item { position: relative; top: 0; left: 0; width: 341px; height: 635px; padding:0 72px; background:url(../img/journey_frame.png) no-repeat bottom center; margin:0; text-align: center; }
@@ -303,6 +304,7 @@ footer { height:250px; padding-top:51px; text-align:center; }
 ================================================== */
 .game_text { padding:0 35px 50px 35px; }
 .game_text h2 { font-size:30px; color:#dccc9b; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; line-height:35px; margin-bottom:35px; }
+.game_text h2 span { font-family:Georgia, serif; }
 .game_text p { font-size:24px; color:#fff; font-family:Georgia, serif; line-height:30px; }
 .game_text img { margin:0 75px 25px 0; }
 .mcdonalds_players { z-index:999; position:absolute; bottom:0; left:50%; margin-left:-258px;  }

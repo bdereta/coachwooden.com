@@ -7,7 +7,7 @@ $this->Html->script('game', array('inline' => false));
 <div class="content">
 	<div class="page_titles photo">
 		<span>McDonald's</span>
-		<h1 class="game">All<span>-</span>American Game</h1>
+		<h1 class="game">All<span>-</span>American<span class="small">&reg;</span> Game</h1>
 		<?php echo $this->Html->image('decorative_line_long.png', array('alt' => 'separator')); ?>
 	</div>
 	<div class="clear"></div>

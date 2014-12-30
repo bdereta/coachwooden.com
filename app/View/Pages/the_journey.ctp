@@ -23,7 +23,7 @@ $this->Html->script('journey', array('inline' => false));
 </div>
 <?php if(!empty($quotes)) : ?>
 	<div class="full records">
-		<?php echo $this->Html->image('line_stipes.jpg', array('class' => 'line_top')); ?>
+		<div class="line_border line_top"></div>
 		<div class="text center">
 			<h2>These historic records include<span>:</span></h2>
 			<?php echo $this->Html->image('decoration_quotes.png', array('alt' => 'separator')); ?>
@@ -33,7 +33,7 @@ $this->Html->script('journey', array('inline' => false));
 				<?php endforeach; ?>
 			</ul>
 		</div>
-		<?php echo $this->Html->image('line_stipes.jpg', array('class' => 'line_bottom')); ?>
+		<div class="line_border line_bottom"></div>
 	</div>
 <?php endif; ?>
 <?php if (!empty($timelines)) : ?>
