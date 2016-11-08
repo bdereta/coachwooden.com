@@ -49,10 +49,10 @@ $this->Html->script('home', array('inline' => false));
 	<div class="half float_right padding">
 		<div class="title">
 			<h2 class="float_left">Videos of Coach</h2>
-			<?php echo $this->Html->link('View all Videos <span class="icon-arrow-right"></span>', array('controller' => 'Pages', 'action' => 'videos'),array('class'=>'float_right btns','escape'=>false)); ?>
+			<?php echo $this->Html->link('View all Videos <span class="icon-arrow-right"></span>', array('controller' => 'Pages', 'action' => 'favorite_maxims'),array('class'=>'float_right btns','escape'=>false)); ?>
 		</div>
 		<div class="hp_video">
-			<iframe width="500" height="310" src="//www.youtube.com/embed/0MM-psvqiG8" frameborder="0" allowfullscreen></iframe>
+			<iframe width="500" height="310" src="//www.youtube.com/embed/0MM-psvqiG8?rel=0" frameborder="0" allowfullscreen></iframe>
 		</div>
 	</div>
 </div>
@@ -72,9 +72,9 @@ $this->Html->script('home', array('inline' => false));
 <div class="content">
 	<!--Mcdonalds-->
 	<div class="half float_left center padding">
-		<?php echo $this->Html->image('hp_mcdonalds.png', array('alt' => 'Mcdonalds All American Game','class'=>'float_right')); ?>
+		<?php echo $this->Html->image('hp_mcdonalds.png', array('alt' => 'Mcdonalds All American Game','class'=>'float_right hpmcd')); ?>
 		<?php echo $this->Html->image('decorative_line.png', array('alt' => 'separator')); ?>
-		<?php echo $this->Html->link('Learn More <span class="icon-arrow-right"></span>', array('controller' => 'Pages', 'action' => 'mcdonalds_all_american_game'),array('class'=>'btns','escape'=>false)); ?>
+		<?php echo $this->Html->link('Learn More <span class="icon-arrow-right"></span>', array('controller' => 'Pages', 'action' => 'mcdonalds_all_american_game_release'),array('class'=>'btns','escape'=>false)); ?>
 	</div>
 	
 	<!--Book-->
