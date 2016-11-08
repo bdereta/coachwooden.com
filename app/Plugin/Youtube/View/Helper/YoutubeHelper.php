@@ -2,24 +2,25 @@
 
 class YoutubeHelper extends AppHelper {
 		
-	public function get_content($feed, array $options=NULL) {		
+	public function get_content($feed, array $options=NULL) {	
 		$output = NULL;
 		$template = (isset($options['template'])) ? $options['template'] : 'default' ;
 		if (!empty($feed)) {
 			$feed_count = count($feed);
 			$display_count = (isset($options['limit']) && $options['limit'] <= $feed_count) ? $options['limit'] : $feed_count;
 			for($i=0; $i<$display_count; $i++) {
-					$output .= $this->_View->element('Youtube.'.$template, array(
-						'created' => $this->calculate_time($feed[$i]['published']['$t']),
-						'title' => $feed[$i]['title']['$t'],
-						'description' => $feed[$i]['media$group']['media$description']['$t'],
-						'content' => "https://www.youtube.com/embed/".$feed[$i]['media$group']['yt$videoid']['$t']."?wmode=opaque",
-						'link' => $feed[$i]['title']['$t'],
-						'author' => $feed[$i]['author'][0]['name']['$t'],
-						'thumbnail_0' => $feed[$i]['media$group']['media$thumbnail'][0]['url'],
-						'thumbnail_1' => $feed[$i]['media$group']['media$thumbnail'][1]['url'],
-						'thumbnail_2' => $feed[$i]['media$group']['media$thumbnail'][2]['url']
-					));
+				$output .= $this->_View->element('Youtube.'.$template, array(
+					'created' => $this->calculate_time($feed['items'][$i]['snippet']['publishedAt']),
+					'title' => $feed['items'][$i]['snippet']['title'],
+					'description' => $feed['items'][$i]['snippet']['description'],
+					'content' => "https://www.youtube.com/embed/".$feed['items'][$i]['snippet']['resourceId']['videoId']."?wmode=opaque&rel=0",
+					//'link' => $feed['items'][$i]['title']['$t'],
+					'author' => $feed['items'][$i]['snippet']['channelTitle'],
+					'thumbnail_0' => $feed['items'][$i]['snippet']['thumbnails']['medium']['url'], // 320px x 180px
+					'thumbnail_1' => $feed['items'][$i]['snippet']['thumbnails']['default']['url'], // 120px x 90px
+					'thumbnail_2' => $feed['items'][$i]['snippet']['thumbnails']['high']['url'], // 480px x 360px
+					'views' => $feed['items'][$i]['snippet']['thumbnails']['default']['url'],
+				));
 			}			
 		} else {
 			$output .= '<p><i>Youtube feed is currently unavailable.</i></p>';
@@ -32,8 +33,8 @@ class YoutubeHelper extends AppHelper {
 		if (substr($data,0,1) != '@'){	
 			// Add hyperlink html tags to any urls, twitter ids or hashtags in the tweet.
 			$data = preg_replace('/(https?:\/\/[^\s"<>]+)/','<a href="$1">$1</a>',$data);
-			$data = preg_replace('/(^|[\n\s])@([^\s"\t\n\r<:]*)/is', '$1<a href="http://twitter.com/$2">@$2</a>', $data);
-			$data = preg_replace('/(^|[\n\s])#([^\s"\t\n\r<:]*)/is', '$1<a href="http://twitter.com/search?q=%23$2">#$2</a>', $data);
+			$data = preg_replace('/(^|[\n\s])@([^\s"\t\n\r<:]*)/is', '$1<a href="http://youtube.com/$2">@$2</a>', $data);
+			$data = preg_replace('/(^|[\n\s])#([^\s"\t\n\r<:]*)/is', '$1<a href="http://youtube.com/search?q=%23$2">#$2</a>', $data);
 		}
 		return $data;
 	}
