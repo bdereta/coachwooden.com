@@ -14,8 +14,8 @@ $this->Html->script('game', array('inline' => false));
 	<div class="game_text">
 		<?php echo $this->Html->image('mcdonalds_seal.png', array('alt' => 'Mcdonalds Seal', 'class' => 'float_left')); ?>
 		<?php echo $this->Bambla->fetchSection(1); ?>
-        <?php echo $this->Html->link('<h2 class="center">Learn More<span>> 2016 </span>Game MVP Bios</h2>', array(
-			'controller' => 'Pages', 'action' => 'mcdonalds_all_american_game_release'), array('escape' => false)); ?>
+        <?php echo $this->Html->link('<h2 class="center">Return to Game Profile</h2>', array(
+			'controller' => 'Pages', 'action' => 'mcdonalds_all_american_game'), array('escape' => false)); ?>
 	</div>
 	<div class="clear"></div>
 </div>

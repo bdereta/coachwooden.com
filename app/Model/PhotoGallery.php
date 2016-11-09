@@ -1,10 +1,10 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Homeslide Model
+ * PhotoGallery Model
  *
  */
-class Homeslide extends AppModel {
+class PhotoGallery extends AppModel {
 
 
 /**
@@ -25,8 +25,8 @@ class Homeslide extends AppModel {
 				'height' => 800, 
 			),
 			'crop' => array(
-				'width' => 1196,
-				'height' => 565				
+				'width' => 1194,
+				'height' => 744				
 			),
 		),
 	);

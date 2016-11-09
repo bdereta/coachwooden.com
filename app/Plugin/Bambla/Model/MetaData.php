@@ -13,8 +13,8 @@ class Metadata extends BamblaAppModel {
 		$output = NULL;
 		$cache_key = 'Metadata';
 		$data = Cache::read($cache_key);
-		if (!empty($data)) {	
-			$result = $this->find('all', array('fields' => array('name','title','description','keywords')));	
+		if (!$data) {	
+			$result = $this->find('all', array('fields' => array('name','title','description','keywords')));
 			$reorder = Hash::combine($result, '{n}.Metadata.name','{n}.Metadata');
 			$data = serialize($reorder);
 			Cache::write($cache_key, $data);

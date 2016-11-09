@@ -8,6 +8,7 @@ Router::connect('/bill-walton-speaks', array('controller' => 'Pages', 'action' =
 Router::connect('/favorite-maxims', array('controller' => 'Pages', 'action' => 'favorite_maxims'));
 Router::connect('/last-visit-with-coach', array('controller' => 'Pages', 'action' => 'last_visit_with_coach'));
 Router::connect('/mcdonalds-all-american-game', array('controller' => 'Pages', 'action' => 'mcdonalds_all_american_game'));
+Router::connect('/mcdonalds-all-american-game-release', array('controller' => 'Pages', 'action' => 'mcdonalds_all_american_game_release'));
 Router::connect('/memory-wall', array('controller' => 'Pages', 'action' => 'memory_wall'));
 Router::connect('/pyramid-of-success', array('controller' => 'Pages', 'action' => 'pyramid_of_success'));
 Router::connect('/the-journey', array('controller' => 'Pages', 'action' => 'the_journey'));

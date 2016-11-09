@@ -127,6 +127,7 @@ class PagesController extends AppController {
 	}
 	
 	public function mcdonalds_all_american_game () {}
+	public function mcdonalds_all_american_game_release () {}
 	
 	public function wooden_award () {
 		$quotes = $this->Quote->find('all', array('conditions' => array('quote_category_id' => 2)));

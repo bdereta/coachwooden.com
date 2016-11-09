@@ -100,7 +100,7 @@
 
 
 /* McDonald's Game */
-#clothesline { height:725px; background:url(../img/game_clothesline.png) no-repeat center 62px; z-index:1; }
+#clothesline { height:915px; background:url(../img/game_clothesline.png) no-repeat center 62px; z-index:1; }
 #clothesline .centered { margin:0 auto; width:1078px; height:412px; position:relative; }
 #clothesline .bx-wrapper { position: relative; margin: 0 auto; padding: 0; *zoom: 1; }
 #clothesline .bx-wrapper .bx-viewport img { text-align:center; }

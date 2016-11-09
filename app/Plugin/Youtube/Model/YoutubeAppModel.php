@@ -39,9 +39,9 @@ class YoutubeAppModel extends AppModel {
 			$this->feed_url = "http://gdata.youtube.com/feeds/api/users/{$this->user_id}/uploads?v=2&alt=jsonc";
 		} else { 
 			//playlist
-			$this->feed_url = "https://gdata.youtube.com/feeds/api/playlists/{$this->playlist_id}?v=2&alt=json";
+			$this->feed_url = "https://www.googleapis.com/youtube/v3/playlistItems?part=id%2C+snippet&playlistId={$this->playlist_id}&key=AIzaSyD2UVy7RTtJptVgg5fNNRhQAxl8wg2dhqE&maxResults=12";
 		}
-		
+
 		//debug
 		$this->debug_mode = (isset($options['debug_mode'])) ? $options['debug_mode'] : false;
 		
@@ -132,11 +132,7 @@ class YoutubeAppModel extends AppModel {
 
 	private function decoded($feed) {
 		$feed = @json_decode($feed, true);
-		if (array_key_exists('feed', $feed)) {
-			if (array_key_exists('entry', $feed['feed'])) {
-				return $feed['feed']['entry'];
-			}
-		}
+		return $feed;
 	}
 	
 	private function debug($message, $file, $line) {

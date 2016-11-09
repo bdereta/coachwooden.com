@@ -1,13 +1,13 @@
 <?php
 App::uses('AppController', 'Controller');
 /**
- * AwardPhotos Controller
+ * PhotoGalleries Controller
  *
- * @property AwardPhoto $AwardPhoto
+ * @property PhotoGallery $PhotoGallery
  * @property PaginatorComponent $Paginator
  * @property ImageTools.ImageToolsComponent $ImageTools.ImageTools
  */
-class AwardPhotosController extends AppController {
+class PhotoGalleriesController extends AppController {
 
 /**
  * Helpers
@@ -21,7 +21,7 @@ class AwardPhotosController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'ImageTools.ImageTools', 'Bambla.OrderingPosition');
+	public $components = array('Paginator', 'ImageTools.ImageTools');
 
 /**
  * beforeFilter method
@@ -33,30 +33,14 @@ class AwardPhotosController extends AppController {
 		$this->layout = 'Bambla.bambla';
 	}
 
-	public function admin_reorder_position($id = NULL, $action = NULL) {
-  		$result = $this->OrderingPosition->ChangePositionReorder(array(
-  			'model' => Inflector::classify($this->params['controller']), 
-  			'id' => $id, 
-  			'action' => $action
-  		));
-  		if ($result) {
-  			$this->Session->setFlash(__('Order position changed.'), 'Bambla.green');
-  		} else {
-  			$this->Session->setFlash(__('Order position error.'), 'Bambla.red');
-  		}
-		return $this->redirect(array('action'=>'index'));	
-	}
-	
 /**
  * admin_index method
  *
  * @return void
  */
 	public function admin_index() {
-		$this->AwardPhoto->recursive = 0;
-		$this->Paginator->settings = array('order' => array('ordering_position' => 'ASC'));
-		$this->set('awardPhotos', $this->Paginator->paginate());
-
+		$this->PhotoGallery->recursive = 0;
+		$this->set('photoGalleries', $this->Paginator->paginate());
 	}
 
 /**
@@ -67,11 +51,11 @@ class AwardPhotosController extends AppController {
  * @return void
  */
 	public function admin_view($id = null) {
-		if (!$this->AwardPhoto->exists($id)) {
-			throw new NotFoundException(__('Invalid award photo'));
+		if (!$this->PhotoGallery->exists($id)) {
+			throw new NotFoundException(__('Invalid photo gallery'));
 		}
-		$options = array('conditions' => array('AwardPhoto.' . $this->AwardPhoto->primaryKey => $id));
-		$this->set('awardPhoto', $this->AwardPhoto->find('first', $options));
+		$options = array('conditions' => array('PhotoGallery.' . $this->PhotoGallery->primaryKey => $id));
+		$this->set('photoGallery', $this->PhotoGallery->find('first', $options));
 	}
 
 /**
@@ -81,19 +65,19 @@ class AwardPhotosController extends AppController {
  */
 	public function admin_add() {
 		//image upload params
-		$params['uploadImages'] = $this->AwardPhoto->uploadImages;
+		$params['uploadImages'] = $this->PhotoGallery->uploadImages;
 		//process form data
 		if ($this->request->is('post')) {
 			//capture post data
-			$params['requestData'] = $this->request->data['AwardPhoto'];
+			$params['requestData'] = $this->request->data['PhotoGallery'];
 			//validate Images before upload
-			$this->AwardPhoto->set($this->request->data);
-			if (!$this->AwardPhoto->validates($this->AwardPhoto->validate)) {
+			$this->PhotoGallery->set($this->request->data);
+			if (!$this->PhotoGallery->validates($this->PhotoGallery->validate)) {
 				//display validation message
-				$errors = $this->AwardPhoto->validationErrors;
+				$errors = $this->PhotoGallery->validationErrors;
 			} else {
 				//capture post data
-				$params['requestData'] = $this->request->data['AwardPhoto'];
+				$params['requestData'] = $this->request->data['PhotoGallery'];
 				//process images via Component
 				$result = $this->ImageTools->process($params);
 			}
@@ -107,26 +91,25 @@ class AwardPhotosController extends AppController {
 			if ($multiple) {
 				$data = $session['uploadedData'];
 			} else {
-				$data['AwardPhoto'] = $session['uploadedData'];
+				$data['PhotoGallery'] = $session['uploadedData'];
 			}
 			$this->Session->delete('ImageTools.postData');	
 			//save data to db						
 			if (!empty($data)) {
-				$this->AwardPhoto->create();
+				$this->PhotoGallery->create();
 				if ($multiple) {
-					if ($this->AwardPhoto->saveMany($data)) {
-						$this->Session->setFlash(__('AwardPhoto have been saved!'), 'Bambla.green');
+					if ($this->PhotoGallery->saveMany($data)) {
+						$this->Session->setFlash(__('PhotoGallery have been saved!'), 'Bambla.green');
 						return $this->redirect(array('action'=>'index'));	
 					} else {
-						$this->Session->setFlash(__('AwardPhoto could not be saved. Please try again.'), 'Bambla.red');
+						$this->Session->setFlash(__('PhotoGallery could not be saved. Please try again.'), 'Bambla.red');
 					}
 				} else {
-					if ($this->AwardPhoto->save($data)) {
-						$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller'])));
-						$this->Session->setFlash(__('AwardPhoto has been saved!'), 'Bambla.green');
+					if ($this->PhotoGallery->save($data)) {
+						$this->Session->setFlash(__('PhotoGallery has been saved!'), 'Bambla.green');
 						return $this->redirect(array('action'=>'index'));	
 					} else {
-						$this->Session->setFlash(__('AwardPhoto could not be saved. Please try again.'), 'Bambla.red');
+						$this->Session->setFlash(__('PhotoGallery could not be saved. Please try again.'), 'Bambla.red');
 					}
 				}
 			}	
@@ -145,15 +128,14 @@ class AwardPhotosController extends AppController {
  */
 	public function admin_edit($id = null) {
 		//record exists?
-		if (!$this->AwardPhoto->exists($id)) {
-			throw new NotFoundException(__('Invalid award photo'));
+		if (!$this->PhotoGallery->exists($id)) {
+			throw new NotFoundException(__('Invalid photo gallery'));
 		}
-		
 		//required for displaying existing images via helper
-		$params['model'] = "AwardPhoto";
+		$params['model'] = "PhotoGallery";
 		
 		//image upload params
-		$params['uploadImages'] = $this->AwardPhoto->uploadImages;
+		$params['uploadImages'] = $this->PhotoGallery->uploadImages;
 		
 		//disable multiple for editing	
 		foreach($params['uploadImages'] as $fieldname=>$options){
@@ -165,29 +147,29 @@ class AwardPhotosController extends AppController {
 			//match up model against post data
 			foreach($params['uploadImages'] as $key => $uploadImage) {
 				//check if request data contains any of the image fields
-				if (!empty($this->request->data['AwardPhoto'][$key])) {
+				if (!empty($this->request->data['PhotoGallery'][$key])) {
 					//check if a file for the image field has been uploaded
-					if (!empty($this->request->data['AwardPhoto'][$key]['tmp_name'])) {
+					if (!empty($this->request->data['PhotoGallery'][$key]['tmp_name'])) {
 						//file exists and is not empty
 						//there's at least one pair (it could be more, but it's enough to know there's at least one match)
 						$params['updateImages'] = true;
 					} else {
 						//file exists, but it's empty - we need to remove it from the model and post array
-						unset($this->request->data['AwardPhoto'][$key], $params['uploadImages'][$key]);
+						unset($this->request->data['PhotoGallery'][$key], $params['uploadImages'][$key]);
 					}
 				} else {
 					//check if the image field is using another image for source (like thumbnails use large image as their source)
 					if (!empty($params['uploadImages'][$key]['source'])) {
 						//check if the source field is not empty
-						if(!empty($this->request->data['AwardPhoto'][$params['uploadImages'][$key]['source']]['tmp_name'])) {
+						if(!empty($this->request->data['PhotoGallery'][$params['uploadImages'][$key]['source']]['tmp_name'])) {
 							$params['updateImages'] = true;	
 						} else {
 							//source field is empty, delete it from model and post array
-							unset($this->request->data['AwardPhoto'][$key], $params['uploadImages'][$key]);		
+							unset($this->request->data['PhotoGallery'][$key], $params['uploadImages'][$key]);		
 						}
 					} else {					
 						//the file doesn't match the model (it doesn't exist) and/or the source for another image is empty - remove them from model and post array
-						unset($this->request->data['AwardPhoto'][$key], $params['uploadImages'][$key]);	
+						unset($this->request->data['PhotoGallery'][$key], $params['uploadImages'][$key]);	
 					}
 				}
 				//if no images are selected for updating, assign data variable for saving
@@ -196,14 +178,14 @@ class AwardPhotosController extends AppController {
 		
 			if (!empty($params['updateImages'])) {
 				//send form data to model for validation
-				$this->AwardPhoto->set($this->request->data);
+				$this->PhotoGallery->set($this->request->data);
 				//validate form data
-				if (!$this->AwardPhoto->validates($this->AwardPhoto->validate)) {
+				if (!$this->PhotoGallery->validates($this->PhotoGallery->validate)) {
 					//display validation message
-					$errors = $this->AwardPhoto->validationErrors;
+					$errors = $this->PhotoGallery->validationErrors;
 				} else {
 					//capture post data
-					$params['requestData'] = $this->request->data['AwardPhoto'];
+					$params['requestData'] = $this->request->data['PhotoGallery'];
 					//process images via Component
 					$result = $this->ImageTools->process($params);
 				}
@@ -214,25 +196,24 @@ class AwardPhotosController extends AppController {
 		if ($this->Session->check('ImageTools.postData')) {
 			//capture session
 			$session = $this->Session->read('ImageTools.postData');
-			$data['AwardPhoto'] = $session['uploadedData'];
+			$data['PhotoGallery'] = $session['uploadedData'];
 			$this->Session->delete('ImageTools.postData');		
 		}
 		
 		//save data to db
 		if (isset($data)) {
-			$this->AwardPhoto->create();
-			if ($this->AwardPhoto->save($data)) {
-				$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller'])));
-				$this->Session->setFlash(__('AwardPhoto has been saved!'), 'Bambla.green');
+			$this->PhotoGallery->create();
+			if ($this->PhotoGallery->save($data)) {
+				$this->Session->setFlash(__('PhotoGallery has been saved!'), 'Bambla.green');
 				return $this->redirect(array('action'=>'index'));	
 			} else {
-				$this->Session->setFlash(__('AwardPhoto could not be saved. Please try again.'), 'Bambla.red');
+				$this->Session->setFlash(__('PhotoGallery could not be saved. Please try again.'), 'Bambla.red');
 			}
 		}
 			
 		//data for view
-		$options = array('conditions' => array('AwardPhoto.' . $this->AwardPhoto->primaryKey => $id));
-		$this->request->data = $this->AwardPhoto->find('first', $options);
+		$options = array('conditions' => array('PhotoGallery.' . $this->PhotoGallery->primaryKey => $id));
+		$this->request->data = $this->PhotoGallery->find('first', $options);
 		$this->set(compact('params'));
 	}
 
@@ -244,27 +225,26 @@ class AwardPhotosController extends AppController {
  * @return void
  */
 	public function admin_delete($id = null) {
-		$this->AwardPhoto->id = $id;
-		if (!$this->AwardPhoto->exists()) {
-			throw new NotFoundException(__('Invalid award photo'));
+		$this->PhotoGallery->id = $id;
+		if (!$this->PhotoGallery->exists()) {
+			throw new NotFoundException(__('Invalid photo gallery'));
 		}
 		$this->request->onlyAllow('post', 'delete');
 		
 		//delete image files
-		$uploadImages = $this->AwardPhoto->uploadImages;
+		$uploadImages = $this->PhotoGallery->uploadImages;
 		foreach($uploadImages as $key=>$val) { 
-			$fields[] = 'AwardPhoto.'.$key; 
+			$fields[] = 'PhotoGallery.'.$key; 
 		}
-		$images = $this->AwardPhoto->find('all', array('fields' => $fields, 'conditions' => array('AwardPhoto.id' => $id), 'recursive' => -1));
-		foreach($images[0]['AwardPhoto'] as $key=>$val) {
+		$images = $this->PhotoGallery->find('all', array('fields' => $fields, 'conditions' => array('PhotoGallery.id' => $id), 'recursive' => -1));
+		foreach($images[0]['PhotoGallery'] as $key=>$val) {
 			@unlink('img/uploads/'.$val);	
 		}
 		
-		if ($this->AwardPhoto->delete()) {
-			$this->OrderingPosition->Reorder(array('model' => Inflector::classify($this->params['controller'])));
-			$this->Session->setFlash(__('AwardPhoto has been deleted.'), 'Bambla.green');
+		if ($this->PhotoGallery->delete()) {
+			$this->Session->setFlash(__('PhotoGallery has been deleted.'), 'Bambla.green');
 		} else {
-			$this->Session->setFlash(__('AwardPhoto could not be deleted. Please, try again.'), 'Bambla.red');
+			$this->Session->setFlash(__('PhotoGallery could not be deleted. Please, try again.'), 'Bambla.red');
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

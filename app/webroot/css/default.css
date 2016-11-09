@@ -84,6 +84,7 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .hp_quote2 .caption p { font-family:Georgia, serif; font-size:18px; color:#fff; text-transform:uppercase; line-height:23px; margin-bottom:25px; text-transform:uppercase; text-shadow:1px 1px 2px rgba(0,0,0,1.00); }
 .hp_quote2 .caption span { font-family:Georgia, serif; font-style:italic; color:#6ab5c9; text-transform:capitalize; font-size:18px; text-shadow:1px 1px 2px rgba(0,0,0,1.00); }
 
+.hpmcd { margin-top:-80px; }
 
 /* Pages
 ================================================== */
@@ -239,9 +240,9 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .article_list li .article_title { width:100%; overflow:hidden; height:60px; }
 .article_list .separator { width:100%; height:5px; background:url(../img/listing_topline.jpg); }
 .article_list li p { font-size:18px; font-family:Georgia, serif; font-style:italic; color:#6c6559; line-height:23px; padding:25px 10px 10px 10px; margin:0; }
-.article_list li a { font-size:70px; font-family:"college_condensedregular", Georgia, serif; text-transform:uppercase; color:#5b4217; line-height:70px; letter-spacing:0.05em; margin:0; height:60px; }
+.article_list li a { font-size:35px; font-family:"college_condensedregular", Georgia, serif; text-transform:uppercase; color:#5b4217; line-height:70px; margin:0; height:50px; }
 .article_list li:hover { background:rgba(0,0,0,0.45) url(../img/bg_listing.jpg) top center; }
-.article_list li:hover a { color:#fff; padding-left:25px; }
+.article_list li:hover a { color:#fff; padding-left:35px; }
 .article_list li:hover p { color:#fff; }
 .btns_listings { padding-left:37px; margin:0 auto 45px auto; width:133px; white-space:nowrap; height:15px; background:url(../img/icon_listings.png) no-repeat left center; }
 .btns_listings a { font-size:13px; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; color:#bba37a; }
@@ -307,7 +308,7 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .game_text h2 span { font-family:Georgia, serif; }
 .game_text p { font-size:24px; color:#fff; font-family:Georgia, serif; line-height:30px; }
 .game_text img { margin:0 75px 25px 0; }
-.mcdonalds_players { z-index:999; position:absolute; bottom:0; left:50%; margin-left:-258px;  }
+.mcdonalds_players { z-index:999; position:absolute; bottom:15px; left:50%; margin-left:-258px;  }
 .clothesline_line { position:absolute; bottom:5px; left:50%; margin-left:-605px; }
 
 h2.title_game { font-size:30px; color:#dcbf78; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; margin:50px 0 0 0; }

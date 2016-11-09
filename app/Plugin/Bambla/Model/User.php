@@ -111,4 +111,5 @@ class User extends AppModel {
         $this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
         return true;
     }
+
 }
