@@ -133,11 +133,11 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .journey_instructions p { font-size: 18px; font-family:Georgia, serif; color:#fff; font-style: italic; line-height:23px; text-align: center; }
 
 .iosSlider_container { margin:50px 0; padding:0 ; }
-.iosSlider { width: 100%; height: 635px; }
+.iosSlider { width: 100%; height: 660px; }
 .iosSlider .slider { width: 100%; height: 100%; }
-.iosSlider .slider .item { position: relative; top: 0; left: 0; width: 341px; height: 635px; padding:0 72px; background:url(../img/journey_frame.png) no-repeat bottom center; margin:0; text-align: center; }
+.iosSlider .slider .item { position: relative; top: 0; left: 0; width: 341px; height: 660px!important; padding:0 72px; background:url(../img/journey_frame.png) no-repeat bottom center; margin:0; text-align: center; }
 .iosSlider .slider .slider_title { height:100px; }
-.iosSlider .slider .item h3 { margin:0; font-size: 36px; line-height:36px; font-family: Georgia, serif; color:#d1c081; font-weight:normal; }
+.iosSlider .slider .item h3 { margin:0; font-size: 36px; line-height:32px; font-family: Georgia, serif; color:#d1c081; font-weight:normal; }
 .iosSlider .slider .item img { max-width:341px; max-height:351px; width:auto; height:auto; margin-bottom:10px; }
 .iosSlider .slider .item p { font-size:16px; font-family: Georgia, serif; color:#fff; line-height:21px; }
 .iosSlider .slider .item h3 span { font-size:16px; }
