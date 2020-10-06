@@ -24,9 +24,9 @@ class DATABASE_CONFIG {
 	public $prod = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => 'coachwooden.db.6256345.hostedresource.com',
+		'host' => 'localhost',
 		'login' => 'coachwooden',
-		'password' => 'gC8xtHnyvFj9!',
+		'password' => '7jFGuwB8ya4Mczf',
 		'database' => 'coachwooden',
 		'prefix' => '',
 		//'encoding' => 'utf8',
