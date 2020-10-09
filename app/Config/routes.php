@@ -11,7 +11,7 @@ Router::connect('/mcdonalds-all-american-game', array('controller' => 'Pages', '
 Router::connect('/mcdonalds-all-american-game-release', array('controller' => 'Pages', 'action' => 'home'));
 Router::connect('/memory-wall', array('controller' => 'Pages', 'action' => 'home'));
 Router::connect('/pyramid-of-success', array('controller' => 'Pages', 'action' => 'home'));
-Router::connect('/the-journey', array('controller' => 'Pages', 'action' => 'home'));
+Router::connect('/the-journey', array('controller' => 'Pages', 'action' => 'the_journey'));
 Router::connect('/wooden-award', array('controller' => 'Pages', 'action' => 'home'));
 Router::connect('/true-to-yourself', array('controller' => 'Pages', 'action' => 'home'));
 Router::connect('/jamison-news', array('controller' => 'Pages', 'action' => 'home'));
