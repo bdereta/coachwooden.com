@@ -59,13 +59,15 @@ $this->Html->script('home', array('inline' => false));
 	</div>
 </div>
 <div class="clear"></div>
-<div class="full sepia transition hp_pyramid" onClick="document.location.href = 'pyramid_of_success'">
+<div class="full sepia transition hp_pyramid">
+    <script>//onClick="document.location.href = 'pyramid_of_success'"</script>
 	<div>
 		<h2>Pyramid of Success</h2>
 		<?php echo $this->Html->link('Learn More <span class="icon-arrow-right"></span>', array('controller' => 'Pages', 'action' => 'home'), array('class'=>'btns','escape'=>false)); ?>
 	</div>
 </div>
-<div class="full sepia transition hp_memory" onClick="document.location.href = 'memory_wall'">
+<div class="full sepia transition hp_memory">
+    <script>//onClick="document.location.href = 'memory_wall'"</script>
 	<div>
 		<h2>Memory Wall</h2>
 		<?php echo $this->Html->link('Learn More <span class="icon-arrow-right"></span>', array('controller' => 'Pages', 'action' => 'home'), array('class'=>'btns','escape'=>false)); ?>
