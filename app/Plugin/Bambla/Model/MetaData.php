@@ -5,17 +5,18 @@ App::uses('AppModel', 'Model');
  *
  * @property Section $Section
  */
-class Metadata extends BamblaAppModel {
+class MetaData extends BamblaAppModel {
 	
 	public $recursive = -1;
+    public $useTable = 'metadata';
 	
-	public function FetchMetadata($output = null) {
+	public function FetchMetaData($output = null) {
 		$output = NULL;
 		$cache_key = 'Metadata';
 		$data = Cache::read($cache_key);
 		if (!$data) {	
 			$result = $this->find('all', array('fields' => array('name','title','description','keywords')));
-			$reorder = Hash::combine($result, '{n}.Metadata.name','{n}.Metadata');
+			$reorder = Hash::combine($result, '{n}.MetaData.name','{n}.MetaData');
 			$data = serialize($reorder);
 			Cache::write($cache_key, $data);
 		}

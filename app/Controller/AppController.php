@@ -31,14 +31,14 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-	public $uses 		= array('Bambla.Metadata','Bambla.Section');
+	public $uses 		= array('Bambla.MetaData','Bambla.Section');
 	public $helpers		= array('Bambla.Bambla','Cache','Html','Form');
 	public $components 	= array('Session','Acl','DebugKit.Toolbar', 'Auth' => array('authorize' => array('Actions' => array('actionPath' => 'controllers'))));
 
 	public function beforeFilter() {
 		
 		//fetch page title, keywords, and description for layout
-		$metadata = $this->Metadata->FetchMetadata();
+		$metadata = $this->MetaData->FetchMetaData();
 		
 		if (!empty($metadata)) {
 			$meta = array_key_exists($this->request->params['action'], $metadata) 
