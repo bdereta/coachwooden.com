@@ -44,15 +44,15 @@
 					</div>
 					<div class="main_nav float_right">
 						<ul>
-							<li><p>the</p><?php echo $this->Html->link('Journey', array('controller' => 'Pages', 'action' => 'home')); ?></li>
-							<li><p>memory</p><?php echo $this->Html->link('Wall', array('controller' => 'Pages', 'action' => 'home')); ?></li>
-							<li><p>bill walton</p><?php echo $this->Html->link('Speaks', array('controller' => 'Pages', 'action' => 'home')); ?></li>
-							<li><p>pyramid of</p><?php echo $this->Html->link('Success', array('controller' => 'Pages', 'action' => 'home')); ?></li>
-							<li><p>coach's</p><?php echo $this->Html->link('bookstore', array('controller' => 'Pages', 'action' => 'home')); ?></li>
+							<li><p>the</p><?php echo $this->Html->link('Journey', array('controller' => 'Pages', 'action' => 'the_journey')); ?></li>
+							<li><p>memory</p><?php echo $this->Html->link('Wall', array('controller' => 'Pages', 'action' => 'memory_wall')); ?></li>
+							<li><p>bill walton</p><?php echo $this->Html->link('Speaks', array('controller' => 'Pages', 'action' => 'bill_walton_speaks')); ?></li>
+							<li><p>pyramid of</p><?php echo $this->Html->link('Success', array('controller' => 'Pages', 'action' => 'pyramid_of_success')); ?></li>
+							<li><p>coach's</p><?php echo $this->Html->link('bookstore', array('controller' => 'Pages', 'action' => 'bookstore')); ?></li>
 							<!--<li><p>mcdonald's</p><?php /*echo $this->Html->link('all american', array('controller' => 'Pages', 'action' => 'mcdonalds_all_american_game_release')); */?></li>-->
-							<li><p>scrap</p><?php echo $this->Html->link('book', array('controller' => 'Pages', 'action' => 'home')); ?></li>
-							<li><p>favorite</p><?php echo $this->Html->link('maxims', array('controller' => 'Pages', 'action' => 'home')); ?></li>
-							<li><p>john r. wooden</p><?php echo $this->Html->link('award', array('controller' => 'Pages', 'action' => 'home')); ?></li>
+							<li><p>scrap</p><?php echo $this->Html->link('book', array('controller' => 'Pages', 'action' => 'scrapbook')); ?></li>
+							<li><p>favorite</p><?php echo $this->Html->link('maxims', array('controller' => 'Pages', 'action' => 'favorite_maxims')); ?></li>
+							<li><p>john r. wooden</p><?php echo $this->Html->link('award', array('controller' => 'Pages', 'action' => 'wooden_award')); ?></li>
 						</ul>
 					</div>
 				</div>
