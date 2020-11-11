@@ -5,7 +5,6 @@
 	<title><?php echo (!empty($meta['title'])) ? $meta['title'] : NULL; ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="viewport" content="width=1300">
-    <meta name="description" content="The Official Site of Coach Wooden – featuring The Pyramid of Success, Favorite Maxims, Scrap Book, and More.">
 	<?php
 		//meta
 		if (!empty($meta)) {
