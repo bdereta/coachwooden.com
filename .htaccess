@@ -1,5 +1,3 @@
-RewriteEngine On
-RewriteBase /
 <IfModule mod_rewrite.c>
    RewriteEngine on
    RewriteRule    ^$ app/webroot/    [L]

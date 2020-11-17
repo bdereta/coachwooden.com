@@ -22,6 +22,11 @@ $this->Html->script('home', array('inline' => false));
 							<?php endif; ?>
 						</div>
 					</div>
+                    <div class="photographer">
+                        <?php if(!empty($slide['Homeslide']['photographer'])) : ?>
+                            <?php echo $slide['Homeslide']['photographer']; ?>
+                        <?php endif; ?>
+                    </div>
 				</div>
 			<? endforeach; ?>
 		</div>

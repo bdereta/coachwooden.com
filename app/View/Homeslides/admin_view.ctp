@@ -36,6 +36,11 @@
 			<?php echo $this->Html->image('uploads/'.$homeslide['Homeslide']['image'], array('width' => 120)); ?>
 			&nbsp;
 		</dd>
+        <dt><?php echo __('Photographer'); ?></dt>
+        <dd>
+            <?php echo h($homeslide['Homeslide']['photographer']); ?>
+            &nbsp;
+        </dd>
 		<dt><?php echo __('Modified'); ?></dt>
 		<dd>
 			<?php echo h($homeslide['Homeslide']['modified']); ?>

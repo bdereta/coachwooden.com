@@ -11,7 +11,8 @@
 		<div class="textarea_container">
 			<?php echo $this->Form->input('content', array('class' => 'ckeditor','label' => false)); ?>
 		</div>
-		<?php 
+		<?php
+        echo $this->Form->input('photographer');
 		echo $this->Form->input('link');
 		echo $this->Form->input('target', array('options' => array('' => 'None','_self' => 'Open in same window','_blank' => 'Open in new window')));
 

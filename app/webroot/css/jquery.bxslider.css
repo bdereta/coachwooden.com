@@ -40,6 +40,7 @@
 #homeslider .bx-wrapper .caption .text { text-align: center; top: 155px; left: -120px; position: relative; width:240px; height:100px; margin: 0px; }
 #homeslider .bx-wrapper .caption p { font-family:"college_condensedregular",Georgia,serif; font-size:18px; color:#fff; line-height:23px; margin:5px 0; vertical-align:middle; text-transform:uppercase; }
 #homeslider .bx-wrapper .caption p span { font-family:"college_condensedregular",Georgia,serif; font-size:12px; vertical-align:super; }
+#homeslider .bx-wrapper .photographer { position: absolute; bottom: 8px; left: 21px; z-index: 10; width: 182px; font-family:"gist_upright_extrabold_demoRg",Georgia,serif; font-size:10px; color: #dcbf78; }
 
 
 
