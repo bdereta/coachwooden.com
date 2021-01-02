@@ -6,7 +6,7 @@ class DATABASE_CONFIG {
 	
 	function __construct() {
         $this->default = (IS_PROD) ? $this->prod : $this->dev;
-        $this->default = $this->dev;
+        //$this->default = $this->dev;
     }
 
 	//development
