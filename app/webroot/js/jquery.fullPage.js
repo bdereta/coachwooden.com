@@ -15,9 +15,11 @@
 			slideWidth: 1160,
 			controls: true,
 			pager: true,
-			pagerCustom: '#bx-pager',
+			pagerCustom: '.bx-pager',
 			auto: false,
+			adaptiveHeight: true,
 		});
+
 				
 		function pyramid_block(id) {
 			$('.btn_'+id).click(function(){

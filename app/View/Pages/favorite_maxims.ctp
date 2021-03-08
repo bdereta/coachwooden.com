@@ -1,18 +1,26 @@
-<div class="content bottom_padding">
-	<div class="page_titles photo">
-		<span>The Voice of</span>
-		<h1 class="game">COACH JOHN WOODEN</h1>
-		<?php echo $this->Html->image('decorative_line_long.png', array('alt' => 'separator')); ?>
-	</div>
-	<div class="clear"></div>
-	<?php if (!empty($youtube)) : ?>
-		<div class="speak_video">
-			<?php echo $this->Youtube->get_content($youtube, array('limit' => 1, 'template' => 'big')); ?>
-		</div>
-		<div class="clear"></div>
-		<div class="video_thumbs_container">
-			<?php echo $this->Youtube->get_content($youtube, array('template' => 'thumbs')); ?>
-		</div>
-	<?php endif; ?>
-	<div class="clear"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page_titles">
+                <span>The Voice of</span>
+                <h1 class="game">COACH JOHN WOODEN</h1>
+            </div>
+        </div>
+    </div>
+    <?php if (!empty($youtube)) : ?>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="speak_vid_top"></div>
+                <div class="speak_video_container">
+                    <div class="speak_video">
+                        <?php echo $this->Youtube->get_content($youtube, array('limit' => 1, 'template' => 'big')); ?>
+                    </div>
+                </div>
+                <div class="speak_vid_bottom"></div>
+            </div>
+        </div>
+        <div class="row video_thumbs_container">
+            <?php echo $this->Youtube->get_content($youtube, array('template' => 'thumbs')); ?>
+        </div>
+    <?php endif; ?>
 </div>

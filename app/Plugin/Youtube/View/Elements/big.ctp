@@ -1,1 +1,1 @@
-<iframe width="1180" height="694" src="<?php echo $content; ?>" frameborder="0" id="yt_big" allowfullscreen></iframe>
+<iframe width="560" height="315" src="<?php echo $content; ?>" frameborder="0" id="yt_big" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

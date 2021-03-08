@@ -1,7 +1,7 @@
 /* Colio - Basic Styles
 ================================================== */
 
-.colio { position: relative; height: 0; clear: both; overflow: hidden; padding:0 38px; margin-left:-38px; }
+.colio { position: relative; height: 0; clear: both; overflow: hidden; }
 .colio-container { padding: 40px; height: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 .colio-content { display: none; overflow: hidden; }
 
@@ -23,3 +23,8 @@
 .colio-placement-inside,
 .colio-placement-before { margin-bottom: 20px; }
 .colio-placement-after { margin-top: 20px; margin-bottom: 20px; }
+
+
+@media (min-width: 992px) {
+    .colio { padding:0 38px; }
+}
