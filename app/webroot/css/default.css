@@ -101,6 +101,7 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .page_titles span { font-size:30px; color:#bf9f67; text-transform:capitalize; font-style:italic; text-shadow:1px 1px 1px #000; margin:0; }
 .page_titles h1.speaks { font-size:10vw; white-space: break-spaces; }
 .page_titles h1.speaks img { vertical-align: super; }
+.page_titles h1.game { font-size:5vw; vertical-align:text-top; font-style:normal; color:#e4e2e0; }
 .page_titles h1.game span { font-size:90px; vertical-align:text-top; font-style:normal; color:#e4e2e0; }
 .page_titles h1.game span.small { font-size:30px!important; }
 .page_titles h2 { color:#e4e2e0; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; text-transform:uppercase; margin:0 0 10px 0; line-height:1.2; text-shadow:5px 5px 30px #000; margin-top:35px; width:100%; }
@@ -141,7 +142,7 @@ footer { height:250px; padding-top:51px; text-align:center; }
 
 /* Scrapbook
 ================================================== */
-#photo { margin: 50px 0 120px 0; position:relative; padding-bottom:25px; background:url('../img/bg_photo_slider_bottom.jpg') no-repeat bottom center; background-size:contain; }
+#photo { margin: 50px 0 120px 0; position:relative; }
 #photo .top_left { position:absolute; top:25px; left:25px; z-index:999; background:url(../img/frame_corner_tl.jpg) no-repeat; width:11px; height:9px; }
 #photo .top_right { position:absolute; top:25px; right:25px; z-index:999; background:url(../img/frame_corner_tr.jpg) no-repeat; width:11px; height:9px; }
 #photo .bottom_left { position:absolute; bottom:25px; left:25px; z-index:999; background:url(../img/frame_corner_bl.jpg) no-repeat; width:11px; height:9px; }
@@ -262,13 +263,14 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .pyramid_print_mb a { font-size:23px; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; color:#dcc36d; text-shadow: 3px 5.196px 0px rgba(17, 10, 4, 0.69); margin:0; }
 .pyramid_print_mb a:hover { color:#fff; text-decoration:none; }
 
-#pyramid h2 { font-size:48px; color:#fff; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; text-transform:uppercase; padding-top:110px; margin:0 0 43px 0; text-shadow:3px 3px 3px #000, 0px 0px 40px #e8dcb3; text-align:center; }
+.pyramid_title {  padding-top:110px; margin:0 0 43px 0; }
+#pyramid h2 { font-size:48px; color:#fff; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; text-transform:uppercase; text-shadow:3px 3px 3px #000, 0px 0px 40px #e8dcb3; text-align:center; }
 #pyramid h3 { font-size:26px; color:#ded1b9; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; margin:50px 0 0 0; text-align:center; text-shadow:3px 3px 3px #000; }
-#pyramid .full { margin-bottom:7px; height:111px; width:1240px; }
-#pyramid .full ul { list-style:none; margin:0 auto; padding:0; height:111px; display:inline-table; }
+#pyramid .full { margin-bottom:7px; width:1240px; height: 111px; }
+#pyramid .full ul { list-style:none; margin:0 auto; padding:0; display:inline-table; }
 #pyramid .full ul li { float:left; margin:0 4px 0 3px; }
-#pyramid .large_blocks { width:201px; height:86px; background:url(../img/btn_pyramid_large.jpg) no-repeat top left; text-align:center; padding-top:25px; margin:0 auto; }
-#pyramid .full.first .large_blocks { height:96px; padding-top:15px; }
+#pyramid .large_blocks { width:201px; height:111px; background:url(../img/btn_pyramid_large.jpg) no-repeat top left; text-align:center; padding-top:25px; margin:0 auto; }
+#pyramid .full.first .large_blocks { height:111px; padding-top:15px; }
 #pyramid .large_blocks p { font-size:20px; color:#fff; font-family:"college_condensedregular", Georgia, serif; text-transform:uppercase; line-height:25px; text-shadow: 1px 1px 1px #000, 0px 0px 10px #000; width:155px; margin:13px auto; }
 #pyramid .large_blocks:hover { background:url(../img/btn_pyramid_large_hover.jpg) no-repeat top left; }
 #pyramid .large_blocks:hover p { text-shadow: 1px 1px 1px #000, 0px 0px 15px #624d15; }
@@ -305,15 +307,6 @@ footer { height:250px; padding-top:51px; text-align:center; }
 .video_thumbs:hover p { color:#fff; }
 .video_thumbs .btn_play { opacity:1!important; position:absolute; top:28%; left:50%; margin-left:-40px; z-index:99; width:81px; height:81px; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
 .video_thumbs:hover .btn_play { display:none; }
-
-/* Mcdonalds
-================================================== */
-.game_text { padding:0 35px 50px 35px; }
-.game_text h2 { color:#dccc9b; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; line-height:35px; margin-bottom:35px; }
-.game_text p { color:#fff; }
-.game_text img { margin:0 75px 25px 0; }
-
-h2.title_game { font-size:30px; color:#dcbf78; font-family:"gist_upright_extrabold_demoRg", "DejaVu Serif", Georgia, serif; margin:50px 0 0 0; }
 
 
 /* Awards
@@ -398,6 +391,8 @@ ul { list-style:none; padding:0; margin:0; }
     .mobile { display:none; }
     #pyramid .pyramid_print { position:absolute; top:135px; right:60px; width:221px; height:215px; text-align:center; }
     .memory_left, .memory_right { display:block; }
+    #photo { padding-bottom:25px; background:url('../img/bg_photo_slider_bottom.jpg') no-repeat bottom center; background-size:contain; }
+    .page_titles h1.game { font-size:85px!important; line-height:95px; }
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -409,14 +404,14 @@ ul { list-style:none; padding:0; margin:0; }
     .page_titles h1 { font-size:142px; }
     .page_titles h1.news { font-size:128px; }
     .page_titles h1.speaks { font-size:75px; line-height:95px; }
-    .page_titles h1.game { font-size:90px; line-height:95px; }
+    .page_titles h1.game { font-size:65px; }
     .page_titles h1.award { font-size:119px; }
     .page_titles h1.book { font-size: 125px;}
     .page_titles h2 { font-size:63px; }
     .page_titles h2 span { font-size:67px; }
     .game_text h2 { font-size:30px; }
     .game_text p { font-size:24px; line-height:30px; }
-    .page_titles { padding: 55px 0; }
+    .page_titles { padding: 55px 0 25px 0; }
     .comments h2 { font-size:30px; line-height:35px; }
     .comments p { font-size:18px; line-height:23px; }
     .comments p span { font-size:24px; }
