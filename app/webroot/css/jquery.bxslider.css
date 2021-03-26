@@ -118,7 +118,7 @@ ul.bxslider { list-style: none; }
 #pyramid_slider .bx-wrapper .bx-controls-direction a { position: absolute; top:30px; outline: 0; width:62px; height:72px; text-indent: -9999px; z-index: 9999; }
 
 #pyramid_slider .bx-pager { width:270px; height:179px; margin:0 auto 20px auto; background:url(../img/bg_pyramid_small.png) no-repeat; position:relative; }
-#pyramid_slider .bx-pager a { height:25px; width:44px; line-height:0; display:inline-block; background:url(../img/btn_pyramid_small.jpg) no-repeat center; cursor:pointer; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s;
+#pyramid_slider .bx-pager a { height:25px; width:44px; display:inline-block; background:url(../img/btn_pyramid_small.jpg) no-repeat center; cursor:pointer; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s;
 font-size:7px; color: #fff;
     font-family: "college_condensedregular", Georgia, serif;
     text-transform: uppercase;
@@ -145,13 +145,10 @@ font-size:7px; color: #fff;
 #pyramid_slider .bx-pager a:nth-child(15) { position:absolute; top:150px; left:202px; }
 
 
-@media (min-width: 1200px) {
-    #pyramid_slider .bx-pager a { font-size:0px; }
-}
+
 @media (max-width: 1199px) {
     #photo .bx-wrapper .bx-viewport { height:500px!important; overflow:auto; background-size: 100% 100%; }
     #photo .bx-wrapper .bx-viewport .slide { height: 450px!important; }
-
 }
 @media (min-width: 600px) {
     #hpbook .bx-wrapper .bx-prev { left:-152px; }

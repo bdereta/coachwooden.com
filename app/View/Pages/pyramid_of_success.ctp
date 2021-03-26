@@ -128,21 +128,9 @@ $this->Html->script('pyramid', array('inline' => false));
                 <div class="slide">
                     <div id="pyramid_slider">
                         <div class="bx-pager">
-                            <a data-slide-index="0" href="">Competitive Greatness</a>
-                            <a data-slide-index="1" href="">Poise</a>
-                            <a data-slide-index="2" href="">Confidence</a>
-                            <a data-slide-index="3" href="">Condition</a>
-                            <a data-slide-index="4" href="">Skill</a>
-                            <a data-slide-index="5" href="">Team Spirit</a>
-                            <a data-slide-index="6" href="">Self-Control</a>
-                            <a data-slide-index="7" href="">Alertness</a>
-                            <a data-slide-index="8" href="">Initiative</a>
-                            <a data-slide-index="9" href="">Intentness</a>
-                            <a data-slide-index="10" href="">Industriousness</a>
-                            <a data-slide-index="11" href="">Friendship</a>
-                            <a data-slide-index="12" href="">Loyalty</a>
-                            <a data-slide-index="13" href="">Cooperation</a>
-                            <a data-slide-index="14" href="">Enthusiasm</a>
+                            <?php foreach($blocks as $block_nav) : ?>
+                                <a data-slide-index="<?php echo $block_nav['Pyramid']['id'] -1; ?>" href=""></a>
+                            <?php endforeach; ?>
                         </div>
                         <div class="btns pyramid_back fp-controlArrow fp-prev"><span class="icon-arrow-left"></span> Back to Pyramid</div>
                         <?php echo $this->Html->image('decorative_line_long.png', array('alt' => 'Separator')); ?>
@@ -181,9 +169,21 @@ $this->Html->script('pyramid', array('inline' => false));
                         </p>
                     </div>
                     <div class="bx-pager">
-                        <?php foreach($blocks as $block_nav) : ?>
-                            <a data-slide-index="<?php echo $block_nav['Pyramid']['id'] -1; ?>" href=""></a>
-                        <?php endforeach; ?>
+                        <a data-slide-index="0" href="">Competitive Greatness</a>
+                        <a data-slide-index="1" href="">Poise</a>
+                        <a data-slide-index="2" href="">Confidence</a>
+                        <a data-slide-index="3" href="">Condition</a>
+                        <a data-slide-index="4" href="">Skill</a>
+                        <a data-slide-index="5" href="">Team Spirit</a>
+                        <a data-slide-index="6" href="">Self-Control</a>
+                        <a data-slide-index="7" href="">Alertness</a>
+                        <a data-slide-index="8" href="">Initiative</a>
+                        <a data-slide-index="9" href="">Intentness</a>
+                        <a data-slide-index="10" href="">Industriousness</a>
+                        <a data-slide-index="11" href="">Friendship</a>
+                        <a data-slide-index="12" href="">Loyalty</a>
+                        <a data-slide-index="13" href="">Cooperation</a>
+                        <a data-slide-index="14" href="">Enthusiasm</a>
                     </div>
                     <?php echo $this->Html->image('decorative_line_long.png', array('alt' => 'Separator')); ?>
                     <ul class="pyramid_slider_mb">
