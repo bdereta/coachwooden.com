@@ -1,8 +1,7 @@
 /* CSS Document */
 
 body { font-family:Georgia, serif!important; font-size:12px; padding: 0; margin: 0; background:url(../img/background.jpg) top center; color:#fff; }
-#wrapper {  background:url(../img/bg_top.jpg) top center no-repeat; max-width:1600px; margin:0 auto;
-    overflow: hidden; }
+#wrapper {  background:url(../img/bg_top.jpg) top center no-repeat; max-width:1600px; margin:0 auto; }
 
 .whistle { position:absolute; top:0; left:0; display:none; }
 .nav>li>a:focus, .nav>li>a:hover { background-color:transparent!important; }
