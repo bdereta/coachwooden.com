@@ -56,8 +56,8 @@ $this->Html->script('home', array('inline' => false));
                     <ul class="hp_news">
                         <? foreach($news as $news) : ?>
                             <li class="transition">
-                                <div class="date col-xs-2 col-sm-3 col-md-2"><?php echo $this->Html->link($this->Time->format('m.d.y', $news['News']['date']), $news['News']['link']); ?></div>
-                                <div class="link col-xs-10 col-sm-9 col-md-10"><?php echo $this->Html->link($news['News']['title'], $news['News']['link'], array('target' =>'_blank')); ?></div>
+                                <div class="date col-xs-3 col-sm-3 col-md-2"><?php echo $this->Html->link($this->Time->format('m.d.y', $news['News']['date']), $news['News']['link']); ?></div>
+                                <div class="link col-xs-9 col-sm-9 col-md-10"><?php echo $this->Html->link($news['News']['title'], $news['News']['link'], array('target' =>'_blank')); ?></div>
                             </li>
                         <?php endforeach; ?>
                     </ul>
