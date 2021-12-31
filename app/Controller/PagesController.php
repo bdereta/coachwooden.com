@@ -79,24 +79,24 @@ class PagesController extends AppController {
 
 	public function true_to_yourself () {}
 	
-	//News
-	public function jamison_news() {
-		//$this->Article->recursive = 0;
-//		$this->Paginator->settings = array('limit' => 25);
-//		$this->set('article', $this->Paginator->paginate('article'));
-		$articles = $this->Article->find('all');
-		$this->set(compact('articles'));
-	}
-
-	public function jamison_news_article($id = null) {
-		if (!$this->Article->exists($id)) {
-			throw new NotFoundException(__('Invalid news release'));
-		}		
-		$options = array('conditions' => array('Article.' . $this->Article->primaryKey => $id));
-		$articles = $this->Article->find('first', $options);
-		$neighbor_articles = $this->Article->find('neighbors', array('field' => 'Article.date', 'value' => $articles['Article']['date']));
-		$this->set(compact('articles','neighbor_articles'));
-	}
+//	//News
+//	public function jamison_news() {
+//		//$this->Article->recursive = 0;
+////		$this->Paginator->settings = array('limit' => 25);
+////		$this->set('article', $this->Paginator->paginate('article'));
+//		$articles = $this->Article->find('all');
+//		$this->set(compact('articles'));
+//	}
+//
+//	public function jamison_news_article($id = null) {
+//		if (!$this->Article->exists($id)) {
+//			throw new NotFoundException(__('Invalid news release'));
+//		}
+//		$options = array('conditions' => array('Article.' . $this->Article->primaryKey => $id));
+//		$articles = $this->Article->find('first', $options);
+//		$neighbor_articles = $this->Article->find('neighbors', array('field' => 'Article.date', 'value' => $articles['Article']['date']));
+//		$this->set(compact('articles','neighbor_articles'));
+//	}
 
 	public function news() {
 		//$this->Article->recursive = 0;
@@ -125,10 +125,7 @@ class PagesController extends AppController {
 		$youtube = $this->Youtube->get_content(array('playlist_id' => 'PLgFCaetxoiCjVst8anjAechJkVMokbCxW'));
 		$this->set('youtube',$youtube);
 	}
-	
-	public function mcdonalds_all_american_game () {}
-	public function mcdonalds_all_american_game_release () {}
-	
+
 	public function wooden_award () {
 		$quotes = $this->Quote->find('all', array('conditions' => array('quote_category_id' => 2)));
 		$photos = $this->AwardPhoto->find('all', array('order' => array('ordering_position')));

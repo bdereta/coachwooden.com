@@ -1,7 +1,7 @@
 <?php
 
 //development host
-$dev_hosts = array('localhost');
+$dev_hosts = array('dev5');
 
 //production vs development
 define('IS_PROD', (isset($_SERVER['HTTP_HOST']) && !in_array($_SERVER['HTTP_HOST'], $dev_hosts)) ? true : false);
