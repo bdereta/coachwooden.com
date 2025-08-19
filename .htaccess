@@ -1,5 +1,10 @@
 <IfModule mod_rewrite.c>
    RewriteEngine on
+
+   # Force HTTP (non-SSL)
+   RewriteCond %{HTTPS} on
+   RewriteRule ^(.*)$ http://%{HTTP_HOST}/$1 [L,R=301]
+
    RewriteRule    ^$ app/webroot/    [L]
    RewriteRule    (.*) app/webroot/$1 [L]
 </IfModule>
